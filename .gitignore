@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+
+# Secrets and local tooling
+.env
+.env.*
+.vercel/
+node_modules/
