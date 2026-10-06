@@ -1,0 +1,58 @@
+# Refreshes the trade data snapshot (src/data/trade/snapshot/) after each Census release.
+# The Census publishes monthly import data about five weeks after a month ends. This job checks
+# once a day and stops after one query until a new month appears. A new month means about
+# 1,200 API queries (15 to 60 minutes), one commit to main, and an automatic Vercel deployment.
+# Needs the repository secret CENSUS_API_KEY (Settings > Secrets and variables > Actions).
+name: Trade data snapshot
+
+on:
+  schedule:
+    - cron: "41 14 * * *" # daily at 14:41 UTC, after the Census's 8:30 ET release time
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Rebuild even if the latest month is already in the snapshot
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trade-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build the snapshot
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+          FORCE: ${{ inputs.force && '--force' || '' }}
+        run: |
+          if [ -z "$CENSUS_API_KEY" ]; then
+            echo "::warning::Add the CENSUS_API_KEY repository secret to refresh the trade data."
+            exit 0
+          fi
+          node scripts/build-trade-snapshot.mjs $FORCE
+
+      - name: Commit and push if the data changed
+        run: |
+          if [ -z "$(git status --porcelain -- src/data/trade/snapshot)" ]; then
+            echo "No new data."
+            exit 0
+          fi
+          month=$(node -p "require('./src/data/trade/snapshot/meta.json').latest")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/trade/snapshot
+          git commit -m "Update trade data to ${month}"
+          git push
