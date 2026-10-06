@@ -148,21 +148,21 @@ Sections are separated by whitespace and one hairline, not by cards: `py-section
 
 ## Performance and accessibility
 
-Measured on a local production build with Lighthouse 13.5, mobile profile (simulated slow 4G, 4x CPU slowdown), October 2026:
+Measured on a local production build with Lighthouse 13.5, mobile profile (simulated slow 4G, 4x CPU slowdown), on October 6, 2026, after the redesign:
 
 | Page | Performance | Accessibility | Best practices | SEO | LCP | TBT | CLS |
 |---|---|---|---|---|---|---|---|
-| `/tr` (home) | 94 to 97 | 100 | 100 | 100* | 2.1 to 2.6 s | 150 to 190 ms | 0 |
-| `/en` (home) | 94 to 97 | 100 | 100 | 100* | 2.1 to 2.7 s | 130 to 180 ms | 0 |
-| `/tr/hizmetler` | 99 | 100 | 100 | 100* | 1.6 to 1.8 s | 70 to 110 ms | 0 |
-| `/tr/iletisim` | 95 to 97 | 100 | 100 | 100* | 2.3 to 2.7 s | 90 to 140 ms | 0.002 |
-| `/tr/risk-testi` | 96 to 98 | 100 | 100 | 100* | 2.0 to 2.6 s | 120 ms | 0 |
+| `/tr` (home) | 97 | 100 | 100 | 100* | 2.2 s | 160 ms | 0 |
+| `/en` (home) | 97 | 100 | 100 | 100* | 2.2 to 2.3 s | 140 to 160 ms | 0 |
+| `/tr/hizmetler` | 95 to 97 | 100 | 100 | 100* | 2.4 to 2.8 s | 100 to 140 ms | 0 |
+| `/tr/iletisim` | 96 to 98 | 100 | 100 | 100* | 2.3 to 2.6 s | 90 to 100 ms | 0 |
+| `/tr/risk-testi` | 98 | 100 | 100 | 100* | 2.4 s | 70 ms | 0 |
 
-Ranges are 2 to 4 runs per page; the same build moves 2 to 3 points between runs.
+Two runs per page; the same build moves 2 to 3 points between runs. The LCP column is Lighthouse's simulated estimate. With throttling applied for real (`--throttling-method=devtools`), first paint and LCP coincide at 1.8 to 1.9 s on the home and services pages: the largest element is the lead paragraph, painted with the first frame.
 
-\* With `SITE_INDEXABLE=true`. While the site is `noindex` (pre-launch default), Lighthouse SEO shows 58 by design.
+\* With `SITE_INDEXABLE=true`. While the site is `noindex` (pre-launch default), Lighthouse SEO shows 66 by design.
 
-The brief's LCP target of 1.5 s is met on content pages in this lab profile, not yet on the home pages; React and Next.js alone are about 130 KB of the 170 KB of compressed JavaScript. Real phones on 4G should load faster than this throttled profile; check field data in Vercel after launch. What keeps it light: subset fonts, a native `<dialog>` menu, precompiled messages, Sentry loaded when the browser is idle, PostHog only after consent. axe-core: 0 violations on 18 pages at 390 px and 1280 px, including axe's experimental rules.
+The brief's LCP target of 1.5 s is not met in this lab profile; React and Next.js alone are about 130 KB of the compressed JavaScript, and a page weighs 310 to 330 KB in total. Real phones on 4G should load faster than this throttled profile; check field data in Vercel after launch. What keeps it light: three subset font files (64 KB), an inline SVG as the only illustration, a native `<dialog>` menu, precompiled messages, CSS-only interactions, Sentry loaded when the browser is idle, PostHog only after consent. axe-core: 0 violations on 22 pages at 390 px and 1280 px, including axe's experimental rules.
 
 ## SEO
 
