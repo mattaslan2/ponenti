@@ -185,6 +185,35 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
     r = await page.goto(base + p, { waitUntil: 'domcontentloaded' });
     ok(`200 ${p}`, r.status() === 200, String(r.status()));
   }
+  // 10. Icons and share images are served (the Apple touch icon has no extension and must skip the language proxy)
+  for (const [p, type] of [['/apple-icon', 'image/png'], ['/icon.svg', 'image/svg+xml'], ['/tr/opengraph-image', 'image/png'], ['/en/opengraph-image', 'image/png']]) {
+    const res = await ctx.request.get(base + p);
+    ok(`${p} is an image`, res.status() === 200 && (res.headers()['content-type'] || '').includes(type), `${res.status()} ${res.headers()['content-type']}`);
+  }
+  await page.goto(base + '/tr', { waitUntil: 'domcontentloaded' });
+  const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());
+  const logoUrl = (ld['@graph'] || []).map((n) => n.logo).find(Boolean);
+  const logoRes = logoUrl ? await ctx.request.get(base + new URL(logoUrl).pathname) : null;
+  ok('structured-data logo is served', !!logoRes && logoRes.status() === 200 && (logoRes.headers()['content-type'] || '').includes('image/'), `${logoRes && logoRes.status()} ${logoUrl}`);
+  await page.goto(base + '/tr/bilgi-merkezi/form-5472-cezasi', { waitUntil: 'domcontentloaded' });
+  const ogUrl = await page.locator('meta[property="og:image"]').getAttribute('content');
+  const ogRes = await ctx.request.get(base + new URL(ogUrl).pathname);
+  ok('article share image is served', ogRes.status() === 200 && (ogRes.headers()['content-type'] || '').includes('image/png'), `${ogRes.status()} ${ogUrl}`);
+
+  // 11. Nothing a visitor reads is a placeholder or names a channel that is not connected
+  for (const p of ['/tr', '/tr/hizmetler', '/tr/hakkimizda', '/tr/iletisim', '/en', '/en/contact']) {
+    await page.goto(base + p, { waitUntil: 'domcontentloaded' });
+    const text = await page.locator('body').innerText();
+    ok(`no placeholder markers on ${p}`, !/\[(REPLACE WITH REAL|confirm)/i.test(text), (text.match(/\[(REPLACE WITH REAL|confirm)[^\]]*\]/i) || [''])[0]);
+    const hasWhatsappLink = (await page.locator('a[href^="https://wa.me/"]').count()) > 0;
+    ok(`WhatsApp is named only when it is connected on ${p}`, hasWhatsappLink || !/whatsapp/i.test(text));
+  }
+  // The proof section counts only cards it shows: three, or four once the founder's LinkedIn is set.
+  await page.goto(base + '/tr', { waitUntil: 'domcontentloaded' });
+  const proofCards = await page.locator('#proof li').count();
+  const proofTitle = await page.locator('#proof-title').innerText();
+  ok('proof section title matches its cards', (proofCards === 3 && proofTitle.includes('üç')) || (proofCards === 4 && proofTitle.includes('dört')), `${proofCards} cards, "${proofTitle}"`);
+
   // The deliberate 404 visit logs one "Failed to load resource" line; anything else is a real error.
   const realErrors = consoleErrors.filter((e) => !(e.includes('/tr/olmayan-sayfa') && e.includes('status of 404')));
   ok('no console errors', realErrors.length === 0, realErrors.slice(0, 6).join(' || '));

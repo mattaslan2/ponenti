@@ -20,8 +20,9 @@ export default function proxy(request: NextRequest) {
 
 export const config = {
   // Skip Next internals, files with an extension, the PostHog proxy (/ingest),
-  // the Sentry tunnel (/monitoring) and Vercel BotID's challenge paths.
+  // the Sentry tunnel (/monitoring), Vercel BotID's challenge paths and the Apple
+  // touch icon (/apple-icon has no extension, so it was redirected to /tr/apple-icon, a 404).
   matcher: [
-    "/((?!api|_next|_vercel|ingest|monitoring|149e9513-01fa-4fb0-aad4-566afd725d1b|.*\\..*).*)",
+    "/((?!api|_next|_vercel|ingest|monitoring|apple-icon|149e9513-01fa-4fb0-aad4-566afd725d1b|.*\\..*).*)",
   ],
 };

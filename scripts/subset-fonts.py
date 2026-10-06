@@ -1,5 +1,5 @@
 """
-Rebuilds the web fonts in src/fonts/ and the share-image font in assets/fonts/
+Rebuilds the web fonts in src/fonts/ and the share-image fonts in assets/fonts/
 (Latin + Turkish glyphs only).
 
 Why: Google's latin + latin-ext files for Inter and Cormorant Garamond weigh
@@ -80,6 +80,10 @@ if __name__ == "__main__":
     if inter != "-":
         # Inter: variable 400-600 (body, medium, semibold), text optical size. tnum is used by tables.
         build(inter, fonts / "inter-latin-tr-400-600.woff2", {"wght": (400, 600), "opsz": 14}, ["kern", "calt", "locl", "tnum", "pnum", "liga", "case"])
+        # Inter Medium as one static WOFF for the share images. One file per family: the image
+        # renderer reads a single file for each family name, so a separate "latin-ext" file is
+        # never consulted and İ, Ş, ğ would be drawn from another font instead.
+        build(inter, ROOT / "assets" / "fonts" / "inter-latin-tr-500.woff", {"wght": 500, "opsz": 14}, ["kern", "calt", "locl", "case"], flavor="woff")
     if cormorant != "-":
         # Cormorant Garamond Medium: all display text and large numerals.
         build(cormorant, fonts / "cormorant-garamond-latin-tr-500.woff2", {"wght": 500}, display_features, lining=True)

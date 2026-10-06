@@ -18,7 +18,8 @@ export function organizationJsonLd(locale: Locale, description: string) {
         "@id": `${url}/#organization`,
         name: site.name,
         url,
-        logo: `${url}/apple-icon.png`,
+        // The generated icon route has no file extension; /apple-icon.png is a 404.
+        logo: `${url}/apple-icon`,
         legalName: real(site.legalName),
         email: real(site.email),
         telephone: real(site.phone),

@@ -21,7 +21,12 @@ different file name from the upstream fonts.
 
 ## Open Graph image fonts (`assets/fonts/`)
 
-Used only to render Open Graph images (`src/lib/og.tsx`). The two Inter files are copied
-from the @fontsource packages (latin and latin-ext subsets, which cover ç, ğ, ı, İ, ö, ş, ü).
-`cormorant-garamond-latin-tr-500.woff` is the same subset as the web font, in WOFF format,
-written by `scripts/subset-fonts.py`.
+Used only to render Open Graph images (`src/lib/og.tsx`), which need WOFF, not WOFF2.
+Both are written by `scripts/subset-fonts.py` with the same character set as the web fonts:
+
+- `cormorant-garamond-latin-tr-500.woff`: the web display font, in WOFF format.
+- `inter-latin-tr-500.woff`: Inter Medium, weight 500, as one static file.
+
+Each family is a single file that includes ç, ğ, ı, İ, ö, ş, ü. Do not split a family into
+"latin" and "latin-ext" files: the image renderer reads one file per family name, and the
+Turkish letters would be drawn from the other family.

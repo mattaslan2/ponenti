@@ -38,19 +38,32 @@ function compassCard(): string {
 }
 const compassUri = `data:image/svg+xml;base64,${Buffer.from(compassCard()).toString("base64")}`;
 
+/*
+ * One file per family, each with the Turkish letters. The renderer uses a single file for each
+ * family name: when a family was split into "latin" and "latin-ext" files, ş, ğ and İ were
+ * drawn from whichever other font had them (a sans letter inside a serif headline).
+ */
 async function fonts() {
   const dir = join(process.cwd(), "assets/fonts");
-  const [display, iLatin, iExt] = await Promise.all([
+  const [display, sans] = await Promise.all([
     readFile(join(dir, "cormorant-garamond-latin-tr-500.woff")),
-    readFile(join(dir, "inter-latin-500-normal.woff")),
-    readFile(join(dir, "inter-latin-ext-500-normal.woff")),
+    readFile(join(dir, "inter-latin-tr-500.woff")),
   ]);
   return [
     { name: "Cormorant", data: display, weight: 500 as const, style: "normal" as const },
-    { name: "Inter", data: iLatin, weight: 500 as const, style: "normal" as const },
-    { name: "Inter", data: iExt, weight: 500 as const, style: "normal" as const },
+    { name: "Inter", data: sans, weight: 500 as const, style: "normal" as const },
   ];
 }
+
+/*
+ * Card geometry (1200 x 630). The compass is 780 px wide with its center at x = 1180, so a
+ * little more than its left half shows. Its west pointer ends at x = 792 and its ring is at
+ * x = 810 or beyond: the headline column stops at x = 752 and the label line at x = 790, so
+ * no text ever crosses the engraving.
+ */
+const COMPASS = { size: 780, left: 790, top: -75 };
+const TEXT_WIDTH = 680;
+const LABEL_WIDTH = 718;
 
 /** Brand share card: navy, the compass card at the right edge, a serif headline, the motto. */
 export async function renderOg({ title, kicker, footer, locale }: { title: string; kicker: string; footer: string; locale: "tr" | "en" }) {
@@ -74,18 +87,18 @@ export async function renderOg({ title, kicker, footer, locale }: { title: strin
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={compassUri} width={760} height={760} alt="" style={{ position: "absolute", top: -65, left: 760, opacity: 0.55 }} />
+        <img src={compassUri} width={COMPASS.size} height={COMPASS.size} alt="" style={{ position: "absolute", top: COMPASS.top, left: COMPASS.left, opacity: 0.55 }} />
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={roseUri} width={52} height={52} alt="" />
           <div style={{ fontFamily: "Cormorant", fontSize: 32, letterSpacing: 9, color: IVORY }}>PONENTI</div>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 24, maxWidth: 780 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-            <div style={{ width: 40, height: 1, backgroundColor: BRASS }} />
-            <div style={{ fontSize: 19, color: BRASS_LIGHT, letterSpacing: 3.4 }}>{kickerUpper}</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 18, maxWidth: LABEL_WIDTH }}>
+            <div style={{ width: 40, height: 1, backgroundColor: BRASS, flexShrink: 0 }} />
+            <div style={{ fontSize: 18, color: BRASS_LIGHT, letterSpacing: 3, whiteSpace: "nowrap" }}>{kickerUpper}</div>
           </div>
-          <div style={{ fontFamily: "Cormorant", fontSize: long ? 56 : 70, lineHeight: 1.06, letterSpacing: -1, color: IVORY }}>{title}</div>
+          <div style={{ display: "flex", maxWidth: TEXT_WIDTH, fontFamily: "Cormorant", fontSize: long ? 56 : 66, lineHeight: 1.08, letterSpacing: -1, color: IVORY, textWrap: "balance" }}>{title}</div>
         </div>
         <div style={{ display: "flex", fontSize: 22, color: IVORY_DIM }}>{footer}</div>
       </div>
