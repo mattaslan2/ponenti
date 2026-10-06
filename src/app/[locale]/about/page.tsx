@@ -31,6 +31,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
   const t = await getTranslations("about");
   const brand = await getTranslations("brand");
   const home = await getTranslations("home.founder");
+  const common = await getTranslations("common");
   const name = site.founder.name[locale];
   const hasPhoto = !isPlaceholder(site.founder.photo);
   const hasLinkedin = !isPlaceholder(site.founder.linkedin);
@@ -85,6 +86,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
               <a href={site.founder.linkedin} className="link mt-1 inline-flex min-h-11 items-center gap-2 text-small font-medium" target="_blank" rel="noopener noreferrer me">
                 {home("linkedin")}
                 <ArrowUpRight aria-hidden="true" className="nudge-up size-4" />
+                <span className="sr-only"> {common("opensNewTab")}</span>
               </a>
             )}
           </div>

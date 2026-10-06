@@ -92,9 +92,6 @@
   .on-navy .rule {
     @apply bg-line-navy;
   }
-  .rule-brass {
-    @apply h-px w-full bg-brass;
-  }
 
   /* Large serif numerals for key figures. Lining figures are the font's default; a
      standalone figure stays proportional so "$121,000" does not look loose. */

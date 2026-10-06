@@ -6,13 +6,13 @@ How each type behaves on the site:
 
 | Marker | On the live site | Why |
 |---|---|---|
-| `[REPLACE WITH REAL]` business fact | Shows as a visible dashed marker | Required facts (footer, legal pages). The gap must be obvious, never invented. |
+| `[REPLACE WITH REAL]` business fact | Hidden on every marketing page: the row is simply absent until the fact is real. Shows as a dashed marker inside the legal drafts, and everywhere with `NEXT_PUBLIC_SHOW_PLACEHOLDERS=true` (use on Preview) | A visitor never reads a bracketed marker. A legal draft must still show that it is a draft. Nothing is ever invented. |
 | `[REPLACE WITH REAL]` proof slot | Hidden. Shows only with `NEXT_PUBLIC_SHOW_PLACEHOLDERS=true` (use on Preview) | No invented testimonials, logos, counts, case studies or results. |
 | `[SHOW ONLY AFTER E&O CONFIRMS]` | Hidden. Shows only with `NEXT_PUBLIC_EO_CONFIRMED=true` | The penalty promise needs written E&O confirmation first. |
 | `[confirm]` copy | Renders normally. Outlined only with `NEXT_PUBLIC_SHOW_PLACEHOLDERS=true` | Drafted or copied text you should approve. |
 | `[confirm with counsel]` | Visible note inside the legal pages | Legal drafts need a lawyer's review. |
 
-## 1. Launch blockers: business facts (visible markers)
+## 1. Launch blockers: business facts
 
 | # | Item | Where to fill | Shows on |
 |---|---|---|---|
@@ -21,9 +21,9 @@ How each type behaves on the site:
 | 3 | Business phone with country code | `site.ts` → `phone` | Footer, legal pages |
 | 4 | Contact email on your domain | `site.ts` → `email` | Footer, legal pages |
 | 5 | Founder photo, square, 800 x 800 px or larger | Save as `public/images/founder.jpg`, then set `site.ts` → `founder.photo` to `"/images/founder.jpg"` | Home, About, footer |
-| 6 | Founder LinkedIn URL | `site.ts` → `founder.linkedin` | Home, About, footer |
-| 7 | WhatsApp number | Vercel env `NEXT_PUBLIC_WHATSAPP_NUMBER` (digits, international) | Contact page marker; buttons fall back to the contact page until set |
-| 8 | Cal.com booking link | Vercel env `NEXT_PUBLIC_CAL_LINK` | Contact page shows "calendar not connected" until set |
+| 6 | Founder LinkedIn URL | `site.ts` → `founder.linkedin` | Home (the proof section gains the founder card and says "four things" instead of "three"), About, footer |
+| 7 | WhatsApp number | Vercel env `NEXT_PUBLIC_WHATSAPP_NUMBER` (digits, international) | Until set, no button says WhatsApp: the secondary button reads "Send a message" and opens the form, and the contact page has no WhatsApp block |
+| 8 | Cal.com booking link | Vercel env `NEXT_PUBLIC_CAL_LINK` | Until set, the booking block asks the visitor to send the short form and promises two possible times by reply |
 
 ## 2. Launch blockers: legal pages (visible markers)
 
@@ -65,7 +65,7 @@ Real architectural photography only. No stock handshakes or globes. Set each ent
 | Item | Current text | Where |
 |---|---|---|
 | Founder display name | TR "Hikmet (Matt) Aslan", EN "Matt Aslan" | `site.ts` → `founder.name` |
-| Hero trust line | "Kurucu: eski UPS finans analisti ve kıdemli müdür" / "Founder: former UPS financial analyst and senior manager" | `messages` → `home.hero.trustFounder` |
+| Founder line in the proof section | "UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Her dosyayı inceler." / "Former UPS financial analyst and Senior Manager of Go-to-Market Strategy. Reviews every file." | `messages` → `home.trust.founder.body` (the card shows once `site.founder.linkedin` is set) |
 | Bio | Your draft from the brief, TR and EN | `home.founder.body`, `about.bio` |
 | Founder story (3 short paragraphs, first person) | Drafted from your background and plan v8 | `about.founderP1-3` |
 | Review and e-file partner | "anlaşmalı bir ABD muhasebe firması" / "a US accounting firm under contract" (the word CPA is deliberately not used) | `about.data3` |

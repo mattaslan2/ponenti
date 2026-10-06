@@ -30,7 +30,7 @@
     "contact": {
       "title": "Contact",
       "description": "Book a 15-minute call, message us on WhatsApp or use the short form. We reply within 1 business day.",
-      "descriptionNoWhatsapp": "Book a 15-minute call or send the short form. We reply within 1 business day."
+      "descriptionNoWhatsapp": "Book a 15-minute call or use the short form. We reply within 1 business day."
     },
     "portal": {
       "title": "Client portal",
@@ -116,16 +116,17 @@
     "trust": {
       "eyebrow": "Before you call",
       "title": "Four things you can verify today",
+      "titleThree": "Three things you can verify today",
       "founder": {
         "label": "Founder",
         "title": "One accountable person",
         "body": "{name}. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy. Reviews every file.",
-        "link": "Read the background"
+        "link": "LinkedIn profile"
       },
       "prices": {
         "label": "Prices",
         "title": "Every price is public",
-        "body": "Plans, desks and the check are priced on this site in US dollars. Final scope goes into a signed engagement letter.",
+        "body": "Plans, desks and the back-office check are priced on this site in US dollars. Final scope and price are set in a signed engagement letter.",
         "link": "See every price"
       },
       "limits": {
@@ -137,7 +138,7 @@
       "sources": {
         "label": "Sources",
         "title": "Every rule links to its source",
-        "body": "Regulatory claims on this site cite the IRS, CBP or the Federal Register.",
+        "body": "Regulatory claims on this site link to official sources such as the IRS, CBP and the Federal Register.",
         "link": "Knowledge center"
       }
     },
@@ -158,7 +159,7 @@
     "facts": {
       "eyebrow": "By the numbers",
       "title": "On the US side, the rules and the numbers are clear",
-      "intro": "The two rules link to their official source. The hours are our own.",
+      "intro": "The two rules link to their official sources. The hours are our own.",
       "f1": {
         "kicker": "IRS",
         "unit": "per missed form, per year",
@@ -173,7 +174,7 @@
         "source": "Federal Register, August 19, 2026"
       },
       "f3": {
-        "kicker": "Our desk hours",
+        "kicker": "Our collections hours",
         "value": "8:00-16:00",
         "unit": "US Eastern",
         "text": "Collections calls run on US Eastern time, during your customers' business hours.",
@@ -238,7 +239,7 @@
     "data": {
       "eyebrow": "Your data",
       "title": "Before your data reaches us",
-      "intro": "These controls are in place before the first client document arrives. This site never asks for tax ID numbers, EINs or financial documents.",
+      "intro": "These controls apply from the first client document. This site never asks for tax ID numbers, EINs or financial documents.",
       "d1": {
         "title": "Two-factor login",
         "body": "Every system that holds your data requires two-factor login (2FA)."
@@ -762,13 +763,13 @@
     "intro": "Book a call, message us on WhatsApp or use the short form. We reply within 1 business day.",
     "introCal": "Book a call or use the short form. We reply within 1 business day.",
     "introWhatsapp": "Message us on WhatsApp or use the short form. We reply within 1 business day.",
-    "introForm": "We reply within 1 business day.",
+    "introForm": "Use the short form. We reply within 1 business day.",
     "bookTitle": "Book a call",
     "bookBody": "Istanbul and US Eastern times are shown below.",
     "loadCalendar": "Open the calendar",
     "calendarNotice": "The calendar loads from Cal.com, which may set its own cookies.",
     "calendarMissing": "The calendar isn't connected yet. Please message us on WhatsApp or use the form.",
-    "calendarFallback": "Send the short form and we will reply with two times for a call.",
+    "calendarFallback": "Send the short form and we will reply with two possible times for a call.",
     "istanbul": "Istanbul",
     "newYork": "New York (US Eastern)",
     "callHours": "Our collections hours today: New York {nyStart}-{nyEnd}, Istanbul {istStart}-{istEnd}.",

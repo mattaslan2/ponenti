@@ -45,7 +45,7 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 | Risk-test questions and scoring | `src/lib/risk-test.ts` (copy in `riskTest.*` messages) |
 | Calculator formulas | `src/lib/calculators.ts` |
 | Trade-data copy, Turkish product words, data logic | `trade.*` messages, `src/data/trade/hs-tr.ts`, `src/lib/trade/` |
-| Design tokens (colors, type, spacing, motion) | `src/design/tokens.css` |
+| Design tokens (colors, type, spacing, motion) | `src/design/tokens.css` (the rules behind them: `docs/DESIGN.md`) |
 
 ```
 src/
@@ -61,7 +61,7 @@ src/
   messages/            tr.json, en.json
   proxy.ts             language routing (Next 16 "proxy", formerly middleware)
   fonts/               self-hosted web fonts, Latin + Turkish subsets (OFL)
-docs/                  placeholders, launch checklist, generated copy
+docs/                  design system, placeholders, launch checklist, generated copy
 tests/                 end-to-end, accessibility and lead-flow scripts
 scripts/               placeholder report, copy export, font subsetting, trade data builders
 assets/fonts/          fonts for share images (OFL)
@@ -138,9 +138,13 @@ Definitions shown on the pages: value = general imports at customs value; effect
 
 The header button "Müşteri Portalı / Client portal" reads `NEXT_PUBLIC_PORTAL_URL`. Today it points to `/portal`, a calm noindex page with a sample-data preview and a "Request access" button (no login form). When the portal ships as its own Next.js app with Supabase auth on `portal.yourdomain.com`, set the variable to that URL and redeploy. Nothing else changes. The portal can reuse `src/design/tokens.css` as is.
 
-## Design tokens
+## Design system
 
-`src/design/tokens.css` holds every color, type size, radius and motion value as a Tailwind v4 `@theme`, plus the shadcn/ui semantic mapping. Palette: midnight navy `#0E1A2B`, ivory `#F6F1E7`, brass `#B08D57`, graphite `#1C1C1C`, Iznik cobalt `#1F4E8C` as a rare accent. The file header lists the verified WCAG contrast ratios. Rule: brass is never body text on ivory (2.75:1); use `brass-deep` (5.5:1). Fonts: Cormorant Garamond 600 (display, large serif numerals) and Inter 400 to 600 (body), self-hosted from `src/fonts/` as Latin + Turkish subsets (47 KB together, down from 207 KB). If new copy needs a character outside `scripts/font-chars.txt`, add it and run `scripts/subset-fonts.py`.
+`docs/DESIGN.md` is the specification: palette, type scale for phone and desktop, spacing, layout rules, the three interactions, data UI rules and the placeholder policy. `src/design/tokens.css` holds the values as a Tailwind v4 `@theme`, plus the shadcn/ui semantic mapping; the portal can import the same file.
+
+In short: three color roles and nothing else. Ivory `#F6F1E7` is the ground, midnight navy `#0E1A2B` is every heading and all body text, brass `#B08D57` is the accent (hairlines, the wind rose, link underlines, small labels). One functional color, oxblood `#8A2A2A`, marks errors and negative figures. The file header lists the verified WCAG contrast ratios. Rule: brass is never text on ivory (2.75:1); use `brass-deep` (5.5:1). Fonts: Cormorant Garamond Medium 500, roman and italic (display, lining figures by default) and Inter 400 to 600 (body, labels, data), self-hosted from `src/fonts/` as Latin + Turkish subsets (64 KB together). If new copy needs a character outside `scripts/font-chars.txt`, add it and run `scripts/subset-fonts.py` (its header says how).
+
+Sections are separated by whitespace and one hairline, not by cards: `py-section` is 104 px on a phone and 192 px on a desktop. Use the `Section` component (`src/components/section.tsx`) with `layout="stack"` or `layout="split"` instead of hand-built wrappers.
 
 ## Performance and accessibility
 

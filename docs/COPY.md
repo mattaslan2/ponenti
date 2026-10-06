@@ -70,6 +70,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 |---|---|---|
 | `title` | İletişim | Contact |
 | `description` | 15 dakikalık görüşme planlayın, WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz. | Book a 15-minute call, message us on WhatsApp or use the short form. We reply within 1 business day. |
+| `descriptionNoWhatsapp` | 15 dakikalık görüşme planlayın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz. | Book a 15-minute call or use the short form. We reply within 1 business day. |
 
 ## meta.portal
 
@@ -145,7 +146,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | Key | Türkçe | English |
 |---|---|---|
 | `tagline` | ABD işiniz için Türkçe uyum ve tahsilat masası. | The US compliance and collections desk for Turkish companies. |
-| `pride` | Türkiye'de üretilir, ABD'de doğru yönetilir. | Made in Türkiye. Run right in the United States. |
+| `pride` | Türkiye'de üretilir, <em>ABD'de doğru yönetilir.</em> | Made in Türkiye. <em>Run right in the United States.</em> |
 | `logoLabel` | Ponenti, ana sayfa | Ponenti, home |
 
 ## nav
@@ -171,6 +172,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `book` | 15 dakikalık görüşme planlayın | Book a 15-minute call |
 | `bookShort` | Görüşme planlayın | Book a call |
 | `whatsapp` | WhatsApp'tan yazın | Message us on WhatsApp |
+| `message` | Mesaj gönderin | Send a message |
 | `riskTest` | 3 dakikalık risk testi | 3-minute risk test |
 | `seePricing` | Tüm fiyatları görün | See every price |
 | `whatsappMessage` | Merhaba, Ponenti sitesinden yazıyorum. ABD tarafımız için 15 dakikalık bir görüşme planlamak istiyorum. | Hello, I'm writing from the Ponenti website. I'd like to book a 15-minute call about our US operations. |
@@ -180,13 +182,33 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | Key | Türkçe | English |
 |---|---|---|
 | `eyebrow` | ABD'de iş yapan Türk şirketleri için | For Turkish companies doing business in the US |
-| `title` | ABD işiniz için Türkçe uyum ve tahsilat masası. | The US compliance and collections desk for Turkish companies. |
+| `title` | ABD işiniz için <em>Türkçe</em> uyum ve tahsilat masası. | The US compliance and collections desk for <em>Turkish companies.</em> |
 | `subtitle` | ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır. | Your US filings, multi-state sales tax and importer record at one bilingual desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval. |
 | `price` | Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir. | Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk. |
-| `trustLabel` | Neden güvenebilirsiniz | Why you can trust us |
-| `trustFounder` | Kurucu: eski UPS finans analisti ve kıdemli müdür | Founder: former UPS financial analyst and senior manager |
-| `trustMoney` | Paranızı hiçbir zaman tutmayız veya taşımayız | We never hold or move your money |
-| `trustReply` | 1 iş günü içinde yanıt | Reply within 1 business day |
+
+## home.trust
+
+| Key | Türkçe | English |
+|---|---|---|
+| `eyebrow` | Görüşmeden önce | Before you call |
+| `title` | Bugün doğrulayabileceğiniz dört şey | Four things you can verify today |
+| `titleThree` | Bugün doğrulayabileceğiniz üç şey | Three things you can verify today |
+| `founder.label` | Kurucu | Founder |
+| `founder.title` | Sorumlu kişi belli | One accountable person |
+| `founder.body` | {name}. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Her dosyayı inceler. | {name}. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy. Reviews every file. |
+| `founder.link` | LinkedIn profili | LinkedIn profile |
+| `prices.label` | Fiyatlar | Prices |
+| `prices.title` | Tüm fiyatlar açık | Every price is public |
+| `prices.body` | Planların, masaların ve arka ofis kontrolünün fiyatı bu sitede ABD doları cinsinden yazılıdır. Kapsam ve son fiyat, imzalı hizmet sözleşmesiyle kesinleşir. | Plans, desks and the back-office check are priced on this site in US dollars. Final scope and price are set in a signed engagement letter. |
+| `prices.link` | Tüm fiyatları görün | See every price |
+| `limits.label` | Sınırlar | Limits |
+| `limits.title` | Sınırlarımız yazılı | Our limits are in writing |
+| `limits.body` | Paranızı hiçbir zaman tutmayız veya taşımayız; ithalatçı kaydı (Importer of Record) olarak hiçbir zaman hareket etmeyiz. | We never hold or move your money, and we never act as your importer of record. |
+| `limits.link` | Yapmadığımız işler | What we don't do |
+| `sources.label` | Kaynaklar | Sources |
+| `sources.title` | Her kuralın kaynağı belli | Every rule links to its source |
+| `sources.body` | Bu sitedeki mevzuat bilgileri IRS, CBP ve Federal Register gibi resmi kaynaklara bağlıdır. | Regulatory claims on this site link to official sources such as the IRS, CBP and the Federal Register. |
+| `sources.link` | Bilgi merkezi | Knowledge center |
 
 ## home.doors
 
@@ -207,13 +229,19 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 |---|---|---|
 | `eyebrow` | Rakamlarla | By the numbers |
 | `title` | ABD tarafında kurallar ve rakamlar net | On the US side, the rules and the numbers are clear |
-| `intro` | Her bilgi resmi kaynağına bağlıdır. | Every fact links to its official source. |
-| `f1.text` | Verilmeyen her Form 5472 için, her yıl IRS cezası. | IRS penalty for each Form 5472 not filed, per year. |
+| `intro` | İki kural da resmi kaynağına bağlıdır. Saatler ise bizim çalışma saatlerimizdir. | The two rules link to their official sources. The hours are our own. |
+| `f1.kicker` | IRS | IRS |
+| `f1.unit` | verilmeyen form başına, her yıl | per missed form, per year |
+| `f1.text` | Verilmeyen Form 5472 için IRS cezası. | The IRS penalty for a Form 5472 that is not filed. |
 | `f1.source` | IRS, Form 5472 talimatları | IRS, Instructions for Form 5472 |
-| `f2.value` | 18 Eylül 2026 | Sep 18, 2026 |
+| `f2.kicker` | CBP | CBP |
+| `f2.value` | 18 Eylül | Sep 18 |
+| `f2.unit` | 2026 | 2026 |
 | `f2.text` | Bu tarihten beri CBP, Form 5106'daki adresi kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor. | Since this date, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center. |
 | `f2.source` | Federal Register, 19 Ağustos 2026 | Federal Register, August 19, 2026 |
+| `f3.kicker` | Tahsilat saatlerimiz | Our collections hours |
 | `f3.value` | 08:00-16:00 | 8:00-16:00 |
+| `f3.unit` | ABD Doğu saati | US Eastern |
 | `f3.text` | Tahsilat aramaları ABD Doğu saatiyle, müşterilerinizin mesai saatinde yapılır. | Collections calls run on US Eastern time, during your customers' business hours. |
 | `f3.source` | Tahsilat masası koşulları | Cash desk terms |
 
@@ -243,6 +271,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `eyebrow` | Şeffaflık | Transparency |
 | `title` | Her hafta göreceğiniz rapor | What you'll see every week |
 | `intro` | Her pazartesi kısa bir nakit raporu, her çeyrek tek sayfalık bir karne. Rakamlar kendi defterlerinizden gelir. | A short cash report every Monday and a one-page scorecard every quarter. The numbers come from your own books. |
+| `note` | Buradaki rakamlar yalnızca örnektir; bir müşterinin sonuçları değildir. | Sample figures for illustration. They are not a client's results. |
 
 ## home.dont
 
@@ -267,12 +296,12 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | Key | Türkçe | English |
 |---|---|---|
 | `eyebrow` | Verileriniz | Your data |
-| `title` | Verileriniz nasıl korunur | How your data is protected |
-| `intro` | Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez. | This site never asks for tax ID numbers, EINs or financial documents. |
+| `title` | Verileriniz bize ulaşmadan önce | Before your data reaches us |
+| `intro` | Bu önlemler ilk müşteri belgesinden itibaren geçerlidir. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez. | These controls apply from the first client document. This site never asks for tax ID numbers, EINs or financial documents. |
 | `d1.title` | İki adımlı giriş | Two-factor login |
 | `d1.body` | Verilerinizin bulunduğu her sistemde iki adımlı giriş (2FA) zorunludur. | Every system that holds your data requires two-factor login (2FA). |
-| `d2.title` | Şifreli müşteri portalı | Encrypted client portal |
-| `d2.body` | Raporlar ve belgeler şifreli bir portalda durur. Portal hazırlanırken raporlar e-postayla gelir. | Reports and documents live in an encrypted portal. Until it opens, reports arrive by email. |
+| `d2.title` | Müşteri portalı | Client portal |
+| `d2.body` | Raporlar ve belgeler şifreli bir müşteri portalında saklanacak. Portal açılana kadar raporlar e-postayla gelir. | Reports and documents will live in an encrypted client portal. Until it opens, reports arrive by email. |
 | `d3.title` | Yazılı bilgi güvenliği planı | Written information security plan |
 | `d3.body` | FTC Safeguards Rule'un istediği yazılı bilgi güvenliği planına göre çalışırız. | We work under a written information security plan, as the FTC Safeguards Rule requires. |
 | `d3.source` | 16 CFR 314.3 | 16 CFR 314.3 |
@@ -310,8 +339,13 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
+| `eyebrow` | İlk görüşme | The first call |
 | `title` | ABD tarafınızı 15 dakikada konuşalım. | Let's look at your US side in 15 minutes. |
-| `body` | Üç soru soruyoruz: Form 5472'nizi kim veriyor? İthalatçı kaydınız adres kuralına göre en son ne zaman kontrol edildi? ABD'li müşterileriniz kaç günde ödüyor? | We ask three questions: Who files your Form 5472? When was your importer record last checked against the address rule? How many days do your US customers take to pay? |
+| `lede` | Üç soru soruyoruz | We ask three questions |
+| `q1` | Form 5472'nizi kim veriyor? | Who files your Form 5472? |
+| `q2` | İthalatçı kaydınız adres kuralına göre en son ne zaman kontrol edildi? | When was your importer record last checked against the address rule? |
+| `q3` | ABD'li müşterileriniz kaç günde ödüyor? | How many days do your US customers take to pay? |
+| `reply` | 1 iş günü içinde yanıt veririz. | We reply within 1 business day. |
 
 ## report
 
@@ -324,9 +358,9 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `days` | {days} gün | {days} days |
 | `dsoPrev` | geçen çeyrek {days} gün | last quarter {days} days |
 | `overdue` | Vadesi geçmiş faturalar | Overdue invoices |
-| `overdueValue` | {count} fatura, {amount} | {count} invoices, {amount} |
+| `invoices` | {count} fatura | {count} invoices |
 | `payables` | Onayınızı bekleyen ödemeler | Payables awaiting your approval |
-| `payablesValue` | {count} ödeme, {amount} | {count} payments, {amount} |
+| `payments` | {count} ödeme | {count} payments |
 | `orders` | Bu haftaki siparişler | Orders this week |
 | `ordersValue` | {count} sipariş | {count} orders |
 | `filings` | Yaklaşan beyannameler | Filings due |
@@ -710,11 +744,15 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `eyebrow` | İletişim | Contact |
 | `title` | 15 dakikada tanışalım | Let's meet in 15 minutes |
 | `intro` | Görüşme planlayın, WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz. | Book a call, message us on WhatsApp or use the short form. We reply within 1 business day. |
+| `introCal` | Görüşme planlayın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz. | Book a call or use the short form. We reply within 1 business day. |
+| `introWhatsapp` | WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz. | Message us on WhatsApp or use the short form. We reply within 1 business day. |
+| `introForm` | Kısa formu doldurun. 1 iş günü içinde yanıt veririz. | Use the short form. We reply within 1 business day. |
 | `bookTitle` | Görüşme planlayın | Book a call |
 | `bookBody` | Saatleri İstanbul ve ABD Doğu saatiyle aşağıda görebilirsiniz. | Istanbul and US Eastern times are shown below. |
 | `loadCalendar` | Takvimi açın | Open the calendar |
 | `calendarNotice` | Takvim Cal.com tarafından yüklenir ve kendi çerezlerini kullanabilir. | The calendar loads from Cal.com, which may set its own cookies. |
 | `calendarMissing` | Takvim henüz bağlanmadı. Lütfen WhatsApp'tan yazın veya formu kullanın. | The calendar isn't connected yet. Please message us on WhatsApp or use the form. |
+| `calendarFallback` | Kısa formu gönderin; görüşme için size iki farklı saat önerelim. | Send the short form and we will reply with two possible times for a call. |
 | `istanbul` | İstanbul | Istanbul |
 | `newYork` | New York (ABD Doğu) | New York (US Eastern) |
 | `callHours` | Tahsilat saatlerimiz bugün: New York {nyStart}-{nyEnd}, İstanbul {istStart}-{istEnd}. | Our collections hours today: New York {nyStart}-{nyEnd}, Istanbul {istStart}-{istEnd}. |
@@ -753,9 +791,10 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `errPhone` | Telefonu rakamlarla ve ülke koduyla yazın. | Enter the phone number in digits, with the country code. |
 | `errConsent` | Devam etmek için onay kutusunu işaretleyin. | Check the consent box to continue. |
 | `errTaxId` | Lütfen vergi kimlik numarası veya EIN paylaşmayın. | Please don't share tax ID numbers or EINs. |
-| `errGeneric` | Gönderilemedi. Lütfen tekrar deneyin veya WhatsApp'tan yazın. | We couldn't send this. Please try again or message us on WhatsApp. |
-| `errBot` | Gönderim doğrulanamadı. Lütfen sayfayı yenileyip tekrar deneyin veya WhatsApp'tan yazın. | We couldn't verify this submission. Please reload the page and try again, or message us on WhatsApp. |
-| `errNotConfigured` | Form henüz bağlanmadı. Lütfen WhatsApp'tan yazın veya görüşme planlayın. | The form isn't connected yet. Please message us on WhatsApp or book a call. |
+| `errGeneric` | Gönderilemedi. Lütfen tekrar deneyin. | We couldn't send this. Please try again. |
+| `errBot` | Gönderim doğrulanamadı. Lütfen sayfayı yenileyip tekrar deneyin. | We couldn't verify this submission. Please reload the page and try again. |
+| `errNotConfigured` | Form henüz bağlanmadı. | The form isn't connected yet. |
+| `errWhatsapp` | WhatsApp'tan da yazabilirsiniz. | You can also message us on WhatsApp. |
 | `errSummary` | Lütfen işaretli alanları düzeltin. | Please fix the marked fields. |
 
 ## portal

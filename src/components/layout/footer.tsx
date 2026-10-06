@@ -15,6 +15,7 @@ export async function Footer() {
   const t = await getTranslations("footer");
   const nav = await getTranslations("nav");
   const brand = await getTranslations("brand");
+  const common = await getTranslations("common");
   const year = new Date().getFullYear();
   const tel = telHref(site.phone);
   const founderName = site.founder.name[locale];
@@ -55,6 +56,7 @@ export async function Footer() {
                 ) : (
                   <a href={site.founder.linkedin} className="link" target="_blank" rel="noopener noreferrer me">
                     {t("linkedin")}
+                    <span className="sr-only"> {common("opensNewTab")}</span>
                   </a>
                 )}
               </p>

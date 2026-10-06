@@ -56,35 +56,53 @@ export async function Hero() {
 }
 
 /**
- * Proof, as its own section: four things a visitor can check today, each with
- * the link that checks it. No adjectives, no badges, no "trusted by".
+ * Proof, as its own section: things a visitor can check today, each with the
+ * link that checks it. No adjectives, no badges, no "trusted by".
+ *
+ * A card is here only if its claim can be checked. The founder's background is
+ * checkable on LinkedIn and nowhere on this site, so that card appears when
+ * site.founder.linkedin is set; until then the section says "three", not "four".
  */
 export async function Trust() {
   const locale = await currentLocale();
   const t = await getTranslations("home.trust");
+  const common = await getTranslations("common");
   const name = site.founder.name[locale];
-  const items = [
-    { key: "founder", href: { pathname: "/about", hash: "founder-note" }, confirm: true },
-    { key: "prices", href: "/services", confirm: false },
-    { key: "limits", href: { pathname: "/", hash: "limits" }, confirm: false },
-    { key: "sources", href: "/insights", confirm: false },
+  const linkedin = isPlaceholder(site.founder.linkedin) ? null : site.founder.linkedin;
+  const cards = [
+    { key: "prices", href: "/services" },
+    { key: "limits", href: { pathname: "/", hash: "limits" } },
+    { key: "sources", href: "/insights" },
   ] as const;
+  const linkClass = "link mt-2 inline-flex min-h-11 items-center gap-2 text-small font-medium";
+  const track = (key: string) => ({ "data-track": "cta_click", "data-track-label": `proof_${key}`, "data-track-location": "proof" });
   return (
-    <Section id="proof" layout="split" space="band" eyebrow={t("eyebrow")} title={t("title")}>
-      <ul className="grid gap-x-12 gap-y-12 sm:grid-cols-2">
-        {items.map(({ key, href, confirm }) => {
-          const body = t(`${key}.body`, { name });
-          return (
-            <li key={key} data-reveal className="border-t border-line pt-6">
-              <p className="eyebrow">{t(`${key}.label`)}</p>
-              <h3 className="mt-4 text-display-sm">{t(`${key}.title`)}</h3>
-              <p className="mt-3 text-small text-mist">{confirm ? <Confirm note="founder credential line">{body}</Confirm> : body}</p>
-              <ArrowLink href={href} className="mt-2 text-small" data-track="cta_click" data-track-label={`proof_${key}`} data-track-location="proof">
-                {t(`${key}.link`)}
-              </ArrowLink>
-            </li>
-          );
-        })}
+    <Section id="proof" layout={linkedin ? "split" : "stack"} space="band" eyebrow={t("eyebrow")} title={t(linkedin ? "title" : "titleThree")}>
+      <ul className={cn("grid gap-x-12 gap-y-12", linkedin ? "sm:grid-cols-2" : "md:grid-cols-3")}>
+        {linkedin && (
+          <li data-reveal className="border-t border-line pt-6">
+            <p className="eyebrow">{t("founder.label")}</p>
+            <h3 className="mt-4 text-display-sm">{t("founder.title")}</h3>
+            <p className="mt-3 text-small text-mist">
+              <Confirm note="founder credential line">{t("founder.body", { name })}</Confirm>
+            </p>
+            <a href={linkedin} target="_blank" rel="noopener noreferrer me" className={linkClass} {...track("founder")}>
+              {t("founder.link")}
+              <ArrowUpRight aria-hidden="true" className="nudge-up size-4 shrink-0" />
+              <span className="sr-only"> {common("opensNewTab")}</span>
+            </a>
+          </li>
+        )}
+        {cards.map(({ key, href }) => (
+          <li key={key} data-reveal className="border-t border-line pt-6">
+            <p className="eyebrow">{t(`${key}.label`)}</p>
+            <h3 className="mt-4 text-display-sm">{t(`${key}.title`)}</h3>
+            <p className="mt-3 max-w-md text-small text-mist">{t(`${key}.body`)}</p>
+            <ArrowLink href={href} className="mt-2 text-small" {...track(key)}>
+              {t(`${key}.link`)}
+            </ArrowLink>
+          </li>
+        ))}
       </ul>
     </Section>
   );
@@ -287,6 +305,7 @@ export async function YourData() {
 export async function FounderTeaser() {
   const locale = await currentLocale();
   const t = await getTranslations("home.founder");
+  const common = await getTranslations("common");
   const name = site.founder.name[locale];
   const hasPhoto = !isPlaceholder(site.founder.photo);
   return (
@@ -307,6 +326,7 @@ export async function FounderTeaser() {
               <a href={site.founder.linkedin} className="link inline-flex min-h-11 items-center gap-2 text-[0.9375rem] font-medium" target="_blank" rel="noopener noreferrer me">
                 {t("linkedin")}
                 <ArrowUpRight aria-hidden="true" className="nudge-up size-4" />
+                <span className="sr-only"> {common("opensNewTab")}</span>
               </a>
             )}
           </div>

@@ -114,30 +114,31 @@
       "price": "Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir."
     },
     "trust": {
-      "eyebrow": "Aramadan önce",
+      "eyebrow": "Görüşmeden önce",
       "title": "Bugün doğrulayabileceğiniz dört şey",
+      "titleThree": "Bugün doğrulayabileceğiniz üç şey",
       "founder": {
         "label": "Kurucu",
         "title": "Sorumlu kişi belli",
-        "body": "{name}. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Her dosyayı kendisi inceler.",
-        "link": "Özgeçmişi okuyun"
+        "body": "{name}. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Her dosyayı inceler.",
+        "link": "LinkedIn profili"
       },
       "prices": {
         "label": "Fiyatlar",
-        "title": "Her fiyat açık",
-        "body": "Planların, masaların ve kontrolün fiyatı bu sitede ABD doları olarak yazılıdır. Kesin kapsam imzalı hizmet sözleşmesine girer.",
+        "title": "Tüm fiyatlar açık",
+        "body": "Planların, masaların ve arka ofis kontrolünün fiyatı bu sitede ABD doları cinsinden yazılıdır. Kapsam ve son fiyat, imzalı hizmet sözleşmesiyle kesinleşir.",
         "link": "Tüm fiyatları görün"
       },
       "limits": {
         "label": "Sınırlar",
         "title": "Sınırlarımız yazılı",
-        "body": "Paranızı tutmayız veya taşımayız; ithalatçı kaydınız olarak hareket etmeyiz.",
+        "body": "Paranızı hiçbir zaman tutmayız veya taşımayız; ithalatçı kaydı (Importer of Record) olarak hiçbir zaman hareket etmeyiz.",
         "link": "Yapmadığımız işler"
       },
       "sources": {
         "label": "Kaynaklar",
         "title": "Her kuralın kaynağı belli",
-        "body": "Bu sitedeki mevzuat bilgileri IRS, CBP veya Federal Register kaynağına bağlıdır.",
+        "body": "Bu sitedeki mevzuat bilgileri IRS, CBP ve Federal Register gibi resmi kaynaklara bağlıdır.",
         "link": "Bilgi merkezi"
       }
     },
@@ -158,7 +159,7 @@
     "facts": {
       "eyebrow": "Rakamlarla",
       "title": "ABD tarafında kurallar ve rakamlar net",
-      "intro": "İki kural resmi kaynağına bağlıdır. Saatler bizim çalışma saatlerimizdir.",
+      "intro": "İki kural da resmi kaynağına bağlıdır. Saatler ise bizim çalışma saatlerimizdir.",
       "f1": {
         "kicker": "IRS",
         "unit": "verilmeyen form başına, her yıl",
@@ -173,7 +174,7 @@
         "source": "Federal Register, 19 Ağustos 2026"
       },
       "f3": {
-        "kicker": "Masa saatlerimiz",
+        "kicker": "Tahsilat saatlerimiz",
         "value": "08:00-16:00",
         "unit": "ABD Doğu saati",
         "text": "Tahsilat aramaları ABD Doğu saatiyle, müşterilerinizin mesai saatinde yapılır.",
@@ -208,7 +209,7 @@
       "eyebrow": "Şeffaflık",
       "title": "Her hafta göreceğiniz rapor",
       "intro": "Her pazartesi kısa bir nakit raporu, her çeyrek tek sayfalık bir karne. Rakamlar kendi defterlerinizden gelir.",
-      "note": "Rakamlar yalnızca örnektir; bir müşterinin sonuçları değildir."
+      "note": "Buradaki rakamlar yalnızca örnektir; bir müşterinin sonuçları değildir."
     },
     "dont": {
       "eyebrow": "Sınırlarımız",
@@ -238,14 +239,14 @@
     "data": {
       "eyebrow": "Verileriniz",
       "title": "Verileriniz bize ulaşmadan önce",
-      "intro": "Bu önlemler, ilk müşteri belgesi bize ulaşmadan önce yürürlüktedir. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez.",
+      "intro": "Bu önlemler ilk müşteri belgesinden itibaren geçerlidir. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez.",
       "d1": {
         "title": "İki adımlı giriş",
         "body": "Verilerinizin bulunduğu her sistemde iki adımlı giriş (2FA) zorunludur."
       },
       "d2": {
         "title": "Müşteri portalı",
-        "body": "Raporlar ve belgeler şifreli bir müşteri portalında duracak. Portal açılana kadar raporlar e-postayla gelir."
+        "body": "Raporlar ve belgeler şifreli bir müşteri portalında saklanacak. Portal açılana kadar raporlar e-postayla gelir."
       },
       "d3": {
         "title": "Yazılı bilgi güvenliği planı",
@@ -762,13 +763,13 @@
     "intro": "Görüşme planlayın, WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
     "introCal": "Görüşme planlayın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
     "introWhatsapp": "WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
-    "introForm": "1 iş günü içinde yanıt veririz.",
+    "introForm": "Kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
     "bookTitle": "Görüşme planlayın",
     "bookBody": "Saatleri İstanbul ve ABD Doğu saatiyle aşağıda görebilirsiniz.",
     "loadCalendar": "Takvimi açın",
     "calendarNotice": "Takvim Cal.com tarafından yüklenir ve kendi çerezlerini kullanabilir.",
     "calendarMissing": "Takvim henüz bağlanmadı. Lütfen WhatsApp'tan yazın veya formu kullanın.",
-    "calendarFallback": "Kısa formu gönderin; görüşme için iki saat önerisiyle dönüş yapalım.",
+    "calendarFallback": "Kısa formu gönderin; görüşme için size iki farklı saat önerelim.",
     "istanbul": "İstanbul",
     "newYork": "New York (ABD Doğu)",
     "callHours": "Tahsilat saatlerimiz bugün: New York {nyStart}-{nyEnd}, İstanbul {istStart}-{istEnd}.",
