@@ -9,7 +9,6 @@ import { TrendChart } from "@/components/trade/trend-chart";
 import { ChangeList, PortList, ProductHeader, ProductList, SectionTitle, StatTile, deltaOf } from "@/components/trade/blocks";
 import { DataNotes, TradeLead, TradeLoading, TradeMessage, chartLabels, countryOptions, filterLabels } from "@/components/trade/trade-ui";
 import { getCountryOverview } from "@/lib/trade/analysis";
-import { TradeDataError, censusConfigured } from "@/lib/trade/census";
 import { TURKIYE, countryByIso, countryName, type Country } from "@/lib/trade/countries";
 import { basisLabel, monthLabel, pct, usdCompact, windowLabel } from "@/lib/trade/format";
 import { HS_BASIS_YEAR, searchHs } from "@/lib/trade/hs";
@@ -55,13 +54,9 @@ export default async function TradeDataPage({ params, searchParams }: PageProps<
 
       {query && <SearchResults query={query} locale={locale} country={country} />}
 
-      {censusConfigured() ? (
-        <Suspense key={country.code} fallback={<TradeLoading label={t("loading")} />}>
-          <Overview country={country} locale={locale} />
-        </Suspense>
-      ) : (
-        <TradeMessage>{t("errors.notConfigured")}</TradeMessage>
-      )}
+      <Suspense key={country.code} fallback={<TradeLoading label={t("loading")} />}>
+        <Overview country={country} locale={locale} />
+      </Suspense>
 
       <TradeLead context={{ country: country.iso2 }} />
       <DataNotes locale={locale} />
@@ -114,8 +109,8 @@ async function Overview({ country, locale }: { country: Country; locale: Locale 
   try {
     data = await getCountryOverview(country.code, locale);
   } catch (error) {
-    if (error instanceof TradeDataError) return <TradeMessage>{t("errors.unavailable")}</TradeMessage>;
-    throw error;
+    console.error("[trade] overview failed", error);
+    return <TradeMessage>{t("errors.unavailable")}</TradeMessage>;
   }
   const name = countryName(country, locale);
   const window = windowLabel(data.windows.cur.first, data.windows.cur.last, locale);

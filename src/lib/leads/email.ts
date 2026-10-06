@@ -127,7 +127,7 @@ export async function sendLeadEmails(lead: Lead, internalSummary: string) {
   return { confirmation: ok(confirmation), alert: ok(alert) };
 }
 
-/** Trade-data summary for the visitor's email, recomputed on the server from cached Census data. */
+/** Trade-data summary for the visitor's email, recomputed on the server from the monthly Census snapshot. */
 async function tradeLines(ctx: { hs?: string; country: string }, locale: "tr" | "en"): Promise<string[]> {
   const t = await getTranslations({ locale, namespace: "emails" });
   const country = countryByIso(ctx.country) ?? TURKIYE;

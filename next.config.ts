@@ -23,10 +23,13 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   productionBrowserSourceMaps: process.env.ANALYZE === "1",
 
-  // Files read at request time by the share-image routes.
+  // Files read at request time by the share-image routes and the trade data pages.
+  // Keys are picomatch globs matched anywhere in the route path, so "*" stands for [locale] or [hs].
   outputFileTracingIncludes: {
     "/[locale]/opengraph-image": ["./assets/fonts/**"],
     "/[locale]/insights/[slug]/opengraph-image": ["./assets/fonts/**", "./src/content/insights/**"],
+    "/*/trade-data": ["./src/data/trade/snapshot/**/*"],
+    "/*/ozel/*": ["./src/data/trade/snapshot/**/*"],
   },
 
   async headers() {

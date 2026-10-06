@@ -12,7 +12,6 @@ import { pick } from "@/lib/messages";
 import { buildMetadata } from "@/lib/seo";
 import { Link } from "@/i18n/navigation";
 import { getProductSnapshot } from "@/lib/trade/analysis";
-import { censusConfigured } from "@/lib/trade/census";
 import { TURKIYE } from "@/lib/trade/countries";
 import { pct, usdCompact, windowLabel } from "@/lib/trade/format";
 import { normalizeHs } from "@/lib/trade/hs";
@@ -84,7 +83,7 @@ export default async function ProspectPage({ params }: PageProps<"/[locale]/ozel
         </ol>
       </section>
 
-      {prospect.hs && normalizeHs(prospect.hs) && censusConfigured() && (
+      {prospect.hs && normalizeHs(prospect.hs) && (
         <Suspense fallback={null}>
           <ProspectMarket hs={normalizeHs(prospect.hs)!} locale={locale} />
         </Suspense>
@@ -111,7 +110,7 @@ export default async function ProspectPage({ params }: PageProps<"/[locale]/ozel
   );
 }
 
-/** US market snapshot for the firm's main product (Census data, cached daily). Hidden if the data is unavailable. */
+/** US market snapshot for the firm's main product (monthly Census snapshot). Hidden if there is no trade. */
 async function ProspectMarket({ hs, locale }: { hs: string; locale: Locale }) {
   const t = await getTranslations("prospect");
   const snap = await getProductSnapshot(hs, TURKIYE.code, locale).catch(() => null);

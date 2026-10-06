@@ -648,6 +648,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `errors.unavailable` | Veriler şu anda alınamıyor. Lütfen birkaç dakika sonra tekrar deneyin. | The data can't be loaded right now. Please try again in a few minutes. |
 | `errors.notConfigured` | Ticaret verileri henüz bağlanmadı. | Trade data isn't connected yet. |
 | `errors.unknownCode` | Bu kodu bulamadık. Aramadan bir ürün seçin. | We couldn't find that code. Pick a product from the search. |
+| `errors.section` | Bu bölüm şu anda yüklenemedi. Birkaç dakika sonra sayfayı yenileyin. | This part couldn't be loaded right now. Refresh the page in a few minutes. |
 | `loading` | Veriler yükleniyor… | Loading data… |
 | `ctaTitle` | Bu rakamlar sizin için ne anlama geliyor? | What do these numbers mean for you? |
 | `ctaBody` | ABD'deki alıcılarınızı, gümrük vergisi yükünüzü ve tahsilat sürenizi 15 dakikada birlikte değerlendirelim. | In 15 minutes we'll look at your US buyers, your duty burden and how fast you get paid. |

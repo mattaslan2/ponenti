@@ -1,17 +1,18 @@
 import "server-only";
 import { cache } from "react";
-import { latestMonth, levelYtd, partnersMonthly, portsMonthly, type MonthlyRow } from "./census";
-import { COUNTRIES, countryByCode, type Country } from "./countries";
+import { monthlyValues, portTotals } from "./census";
+import { COUNTRIES, TURKIYE, countryByCode, type Country } from "./countries";
 import { growth } from "./format";
 import { getHs, hsAncestors, hsChildren, hsLabel, type HsCode } from "./hs";
-import { addMonths, monthsEnding, ymKey, ytdBasis, type Ym, type YtdBasis } from "./periods";
-import { tariffLines, type TariffLine } from "./usitc";
+import { addMonths, monthsEnding, parseYm, ymKey, ytdBasis, type Ym, type YtdBasis } from "./periods";
+import { loadChapter, loadCountryHs4, loadMeta, loadPartners, loadPorts, loadWorldHs4, type Meta, type ProductEntry, type Six } from "./snapshot";
 
 /**
- * Turns raw Census rows into what the trade pages show. "Last 12 months" (R12)
- * is the latest 12 published months; the comparison is the 12 months before.
- * Values are general imports (customs value, USD). The effective duty rate is
- * calculated duty divided by the value of imports for consumption.
+ * Turns the monthly snapshot into what the trade pages show. "Last 12 months" (R12) is the latest
+ * 12 published months; the comparison is the 12 months before. Values are general imports
+ * (customs value, USD). The effective duty rate is calculated duty divided by the value of
+ * imports for consumption. Product lists use the year-to-date basis (see ytdBasis).
+ * Only a non-Türkiye partner's monthly line and product ports are fetched live (getLive*).
  */
 const WORLD = "-";
 const COUNTRY_CODES = new Set(COUNTRIES.map((c) => c.code));
@@ -24,7 +25,7 @@ export type Totals = {
   ves: number;
 };
 const empty = (): Totals => ({ gen: 0, con: 0, duty: 0, air: 0, ves: 0 });
-export const dutyRate = (t: Totals) => (t.con > 0 ? t.duty / t.con : null);
+export const dutyRate = (t: Pick<Totals, "con" | "duty">) => (t.con > 0 ? t.duty / t.con : null);
 
 export type Windows = {
   cur: { first: Ym; last: Ym; keys: Set<string> };
@@ -39,42 +40,13 @@ function windowsFor(latest: Ym): Windows {
   };
 }
 
-function sumByPartner(rows: MonthlyRow[], keys: Set<string>): Map<string, Totals> {
-  const out = new Map<string, Totals>();
-  for (const r of rows) {
-    if (!keys.has(r.month)) continue;
-    const t = out.get(r.cty) ?? empty();
-    t.gen += r.gen;
-    t.con += r.con;
-    t.duty += r.duty;
-    t.air += r.air;
-    t.ves += r.ves;
-    out.set(r.cty, t);
-  }
-  return out;
+async function context() {
+  const meta = await loadMeta();
+  const latest = parseYm(meta.latest);
+  return { meta, latest, windows: windowsFor(latest), basis: ytdBasis(latest) };
 }
 
 export type MonthPoint = { month: string; value: number; duty: number | null };
-
-function seriesFor(rows: MonthlyRow[], cty: string, months: Ym[]): MonthPoint[] {
-  const byMonth = new Map(rows.filter((r) => r.cty === cty).map((r) => [r.month, r]));
-  return months.map((m) => {
-    const r = byMonth.get(ymKey(m));
-    return {
-      month: ymKey(m),
-      value: r?.gen ?? 0,
-      duty: r && r.con > 0 ? r.duty / r.con : null,
-    };
-  });
-}
-
-/** Partners ranked by R12 value (countries only, no regional groupings). */
-function ranking(totals: Map<string, Totals>) {
-  return [...totals.entries()]
-    .filter(([code, t]) => COUNTRY_CODES.has(code) && t.gen > 0)
-    .sort((a, b) => b[1].gen - a[1].gen)
-    .map(([code, t], i) => ({ code, rank: i + 1, totals: t }));
-}
 
 export type PartnerStat = {
   country: Country;
@@ -106,57 +78,34 @@ export type PortStat = {
   vesselShare: number | null;
 };
 
-function portStats(rows: { port: string; name: string; gen: number; ves: number }[], total: number): PortStat[] {
-  const byPort = new Map<string, { name: string; gen: number; ves: number }>();
-  for (const r of rows) {
-    const p = byPort.get(r.port) ?? { name: r.name, gen: 0, ves: 0 };
-    p.gen += r.gen;
-    p.ves += r.ves;
-    byPort.set(r.port, p);
-  }
-  return [...byPort.entries()]
-    .filter(([, p]) => p.gen > 0)
-    .sort((a, b) => b[1].gen - a[1].gen)
+function portStats(rows: { port: string; name: string; gen: number; ves: number }[]): PortStat[] {
+  const total = rows.reduce((s, r) => s + r.gen, 0);
+  return rows
+    .filter((r) => r.gen > 0)
+    .sort((a, b) => b.gen - a.gen)
     .slice(0, 8)
-    .map(([port, p]) => ({
-      port,
-      name: p.name,
-      value: p.gen,
-      share: total > 0 ? p.gen / total : 0,
-      vesselShare: p.gen > 0 ? p.ves / p.gen : null,
+    .map((r) => ({
+      port: r.port,
+      name: r.name,
+      value: r.gen,
+      share: total > 0 ? r.gen / total : 0,
+      vesselShare: r.gen > 0 ? r.ves / r.gen : null,
     }));
 }
 
-function productRows(
-  cur: { code: string; gen: number }[],
-  prev: { code: string; gen: number }[],
-  world: { code: string; gen: number }[],
-  locale: string,
-  filter: (code: string) => boolean,
-): ProductRow[] {
-  const prevBy = new Map(prev.map((r) => [r.code, r.gen]));
-  const worldBy = new Map(world.map((r) => [r.code, r.gen]));
-  const codes = new Set([...cur.map((r) => r.code), ...prev.map((r) => r.code)].filter(filter));
-  const curBy = new Map(cur.map((r) => [r.code, r.gen]));
-  return [...codes].flatMap((code) => {
-    const hs = getHs(code);
-    if (!hs) return [];
-    const value = curBy.get(code) ?? 0;
-    const prevValue = prevBy.get(code) ?? 0;
-    const worldValue = worldBy.get(code) ?? 0;
-    return [
-      {
-        code,
-        label: hsLabel(hs, locale),
-        chapter: locale === "tr" ? hs.chapter.nameTr : hs.chapter.nameEn,
-        value,
-        prevValue,
-        change: value - prevValue,
-        growth: growth(value, prevValue),
-        share: worldValue > 0 ? value / worldValue : null,
-      },
-    ];
-  });
+function productRow(code: string, value: number, prevValue: number, worldValue: number, locale: string): ProductRow | null {
+  const hs = getHs(code);
+  if (!hs) return null;
+  return {
+    code,
+    label: hsLabel(hs, locale),
+    chapter: locale === "tr" ? hs.chapter.nameTr : hs.chapter.nameEn,
+    value,
+    prevValue,
+    change: value - prevValue,
+    growth: growth(value, prevValue),
+    share: worldValue > 0 ? value / worldValue : null,
+  };
 }
 
 /* Country overview: everything the US imports from one partner */
@@ -186,44 +135,69 @@ export type CountryOverview = {
 
 export const getCountryOverview = cache(async (countryCode: string, locale: string): Promise<CountryOverview> => {
   const country = countryByCode(countryCode)!;
-  const latest = await latestMonth();
-  const basis = ytdBasis(latest);
-  const w = windowsFor(latest);
-  const [all, ytdCur, ytdPrev, worldYtd, ports] = await Promise.all([
-    partnersMonthly(WORLD, addMonths(latest, -35)),
-    levelYtd(country.code, 4, basis.cur),
-    levelYtd(country.code, 4, basis.prev),
-    levelYtd(WORLD, 4, basis.cur),
-    portsMonthly(country.code, WORLD, w.cur.first),
+  const [{ meta, latest, windows, basis }, partners, hs4, world, ports] = await Promise.all([
+    context(),
+    loadPartners(),
+    loadCountryHs4(country.code),
+    loadWorldHs4(),
+    loadPorts(),
   ]);
 
-  const cur = sumByPartner(all, w.cur.keys);
-  const prev = sumByPartner(all, w.prev.keys);
-  const mine = cur.get(country.code) ?? empty();
-  const minePrev = prev.get(country.code) ?? empty();
-  const world = cur.get(WORLD) ?? empty();
-  const rankNow = ranking(cur);
-  const rankPrev = ranking(prev);
+  // Series run over Meta.months (36): the last 12 are the current window, the 12 before the previous.
+  const totals = (code: string, from: number): Totals => {
+    const t = empty();
+    const s = partners[code];
+    if (!s) return t;
+    for (let i = from; i < from + 12; i++) {
+      t.gen += s[0][i];
+      t.con += s[1][i];
+      t.duty += s[2][i];
+      t.air += s[3][i];
+      t.ves += s[4][i];
+    }
+    return t;
+  };
+  const ranking = (from: number) =>
+    Object.keys(partners)
+      .filter((code) => COUNTRY_CODES.has(code))
+      .map((code) => ({ code, gen: totals(code, from).gen }))
+      .filter((r) => r.gen > 0)
+      .sort((a, b) => b.gen - a.gen);
+  const mine = totals(country.code, 24);
+  const minePrev = totals(country.code, 12);
+  const all = totals(WORLD, 24);
+  const rankNow = ranking(24);
+  const rankPrev = ranking(12);
+  const series = partners[country.code];
 
   // Chapters 98 and 99 are US reporting provisions (returned goods, low-value estimates), not products.
-  const rows = productRows(ytdCur, ytdPrev, worldYtd, locale, (code) => !code.startsWith("98") && !code.startsWith("99"));
+  const worldBy = new Map(world.map(([code, ytd]) => [code, ytd]));
+  const rows = hs4
+    .filter(([code]) => !code.startsWith("98") && !code.startsWith("99"))
+    .flatMap(([code, ytd, ytdPrev]) => productRow(code, ytd, ytdPrev, worldBy.get(code) ?? 0, locale) ?? []);
+
+  const portsOf = ports.countries[country.code];
   return {
     latest,
-    windows: w,
+    windows,
     basis,
     country,
     value: mine.gen,
     prevValue: minePrev.gen,
     growth: growth(mine.gen, minePrev.gen),
-    share: world.gen > 0 ? mine.gen / world.gen : 0,
-    rank: rankNow.find((r) => r.code === country.code)?.rank ?? null,
-    prevRank: rankPrev.find((r) => r.code === country.code)?.rank ?? null,
+    share: all.gen > 0 ? mine.gen / all.gen : 0,
+    rank: rankNow.findIndex((r) => r.code === country.code) + 1 || null,
+    prevRank: rankPrev.findIndex((r) => r.code === country.code) + 1 || null,
     partners: rankNow.length,
     dutyRate: dutyRate(mine),
     prevDutyRate: dutyRate(minePrev),
     vesselShare: mine.gen > 0 ? mine.ves / mine.gen : null,
     airShare: mine.gen > 0 ? mine.air / mine.gen : null,
-    monthly: seriesFor(all, country.code, monthsEnding(latest, 36)),
+    monthly: meta.months.map((month, i) => ({
+      month,
+      value: series?.[0][i] ?? 0,
+      duty: series && series[1][i] > 0 ? series[2][i] / series[1][i] : null,
+    })),
     topProducts: [...rows].sort((a, b) => b.value - a.value).slice(0, 12),
     gainers: rows
       .filter((r) => r.change > 0)
@@ -233,12 +207,77 @@ export const getCountryOverview = cache(async (countryCode: string, locale: stri
       .filter((r) => r.change < 0)
       .sort((a, b) => a.change - b.change)
       .slice(0, 8),
-    ports: portStats(
-      ports,
-      ports.reduce((s, p) => s + p.gen, 0),
-    ),
+    ports: portsOf
+      ? portsOf.p.map(([port, gen, ves]) => ({
+          port,
+          name: ports.names[port] ?? port,
+          value: gen,
+          share: portsOf.t > 0 ? gen / portsOf.t : 0,
+          vesselShare: gen > 0 ? ves / gen : null,
+        }))
+      : [],
   };
 });
+
+/* One HS code: HS6 entries are stored, HS4 and HS2 are sums of the HS6 codes under them */
+
+const zero = (): Six => [0, 0, 0, 0, 0, 0];
+function add(into: number[], from: readonly number[]) {
+  for (let i = 0; i < into.length; i++) into[i] += from[i] ?? 0;
+}
+
+type Aggregate = {
+  world: Six;
+  partners: Map<number, Six>;
+  monthlyWorld: number[];
+  monthlyTr: number[];
+  portsTr: Map<string, [number, number]>;
+};
+
+function aggregate(chapter: Record<string, ProductEntry>, prefix: string): Aggregate {
+  const out: Aggregate = {
+    world: zero(),
+    partners: new Map(),
+    monthlyWorld: new Array(36).fill(0),
+    monthlyTr: new Array(36).fill(0),
+    portsTr: new Map(),
+  };
+  for (const [code, e] of Object.entries(chapter)) {
+    if (!code.startsWith(prefix)) continue;
+    if (e.w) add(out.world, e.w);
+    for (const row of e.c ?? []) {
+      let p = out.partners.get(row[0]);
+      if (!p) out.partners.set(row[0], (p = zero()));
+      add(p, row.slice(1) as number[]);
+    }
+    if (e.mw) add(out.monthlyWorld, e.mw);
+    if (e.mt) add(out.monthlyTr, e.mt);
+    for (const [port, gen, ves] of e.p ?? []) {
+      const p = out.portsTr.get(port) ?? [0, 0];
+      p[0] += gen;
+      p[1] += ves;
+      out.portsTr.set(port, p);
+    }
+  }
+  return out;
+}
+
+const shareOf = (part: number, whole: number) => (whole > 0 ? part / whole : 0);
+const rateOf = (v: Six) => (v[4] > 0 ? v[5] / v[4] : null);
+
+async function productCore(hs: HsCode, country: Country) {
+  const [ctx, chapter] = await Promise.all([context(), loadChapter(hs.code.slice(0, 2))]);
+  const agg = aggregate(chapter, hs.code);
+  const index = new Map(ctx.meta.countries.map((c, i) => [c, i]));
+  const ranked = [...agg.partners.entries()]
+    .map(([i, v]) => ({ code: ctx.meta.countries[i], v }))
+    .filter((r) => COUNTRY_CODES.has(r.code) && r.v[0] > 0)
+    .sort((a, b) => b.v[0] - a.v[0])
+    .map((r, i) => ({ ...r, rank: i + 1 }));
+  const selectedIndex = index.get(country.code);
+  const selected = (selectedIndex !== undefined && agg.partners.get(selectedIndex)) || zero();
+  return { ...ctx, chapter, agg, ranked, selected, selectedIndex };
+}
 
 /* Product view: one HS code, all partners, the selected partner highlighted */
 
@@ -265,64 +304,70 @@ export type ProductView = {
     prevShare: number;
     rank: number | null;
     dutyRate: number | null;
-    monthly: MonthPoint[];
+    /** null: not in the snapshot (partners other than Türkiye); load with getLiveMonthly. */
+    monthly: MonthPoint[] | null;
   };
   partners: number;
   suppliers: PartnerStat[];
-  ports: PortStat[];
+  /** null: not in the snapshot (partners other than Türkiye); load with getLivePorts. */
+  ports: PortStat[] | null;
   children: ProductRow[];
-  tariff: TariffLine[] | null;
 };
+
+const seriesOf = (meta: Meta, values: number[]): MonthPoint[] => meta.months.map((month, i) => ({ month, value: values[i] ?? 0, duty: null }));
 
 export const getProductView = cache(async (code: string, countryCode: string, locale: string): Promise<ProductView | null> => {
   const hs = getHs(code);
   if (!hs) return null;
   const country = countryByCode(countryCode)!;
-  const latest = await latestMonth();
-  const basis = ytdBasis(latest);
-  const w = windowsFor(latest);
-  const childLevel = hs.level < 6 ? ((hs.level + 2) as 4 | 6) : null;
-  const [all, ports, childCur, childPrev, childWorld, tariff] = await Promise.all([
-    partnersMonthly(hs.code, addMonths(latest, -35)),
-    portsMonthly(country.code, hs.code, w.cur.first),
-    childLevel ? levelYtd(country.code, childLevel, basis.cur) : Promise.resolve([]),
-    childLevel ? levelYtd(country.code, childLevel, basis.prev) : Promise.resolve([]),
-    childLevel ? levelYtd(WORLD, childLevel, basis.cur) : Promise.resolve([]),
-    hs.level === 6 ? tariffLines(hs.code, latest.y) : Promise.resolve(null),
-  ]);
+  const { meta, latest, windows, basis, chapter, agg, ranked, selected, selectedIndex } = await productCore(hs, country);
+  const isTr = country.code === TURKIYE.code;
 
-  const cur = sumByPartner(all, w.cur.keys);
-  const prev = sumByPartner(all, w.prev.keys);
-  const world = cur.get(WORLD) ?? empty();
-  const worldPrev = prev.get(WORLD) ?? empty();
-  const mine = cur.get(country.code) ?? empty();
-  const minePrev = prev.get(country.code) ?? empty();
-  const ranked = ranking(cur);
-  const prevBy = new Map(ranking(prev).map((r) => [r.code, r.totals]));
-
-  const toStat = (r: (typeof ranked)[number]): PartnerStat => {
-    const p = prevBy.get(r.code)?.gen ?? 0;
-    return {
-      country: countryByCode(r.code)!,
-      rank: r.rank,
-      value: r.totals.gen,
-      prevValue: p,
-      growth: growth(r.totals.gen, p),
-      share: world.gen > 0 ? r.totals.gen / world.gen : 0,
-      dutyRate: dutyRate(r.totals),
-    };
-  };
+  const toStat = (r: (typeof ranked)[number]): PartnerStat => ({
+    country: countryByCode(r.code)!,
+    rank: r.rank,
+    value: r.v[0],
+    prevValue: r.v[1],
+    growth: growth(r.v[0], r.v[1]),
+    share: shareOf(r.v[0], agg.world[0]),
+    dutyRate: rateOf(r.v),
+  });
   const suppliers = ranked.slice(0, 10).map(toStat);
   const mineRanked = ranked.find((r) => r.code === country.code);
   if (mineRanked && mineRanked.rank > 10) suppliers.push(toStat(mineRanked));
 
-  const childCodes = new Set(hsChildren(hs.code).map((c) => c.code));
-  const children = childLevel
-    ? productRows(childCur, childPrev, childWorld, locale, (c) => childCodes.has(c))
-        .filter((r) => r.value > 0 || r.prevValue > 0)
-        .sort((a, b) => b.value - a.value || b.prevValue - a.prevValue)
-        .slice(0, 15)
-    : [];
+  // Sub-products for the selected partner, year-to-date, with their share of all US imports.
+  const childLevel = hs.level < 6 ? hs.level + 2 : null;
+  let children: ProductRow[] = [];
+  if (childLevel) {
+    const kids = new Map<string, { value: number; prevValue: number; world: number }>();
+    for (const [code6, e] of Object.entries(chapter)) {
+      if (!code6.startsWith(hs.code)) continue;
+      const key = code6.slice(0, childLevel);
+      const k = kids.get(key) ?? { value: 0, prevValue: 0, world: 0 };
+      if (e.w) k.world += e.w[2];
+      const row = selectedIndex === undefined ? undefined : e.c?.find((r) => r[0] === selectedIndex);
+      if (row) {
+        k.value += row[3];
+        k.prevValue += row[4];
+      }
+      kids.set(key, k);
+    }
+    const childCodes = new Set(hsChildren(hs.code).map((c) => c.code));
+    children = [...kids.entries()]
+      .filter(([c, k]) => childCodes.has(c) && (k.value > 0 || k.prevValue > 0))
+      .flatMap(([c, k]) => productRow(c, k.value, k.prevValue, k.world, locale) ?? [])
+      .sort((a, b) => b.value - a.value || b.prevValue - a.prevValue)
+      .slice(0, 15);
+  }
+
+  // Türkiye's ports by product are in the snapshot unless that build could not get them.
+  const ports =
+    isTr && meta.trPorts !== false ? portStats([...agg.portsTr.entries()].map(([port, [gen, ves]]) => ({ port, name: "", gen, ves }))) : null;
+  if (ports?.length) {
+    const { names } = await loadPorts();
+    for (const p of ports) p.name = names[p.port] ?? p.port;
+  }
 
   return {
     hs,
@@ -332,36 +377,45 @@ export const getProductView = cache(async (code: string, countryCode: string, lo
       label: hsLabel(a, locale),
     })),
     latest,
-    windows: w,
+    windows,
     basis,
     country,
     world: {
-      value: world.gen,
-      prevValue: worldPrev.gen,
-      growth: growth(world.gen, worldPrev.gen),
-      dutyRate: dutyRate(world),
-      monthly: seriesFor(all, WORLD, monthsEnding(latest, 36)),
+      value: agg.world[0],
+      prevValue: agg.world[1],
+      growth: growth(agg.world[0], agg.world[1]),
+      dutyRate: rateOf(agg.world),
+      monthly: seriesOf(meta, agg.monthlyWorld),
     },
     selected: {
-      value: mine.gen,
-      prevValue: minePrev.gen,
-      growth: growth(mine.gen, minePrev.gen),
-      share: world.gen > 0 ? mine.gen / world.gen : 0,
-      prevShare: worldPrev.gen > 0 ? minePrev.gen / worldPrev.gen : 0,
+      value: selected[0],
+      prevValue: selected[1],
+      growth: growth(selected[0], selected[1]),
+      share: shareOf(selected[0], agg.world[0]),
+      prevShare: shareOf(selected[1], agg.world[1]),
       rank: mineRanked?.rank ?? null,
-      dutyRate: dutyRate(mine),
-      monthly: seriesFor(all, country.code, monthsEnding(latest, 36)),
+      dutyRate: rateOf(selected),
+      monthly: isTr ? seriesOf(meta, agg.monthlyTr) : null,
     },
     partners: ranked.length,
     suppliers,
-    ports: portStats(
-      ports,
-      ports.reduce((s, p) => s + p.gen, 0),
-    ),
+    ports,
     children,
-    tariff,
   };
 });
+
+/** Monthly line for a partner the snapshot does not hold (live Census query, cached for the month). */
+export async function getLiveMonthly(code: string, countryCode: string): Promise<MonthPoint[]> {
+  const meta = await loadMeta();
+  const values = await monthlyValues(code, countryCode, parseYm(meta.months[0]), parseYm(meta.latest));
+  return meta.months.map((month) => ({ month, value: values.get(month) ?? 0, duty: null }));
+}
+
+/** US ports for one product and partner, last 12 months (live Census query, cached for the month). */
+export async function getLivePorts(code: string, countryCode: string): Promise<PortStat[]> {
+  const { windows } = await context();
+  return portStats(await portTotals(countryCode, code, windows.cur.first, windows.cur.last));
+}
 
 /* Compact snapshot for prospect pages and lead emails */
 
@@ -378,28 +432,19 @@ export async function getProductSnapshot(code: string, countryCode: string, loca
   const hs = getHs(code);
   if (!hs) return null;
   const country = countryByCode(countryCode)!;
-  const latest = await latestMonth();
-  const w = windowsFor(latest);
-  const all = await partnersMonthly(hs.code, addMonths(latest, -35));
-  const cur = sumByPartner(all, w.cur.keys);
-  const prev = sumByPartner(all, w.prev.keys);
-  const world = cur.get(WORLD) ?? empty();
-  const worldPrev = prev.get(WORLD) ?? empty();
-  const mine = cur.get(country.code) ?? empty();
-  const minePrev = prev.get(country.code) ?? empty();
-  const ranked = ranking(cur);
+  const { latest, windows, agg, ranked, selected } = await productCore(hs, country);
   return {
     hs,
     label: hsLabel(hs, locale),
     latest,
-    windows: w,
+    windows,
     country,
     partners: ranked.length,
-    value: mine.gen,
-    growth: growth(mine.gen, minePrev.gen),
-    share: world.gen > 0 ? mine.gen / world.gen : 0,
+    value: selected[0],
+    growth: growth(selected[0], selected[1]),
+    share: shareOf(selected[0], agg.world[0]),
     rank: ranked.find((r) => r.code === country.code)?.rank ?? null,
-    worldValue: world.gen,
-    worldGrowth: growth(world.gen, worldPrev.gen),
+    worldValue: agg.world[0],
+    worldGrowth: growth(agg.world[0], agg.world[1]),
   };
 }

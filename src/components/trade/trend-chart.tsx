@@ -25,6 +25,24 @@ function scale(max: number, ticks = 4) {
   };
 }
 
+/** Same footprint as TrendChart, for a line that is still loading (busy) or could not be loaded. */
+export function ChartPlaceholder({ title, subtitle, message, busy = true }: { title: string; subtitle?: string; message: string; busy?: boolean }) {
+  return (
+    <figure className="rounded-sm border border-line bg-paper p-4 sm:p-6" aria-busy={busy || undefined}>
+      <figcaption>
+        <span className="block font-display text-[1.375rem] leading-snug font-semibold text-navy">{title}</span>
+        {subtitle && <span className="mt-1 block text-[0.875rem] text-mist">{subtitle}</span>}
+      </figcaption>
+      <div className="mt-8 flex h-52 items-center justify-center rounded-xs bg-sand/50 px-4 text-center sm:h-60">
+        <p role="status" className="text-[0.875rem] text-mist">
+          {message}
+        </p>
+      </div>
+      <div aria-hidden="true" className="mt-4 h-11" />
+    </figure>
+  );
+}
+
 export function TrendChart({
   points,
   locale,

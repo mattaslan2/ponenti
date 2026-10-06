@@ -122,9 +122,12 @@ Use a link with campaign tags, e.g. `/tr?utm_source=test&utm_medium=email&utm_ca
 ## 12b. Trade data tool
 
 - [ ] Vercel → Settings → Environment Variables: add `CENSUS_API_KEY` and `USITC_DATAWEB_TOKEN` (Production and Preview), then redeploy.
-- [ ] Open `/tr/ticaret-verileri`: the Türkiye overview shows numbers and "Son veri: [month]". Open `/tr/ticaret-verileri/570242`: suppliers, ports and the HTS tariff table appear.
+- [ ] GitHub → Settings → Secrets and variables → Actions → New repository secret: `CENSUS_API_KEY` (same value). Without it the monthly data refresh skips and the pages keep showing the last snapshot.
+- [ ] GitHub → Actions → Trade data snapshot → Run workflow (leave "force" off): it should finish green with "Snapshot already has [month]" or commit a new month.
+- [ ] Open `/tr/ticaret-verileri`: the Türkiye overview shows numbers and "Son veri: [month]". Open `/tr/ticaret-verileri/570242`: suppliers, ports and the HTS tariff table appear. Switch the country to Almanya: the Germany line and ports load a moment after the rest.
 - [ ] Send yourself "Bu analizi e-postayla alın" from a product page: the email shows the product summary and link; the lead appears in Attio with form `trade_data`.
 - [ ] Calendar reminder for 2027-03-25: renew the USITC DataWeb token (it expires 2027-04-04) at https://dataweb.usitc.gov/api-key and update `USITC_DATAWEB_TOKEN` in Vercel.
+- [ ] Once a month, glance at GitHub → Actions: a red "Trade data snapshot" run means the refresh failed (usually the Census API being down; it retries the next day).
 - [ ] Each January or February, after full-year data is out: rebuild the search index with `node scripts/build-trade-index.mjs <last year>` and commit `src/data/trade/`.
 
 ## 13. Go live

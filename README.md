@@ -63,7 +63,7 @@ src/
   fonts/               self-hosted web fonts, Latin + Turkish subsets (OFL)
 docs/                  placeholders, launch checklist, generated copy
 tests/                 end-to-end, accessibility and lead-flow scripts
-scripts/               placeholder report, copy export, font subsetting
+scripts/               placeholder report, copy export, font subsetting, trade data builders
 assets/fonts/          fonts for share images (OFL)
 ```
 
@@ -84,7 +84,7 @@ Copy `.env.example`. Nothing is required to build; each integration switches on 
 | `NEXT_PUBLIC_CAL_LINK` | public | Cal.com event, e.g. `ponenti/15min` | Contact page says the calendar isn't connected |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | public | Click-to-chat with a prefilled Turkish or English message | WhatsApp buttons go to the contact page |
 | `NEXT_PUBLIC_PORTAL_URL` | public | Client-portal button target, default `/portal` | Placeholder portal page |
-| `CENSUS_API_KEY` | server | US import statistics for the trade-data pages | Trade pages say the data isn't connected |
+| `CENSUS_API_KEY` | server | Live Census lines on trade product pages for partners other than Türkiye (monthly line, ports). The figures themselves come from the snapshot | Those two parts say the data isn't connected; everything else works |
 | `USITC_DATAWEB_TOKEN` | server | HTS tariff lines on 6-digit product pages. Expires every 180 days (current: 2027-04-04) | Tariff card hidden; everything else works |
 | `NEXT_PUBLIC_SITE_URL` | public | Canonical URL, hreflang, sitemap | Falls back to Vercel's production URL |
 | `SITE_INDEXABLE` | server | `true` lets search engines index the site | `noindex` + `Disallow: /` (pre-launch default) |
@@ -124,7 +124,9 @@ To test this flow without real accounts, run a mock server and set `ATTIO_API_UR
 - **Leads**: "Email me this analysis" creates an Attio lead (`ponenti_form = trade_data`) and emails the visitor a summary recomputed on the server.
 - **Prospect pages**: add `"hs": "5702"` to a prospect JSON file to show a US market snapshot for that firm's product.
 
-Data: U.S. Census Bureau International Trade API (imports, monthly, about five weeks after month end), cached for a day; USITC DataWeb for HTS rates, cached for a week. Keys never reach the browser. The Census terms require the notice shown under every trade page ("This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau."); keep it. Search ranking uses a static index in `src/data/trade/` (2025 values); rebuild it once a year with `CENSUS_API_KEY=... USITC_DATAWEB_TOKEN=... node scripts/build-trade-index.mjs 2026`.
+Data: U.S. Census Bureau International Trade API (imports, monthly, about five weeks after month end). Pages never wait on that API: its answers take anywhere from 1 to 80+ seconds. Instead, `scripts/build-trade-snapshot.mjs` pulls everything once per release into `src/data/trade/snapshot/` (about 1,200 queries, 15 to 60 minutes) and the pages read those files. The GitHub Action `.github/workflows/trade-snapshot.yml` runs it daily, does nothing until a new month is out, then commits the new snapshot to `main`, which redeploys the site. It needs the repository secret `CENSUS_API_KEY` (GitHub → Settings → Secrets and variables → Actions). To refresh by hand: Actions → Trade data snapshot → Run workflow, or locally `CENSUS_API_KEY=... node scripts/build-trade-snapshot.mjs --force`.
+
+Only three parts are still live, each loading on its own so the rest of the page shows at once: the monthly line and the US ports for a partner other than Türkiye (Census, cached for the month), and the HTS tariff lines (USITC DataWeb, cached for a week). Keys never reach the browser. The Census terms require the notice shown under every trade page ("This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau."); keep it. Search ranking uses a static index in `src/data/trade/` (2025 values); rebuild it once a year with `CENSUS_API_KEY=... USITC_DATAWEB_TOKEN=... node scripts/build-trade-index.mjs 2026`.
 
 Definitions shown on the pages: value = general imports at customs value; effective duty rate = Census calculated duty ÷ imports for consumption (includes additional duties, not later refunds). Quantities exist only at the 10-digit level, so unit prices are not shown yet.
 

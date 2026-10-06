@@ -35,3 +35,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 *.pem
+
+# Trade snapshot build leftovers (only exist while scripts/build-trade-snapshot.mjs runs)
+/src/data/trade/snapshot.tmp/
+/src/data/trade/snapshot.old/

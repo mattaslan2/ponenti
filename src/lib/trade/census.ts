@@ -1,13 +1,15 @@
 import "server-only";
-import { addMonths, parseYm, ymKey, type Ym } from "./periods";
+import { after } from "next/server";
+import { ymKey, type Ym } from "./periods";
 
 /**
- * U.S. Census Bureau International Trade API (imports). The key stays on the
- * server; every response is cached for a day (the data changes once a month).
- * Docs: https://www.census.gov/data/developers/data-sets/international-trade.html
+ * Live U.S. Census Bureau International Trade API calls (imports), for the few views the monthly
+ * snapshot does not hold: a non-Türkiye partner's monthly line and US ports for one product.
+ * Every query names a closed month range, so a response never changes and is cached for 30 days.
+ * The key stays on the server. Docs: https://www.census.gov/data/developers/data-sets/international-trade.html
  */
 const BASE = "https://api.census.gov/data/timeseries/intltrade/imports";
-const DAY = 60 * 60 * 24;
+const MONTH = 60 * 60 * 24 * 30;
 
 export class TradeDataError extends Error {
   constructor(public code: "not_configured" | "upstream" | "timeout") {
@@ -19,122 +21,73 @@ export const censusConfigured = () => Boolean(process.env.CENSUS_API_KEY);
 
 type Row = Record<string, string>;
 
-async function query(dataset: "hs" | "porths", params: Record<string, string>, revalidate = DAY): Promise<Row[]> {
+/** How long a page view waits. A slower answer still finishes in the background and lands in the cache. */
+const WAIT_MS = 30_000;
+
+async function query(dataset: "hs" | "porths", params: Record<string, string>): Promise<Row[]> {
   const key = process.env.CENSUS_API_KEY;
   if (!key) throw new TradeDataError("not_configured");
   const search = new URLSearchParams({ ...params, key });
-  let res: Response;
+  const pending = fetch(`${BASE}/${dataset}?${search}`, {
+    next: { revalidate: MONTH, tags: ["trade-data"] },
+    signal: AbortSignal.timeout(240_000),
+  });
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const waited = new Promise<null>((resolve) => {
+    timer = setTimeout(() => resolve(null), WAIT_MS);
+  });
+  let res: Response | null;
   try {
-    res = await fetch(`${BASE}/${dataset}?${search}`, {
-      next: { revalidate, tags: ["trade-data"] },
-      signal: AbortSignal.timeout(25_000),
-    });
+    res = await Promise.race([pending, waited]);
   } catch (error) {
     throw new TradeDataError(error instanceof Error && error.name === "TimeoutError" ? "timeout" : "upstream");
+  } finally {
+    clearTimeout(timer);
+  }
+  if (!res) {
+    // Too slow for this visitor: keep the request alive after the response so the next one is instant.
+    const settled = pending.then((r) => r.text()).catch(() => undefined);
+    after(() => settled);
+    throw new TradeDataError("timeout");
   }
   if (res.status === 204) return []; // no trade for this filter
   if (!res.ok) throw new TradeDataError("upstream");
   const text = await res.text();
   if (!text) return [];
-  const [header, ...rows] = JSON.parse(text) as string[][];
-  return rows.map((r) => Object.fromEntries(header.map((h, i) => [h, r[i]])));
+  try {
+    const [header, ...rows] = JSON.parse(text) as string[][];
+    return rows.map((r) => Object.fromEntries(header.map((h, i) => [h, r[i]])));
+  } catch {
+    throw new TradeDataError("upstream"); // the API answers some failures with a plain-text page
+  }
 }
 
 const num = (v: string | undefined) => (v ? Number(v) || 0 : 0);
+const range = (from: Ym, to: Ym) => `from ${ymKey(from)} to ${ymKey(to)}`;
 
-/** Latest month with published data (the Census releases about five weeks after month end). */
-export async function latestMonth(): Promise<Ym> {
-  const now = new Date();
-  const from = addMonths({ y: now.getUTCFullYear(), m: now.getUTCMonth() + 1 }, -9);
-  const rows = await query(
-    "hs",
-    {
-      get: "GEN_VAL_MO",
-      CTY_CODE: "-",
-      I_COMMODITY: "-",
-      time: `from ${ymKey(from)}`,
-    },
-    6 * 60 * 60,
-  );
-  const months = rows
-    .filter((r) => num(r.GEN_VAL_MO) > 0)
-    .map((r) => r.time)
-    .sort();
-  if (!months.length) throw new TradeDataError("upstream");
-  return parseYm(months[months.length - 1]);
+/** Monthly value of one product ("-" = all goods) from one partner, keyed by "YYYY-MM". */
+export async function monthlyValues(hs: string, cty: string, from: Ym, to: Ym): Promise<Map<string, number>> {
+  const rows = await query("hs", { get: "GEN_VAL_MO", I_COMMODITY: hs, CTY_CODE: cty, time: range(from, to) });
+  return new Map(rows.map((r) => [r.time, num(r.GEN_VAL_MO)]));
 }
 
-export type MonthlyRow = {
-  cty: string;
-  month: string;
-  gen: number;
-  con: number;
-  duty: number;
-  air: number;
-  ves: number;
-};
+export type PortRow = { port: string; name: string; gen: number; ves: number };
 
-/** Monthly imports of one product ("-" = all goods) from every partner, from `from` to the latest month. */
-export async function partnersMonthly(hs: string, from: Ym): Promise<MonthlyRow[]> {
-  const rows = await query("hs", {
-    get: "CTY_CODE,GEN_VAL_MO,CON_VAL_MO,CAL_DUT_MO,AIR_VAL_MO,VES_VAL_MO",
-    I_COMMODITY: hs,
-    time: `from ${ymKey(from)}`,
-  });
-  return rows.map((r) => ({
-    cty: r.CTY_CODE,
-    month: r.time,
-    gen: num(r.GEN_VAL_MO),
-    con: num(r.CON_VAL_MO),
-    duty: num(r.CAL_DUT_MO),
-    air: num(r.AIR_VAL_MO),
-    ves: num(r.VES_VAL_MO),
-  }));
-}
-
-export type YtdRow = { code: string; gen: number; con: number; duty: number };
-
-/** Year-to-date imports at one HS level (HS2/HS4/HS6) from one partner ("-" = all partners). */
-export async function levelYtd(cty: string, level: 2 | 4 | 6, at: Ym): Promise<YtdRow[]> {
-  const rows = await query("hs", {
-    get: "I_COMMODITY,GEN_VAL_YR,CON_VAL_YR,CAL_DUT_YR",
-    CTY_CODE: cty,
-    COMM_LVL: `HS${level}`,
-    time: ymKey(at),
-  });
-  return rows.map((r) => ({
-    code: r.I_COMMODITY,
-    gen: num(r.GEN_VAL_YR),
-    con: num(r.CON_VAL_YR),
-    duty: num(r.CAL_DUT_YR),
-  }));
-}
-
-export type PortRow = {
-  port: string;
-  name: string;
-  month: string;
-  gen: number;
-  ves: number;
-  air: number;
-};
-
-/** Monthly imports by US port of entry for one partner and product ("-" = all goods). */
-export async function portsMonthly(cty: string, hs: string, from: Ym): Promise<PortRow[]> {
+/** Imports of one product from one partner by US port of entry, summed over the months given. */
+export async function portTotals(cty: string, hs: string, from: Ym, to: Ym): Promise<PortRow[]> {
   const rows = await query("porths", {
-    get: "PORT,PORT_NAME,GEN_VAL_MO,VES_VAL_MO,AIR_VAL_MO",
+    get: "PORT,PORT_NAME,GEN_VAL_MO,VES_VAL_MO",
     CTY_CODE: cty,
     I_COMMODITY: hs,
-    time: `from ${ymKey(from)}`,
+    time: range(from, to),
   });
-  return rows
-    .filter((r) => r.PORT && r.PORT !== "-")
-    .map((r) => ({
-      port: r.PORT,
-      name: r.PORT_NAME,
-      month: r.time,
-      gen: num(r.GEN_VAL_MO),
-      ves: num(r.VES_VAL_MO),
-      air: num(r.AIR_VAL_MO),
-    }));
+  const byPort = new Map<string, PortRow>();
+  for (const r of rows) {
+    if (!r.PORT || r.PORT === "-") continue;
+    const p = byPort.get(r.PORT) ?? { port: r.PORT, name: r.PORT_NAME, gen: 0, ves: 0 };
+    p.gen += num(r.GEN_VAL_MO);
+    p.ves += num(r.VES_VAL_MO);
+    byPort.set(r.PORT, p);
+  }
+  return [...byPort.values()];
 }

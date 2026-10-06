@@ -7,14 +7,15 @@ import type { Locale } from "@/i18n/routing";
 import { SourceLink } from "@/components/external-link";
 import { FinalCta } from "@/components/home/sections";
 import { TradeFilters } from "@/components/trade/trade-filters";
-import { TrendChart } from "@/components/trade/trend-chart";
+import { ChartPlaceholder, TrendChart } from "@/components/trade/trend-chart";
 import { PortList, ProductHeader, ProductList, SectionTitle, StatTile, SupplierHeader, SupplierList, deltaOf } from "@/components/trade/blocks";
 import { DataNotes, TradeLead, TradeLoading, TradeMessage, chartLabels, countryOptions, filterLabels } from "@/components/trade/trade-ui";
-import { getProductView } from "@/lib/trade/analysis";
-import { TradeDataError, censusConfigured } from "@/lib/trade/census";
+import { getLiveMonthly, getLivePorts, getProductView } from "@/lib/trade/analysis";
+import { censusConfigured } from "@/lib/trade/census";
 import { TURKIYE, countryByIso, countryName, type Country } from "@/lib/trade/countries";
 import { basisLabel, monthLabel, pct, usdCompact, windowLabel } from "@/lib/trade/format";
 import { getHs, hsAncestors, hsLabel, normalizeHs, type HsCode } from "@/lib/trade/hs";
+import { tariffLines } from "@/lib/trade/usitc";
 import { buildMetadata } from "@/lib/seo";
 import { productHref } from "@/lib/trade/links";
 
@@ -106,13 +107,9 @@ export default async function TradeProductPage(props: Props) {
         </div>
       </div>
 
-      {censusConfigured() ? (
-        <Suspense key={`${hs.code}-${country.code}`} fallback={<TradeLoading label={t("loading")} />}>
-          <ProductSection hs={hs} country={country} locale={locale} />
-        </Suspense>
-      ) : (
-        <TradeMessage>{t("errors.notConfigured")}</TradeMessage>
-      )}
+      <Suspense key={`${hs.code}-${country.code}`} fallback={<TradeLoading label={t("loading")} />}>
+        <ProductSection hs={hs} country={country} locale={locale} />
+      </Suspense>
 
       <TradeLead context={{ hs: hs.code, country: country.iso2 }} />
       <DataNotes locale={locale} withTariff={hs.level === 6} />
@@ -129,8 +126,8 @@ async function ProductSection({ hs, country, locale }: { hs: HsCode; country: Co
   try {
     data = await getProductView(hs.code, country.code, locale);
   } catch (error) {
-    if (error instanceof TradeDataError) return <TradeMessage>{t("errors.unavailable")}</TradeMessage>;
-    throw error;
+    console.error("[trade] product view failed", error);
+    return <TradeMessage>{t("errors.unavailable")}</TradeMessage>;
   }
   if (!data) return <TradeMessage>{t("errors.unknownCode")}</TradeMessage>;
 
@@ -199,16 +196,30 @@ async function ProductSection({ hs, country, locale }: { hs: HsCode; country: Co
             labels={labels}
             muted
           />
-          <TrendChart
-            points={data.selected.monthly.map((p) => ({
-              month: p.month,
-              value: p.value,
-            }))}
-            locale={locale}
-            title={t("product.chartSelected", { country: name })}
-            subtitle={t("product.chartSubtitle")}
-            labels={labels}
-          />
+          {data.selected.monthly ? (
+            <TrendChart
+              points={data.selected.monthly.map((p) => ({
+                month: p.month,
+                value: p.value,
+              }))}
+              locale={locale}
+              title={t("product.chartSelected", { country: name })}
+              subtitle={t("product.chartSubtitle")}
+              labels={labels}
+            />
+          ) : (
+            <Suspense
+              fallback={
+                <ChartPlaceholder
+                  title={t("product.chartSelected", { country: name })}
+                  subtitle={t("product.chartSubtitle")}
+                  message={t("loading")}
+                />
+              }
+            >
+              <LiveMonthlyChart hs={hs} country={country} locale={locale} />
+            </Suspense>
+          )}
         </div>
 
         {data.suppliers.length > 0 && (
@@ -266,80 +277,150 @@ async function ProductSection({ hs, country, locale }: { hs: HsCode; country: Co
         {hs.level === 6 && (
           <div className="mt-14">
             <SectionTitle as="h2" title={t("product.tariffTitle")} intro={t("product.tariffIntro")} />
-            {data.tariff?.length ? (
-              <>
-                <ul className="mt-6 divide-y divide-line rounded-sm border border-line bg-paper sm:hidden">
-                  {data.tariff.map((l) => (
-                    <li key={l.hts8} className="p-4">
-                      <p className="flex items-baseline justify-between gap-3">
-                        <span className="[font-variant-numeric:tabular-nums]">{htsFormat(l.hts8)}</span>
-                        <span className="font-medium text-navy">
-                          <span className="sr-only">{t("cols.rate")}: </span>
-                          {/^free$/i.test(l.general) ? t("product.free") : l.general || "–"}
-                        </span>
-                      </p>
-                      <p className="mt-1 text-[0.875rem] text-mist" lang="en">
-                        {l.description}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-                <div
-                  className="mt-6 hidden overflow-x-auto rounded-sm border border-line bg-paper sm:block"
-                  role="region"
-                  aria-label={t("product.tariffTitle")}
-                  tabIndex={0}
-                >
-                  <table className="w-full min-w-[36rem] text-[0.9375rem]">
-                    <thead className="bg-sand text-left text-[0.8125rem] text-mist">
-                      <tr>
-                        <th scope="col" className="px-4 py-2.5 font-medium">
-                          {t("cols.hts")}
-                        </th>
-                        <th scope="col" className="px-4 py-2.5 font-medium">
-                          {t("cols.description")}
-                        </th>
-                        <th scope="col" className="px-4 py-2.5 text-right font-medium whitespace-nowrap">
-                          {t("cols.rate")}
-                        </th>
-                        <th scope="col" className="px-4 py-2.5 text-right font-medium">
-                          {t("cols.units")}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.tariff.map((l) => (
-                        <tr key={l.hts8} className="border-t border-line align-top">
-                          <td className="px-4 py-3 whitespace-nowrap [font-variant-numeric:tabular-nums]">{htsFormat(l.hts8)}</td>
-                          <td className="px-4 py-3 text-graphite" lang="en">
-                            {l.description}
-                          </td>
-                          <td className="px-4 py-3 text-right font-medium whitespace-nowrap text-navy">
-                            {/^free$/i.test(l.general) ? t("product.free") : l.general || "–"}
-                          </td>
-                          <td className="px-4 py-3 text-right whitespace-nowrap text-mist">{l.units.join(", ")}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </>
-            ) : (
-              <p className="mt-4 text-mist">{t("product.tariffNone")}</p>
-            )}
+            <Suspense
+              fallback={
+                <p role="status" className="mt-4 text-mist">
+                  {t("loading")}
+                </p>
+              }
+            >
+              <TariffLines hs={hs} year={data.latest.y} />
+            </Suspense>
             <p className="mt-3 text-[0.9375rem]">
               <SourceLink href={`https://hts.usitc.gov/search?query=${hs.code}`}>{t("product.tariffLink")}</SourceLink>
             </p>
           </div>
         )}
 
-        {data.ports.length > 0 && (
-          <div className="mt-14 max-w-3xl">
-            <SectionTitle as="h2" title={t("product.portsTitle")} intro={t("product.portsIntro", { country: name })} />
-            <PortList rows={data.ports} locale={locale} labels={{ share: t("cols.share"), vessel: t("cols.vessel") }} />
-          </div>
+        {data.ports === null ? (
+          <Suspense
+            fallback={
+              <div className="mt-14 max-w-3xl">
+                <SectionTitle as="h2" title={t("product.portsTitle")} intro={t("product.portsIntro", { country: name })} />
+                <p role="status" className="mt-4 text-mist">
+                  {t("loading")}
+                </p>
+              </div>
+            }
+          >
+            <LivePorts hs={hs} country={country} locale={locale} />
+          </Suspense>
+        ) : (
+          data.ports.length > 0 && (
+            <div className="mt-14 max-w-3xl">
+              <SectionTitle as="h2" title={t("product.portsTitle")} intro={t("product.portsIntro", { country: name })} />
+              <PortList rows={data.ports} locale={locale} labels={{ share: t("cols.share"), vessel: t("cols.vessel") }} />
+            </div>
+          )
         )}
       </div>
     </section>
+  );
+}
+
+/** Monthly line for a partner other than Türkiye: a live Census query, cached for the month. */
+async function LiveMonthlyChart({ hs, country, locale }: { hs: HsCode; country: Country; locale: Locale }) {
+  const t = await getTranslations("trade");
+  const title = t("product.chartSelected", { country: countryName(country, locale) });
+  const subtitle = t("product.chartSubtitle");
+  if (!censusConfigured()) return <ChartPlaceholder title={title} subtitle={subtitle} message={t("errors.notConfigured")} busy={false} />;
+  const points = await getLiveMonthly(hs.code, country.code).catch((error: unknown) => {
+    console.error("[trade] live monthly failed", error);
+    return null;
+  });
+  if (!points) return <ChartPlaceholder title={title} subtitle={subtitle} message={t("errors.section")} busy={false} />;
+  return (
+    <TrendChart
+      points={points.map((p) => ({ month: p.month, value: p.value }))}
+      locale={locale}
+      title={title}
+      subtitle={subtitle}
+      labels={await chartLabels()}
+    />
+  );
+}
+
+/** US ports for a partner other than Türkiye: a live Census query, cached for the month. */
+async function LivePorts({ hs, country, locale }: { hs: HsCode; country: Country; locale: Locale }) {
+  const t = await getTranslations("trade");
+  if (!censusConfigured()) return null;
+  let ports;
+  try {
+    ports = await getLivePorts(hs.code, country.code);
+  } catch (error) {
+    console.error("[trade] live ports failed", error);
+    return null;
+  }
+  if (!ports.length) return null;
+  return (
+    <div className="mt-14 max-w-3xl">
+      <SectionTitle as="h2" title={t("product.portsTitle")} intro={t("product.portsIntro", { country: countryName(country, locale) })} />
+      <PortList rows={ports} locale={locale} labels={{ share: t("cols.share"), vessel: t("cols.vessel") }} />
+    </div>
+  );
+}
+
+/** HTS tariff lines under an HS6 code (USITC DataWeb, cached for a week). */
+async function TariffLines({ hs, year }: { hs: HsCode; year: number }) {
+  const t = await getTranslations("trade");
+  const lines = await tariffLines(hs.code, year);
+  if (!lines?.length) return <p className="mt-4 text-mist">{t("product.tariffNone")}</p>;
+  const rate = (general: string) => (/^free$/i.test(general) ? t("product.free") : general || "–");
+  return (
+    <>
+      <ul className="mt-6 divide-y divide-line rounded-sm border border-line bg-paper sm:hidden">
+        {lines.map((l) => (
+          <li key={l.hts8} className="p-4">
+            <p className="flex items-baseline justify-between gap-3">
+              <span className="[font-variant-numeric:tabular-nums]">{htsFormat(l.hts8)}</span>
+              <span className="font-medium text-navy">
+                <span className="sr-only">{t("cols.rate")}: </span>
+                {rate(l.general)}
+              </span>
+            </p>
+            <p className="mt-1 text-[0.875rem] text-mist" lang="en">
+              {l.description}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <div
+        className="mt-6 hidden overflow-x-auto rounded-sm border border-line bg-paper sm:block"
+        role="region"
+        aria-label={t("product.tariffTitle")}
+        tabIndex={0}
+      >
+        <table className="w-full min-w-[36rem] text-[0.9375rem]">
+          <thead className="bg-sand text-left text-[0.8125rem] text-mist">
+            <tr>
+              <th scope="col" className="px-4 py-2.5 font-medium">
+                {t("cols.hts")}
+              </th>
+              <th scope="col" className="px-4 py-2.5 font-medium">
+                {t("cols.description")}
+              </th>
+              <th scope="col" className="px-4 py-2.5 text-right font-medium whitespace-nowrap">
+                {t("cols.rate")}
+              </th>
+              <th scope="col" className="px-4 py-2.5 text-right font-medium">
+                {t("cols.units")}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {lines.map((l) => (
+              <tr key={l.hts8} className="border-t border-line align-top">
+                <td className="px-4 py-3 whitespace-nowrap [font-variant-numeric:tabular-nums]">{htsFormat(l.hts8)}</td>
+                <td className="px-4 py-3 text-graphite" lang="en">
+                  {l.description}
+                </td>
+                <td className="px-4 py-3 text-right font-medium whitespace-nowrap text-navy">{rate(l.general)}</td>
+                <td className="px-4 py-3 text-right whitespace-nowrap text-mist">{l.units.join(", ")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }

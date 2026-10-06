@@ -667,7 +667,8 @@
     "errors": {
       "unavailable": "Veriler şu anda alınamıyor. Lütfen birkaç dakika sonra tekrar deneyin.",
       "notConfigured": "Ticaret verileri henüz bağlanmadı.",
-      "unknownCode": "Bu kodu bulamadık. Aramadan bir ürün seçin."
+      "unknownCode": "Bu kodu bulamadık. Aramadan bir ürün seçin.",
+      "section": "Bu bölüm şu anda yüklenemedi. Birkaç dakika sonra sayfayı yenileyin."
     },
     "loading": "Veriler yükleniyor…",
     "ctaTitle": "Bu rakamlar sizin için ne anlama geliyor?",

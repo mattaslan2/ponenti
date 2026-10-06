@@ -667,7 +667,8 @@
     "errors": {
       "unavailable": "The data can't be loaded right now. Please try again in a few minutes.",
       "notConfigured": "Trade data isn't connected yet.",
-      "unknownCode": "We couldn't find that code. Pick a product from the search."
+      "unknownCode": "We couldn't find that code. Pick a product from the search.",
+      "section": "This part couldn't be loaded right now. Refresh the page in a few minutes."
     },
     "loading": "Loading data…",
     "ctaTitle": "What do these numbers mean for you?",

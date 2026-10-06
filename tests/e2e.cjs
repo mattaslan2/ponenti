@@ -117,13 +117,12 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   await page.waitForTimeout(300);
   ok('menu link navigates and closes', page.url().endsWith('/tr/hizmetler') && !(await page.locator('dialog#mobile-menu[open]').count()), page.url());
 
-  // 8. Trade data (skipped when CENSUS_API_KEY is not set on the server)
+  // 8. Trade data. Figures come from the committed snapshot; without CENSUS_API_KEY only the live
+  // parts (another partner's monthly line and ports) say the data isn't connected.
   r = await page.goto(base + '/tr/ticaret-verileri', { waitUntil: 'networkidle', timeout: 60000 });
   ok('trade page 200', r.status() === 200, String(r.status()));
   const tradeText = await page.locator('main').innerText();
-  if (tradeText.includes('henüz bağlanmadı')) {
-    ok('trade data connected (skipped: no CENSUS_API_KEY)', true);
-  } else {
+  {
     ok('trade overview KPIs', /\$[\d.,]+ milyar/.test(tradeText) && tradeText.includes('Türkiye çıkışlı ABD ithalatı'), tradeText.slice(0, 200));
     ok('trade overview lists products', (await page.locator('main ol li a[href*="/tr/ticaret-verileri/"]').count()) >= 10);
     const slider = page.getByRole('slider').first();
@@ -146,6 +145,11 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
     await page.waitForURL('**/tr/ticaret-verileri/5702?country=IN', { timeout: 30000 });
     const switched = await page.getByText('Hindistan çıkışlı, son 12 ay').first().waitFor({ timeout: 45000 }).then(() => true, () => false);
     ok('country switch', switched, page.url());
+    // Partners other than Türkiye: the monthly line arrives live, after the snapshot figures.
+    const liveLine = page.getByRole('slider', { name: /^Hindistan çıkışlı\./ });
+    const liveOk = await liveLine.waitFor({ timeout: 60000 }).then(() => true, () => false);
+    const liveFallback = (await page.getByText(/Bu bölüm şu anda yüklenemedi|henüz bağlanmadı/).count()) > 0;
+    ok('live monthly line for a non-Türkiye partner', liveOk || liveFallback, liveOk ? 'live' : 'fallback message');
     await page.goBack();
     await page.waitForURL(/\/tr\/ticaret-verileri\/5702$/, { timeout: 30000 });
     const restored = await page.getByText('Türkiye çıkışlı, son 12 ay').first().waitFor({ timeout: 45000 }).then(() => true, () => false);
