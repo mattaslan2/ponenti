@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { Mail, Minus, Plus } from "lucide-react";
+import { ArrowUpRight, Mail, Minus, Plus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
@@ -53,10 +53,10 @@ function NumberField({
   const [draft, setDraft] = useState(String(value));
   return (
     <div>
-      <Label htmlFor={id} className="text-[0.9375rem] font-medium text-navy">
+      <Label htmlFor={id} className="text-small leading-snug font-medium text-navy">
         {label}
       </Label>
-      <div className="relative mt-2">
+      <div className="relative mt-2.5">
         <Input
           id={id}
           inputMode="numeric"
@@ -72,9 +72,9 @@ function NumberField({
             setDraft(digits);
             onChange(Math.min(max, Number(digits || 0)));
           }}
-          className="pr-12 text-[1.0625rem] [font-variant-numeric:tabular-nums]"
+          className="figures"
         />
-        {suffix && <span className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-[0.875rem] text-mist">{suffix}</span>}
+        {suffix && <span className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-small text-mist-soft">{suffix}</span>}
       </div>
     </div>
   );
@@ -98,34 +98,36 @@ export function CashCalculator() {
   });
 
   return (
-    <article aria-labelledby={`${uid}-title`} className="rounded-sm border border-line bg-paper p-6 sm:p-8">
+    <article aria-labelledby={`${uid}-title`} className="flex h-full flex-col">
       <h2 id={`${uid}-title`} className="text-display-md">
         {t("cash.title")}
       </h2>
-      <div className="mt-6 grid gap-5 sm:grid-cols-3">
+      <div className="mt-10 grid items-end gap-6 sm:grid-cols-3">
         <NumberField id={`${uid}-sales`} label={t("cash.sales")} value={sales} onChange={setSales} locale={locale} max={1e11} />
         <NumberField id={`${uid}-current`} label={t("cash.current")} value={current} onChange={setCurrent} locale={locale} max={365} />
         <NumberField id={`${uid}-target`} label={t("cash.target")} value={target} onChange={setTarget} locale={locale} max={365} />
       </div>
-      <div className="mt-8 border-t border-brass/70 pt-6" aria-live="polite">
-        <p className="text-[0.9375rem] text-mist">{t("cash.result")}</p>
+      <div className="mt-12 border-t border-navy pt-8" aria-live="polite">
+        <p className="eyebrow">{t("cash.result")}</p>
         {invalid ? (
-          <p className="mt-2 text-risk-high">{t("cash.invalid")}</p>
+          <p className="mt-4 text-oxblood">{t("cash.invalid")}</p>
         ) : (
-          <div className="numeral mt-1 text-navy">{formatUsdRounded(result, locale)}</div>
+          <div className="numeral mt-5 text-navy">{formatUsdRounded(result, locale)}</div>
         )}
       </div>
-      <p className="mt-5 text-[0.9375rem] text-graphite">{t("cash.formula")}</p>
-      <p className="mt-1 text-[0.9375rem] text-mist">{example}</p>
-      <p className="mt-1 text-[0.875rem] text-mist">{t("cash.note")}</p>
+      <div className="mt-8 flex-1 space-y-2 text-small">
+        <p className="text-navy">{t("cash.formula")}</p>
+        <p className="text-mist">{example}</p>
+        <p className="text-mist-soft">{t("cash.note")}</p>
+      </div>
       {!emailOpen ? (
-        <Button variant="outline" className="mt-6" onClick={() => setEmailOpen(true)} disabled={invalid}>
+        <Button variant="outline" className="mt-10 self-start" onClick={() => setEmailOpen(true)} disabled={invalid}>
           <Mail aria-hidden="true" />
           {t("emailCta")}
         </Button>
       ) : (
         <LeadForm
-          className="mt-6 border-t border-line pt-6"
+          className="mt-10 border-t border-line pt-8"
           formType="calc_cash"
           paymentDays={paymentDaysRange(current)}
           context={JSON.stringify({ sales, current, target, result: Math.round(result) })}
@@ -147,16 +149,16 @@ export function Form5472Calculator({ sourceUrl, sourceLabel, opensNewTab }: { so
   useUsedOnce("form_5472", [years]);
 
   return (
-    <article aria-labelledby={`${uid}-title`} className="rounded-sm border border-line bg-paper p-6 sm:p-8">
+    <article aria-labelledby={`${uid}-title`} className="flex h-full flex-col">
       <h2 id={`${uid}-title`} className="text-display-md">
         {t("form5472.title")}
       </h2>
-      <div className="mt-6">
-        <Label htmlFor={`${uid}-years`} className="text-[0.9375rem] font-medium text-navy">
+      <div className="mt-10">
+        <Label htmlFor={`${uid}-years`} className="text-small leading-snug font-medium text-navy">
           {t("form5472.years")}
         </Label>
-        <div className="mt-2 flex items-center gap-2">
-          <Button variant="outline" size="icon" aria-label={t("form5472.decrease")} onClick={() => setYears((y) => Math.max(0, y - 1))}>
+        <div className="mt-2.5 flex items-center gap-2">
+          <Button variant="outline" size="icon" className="size-12" aria-label={t("form5472.decrease")} onClick={() => setYears((y) => Math.max(0, y - 1))}>
             <Minus aria-hidden="true" />
           </Button>
           <Input
@@ -164,34 +166,37 @@ export function Form5472Calculator({ sourceUrl, sourceLabel, opensNewTab }: { so
             inputMode="numeric"
             value={years}
             onChange={(e) => setYears(Math.min(20, Number(e.target.value.replace(/\D/g, "") || 0)))}
-            className="w-20 text-center text-[1.0625rem]"
+            className="figures w-20 text-center"
           />
-          <Button variant="outline" size="icon" aria-label={t("form5472.increase")} onClick={() => setYears((y) => Math.min(20, y + 1))}>
+          <Button variant="outline" size="icon" className="size-12" aria-label={t("form5472.increase")} onClick={() => setYears((y) => Math.min(20, y + 1))}>
             <Plus aria-hidden="true" />
           </Button>
         </div>
       </div>
-      <div className="mt-8 border-t border-brass/70 pt-6" aria-live="polite">
-        <p className="text-[0.9375rem] text-mist">{t("form5472.result")}</p>
-        <div className="numeral mt-1 text-navy">{formatUsd(result, locale)}</div>
+      <div className="mt-12 border-t border-navy pt-8" aria-live="polite">
+        <p className="eyebrow">{t("form5472.result")}</p>
+        <div className="numeral mt-5 text-navy">{formatUsd(result, locale)}</div>
       </div>
-      <p className="mt-5 text-[0.9375rem] text-graphite">{t("form5472.formula", { penalty })}</p>
-      <p className="mt-1 text-[0.9375rem] text-mist">{t("form5472.continuation", { penalty })}</p>
-      <p className="mt-1 text-[0.9375rem] text-mist">{t("form5472.multiple")}</p>
-      <p className="mt-2 text-[0.875rem]">
-        <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="link">
-          {sourceLabel}
-          <span className="sr-only"> {opensNewTab}</span>
-        </a>
-      </p>
+      <div className="mt-8 flex-1 space-y-2 text-small">
+        <p className="text-navy">{t("form5472.formula", { penalty })}</p>
+        <p className="text-mist">{t("form5472.continuation", { penalty })}</p>
+        <p className="text-mist">{t("form5472.multiple")}</p>
+        <p className="pt-1 text-caption text-mist-soft">
+          <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="link inline-flex items-baseline gap-1">
+            {sourceLabel}
+            <ArrowUpRight aria-hidden="true" className="nudge-up size-3.5 translate-y-0.5" />
+            <span className="sr-only"> {opensNewTab}</span>
+          </a>
+        </p>
+      </div>
       {!emailOpen ? (
-        <Button variant="outline" className="mt-6" onClick={() => setEmailOpen(true)}>
+        <Button variant="outline" className="mt-10 self-start" onClick={() => setEmailOpen(true)}>
           <Mail aria-hidden="true" />
           {t("emailCta")}
         </Button>
       ) : (
         <LeadForm
-          className="mt-6 border-t border-line pt-6"
+          className="mt-10 border-t border-line pt-8"
           formType="calc_5472"
           segment="us_entity"
           context={JSON.stringify({ years, result })}

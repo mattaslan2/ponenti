@@ -1,10 +1,11 @@
 "use client";
 
 import { openConsentPreferences } from "@/lib/consent";
+import { cn } from "@/lib/utils";
 
-export function CookieSettingsButton({ label }: { label: string }) {
+export function CookieSettingsButton({ label, className }: { label: string; className?: string }) {
   return (
-    <button type="button" onClick={openConsentPreferences} className="text-left hover:underline">
+    <button type="button" onClick={openConsentPreferences} className={cn("text-left", className)}>
       {label}
     </button>
   );

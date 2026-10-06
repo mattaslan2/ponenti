@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
-import { IznikDivider } from "@/components/brand/decor";
 import {
   Doors,
   FactsBand,
@@ -11,6 +10,7 @@ import {
   Offer,
   PenaltyPromise,
   ProofSlots,
+  Trust,
   Weekly,
   WhatWeDont,
   YourData,
@@ -27,11 +27,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Trust />
       <Doors />
       <FactsBand />
       <Offer />
       <Weekly />
-      <IznikDivider />
       <WhatWeDont />
       <YourData />
       <PenaltyPromise />

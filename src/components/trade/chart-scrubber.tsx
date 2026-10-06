@@ -66,16 +66,16 @@ export function ChartScrubber({
           <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 w-px bg-navy/40" style={{ left: `${xs[shown]}%` }} />
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-chart-accent ring-2 ring-paper"
+            className="pointer-events-none absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-navy ring-2 ring-ivory"
             style={{ left: `${xs[shown]}%`, top: `${ys[shown]}%` }}
           />
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -top-2 z-10 -translate-x-1/2 -translate-y-full rounded-xs border border-line bg-paper px-2.5 py-1.5 text-left whitespace-nowrap shadow-quiet"
+            className="pointer-events-none absolute -top-2 z-10 -translate-x-1/2 -translate-y-full rounded-xs border border-line bg-paper px-3 py-2 text-left whitespace-nowrap shadow-sheet"
             style={{ left: `${tooltipLeft}%` }}
           >
-            <span className="block text-[0.9375rem] font-semibold text-navy [font-variant-numeric:tabular-nums]">{values[shown]}</span>
-            <span className="block text-[0.75rem] text-mist">{months[shown]}</span>
+            <span className="figures block text-small font-semibold text-navy">{values[shown]}</span>
+            <span className="block text-[0.75rem] text-mist-soft">{months[shown]}</span>
           </span>
         </>
       )}

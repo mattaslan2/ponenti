@@ -4,13 +4,12 @@ import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
-import { BookButton, WhatsAppButton } from "@/components/cta";
+import { ArrowLink, BookButton, WhatsAppButton } from "@/components/cta";
 import { LeadForm } from "@/components/forms/lead-form";
 import { getProspect, listProspects } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { pick } from "@/lib/messages";
 import { buildMetadata } from "@/lib/seo";
-import { Link } from "@/i18n/navigation";
 import { getProductSnapshot } from "@/lib/trade/analysis";
 import { TURKIYE } from "@/lib/trade/countries";
 import { pct, usdCompact, windowLabel } from "@/lib/trade/format";
@@ -49,38 +48,49 @@ export default async function ProspectPage({ params }: PageProps<"/[locale]/ozel
 
   return (
     <>
-      <section className="border-b border-line py-12 sm:py-20">
-        <div className="page max-w-4xl">
-          {prospect.sample && <p className="ph mb-6 inline-block">{t("sample")}</p>}
-          <p className="eyebrow text-brass-deep">{t("eyebrow")}</p>
-          <h1 className="mt-3 text-display-xl">{t("title", { firm: prospect.firm })}</h1>
-          <p className="mt-5 text-lead text-mist">{t("intro")}</p>
-          <p className="mt-3 text-[0.875rem] text-mist">
+      <div className="page">
+        <div className="pt-band pb-band">
+          {/* The sample file says so in plain sight; real prospect pages never carry this line. */}
+          {prospect.sample && (
+            <p className="mb-8">
+              <span className="inline-flex rounded-xs border border-brass px-2 py-1 text-[0.75rem] leading-none font-medium text-brass-deep">{t("sample")}</span>
+            </p>
+          )}
+          <p className="eyebrow kicker">{t("eyebrow")}</p>
+          <h1 className="mt-6 max-w-[20ch] text-display-xl">{t("title", { firm: prospect.firm })}</h1>
+          <p className="mt-8 max-w-2xl text-lead text-mist">{t("intro")}</p>
+          <p className="figures mt-4 text-caption text-mist-soft">
             <time dateTime={prospect.preparedOn}>{t("prepared", { date: formatDate(prospect.preparedOn, locale) })}</time>
           </p>
         </div>
-      </section>
+        <div aria-hidden="true" className="rule" />
+      </div>
 
-      <section className="py-12 sm:py-16">
-        <ol className="page max-w-4xl space-y-5">
-          {prospect.observations.slice(0, 3).map((o, i) => (
-            <li key={i} className="grid gap-4 rounded-sm border border-line bg-paper p-6 sm:grid-cols-[auto_1fr] sm:p-8">
-              <span className="font-display text-[2.5rem] leading-none font-semibold text-brass-deep">{i + 1}</span>
-              <div>
-                <h2 className="eyebrow font-sans text-mist">{t("observation", { n: i + 1 })}</h2>
-                <p className="mt-2 text-lead text-graphite">{o[locale]}</p>
-                {o.source && (
-                  <p className="mt-2 text-[0.875rem]">
-                    <a href={o.source.url} target="_blank" rel="noopener noreferrer" className="link">
-                      {common("source")}: {o.source.label}
-                      <span className="sr-only"> {common("opensNewTab")}</span>
-                    </a>
-                  </p>
-                )}
-              </div>
-            </li>
-          ))}
-        </ol>
+      {/* The header's rule is the top line of the list. Number in the left rail, the observation on the right. */}
+      <section>
+        <div className="page pb-section">
+          <ol>
+            {prospect.observations.slice(0, 3).map((o, i) => (
+              <li key={i} className="grid gap-x-8 gap-y-3 border-b border-line py-10 sm:grid-cols-[4rem_minmax(0,1fr)] lg:grid-cols-12 lg:py-14">
+                <span aria-hidden="true" className="font-display text-[2.5rem] leading-none font-medium text-brass-deep lg:col-span-4">
+                  {i + 1}
+                </span>
+                <div className="lg:col-span-8">
+                  <h2 className="eyebrow font-sans">{t("observation", { n: i + 1 })}</h2>
+                  <p className="mt-4 max-w-2xl text-lead text-navy">{o[locale]}</p>
+                  {o.source && (
+                    <p className="mt-4 text-caption text-mist-soft">
+                      <a href={o.source.url} target="_blank" rel="noopener noreferrer" className="link">
+                        {common("source")}: {o.source.label}
+                        <span className="sr-only"> {common("opensNewTab")}</span>
+                      </a>
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
 
       {prospect.hs && normalizeHs(prospect.hs) && (
@@ -89,20 +99,22 @@ export default async function ProspectPage({ params }: PageProps<"/[locale]/ozel
         </Suspense>
       )}
 
-      <section className="on-navy bg-navy py-14 text-ivory sm:py-16">
-        <div className="page grid max-w-5xl gap-10 lg:grid-cols-2">
-          <div>
-            <h2 className="text-display-lg text-ivory">{t("cta")}</h2>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <BookButton location={`prospect_${firm}`} variant="brass" />
-              <WhatsAppButton location={`prospect_${firm}`} variant="outlineLight" />
+      <section className="bg-sand">
+        <div className="page grid gap-x-8 gap-y-16 py-section lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <h2 className="max-w-[18ch] text-display-lg">{t("cta")}</h2>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <BookButton location={`prospect_${firm}`} />
+              <WhatsAppButton location={`prospect_${firm}`} />
             </div>
-            <p className="mt-8 text-[0.875rem] text-ivory-dim">{t("note")}</p>
+            <p className="mt-10 max-w-md text-caption text-mist-soft">{t("note")}</p>
           </div>
-          <div className="on-light rounded-sm bg-ivory p-6 text-graphite">
-            <NextIntlClientProvider messages={pick(messages, ["forms", "common"])}>
-              <LeadForm formType="prospect" firm={firm} />
-            </NextIntlClientProvider>
+          <div className="lg:col-span-5 lg:col-start-8">
+            <div className="sheet p-6 sm:p-10">
+              <NextIntlClientProvider messages={pick(messages, ["forms", "common"])}>
+                <LeadForm formType="prospect" firm={firm} />
+              </NextIntlClientProvider>
+            </div>
           </div>
         </div>
       </section>
@@ -122,31 +134,30 @@ async function ProspectMarket({ hs, locale }: { hs: string; locale: Locale }) {
     { label: t("marketShare"), value: pct(snap.share, locale), note: snap.rank ? t("marketRank", { rank: snap.rank }) : undefined },
   ];
   return (
-    <section aria-labelledby="prospect-market-title" className="pb-12 sm:pb-16">
-      <div className="page max-w-4xl">
-        <div className="rounded-sm border border-line bg-paper p-6 sm:p-8">
-          <h2 id="prospect-market-title" className="text-display-sm">
+    <section aria-labelledby="prospect-market-title">
+      <div className="page pb-section">
+        <div className="max-w-3xl">
+          <h2 id="prospect-market-title" className="text-display-lg">
             {t("marketTitle", { code: snap.hs.code })}
           </h2>
-          <p className="mt-1 text-[0.9375rem] text-mist" lang={locale === "tr" && snap.hs.level > 2 ? "en" : undefined}>
+          <p className="mt-5 text-mist" lang={locale === "tr" && snap.hs.level > 2 ? "en" : undefined}>
             {snap.label}
           </p>
-          <p className="mt-1 text-[0.8125rem] text-mist">{t("marketBody", { window })}</p>
-          <dl className="mt-6 grid gap-4 sm:grid-cols-3">
-            {facts.map((f) => (
-              <div key={f.label}>
-                <dt className="text-[0.875rem] text-mist">{f.label}</dt>
-                <dd className="mt-1 font-display text-[2rem] leading-none font-semibold text-navy">{f.value}</dd>
-                {f.note && <dd className="mt-1 text-[0.8125rem] text-mist">{f.note}</dd>}
-              </div>
-            ))}
-          </dl>
-          <p className="mt-6">
-            <Link href={{ pathname: "/trade-data/[hs]", params: { hs: snap.hs.code } }} className="link">
-              {t("marketLink")}
-            </Link>
-          </p>
+          <p className="figures mt-3 text-caption text-mist-soft">{t("marketBody", { window })}</p>
         </div>
+        {/* Three across only from lg: Turkish values ("$656 milyon") need the room. */}
+        <dl className="mt-stack grid border-t border-navy lg:grid-cols-3">
+          {facts.map((f, i) => (
+            <div key={f.label} className={i === 0 ? "border-b border-line py-7 lg:border-b-0 lg:pr-8" : "border-b border-line py-7 lg:border-b-0 lg:border-l lg:px-8"}>
+              <dt className="text-caption text-mist-soft">{f.label}</dt>
+              <dd className="mt-4 font-sans text-[2.25rem] leading-none font-semibold tracking-[-0.025em] text-navy">{f.value}</dd>
+              {f.note && <dd className="figures mt-3 text-caption text-mist-soft">{f.note}</dd>}
+            </div>
+          ))}
+        </dl>
+        <p className="mt-8">
+          <ArrowLink href={{ pathname: "/trade-data/[hs]", params: { hs: snap.hs.code } }}>{t("marketLink")}</ArrowLink>
+        </p>
       </div>
     </section>
   );

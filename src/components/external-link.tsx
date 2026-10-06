@@ -17,9 +17,9 @@ export async function SourceLink({
 }) {
   const t = await getTranslations("common");
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={cn("link inline-flex items-baseline gap-0.5", className)}>
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cn("link inline-flex items-baseline gap-1", className)}>
       {children}
-      {icon && <ArrowUpRight aria-hidden="true" className="size-3.5 translate-y-0.5" />}
+      {icon && <ArrowUpRight aria-hidden="true" className="nudge-up size-3.5 shrink-0 translate-y-0.5" />}
       <span className="sr-only"> {t("opensNewTab")}</span>
     </a>
   );

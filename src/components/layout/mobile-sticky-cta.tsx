@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CalendarDays, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/navigation";
@@ -36,24 +35,24 @@ export function MobileStickyCta({ whatsappHref }: { whatsappHref: string | null 
   }, [pathname]);
 
   const show = visible && consentAnswered;
+  const secondary = "inline-flex h-12 items-center justify-center rounded-xs border border-ivory/35 px-3 text-[0.9375rem] font-medium text-ivory";
   return (
     <div
       aria-hidden={!show}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-30 border-t border-brass/40 bg-navy/95 p-3 backdrop-blur-sm transition-[opacity,transform] duration-250 sm:hidden",
+        "on-navy fixed inset-x-0 bottom-0 z-30 bg-navy px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-[opacity,transform] duration-300 sm:hidden",
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0",
       )}
     >
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-2.5">
         <Link
           href={{ pathname: "/contact", hash: "book" }}
           tabIndex={show ? 0 : -1}
           data-track="cta_click"
           data-track-label="book"
           data-track-location="sticky_bar"
-          className="inline-flex h-11 items-center justify-center gap-2 rounded-xs bg-brass text-[0.9375rem] font-medium text-navy"
+          className="inline-flex h-12 items-center justify-center rounded-xs bg-ivory px-3 text-[0.9375rem] font-medium text-navy"
         >
-          <CalendarDays aria-hidden="true" className="size-4" />
           {t("bookShort")}
         </Link>
         {whatsappHref ? (
@@ -64,9 +63,8 @@ export function MobileStickyCta({ whatsappHref }: { whatsappHref: string | null 
             rel="noopener noreferrer"
             data-track="whatsapp_click"
             data-track-location="sticky_bar"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-xs border border-ivory/60 text-[0.9375rem] font-medium text-ivory"
+            className={secondary}
           >
-            <MessageCircle aria-hidden="true" className="size-4" />
             WhatsApp
           </a>
         ) : (
@@ -76,7 +74,7 @@ export function MobileStickyCta({ whatsappHref }: { whatsappHref: string | null 
             data-track="cta_click"
             data-track-label="risk_test"
             data-track-location="sticky_bar"
-            className="inline-flex h-11 items-center justify-center rounded-xs border border-ivory/60 text-[0.9375rem] font-medium text-ivory"
+            className={secondary}
           >
             {t("riskTest")}
           </Link>

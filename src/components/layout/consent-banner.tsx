@@ -49,21 +49,21 @@ export function ConsentBanner({ labels, body }: { labels: Labels; body: ReactNod
   return (
     <section
       aria-label={labels.dialogLabel}
-      className="fixed inset-x-3 bottom-3 z-50 animate-fade-in sm:inset-x-auto sm:right-5 sm:bottom-5 sm:w-[26rem]"
+      className="fixed inset-x-3 bottom-3 z-50 animate-fade-in sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[27rem]"
     >
-      <div className="on-navy rounded-sm border border-brass/40 bg-navy p-4 text-ivory shadow-quiet sm:p-5">
-        <p className="text-[0.8125rem] leading-relaxed text-ivory-dim sm:text-[0.875rem]">
-          <strong className="font-display text-[1.0625rem] font-semibold text-ivory">{labels.title}</strong> {body}
+      <div className="on-navy rounded-xs bg-navy p-5 text-ivory shadow-sheet sm:p-6">
+        <p className="text-caption text-ivory-dim sm:text-small">
+          <strong className="font-sans font-semibold text-ivory">{labels.title}</strong> {body}
         </p>
 
         {prefs && (
-          <div className="mt-4 space-y-3 border-t border-brass/30 pt-4 text-[0.875rem]">
+          <div className="mt-5 space-y-4 border-t border-line-navy pt-5 text-small">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="font-medium text-ivory">{labels.necessary}</p>
                 <p className="text-ivory-dim">{labels.necessaryBody}</p>
               </div>
-              <span className="mt-0.5 text-[0.75rem] font-semibold tracking-wide text-brass-light" aria-hidden="true">
+              <span className="mt-0.5 text-[0.75rem] font-medium tracking-[0.14em] text-brass-light" aria-hidden="true">
                 ON
               </span>
             </div>
@@ -83,19 +83,19 @@ export function ConsentBanner({ labels, body }: { labels: Labels; body: ReactNod
           </div>
         )}
 
-        <div className="mt-3 grid grid-cols-3 gap-2">
-          <Button variant="outlineLight" size="sm" onClick={() => decide(true)}>
+        <div className="mt-5 grid grid-cols-3 gap-2">
+          <Button variant="outlineLight" size="sm" className="px-2" onClick={() => decide(true)}>
             {labels.accept}
           </Button>
-          <Button variant="outlineLight" size="sm" onClick={() => decide(false)}>
+          <Button variant="outlineLight" size="sm" className="px-2" onClick={() => decide(false)}>
             {labels.decline}
           </Button>
           {prefs ? (
-            <Button variant="outlineLight" size="sm" onClick={() => decide(analytics)}>
+            <Button variant="outlineLight" size="sm" className="px-2" onClick={() => decide(analytics)}>
               {labels.save}
             </Button>
           ) : (
-            <Button variant="outlineLight" size="sm" onClick={() => setPrefs(true)}>
+            <Button variant="outlineLight" size="sm" className="px-2" onClick={() => setPrefs(true)}>
               {labels.preferences}
             </Button>
           )}

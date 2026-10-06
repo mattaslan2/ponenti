@@ -1,23 +1,26 @@
-import { ArrowRight, CalendarDays, MessageCircle } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { whatsappHref } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "default" | "brass" | "outline" | "outlineLight";
+type ButtonVariant = "default" | "light" | "outline" | "outlineLight";
 
+/** The one primary action: book the 15-minute call. */
 export async function BookButton({
   location,
   variant = "default",
   size = "lg",
   short = false,
+  icon = true,
   className,
 }: {
   location: string;
   variant?: ButtonVariant;
   size?: "default" | "sm" | "lg";
   short?: boolean;
+  icon?: boolean;
   className?: string;
 }) {
   const t = await getTranslations("cta");
@@ -29,13 +32,18 @@ export async function BookButton({
         data-track-label="book"
         data-track-location={location}
       >
-        <CalendarDays aria-hidden="true" />
         {short ? t("bookShort") : t("book")}
+        {icon && <ArrowRight aria-hidden="true" className="nudge" />}
       </Link>
     </Button>
   );
 }
 
+/**
+ * The secondary action. With a WhatsApp number it opens the chat. Without one it
+ * becomes "Send a message" and leads to the form: the button never says WhatsApp
+ * unless WhatsApp is on the other side of it.
+ */
 export async function WhatsAppButton({
   location,
   variant = "outline",
@@ -50,29 +58,25 @@ export async function WhatsAppButton({
   const t = await getTranslations("cta");
   const tc = await getTranslations("common");
   const href = whatsappHref(t("whatsappMessage"));
-  const content = (
-    <>
-      <MessageCircle aria-hidden="true" />
-      {t("whatsapp")}
-    </>
-  );
   return (
     <Button asChild variant={variant} size={size} className={className}>
       {href ? (
         <a href={href} target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-track-location={location}>
-          {content}
+          {t("whatsapp")}
+          <ArrowUpRight aria-hidden="true" className="nudge-up" />
           <span className="sr-only"> {tc("opensNewTab")}</span>
         </a>
       ) : (
-        <Link href="/contact" data-track="whatsapp_click" data-track-location={location}>
-          {content}
+        <Link href={{ pathname: "/contact", hash: "message" }} data-track="cta_click" data-track-label="message" data-track-location={location}>
+          {t("message")}
         </Link>
       )}
     </Button>
   );
 }
 
-export async function RiskTestLink({ location, className, light }: { location: string; className?: string; light?: boolean }) {
+/** Text link with an arrow, for the third, lowest-commitment action. */
+export async function RiskTestLink({ location, className }: { location: string; className?: string }) {
   const t = await getTranslations("cta");
   return (
     <Link
@@ -80,14 +84,25 @@ export async function RiskTestLink({ location, className, light }: { location: s
       data-track="cta_click"
       data-track-label="risk_test"
       data-track-location={location}
-      className={cn(
-        "group inline-flex min-h-11 items-center gap-1.5 font-medium underline decoration-1 underline-offset-4",
-        light ? "text-brass-light decoration-brass-light/50" : "text-cobalt decoration-cobalt/40 hover:decoration-cobalt",
-        className,
-      )}
+      className={cn("link inline-flex min-h-11 items-center gap-2 text-[0.9375rem] font-medium", className)}
     >
       {t("riskTest")}
-      <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+      <ArrowRight aria-hidden="true" className="nudge size-4" />
+    </Link>
+  );
+}
+
+/** Inline text link with an arrow that moves on hover. */
+export function ArrowLink({
+  href,
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof Link>) {
+  return (
+    <Link href={href} className={cn("link inline-flex min-h-11 items-center gap-2 text-[0.9375rem] font-medium", className)} {...props}>
+      {children}
+      <ArrowRight aria-hidden="true" className="nudge size-4 shrink-0" />
     </Link>
   );
 }

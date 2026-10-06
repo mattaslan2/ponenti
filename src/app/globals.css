@@ -3,38 +3,45 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-line;
   }
   html {
-    @apply bg-ivory font-sans text-graphite antialiased;
+    @apply bg-ivory font-sans text-navy antialiased;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 6rem;
   }
   body {
-    @apply min-h-dvh bg-ivory text-[1rem] leading-[1.65];
+    @apply min-h-dvh bg-ivory text-body;
   }
   h1,
   h2,
   h3 {
-    @apply font-display font-semibold text-navy;
+    @apply font-display font-medium text-navy;
     text-wrap: balance;
-    font-variant-numeric: lining-nums;
+  }
+  /* The one emphasized phrase in a headline is set in the italic of the display face. */
+  :is(h1, h2, h3, .font-display) em {
+    font-style: italic;
   }
   p {
     text-wrap: pretty;
   }
   a {
-    text-underline-offset: 0.2em;
+    text-underline-offset: 0.26em;
     text-decoration-thickness: 1px;
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+  /* Line icons are drawn at 1.5 px so they sit with the hairlines, not on top of them. */
+  svg.lucide {
+    stroke-width: 1.5;
+  }
   /* Visible, high-contrast focus on every surface */
   :focus-visible {
-    outline: 2px solid var(--color-cobalt);
+    outline: 2px solid var(--color-navy);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -42,54 +49,128 @@
     outline-color: var(--color-brass-light);
   }
   .on-navy .on-light :focus-visible {
-    outline-color: var(--color-cobalt);
+    outline-color: var(--color-navy);
   }
   ::selection {
-    background: var(--color-sand);
+    background: rgb(176 141 87 / 0.3);
     color: var(--color-navy);
+  }
+  .on-navy ::selection {
+    background: rgb(205 174 124 / 0.35);
+    color: var(--color-ivory);
   }
 }
 
 @layer components {
+  /* Page container: 1280 px, with 24 / 40 / 64 px side gutters. */
   .page {
-    @apply mx-auto w-full max-w-page px-5 sm:px-8;
+    @apply mx-auto w-full max-w-page px-6 sm:px-10 lg:px-16;
   }
+
+  /* Small uppercase label. `kicker` adds the short brass rule in front of it. */
   .eyebrow {
-    @apply font-sans text-eyebrow font-medium tracking-[0.12em] uppercase;
+    @apply font-sans text-eyebrow font-medium text-brass-deep uppercase;
   }
-  /* Thin brass rule */
+  .on-navy .eyebrow {
+    @apply text-brass-light;
+  }
+  .on-navy .on-light .eyebrow {
+    @apply text-brass-deep;
+  }
+  .kicker {
+    @apply flex items-center gap-3.5;
+  }
+  .kicker::before {
+    content: "";
+    @apply h-px w-7 flex-none bg-brass;
+  }
+
+  /* Hairlines */
   .rule {
-    @apply h-px w-full bg-brass/70;
+    @apply h-px w-full bg-line;
   }
-  .rule-short {
-    @apply h-px w-12 bg-brass;
+  .on-navy .rule {
+    @apply bg-line-navy;
   }
-  /* Large serif numerals for key figures */
+  .rule-brass {
+    @apply h-px w-full bg-brass;
+  }
+
+  /* Large serif numerals for key figures. Lining figures are the font's default; a
+     standalone figure stays proportional so "$121,000" does not look loose. */
   .numeral {
-    @apply font-display text-numeral font-semibold;
-    font-variant-numeric: lining-nums tabular-nums;
+    @apply font-display text-numeral font-medium;
   }
+  /* Columns of numbers (tables, ledgers, axis ticks) line up on tabular figures. */
+  .figures {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Text links: ink with a brass underline that turns to ink on hover. */
   .link {
-    @apply text-cobalt underline decoration-cobalt/40 hover:decoration-cobalt;
+    @apply underline decoration-brass transition-[text-decoration-color] duration-200 hover:decoration-current;
   }
-  .on-navy .link {
-    @apply text-brass-light decoration-brass-light/50 hover:decoration-brass-light;
-  }
-  /* A light card inside a navy section returns to light-ground colors. */
   .on-navy .on-light .link {
-    @apply text-cobalt decoration-cobalt/40 hover:decoration-cobalt;
+    @apply decoration-brass;
   }
-  /* Placeholder markers ([REPLACE WITH REAL], [confirm]) */
+
+  /* A sheet of paper lying on the page (the sample report, menus). */
+  .sheet {
+    @apply rounded-xs border border-line bg-paper shadow-sheet;
+  }
+
+  /* Placeholder markers ([REPLACE WITH REAL], [confirm]). Preview builds and legal drafts only. */
   .ph {
-    @apply rounded-xs border border-dashed border-risk-medium/70 bg-risk-medium/10 px-1.5 py-0.5 font-sans text-[0.8125rem] text-[#6a4700];
+    @apply rounded-xs border border-dashed border-brass-deep/60 bg-brass/10 px-1.5 py-0.5 font-sans text-caption text-brass-deep;
   }
   .on-navy .ph {
     @apply border-brass-light/70 bg-brass-light/10 text-brass-light;
   }
 }
 
-/* Reveal: 250 ms fade for content that starts below the fold, never for the hero.
-   ClientRuntime marks off-screen blocks as pending, then shows them on scroll. */
+/*
+ * INTERACTIONS (three, all CSS transitions; see docs/DESIGN.md)
+ * 1. Hover rule: a brass hairline draws under a link row, its arrow moves 4 px.
+ * 2. Scroll rule: each section's hairline draws itself once, content fades up 8 px.
+ * 3. Header: clear over the hero, gains a hairline and a veil once the page moves.
+ */
+
+/* 1. Hover rule, for rows and panels that are one link. In the components layer so a
+      utility can move the rule (after:bottom-2.5 in the header). */
+@layer components {
+  .hover-rule {
+    position: relative;
+  }
+  .hover-rule::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -1px;
+    height: 1px;
+    background: var(--color-brass);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--duration-base) var(--ease-quiet);
+  }
+  .hover-rule:hover::after,
+  .hover-rule:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .nudge {
+    transition: transform var(--duration-fast) var(--ease-quiet);
+  }
+  :is(a, button):hover .nudge,
+  :is(a, button):focus-visible .nudge {
+    transform: translateX(4px);
+  }
+  :is(a, button):hover .nudge-up,
+  :is(a, button):focus-visible .nudge-up {
+    transform: translate(2px, -2px);
+  }
+}
+
+/* 2. Reveal. ClientRuntime marks off-screen blocks as pending, then shows them on scroll.
+      Never used for the hero: content on screen at load stays put. */
 [data-reveal] {
   transition:
     opacity var(--duration-base) var(--ease-quiet),
@@ -97,31 +178,53 @@
 }
 [data-reveal][data-pending] {
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(8px);
+}
+[data-reveal="rule"] {
+  transform-origin: left center;
+  transition: transform var(--duration-slow) var(--ease-quiet);
+}
+[data-reveal="rule"][data-pending] {
+  opacity: 1;
+  transform: scaleX(0);
+}
+
+/* 3. Header state. ClientRuntime sets data-scrolled on <html> after the first 12 px. */
+.site-header {
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--duration-fast) var(--ease-quiet),
+    border-color var(--duration-fast) var(--ease-quiet);
+}
+html[data-scrolled] .site-header {
+  border-bottom-color: var(--color-line);
+  background-color: rgb(246 241 231 / 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 /* Mobile menu: native modal <dialog> shown as a right-hand sheet */
 .mobile-menu {
   margin: 0 0 0 auto;
   inset-block: 0;
-  width: min(88vw, 24rem);
-  max-width: 24rem;
+  width: min(90vw, 26rem);
+  max-width: 26rem;
   height: 100dvh;
   max-height: 100dvh;
   padding: 0;
   border: 0;
   border-left: 1px solid var(--color-line);
   background: var(--color-ivory);
-  color: var(--color-graphite);
+  color: var(--color-navy);
   overflow-y: auto;
   overscroll-behavior: contain;
   opacity: 0;
   transform: translateX(1.5rem);
   transition:
-    opacity var(--duration-base) var(--ease-quiet),
-    transform var(--duration-base) var(--ease-quiet),
-    overlay var(--duration-base) allow-discrete,
-    display var(--duration-base) allow-discrete;
+    opacity 250ms var(--ease-quiet),
+    transform 250ms var(--ease-quiet),
+    overlay 250ms allow-discrete,
+    display 250ms allow-discrete;
 }
 .mobile-menu[open] {
   opacity: 1;
@@ -130,12 +233,12 @@
 .mobile-menu::backdrop {
   background: rgb(14 26 43 / 0);
   transition:
-    background-color var(--duration-base) var(--ease-quiet),
-    overlay var(--duration-base) allow-discrete,
-    display var(--duration-base) allow-discrete;
+    background-color 250ms var(--ease-quiet),
+    overlay 250ms allow-discrete,
+    display 250ms allow-discrete;
 }
 .mobile-menu[open]::backdrop {
-  background: rgb(14 26 43 / 0.55);
+  background: rgb(14 26 43 / 0.5);
 }
 @starting-style {
   .mobile-menu[open] {
@@ -163,61 +266,61 @@ html:has(.mobile-menu[open]) {
     opacity: 1;
     transform: none;
   }
-}
-
-/* Iznik-inspired geometric pattern, used at 3-5% opacity as section dividers */
-.iznik-divider {
-  height: 56px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%230E1A2B' stroke-width='1'%3E%3Cpath d='M28 4 L34 22 L52 28 L34 34 L28 52 L22 34 L4 28 L22 22 Z'/%3E%3Ccircle cx='28' cy='28' r='6'/%3E%3Cpath d='M0 0 L8 8 M56 0 L48 8 M0 56 L8 48 M56 56 L48 48'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 56px 56px;
-  background-position: center;
-  opacity: 0.045;
-}
-.iznik-field {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23B08D57' stroke-width='1'%3E%3Cpath d='M36 6 L43 29 L66 36 L43 43 L36 66 L29 43 L6 36 L29 29 Z'/%3E%3Cpath d='M36 22 L50 36 L36 50 L22 36 Z'/%3E%3Ccircle cx='36' cy='36' r='4'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 72px 72px;
+  /* Arrows stay where they are; the hover rule still appears, without the draw. */
+  :is(a, button):is(:hover, :focus-visible) :is(.nudge, .nudge-up) {
+    transform: none;
+  }
 }
 
 /* Prose (articles, legal pages) */
 .prose-ponenti {
-  @apply max-w-prose text-[1.0625rem] leading-[1.75] text-graphite;
+  @apply text-body text-navy;
+}
+/* Text keeps a 72-character measure; tables may use the whole column. */
+.prose-ponenti > :not([role="region"]) {
+  max-width: var(--container-prose);
 }
 .prose-ponenti > * + * {
-  margin-top: 1.1em;
+  margin-top: 1.25em;
 }
 .prose-ponenti h2 {
-  @apply mt-12 font-display text-display-sm font-semibold text-navy sm:text-[1.75rem];
+  @apply mt-16 font-display text-display-sm font-medium text-navy;
 }
 .prose-ponenti h3 {
-  @apply mt-8 font-display text-[1.25rem] font-semibold text-navy;
+  @apply mt-10 font-sans text-title font-semibold text-navy;
+}
+.prose-ponenti h2 + *,
+.prose-ponenti h3 + * {
+  margin-top: 0.9em;
 }
 .prose-ponenti a {
-  @apply text-cobalt underline decoration-cobalt/40 hover:decoration-cobalt;
+  @apply underline decoration-brass transition-[text-decoration-color] duration-200 hover:decoration-current;
 }
 .prose-ponenti ul {
-  @apply list-disc pl-5;
+  @apply list-disc pl-5 marker:text-brass;
 }
 .prose-ponenti ol {
-  @apply list-decimal pl-5;
+  @apply list-decimal pl-5 marker:text-mist-soft;
 }
 .prose-ponenti li + li {
-  margin-top: 0.4em;
+  margin-top: 0.5em;
 }
 .prose-ponenti strong {
   @apply font-semibold text-navy;
 }
 .prose-ponenti blockquote {
-  @apply border-l-2 border-brass bg-paper px-4 py-3 text-[0.9375rem] text-mist;
+  @apply border-l border-brass py-1 pl-5 text-small text-mist;
 }
 .prose-ponenti table {
-  @apply w-full border-collapse text-[0.9375rem];
+  @apply w-full border-collapse text-small;
+  font-variant-numeric: tabular-nums;
 }
 .prose-ponenti th {
-  @apply border-b border-navy/30 py-2 pr-4 text-left font-semibold text-navy;
+  @apply border-b border-navy/40 py-3 pr-5 text-left align-bottom font-sans text-caption font-medium text-mist;
 }
 .prose-ponenti td {
-  @apply border-b border-line py-2 pr-4 align-top;
+  @apply border-b border-line py-3 pr-5 align-top;
 }
 .prose-ponenti hr {
-  @apply my-10 border-line;
+  @apply my-14 border-line;
 }

@@ -29,7 +29,8 @@
     },
     "contact": {
       "title": "İletişim",
-      "description": "15 dakikalık görüşme planlayın, WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz."
+      "description": "15 dakikalık görüşme planlayın, WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
+      "descriptionNoWhatsapp": "15 dakikalık görüşme planlayın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz."
     },
     "portal": {
       "title": "Müşteri portalı",
@@ -80,7 +81,7 @@
   },
   "brand": {
     "tagline": "ABD işiniz için Türkçe uyum ve tahsilat masası.",
-    "pride": "Türkiye'de üretilir, ABD'de doğru yönetilir.",
+    "pride": "Türkiye'de üretilir, <em>ABD'de doğru yönetilir.</em>",
     "logoLabel": "Ponenti, ana sayfa"
   },
   "nav": {
@@ -100,6 +101,7 @@
     "book": "15 dakikalık görüşme planlayın",
     "bookShort": "Görüşme planlayın",
     "whatsapp": "WhatsApp'tan yazın",
+    "message": "Mesaj gönderin",
     "riskTest": "3 dakikalık risk testi",
     "seePricing": "Tüm fiyatları görün",
     "whatsappMessage": "Merhaba, Ponenti sitesinden yazıyorum. ABD tarafımız için 15 dakikalık bir görüşme planlamak istiyorum."
@@ -107,13 +109,37 @@
   "home": {
     "hero": {
       "eyebrow": "ABD'de iş yapan Türk şirketleri için",
-      "title": "ABD işiniz için Türkçe uyum ve tahsilat masası.",
+      "title": "ABD işiniz için <em>Türkçe</em> uyum ve tahsilat masası.",
       "subtitle": "ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır.",
-      "price": "Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir.",
-      "trustLabel": "Neden güvenebilirsiniz",
-      "trustFounder": "Kurucu: eski UPS finans analisti ve kıdemli müdür",
-      "trustMoney": "Paranızı hiçbir zaman tutmayız veya taşımayız",
-      "trustReply": "1 iş günü içinde yanıt"
+      "price": "Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir."
+    },
+    "trust": {
+      "eyebrow": "Aramadan önce",
+      "title": "Bugün doğrulayabileceğiniz dört şey",
+      "founder": {
+        "label": "Kurucu",
+        "title": "Sorumlu kişi belli",
+        "body": "{name}. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Her dosyayı kendisi inceler.",
+        "link": "Özgeçmişi okuyun"
+      },
+      "prices": {
+        "label": "Fiyatlar",
+        "title": "Her fiyat açık",
+        "body": "Planların, masaların ve kontrolün fiyatı bu sitede ABD doları olarak yazılıdır. Kesin kapsam imzalı hizmet sözleşmesine girer.",
+        "link": "Tüm fiyatları görün"
+      },
+      "limits": {
+        "label": "Sınırlar",
+        "title": "Sınırlarımız yazılı",
+        "body": "Paranızı tutmayız veya taşımayız; ithalatçı kaydınız olarak hareket etmeyiz.",
+        "link": "Yapmadığımız işler"
+      },
+      "sources": {
+        "label": "Kaynaklar",
+        "title": "Her kuralın kaynağı belli",
+        "body": "Bu sitedeki mevzuat bilgileri IRS, CBP veya Federal Register kaynağına bağlıdır.",
+        "link": "Bilgi merkezi"
+      }
     },
     "doors": {
       "eyebrow": "İki başlangıç noktası",
@@ -132,18 +158,24 @@
     "facts": {
       "eyebrow": "Rakamlarla",
       "title": "ABD tarafında kurallar ve rakamlar net",
-      "intro": "Her bilgi resmi kaynağına bağlıdır.",
+      "intro": "İki kural resmi kaynağına bağlıdır. Saatler bizim çalışma saatlerimizdir.",
       "f1": {
-        "text": "Verilmeyen her Form 5472 için, her yıl IRS cezası.",
+        "kicker": "IRS",
+        "unit": "verilmeyen form başına, her yıl",
+        "text": "Verilmeyen Form 5472 için IRS cezası.",
         "source": "IRS, Form 5472 talimatları"
       },
       "f2": {
-        "value": "18 Eylül 2026",
+        "kicker": "CBP",
+        "value": "18 Eylül",
+        "unit": "2026",
         "text": "Bu tarihten beri CBP, Form 5106'daki adresi kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor.",
         "source": "Federal Register, 19 Ağustos 2026"
       },
       "f3": {
+        "kicker": "Masa saatlerimiz",
         "value": "08:00-16:00",
+        "unit": "ABD Doğu saati",
         "text": "Tahsilat aramaları ABD Doğu saatiyle, müşterilerinizin mesai saatinde yapılır.",
         "source": "Tahsilat masası koşulları"
       }
@@ -175,7 +207,8 @@
     "weekly": {
       "eyebrow": "Şeffaflık",
       "title": "Her hafta göreceğiniz rapor",
-      "intro": "Her pazartesi kısa bir nakit raporu, her çeyrek tek sayfalık bir karne. Rakamlar kendi defterlerinizden gelir."
+      "intro": "Her pazartesi kısa bir nakit raporu, her çeyrek tek sayfalık bir karne. Rakamlar kendi defterlerinizden gelir.",
+      "note": "Rakamlar yalnızca örnektir; bir müşterinin sonuçları değildir."
     },
     "dont": {
       "eyebrow": "Sınırlarımız",
@@ -204,15 +237,15 @@
     },
     "data": {
       "eyebrow": "Verileriniz",
-      "title": "Verileriniz nasıl korunur",
-      "intro": "Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez.",
+      "title": "Verileriniz bize ulaşmadan önce",
+      "intro": "Bu önlemler, ilk müşteri belgesi bize ulaşmadan önce yürürlüktedir. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez.",
       "d1": {
         "title": "İki adımlı giriş",
         "body": "Verilerinizin bulunduğu her sistemde iki adımlı giriş (2FA) zorunludur."
       },
       "d2": {
-        "title": "Şifreli müşteri portalı",
-        "body": "Raporlar ve belgeler şifreli bir portalda durur. Portal hazırlanırken raporlar e-postayla gelir."
+        "title": "Müşteri portalı",
+        "body": "Raporlar ve belgeler şifreli bir müşteri portalında duracak. Portal açılana kadar raporlar e-postayla gelir."
       },
       "d3": {
         "title": "Yazılı bilgi güvenliği planı",
@@ -247,8 +280,13 @@
       "body": "Sorumluluğumuzdaki bir beyanname geç kalırsa cezayı biz öderiz; müşteri başına yıllık üst sınır {cap}."
     },
     "final": {
+      "eyebrow": "İlk görüşme",
       "title": "ABD tarafınızı 15 dakikada konuşalım.",
-      "body": "Üç soru soruyoruz: Form 5472'nizi kim veriyor? İthalatçı kaydınız adres kuralına göre en son ne zaman kontrol edildi? ABD'li müşterileriniz kaç günde ödüyor?"
+      "lede": "Üç soru soruyoruz",
+      "q1": "Form 5472'nizi kim veriyor?",
+      "q2": "İthalatçı kaydınız adres kuralına göre en son ne zaman kontrol edildi?",
+      "q3": "ABD'li müşterileriniz kaç günde ödüyor?",
+      "reply": "1 iş günü içinde yanıt veririz."
     }
   },
   "report": {
@@ -259,9 +297,9 @@
     "days": "{days} gün",
     "dsoPrev": "geçen çeyrek {days} gün",
     "overdue": "Vadesi geçmiş faturalar",
-    "overdueValue": "{count} fatura, {amount}",
+    "invoices": "{count} fatura",
     "payables": "Onayınızı bekleyen ödemeler",
-    "payablesValue": "{count} ödeme, {amount}",
+    "payments": "{count} ödeme",
     "orders": "Bu haftaki siparişler",
     "ordersValue": "{count} sipariş",
     "filings": "Yaklaşan beyannameler",
@@ -722,11 +760,15 @@
     "eyebrow": "İletişim",
     "title": "15 dakikada tanışalım",
     "intro": "Görüşme planlayın, WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
+    "introCal": "Görüşme planlayın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
+    "introWhatsapp": "WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
+    "introForm": "1 iş günü içinde yanıt veririz.",
     "bookTitle": "Görüşme planlayın",
     "bookBody": "Saatleri İstanbul ve ABD Doğu saatiyle aşağıda görebilirsiniz.",
     "loadCalendar": "Takvimi açın",
     "calendarNotice": "Takvim Cal.com tarafından yüklenir ve kendi çerezlerini kullanabilir.",
     "calendarMissing": "Takvim henüz bağlanmadı. Lütfen WhatsApp'tan yazın veya formu kullanın.",
+    "calendarFallback": "Kısa formu gönderin; görüşme için iki saat önerisiyle dönüş yapalım.",
     "istanbul": "İstanbul",
     "newYork": "New York (ABD Doğu)",
     "callHours": "Tahsilat saatlerimiz bugün: New York {nyStart}-{nyEnd}, İstanbul {istStart}-{istEnd}.",
@@ -762,9 +804,10 @@
     "errPhone": "Telefonu rakamlarla ve ülke koduyla yazın.",
     "errConsent": "Devam etmek için onay kutusunu işaretleyin.",
     "errTaxId": "Lütfen vergi kimlik numarası veya EIN paylaşmayın.",
-    "errGeneric": "Gönderilemedi. Lütfen tekrar deneyin veya WhatsApp'tan yazın.",
-    "errBot": "Gönderim doğrulanamadı. Lütfen sayfayı yenileyip tekrar deneyin veya WhatsApp'tan yazın.",
-    "errNotConfigured": "Form henüz bağlanmadı. Lütfen WhatsApp'tan yazın veya görüşme planlayın.",
+    "errGeneric": "Gönderilemedi. Lütfen tekrar deneyin.",
+    "errBot": "Gönderim doğrulanamadı. Lütfen sayfayı yenileyip tekrar deneyin.",
+    "errNotConfigured": "Form henüz bağlanmadı.",
+    "errWhatsapp": "WhatsApp'tan da yazabilirsiniz.",
     "errSummary": "Lütfen işaretli alanları düzeltin."
   },
   "portal": {

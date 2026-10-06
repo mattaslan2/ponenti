@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { getPathname, Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -51,56 +52,64 @@ export default async function ArticlePage({ params }: PageProps<"/[locale]/insig
 
   return (
     <>
-      <article className="py-10 sm:py-16">
-        <div className="page">
-          <nav aria-label={common("breadcrumb")} className="text-[0.875rem] text-mist">
-            <ol className="flex flex-wrap items-center gap-1.5">
+      <article>
+        <div className="page pt-10 pb-section sm:pt-14">
+          <nav aria-label={common("breadcrumb")} className="text-caption text-mist-soft">
+            <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/" className="hover:underline">{common("home")}</Link>
+                <Link href="/" className="transition-colors duration-200 hover:text-navy">{common("home")}</Link>
               </li>
-              <li aria-hidden="true">/</li>
+              <li aria-hidden="true" className="text-line">/</li>
               <li>
-                <Link href="/insights" className="hover:underline">{nav("insights")}</Link>
+                <Link href="/insights" className="transition-colors duration-200 hover:text-navy">{nav("insights")}</Link>
               </li>
             </ol>
           </nav>
-          <header className="mt-6 max-w-3xl">
+          <header className="mt-12 max-w-4xl sm:mt-16">
             <h1 className="text-display-lg">{meta.title}</h1>
-            <p className="mt-4 text-lead text-mist">{meta.description}</p>
-            <p className="mt-5 flex flex-wrap gap-x-4 gap-y-1 border-t border-brass/70 pt-4 text-[0.875rem] text-mist">
-              <time dateTime={meta.published}>{common("published", { date: formatDate(meta.published, locale) })}</time>
-              <time dateTime={meta.updated}>{common("updated", { date: formatDate(meta.updated, locale) })}</time>
-              {meta.readingMinutes ? <span>{common("minutes", { n: meta.readingMinutes })}</span> : null}
-            </p>
+            <p className="mt-6 max-w-2xl text-lead text-mist">{meta.description}</p>
           </header>
 
-          <div className="prose-ponenti mt-10">
-            <Content />
+          <div className="mt-12 border-t border-navy pt-8 lg:grid lg:grid-cols-12 lg:gap-x-8">
+            <p className="figures flex flex-wrap gap-x-5 gap-y-1 text-caption text-mist-soft lg:col-span-3 lg:block lg:space-y-1.5">
+              <time className="lg:block" dateTime={meta.published}>{common("published", { date: formatDate(meta.published, locale) })}</time>
+              <time className="lg:block" dateTime={meta.updated}>{common("updated", { date: formatDate(meta.updated, locale) })}</time>
+              {meta.readingMinutes ? <span className="lg:block">{common("minutes", { n: meta.readingMinutes })}</span> : null}
+            </p>
+
+            <div className="mt-10 lg:col-span-8 lg:col-start-5 lg:mt-0">
+              <div className="prose-ponenti">
+                <Content />
+              </div>
+              <span id="new-tab-note" hidden>
+                {common("opensNewTab")}
+              </span>
+
+              {meta.sources && meta.sources.length > 0 && (
+                <section aria-labelledby="sources-title" className="mt-20 max-w-prose border-t border-line pt-8">
+                  <h2 id="sources-title" className="eyebrow font-sans">{common("sources")}</h2>
+                  <ol className="mt-5 list-decimal space-y-2.5 pl-5 text-small marker:text-mist-soft">
+                    {meta.sources.map((s) => (
+                      <li key={s.url}>
+                        <a href={s.url} target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note" className="link break-words">
+                          {s.title}
+                        </a>
+                        {s.date ? <span className="text-mist-soft">, {s.date}</span> : null}
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              )}
+
+              <p className="mt-12 max-w-prose border-l border-brass pl-5 text-small text-mist">{t("disclaimer")}</p>
+              <p className="mt-10">
+                <Link href="/insights" className="link inline-flex min-h-11 items-center gap-2 text-[0.9375rem] font-medium">
+                  <ArrowLeft aria-hidden="true" className="size-4" />
+                  {t("back")}
+                </Link>
+              </p>
+            </div>
           </div>
-          <span id="new-tab-note" hidden>
-            {common("opensNewTab")}
-          </span>
-
-          {meta.sources && meta.sources.length > 0 && (
-            <section aria-labelledby="sources-title" className="mt-14 max-w-prose border-t border-line pt-8">
-              <h2 id="sources-title" className="font-display text-[1.5rem]">{common("sources")}</h2>
-              <ol className="mt-4 list-decimal space-y-2 pl-5 text-[0.9375rem]">
-                {meta.sources.map((s) => (
-                  <li key={s.url}>
-                    <a href={s.url} target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note" className="link break-words">
-                      {s.title}
-                    </a>
-                    {s.date ? <span className="text-mist">, {s.date}</span> : null}
-                  </li>
-                ))}
-              </ol>
-            </section>
-          )}
-
-          <p className="mt-10 max-w-prose rounded-xs border border-line bg-paper p-4 text-[0.875rem] text-mist">{t("disclaimer")}</p>
-          <p className="mt-6">
-            <Link href="/insights" className="link">{t("back")}</Link>
-          </p>
         </div>
       </article>
       <FinalCta location="article_final" title={t("articleCta")} />

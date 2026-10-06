@@ -41,8 +41,8 @@ function stopAnalytics() {
 
 /**
  * Small client runtime: UTM capture (memory only), consent-gated analytics,
- * click tracking via data-track attributes, and the 250 ms reveal for content
- * below the fold.
+ * click tracking via data-track attributes, the header's scrolled state, and
+ * the reveal for content below the fold (section rules draw, content fades up).
  */
 export function ClientRuntime() {
   const pathname = usePathname();
@@ -65,10 +65,22 @@ export function ClientRuntime() {
         path: window.location.pathname,
       });
     };
+    // Header state: clear at the top of the page, a hairline and a veil once it moves.
+    const root = document.documentElement;
+    let scrolled: boolean | null = null;
+    const onScroll = () => {
+      const next = window.scrollY > 12;
+      if (next === scrolled) return;
+      scrolled = next;
+      root.toggleAttribute("data-scrolled", next);
+    };
+    onScroll();
     window.addEventListener(CONSENT_EVENT, onConsent);
+    window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("click", onClick, { capture: true });
     return () => {
       window.removeEventListener(CONSENT_EVENT, onConsent);
+      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("click", onClick, { capture: true });
     };
   }, []);

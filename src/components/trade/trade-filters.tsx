@@ -117,13 +117,13 @@ export function TradeFilters({
   };
 
   return (
-    <form action={action} method="get" role="search" className="grid gap-4 md:grid-cols-[minmax(0,1fr)_16rem] md:items-start">
+    <form action={action} method="get" role="search" className="grid gap-6 md:grid-cols-[minmax(0,1fr)_17rem] md:items-start">
       <div className="relative">
-        <label htmlFor={`${uid}-q`} className="text-[0.9375rem] font-medium text-navy">
+        <label htmlFor={`${uid}-q`} className="text-small font-medium text-navy">
           {labels.search}
         </label>
-        <div className="relative mt-2">
-          <Search aria-hidden="true" className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-mist" />
+        <div className="relative mt-2.5">
+          <Search aria-hidden="true" className="pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2 text-mist-soft" />
           <input
             id={`${uid}-q`}
             name="q"
@@ -159,14 +159,14 @@ export function TradeFilters({
                 setOpen(false);
               }
             }}
-            className="h-12 w-full rounded-xs border border-field bg-paper pr-3 pl-9 text-[1rem] text-graphite placeholder:text-mist/80"
+            className="h-14 w-full rounded-xs border border-field bg-paper pr-4 pl-11 text-base text-navy transition-colors duration-200 placeholder:text-mist-soft hover:border-navy/70 focus-visible:border-navy"
           />
           <ul
             id={listId}
             role="listbox"
             aria-label={labels.search}
             hidden={!open}
-            className="absolute inset-x-0 top-full z-30 mt-1 max-h-[22rem] overflow-y-auto rounded-xs border border-line bg-paper py-1 shadow-quiet"
+            className="sheet absolute inset-x-0 top-full z-30 mt-1.5 max-h-[22rem] overflow-y-auto py-1.5"
           >
             {results.map((r, i) => (
               <li
@@ -177,31 +177,31 @@ export function TradeFilters({
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => go(r.code)}
                 onMouseEnter={() => setActive(i)}
-                className="cursor-pointer px-3 py-2.5 aria-selected:bg-sand"
+                className="cursor-pointer px-4 py-3 aria-selected:bg-sand"
               >
                 <span className="flex items-baseline gap-2">
-                  <span className="shrink-0 text-[0.8125rem] font-semibold text-cobalt [font-variant-numeric:tabular-nums]">{r.code}</span>
-                  <span className="line-clamp-2 text-[0.9375rem] leading-snug text-graphite" lang={locale === "tr" && r.level > 2 ? "en" : undefined}>
+                  <span className="figures shrink-0 text-caption font-semibold text-navy">{r.code}</span>
+                  <span className="line-clamp-2 text-small leading-snug text-navy" lang={locale === "tr" && r.level > 2 ? "en" : undefined}>
                     {r.label}
                   </span>
                 </span>
-                <span className="mt-0.5 block pl-0 text-[0.75rem] text-mist">
+                <span className="figures mt-1 block pl-0 text-[0.75rem] text-mist-soft">
                   {r.level > 2 && `${labels.chapter} ${r.code.slice(0, 2)}: ${r.chapter} · `}
                   {labels.usImports} {usdCompact(r.usImports, locale)}
                   {r.fromTurkiye > 0 && ` · ${labels.fromTurkiye} ${usdCompact(r.fromTurkiye, locale)}`}
                 </span>
               </li>
             ))}
-            {searched && results.length === 0 && <li className="px-3 py-2.5 text-[0.9375rem] text-mist">{labels.noResults}</li>}
+            {searched && results.length === 0 && <li className="px-4 py-3 text-small text-mist">{labels.noResults}</li>}
           </ul>
         </div>
-        <p id={`${uid}-hint`} className="mt-1.5 text-[0.8125rem] text-mist">
+        <p id={`${uid}-hint`} className="mt-2.5 text-caption text-mist-soft">
           {labels.hint}
         </p>
       </div>
 
       <div>
-        <label htmlFor={`${uid}-country`} className="text-[0.9375rem] font-medium text-navy">
+        <label htmlFor={`${uid}-country`} className="text-small font-medium text-navy">
           {labels.country}
         </label>
         <select
@@ -210,7 +210,7 @@ export function TradeFilters({
           name="country"
           defaultValue={country}
           onChange={(e) => changeCountry(e.target.value)}
-          className="mt-2 h-12 w-full rounded-xs border border-field bg-paper px-3 text-[1rem] text-graphite"
+          className="mt-2.5 h-14 w-full rounded-xs border border-field bg-paper px-3.5 text-base text-navy transition-colors duration-200 hover:border-navy/70 focus-visible:border-navy"
         >
           <optgroup label={labels.countryTop}>
             {countries.top.map((c) => (
@@ -228,7 +228,7 @@ export function TradeFilters({
           </optgroup>
         </select>
         <noscript>
-          <button type="submit" className="mt-2 h-11 rounded-xs bg-navy px-4 text-ivory">
+          <button type="submit" className="mt-3 h-12 rounded-xs bg-navy px-6 text-[0.9375rem] font-medium text-ivory">
             {labels.apply}
           </button>
         </noscript>

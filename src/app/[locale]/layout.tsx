@@ -17,11 +17,14 @@ import { whatsappHref } from "@/lib/links";
 import { pick } from "@/lib/messages";
 import "../globals.css";
 
-// Self-hosted subsets (Latin + Turkish only, ~47 KB together). Rebuild with scripts/subset-fonts.py.
+// Self-hosted subsets (Latin + Turkish only, about 64 KB together). Rebuild with scripts/subset-fonts.py.
+// Display: Cormorant Garamond Medium, roman and italic, with lining figures as the default glyphs.
+// The weight range tells the browser to use these cuts as they are, never a synthesized bold.
 const display = localFont({
-  src: "../../fonts/cormorant-garamond-latin-tr-600.woff2",
-  weight: "600",
-  style: "normal",
+  src: [
+    { path: "../../fonts/cormorant-garamond-latin-tr-500.woff2", weight: "400 700", style: "normal" },
+    { path: "../../fonts/cormorant-garamond-latin-tr-500-italic.woff2", weight: "400 700", style: "italic" },
+  ],
   variable: "--font-cormorant",
   display: "swap",
   adjustFontFallback: "Times New Roman",
@@ -56,7 +59,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0e1a2b",
+  themeColor: "#f6f1e7",
   colorScheme: "light",
 };
 

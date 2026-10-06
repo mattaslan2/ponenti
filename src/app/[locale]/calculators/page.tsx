@@ -22,15 +22,19 @@ export default async function CalculatorsPage() {
   return (
     <>
       <PageHeader eyebrow={t("eyebrow")} title={t("title")} intro={t("intro")} />
-      <section className="py-10 sm:py-16">
-        <div className="page grid gap-6 lg:grid-cols-2">
+      <section>
+        <div className="page grid py-section lg:grid-cols-2">
           <NextIntlClientProvider messages={pick(messages, ["calculators", "forms", "common"])}>
-            <CashCalculator />
-            <Form5472Calculator
-              sourceUrl={sources.irsInternationalPenalties}
-              sourceLabel={`${common("source")}: IRS`}
-              opensNewTab={common("opensNewTab")}
-            />
+            <div className="border-b border-line pb-16 lg:border-r lg:border-b-0 lg:pr-16 lg:pb-0">
+              <CashCalculator />
+            </div>
+            <div className="pt-16 lg:pt-0 lg:pl-16">
+              <Form5472Calculator
+                sourceUrl={sources.irsInternationalPenalties}
+                sourceLabel={`${common("source")}: IRS`}
+                opensNewTab={common("opensNewTab")}
+              />
+            </div>
           </NextIntlClientProvider>
         </div>
       </section>

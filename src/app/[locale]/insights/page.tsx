@@ -24,28 +24,43 @@ export default async function InsightsPage({ params }: PageProps<"/[locale]/insi
   return (
     <>
       <PageHeader eyebrow={t("eyebrow")} title={t("title")} intro={t("intro")} />
-      <section className="py-12 sm:py-16">
-        <ul className="page grid gap-5 md:grid-cols-2">
-          {articles.map((a) => (
-            <li key={a.slug} data-reveal>
-              <Link
-                href={{ pathname: "/insights/[slug]", params: { slug: a.slug } }}
-                className="group flex h-full flex-col rounded-sm border border-line bg-paper p-6 transition-colors duration-250 hover:border-brass sm:p-8"
-              >
-                <p className="text-[0.8125rem] text-mist">
-                  <time dateTime={a.updated}>{common("updated", { date: formatDate(a.updated, locale) })}</time>
-                  {a.readingMinutes ? ` · ${common("minutes", { n: a.readingMinutes })}` : null}
-                </p>
-                <h2 className="mt-3 font-display text-[1.625rem] leading-snug">{a.title}</h2>
-                <p className="mt-3 flex-1 text-mist">{a.description}</p>
-                <span className="mt-6 inline-flex items-center gap-1.5 font-medium text-cobalt">
-                  {common("readMore")}
-                  <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <section>
+        <div className="page pb-section">
+          <ul>
+            {articles.map((a) => (
+              <li key={a.slug} data-reveal className="border-b border-line">
+                <Link
+                  href={{ pathname: "/insights/[slug]", params: { slug: a.slug } }}
+                  className="hover-rule grid gap-x-8 gap-y-4 py-10 lg:grid-cols-12 lg:py-14"
+                >
+                  <p className="figures text-caption text-mist-soft lg:col-span-3 lg:pt-3">
+                    <time dateTime={a.updated}>{common("updated", { date: formatDate(a.updated, locale) })}</time>
+                    {a.readingMinutes ? (
+                      <>
+                        <span aria-hidden="true" className="lg:hidden">
+                          {" · "}
+                        </span>
+                        <span className="lg:block">{common("minutes", { n: a.readingMinutes })}</span>
+                      </>
+                    ) : null}
+                  </p>
+                  <div className="lg:col-span-8">
+                    <h2 className="text-display-md">{a.title}</h2>
+                    <p className="mt-4 max-w-2xl text-mist">{a.description}</p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-navy lg:hidden">
+                      {common("readMore")}
+                      <ArrowRight aria-hidden="true" className="nudge size-4" />
+                    </span>
+                  </div>
+                  <span className="hidden justify-self-end pt-3 lg:col-span-1 lg:block">
+                    <ArrowRight aria-hidden="true" className="nudge size-5 text-navy" />
+                    <span className="sr-only">{common("readMore")}</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
       <FinalCta location="insights_final" />
     </>

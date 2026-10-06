@@ -29,7 +29,8 @@
     },
     "contact": {
       "title": "Contact",
-      "description": "Book a 15-minute call, message us on WhatsApp or use the short form. We reply within 1 business day."
+      "description": "Book a 15-minute call, message us on WhatsApp or use the short form. We reply within 1 business day.",
+      "descriptionNoWhatsapp": "Book a 15-minute call or send the short form. We reply within 1 business day."
     },
     "portal": {
       "title": "Client portal",
@@ -80,7 +81,7 @@
   },
   "brand": {
     "tagline": "The US compliance and collections desk for Turkish companies.",
-    "pride": "Made in Türkiye. Run right in the United States.",
+    "pride": "Made in Türkiye. <em>Run right in the United States.</em>",
     "logoLabel": "Ponenti, home"
   },
   "nav": {
@@ -100,6 +101,7 @@
     "book": "Book a 15-minute call",
     "bookShort": "Book a call",
     "whatsapp": "Message us on WhatsApp",
+    "message": "Send a message",
     "riskTest": "3-minute risk test",
     "seePricing": "See every price",
     "whatsappMessage": "Hello, I'm writing from the Ponenti website. I'd like to book a 15-minute call about our US operations."
@@ -107,13 +109,37 @@
   "home": {
     "hero": {
       "eyebrow": "For Turkish companies doing business in the US",
-      "title": "The US compliance and collections desk for Turkish companies.",
+      "title": "The US compliance and collections desk for <em>Turkish companies.</em>",
       "subtitle": "Your US filings, multi-state sales tax and importer record at one bilingual desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval.",
-      "price": "Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk.",
-      "trustLabel": "Why you can trust us",
-      "trustFounder": "Founder: former UPS financial analyst and senior manager",
-      "trustMoney": "We never hold or move your money",
-      "trustReply": "Reply within 1 business day"
+      "price": "Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk."
+    },
+    "trust": {
+      "eyebrow": "Before you call",
+      "title": "Four things you can verify today",
+      "founder": {
+        "label": "Founder",
+        "title": "One accountable person",
+        "body": "{name}. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy. Reviews every file.",
+        "link": "Read the background"
+      },
+      "prices": {
+        "label": "Prices",
+        "title": "Every price is public",
+        "body": "Plans, desks and the check are priced on this site in US dollars. Final scope goes into a signed engagement letter.",
+        "link": "See every price"
+      },
+      "limits": {
+        "label": "Limits",
+        "title": "Our limits are in writing",
+        "body": "We never hold or move your money, and we never act as your importer of record.",
+        "link": "What we don't do"
+      },
+      "sources": {
+        "label": "Sources",
+        "title": "Every rule links to its source",
+        "body": "Regulatory claims on this site cite the IRS, CBP or the Federal Register.",
+        "link": "Knowledge center"
+      }
     },
     "doors": {
       "eyebrow": "Two ways in",
@@ -132,18 +158,24 @@
     "facts": {
       "eyebrow": "By the numbers",
       "title": "On the US side, the rules and the numbers are clear",
-      "intro": "Every fact links to its official source.",
+      "intro": "The two rules link to their official source. The hours are our own.",
       "f1": {
-        "text": "IRS penalty for each Form 5472 not filed, per year.",
+        "kicker": "IRS",
+        "unit": "per missed form, per year",
+        "text": "The IRS penalty for a Form 5472 that is not filed.",
         "source": "IRS, Instructions for Form 5472"
       },
       "f2": {
-        "value": "Sep 18, 2026",
+        "kicker": "CBP",
+        "value": "Sep 18",
+        "unit": "2026",
         "text": "Since this date, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center.",
         "source": "Federal Register, August 19, 2026"
       },
       "f3": {
+        "kicker": "Our desk hours",
         "value": "8:00-16:00",
+        "unit": "US Eastern",
         "text": "Collections calls run on US Eastern time, during your customers' business hours.",
         "source": "Cash desk terms"
       }
@@ -175,7 +207,8 @@
     "weekly": {
       "eyebrow": "Transparency",
       "title": "What you'll see every week",
-      "intro": "A short cash report every Monday and a one-page scorecard every quarter. The numbers come from your own books."
+      "intro": "A short cash report every Monday and a one-page scorecard every quarter. The numbers come from your own books.",
+      "note": "Sample figures for illustration. They are not a client's results."
     },
     "dont": {
       "eyebrow": "Our limits",
@@ -204,15 +237,15 @@
     },
     "data": {
       "eyebrow": "Your data",
-      "title": "How your data is protected",
-      "intro": "This site never asks for tax ID numbers, EINs or financial documents.",
+      "title": "Before your data reaches us",
+      "intro": "These controls are in place before the first client document arrives. This site never asks for tax ID numbers, EINs or financial documents.",
       "d1": {
         "title": "Two-factor login",
         "body": "Every system that holds your data requires two-factor login (2FA)."
       },
       "d2": {
-        "title": "Encrypted client portal",
-        "body": "Reports and documents live in an encrypted portal. Until it opens, reports arrive by email."
+        "title": "Client portal",
+        "body": "Reports and documents will live in an encrypted client portal. Until it opens, reports arrive by email."
       },
       "d3": {
         "title": "Written information security plan",
@@ -247,8 +280,13 @@
       "body": "If a filing we own is late, we pay the penalty, up to {cap} a year per client."
     },
     "final": {
+      "eyebrow": "The first call",
       "title": "Let's look at your US side in 15 minutes.",
-      "body": "We ask three questions: Who files your Form 5472? When was your importer record last checked against the address rule? How many days do your US customers take to pay?"
+      "lede": "We ask three questions",
+      "q1": "Who files your Form 5472?",
+      "q2": "When was your importer record last checked against the address rule?",
+      "q3": "How many days do your US customers take to pay?",
+      "reply": "We reply within 1 business day."
     }
   },
   "report": {
@@ -259,9 +297,9 @@
     "days": "{days} days",
     "dsoPrev": "last quarter {days} days",
     "overdue": "Overdue invoices",
-    "overdueValue": "{count} invoices, {amount}",
+    "invoices": "{count} invoices",
     "payables": "Payables awaiting your approval",
-    "payablesValue": "{count} payments, {amount}",
+    "payments": "{count} payments",
     "orders": "Orders this week",
     "ordersValue": "{count} orders",
     "filings": "Filings due",
@@ -722,11 +760,15 @@
     "eyebrow": "Contact",
     "title": "Let's meet in 15 minutes",
     "intro": "Book a call, message us on WhatsApp or use the short form. We reply within 1 business day.",
+    "introCal": "Book a call or use the short form. We reply within 1 business day.",
+    "introWhatsapp": "Message us on WhatsApp or use the short form. We reply within 1 business day.",
+    "introForm": "We reply within 1 business day.",
     "bookTitle": "Book a call",
     "bookBody": "Istanbul and US Eastern times are shown below.",
     "loadCalendar": "Open the calendar",
     "calendarNotice": "The calendar loads from Cal.com, which may set its own cookies.",
     "calendarMissing": "The calendar isn't connected yet. Please message us on WhatsApp or use the form.",
+    "calendarFallback": "Send the short form and we will reply with two times for a call.",
     "istanbul": "Istanbul",
     "newYork": "New York (US Eastern)",
     "callHours": "Our collections hours today: New York {nyStart}-{nyEnd}, Istanbul {istStart}-{istEnd}.",
@@ -762,9 +804,10 @@
     "errPhone": "Enter the phone number in digits, with the country code.",
     "errConsent": "Check the consent box to continue.",
     "errTaxId": "Please don't share tax ID numbers or EINs.",
-    "errGeneric": "We couldn't send this. Please try again or message us on WhatsApp.",
-    "errBot": "We couldn't verify this submission. Please reload the page and try again, or message us on WhatsApp.",
-    "errNotConfigured": "The form isn't connected yet. Please message us on WhatsApp or book a call.",
+    "errGeneric": "We couldn't send this. Please try again.",
+    "errBot": "We couldn't verify this submission. Please reload the page and try again.",
+    "errNotConfigured": "The form isn't connected yet.",
+    "errWhatsapp": "You can also message us on WhatsApp.",
     "errSummary": "Please fix the marked fields."
   },
   "portal": {

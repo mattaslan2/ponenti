@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Lock, Menu, X } from "lucide-react";
+import { ArrowRight, Lock, Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { StaticPathname } from "@/i18n/routing";
@@ -31,12 +31,19 @@ export function MobileNav({
   const open = () => dialog.current?.showModal();
   const close = () => dialog.current?.close();
 
+  const portalLabel = (
+    <>
+      <Lock aria-hidden="true" className="size-4 text-brass-deep" />
+      {t("portal")}
+    </>
+  );
+
   return (
     <>
       <Button
         variant="ghost"
         size="icon"
-        className="xl:hidden"
+        className="-mr-2.5 hover:bg-transparent xl:hidden"
         aria-label={tc("menu")}
         aria-haspopup="dialog"
         aria-controls="mobile-menu"
@@ -55,24 +62,25 @@ export function MobileNav({
         }}
       >
         <div className="flex min-h-full flex-col">
-          <div className="flex h-16 items-center justify-between border-b border-line px-5">
+          <div className="flex h-16 items-center justify-between px-6">
             <Logo />
-            <Button variant="ghost" size="icon" onClick={close} aria-label={tc("close")}>
+            <Button variant="ghost" size="icon" className="-mr-2.5 hover:bg-transparent" onClick={close} aria-label={tc("close")}>
               <X aria-hidden="true" className="size-6" />
             </Button>
           </div>
-          <nav aria-label={t("primary")} className="px-5 py-4">
-            <ul className="divide-y divide-line">
+          <nav aria-label={t("primary")} className="px-6 pt-6 pb-8">
+            <ul className="border-t border-line">
               {items.map((item) => (
-                <li key={item.key}>
-                  <Link href={item.href} onClick={close} className="flex min-h-12 items-center font-display text-[1.375rem] text-navy">
+                <li key={item.key} className="border-b border-line">
+                  <Link href={item.href} onClick={close} className="flex min-h-15 items-center justify-between gap-4 py-3 font-display text-[1.625rem] leading-tight text-navy">
                     {t(item.key)}
+                    <ArrowRight aria-hidden="true" className="size-4 shrink-0 text-brass-deep" />
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
-          <div className="space-y-3 border-t border-line px-5 py-5">
+          <div className="mt-auto space-y-3 px-6 pb-8">
             <Button asChild size="lg" className="w-full">
               <Link
                 href={{ pathname: "/contact", hash: "book" }}
@@ -91,21 +99,16 @@ export function MobileNav({
                 </a>
               </Button>
             )}
-            <Button asChild size="lg" variant="ghost" className="w-full border border-navy/30">
+            <div className="flex items-center justify-between pt-3">
               {portalHref ? (
-                <a href={portalHref} data-track="portal_click" data-track-location="mobile_menu">
-                  <Lock aria-hidden="true" className="size-4" />
-                  {t("portal")}
+                <a href={portalHref} className="inline-flex min-h-11 items-center gap-2 text-[0.9375rem] text-navy" data-track="portal_click" data-track-location="mobile_menu">
+                  {portalLabel}
                 </a>
               ) : (
-                <Link href="/portal" onClick={close} data-track="portal_click" data-track-location="mobile_menu">
-                  <Lock aria-hidden="true" className="size-4" />
-                  {t("portal")}
+                <Link href="/portal" onClick={close} className="inline-flex min-h-11 items-center gap-2 text-[0.9375rem] text-navy" data-track="portal_click" data-track-location="mobile_menu">
+                  {portalLabel}
                 </Link>
               )}
-            </Button>
-            <div className="flex items-center justify-between pt-2">
-              <span className="text-sm text-mist">{tc("language")}</span>
               <LanguageSwitcher onNavigate={close} />
             </div>
           </div>

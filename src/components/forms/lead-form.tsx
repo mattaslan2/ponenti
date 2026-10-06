@@ -1,7 +1,7 @@
 "use client";
 
 import { startTransition, useActionState, useEffect, useId, useRef } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { Check } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { submitLead, type LeadState } from "@/actions/lead";
@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { track } from "@/lib/analytics";
+import { publicEnv } from "@/lib/env";
 import { getUtm, UTM_KEYS } from "@/lib/utm";
 import { cn } from "@/lib/utils";
 
@@ -96,27 +97,25 @@ export function LeadForm({
 
   if (state.status === "success") {
     return (
-      <div ref={statusRef} tabIndex={-1} role="status" className={cn("rounded-sm border border-risk-low/40 bg-paper p-6 outline-none", className)}>
-        <CheckCircle2 aria-hidden="true" className="size-7 text-risk-low" />
-        <p className="mt-3 font-display text-2xl font-semibold text-navy">{t("successTitle")}</p>
+      <div ref={statusRef} tabIndex={-1} role="status" className={cn("border-t border-brass pt-6 outline-none", className)}>
+        <Check aria-hidden="true" className="size-6 text-brass-deep" />
+        <p className="mt-4 font-display text-display-sm font-medium text-navy">{t("successTitle")}</p>
         <p className="mt-2 text-mist">{state.emailed ? t("successBody") : t("successNoEmail")}</p>
       </div>
     );
   }
 
+  // WhatsApp is offered as the way around a failed send only when a number is connected.
+  const orWhatsapp = publicEnv.whatsappNumber ? ` ${t("errWhatsapp")}` : "";
   const formError =
     state.status === "error"
       ? state.code === "validation"
         ? t("errSummary")
-        : state.code === "bot"
-          ? t("errBot")
-          : state.code === "not_configured"
-            ? t("errNotConfigured")
-            : t("errGeneric")
+        : (state.code === "bot" ? t("errBot") : state.code === "not_configured" ? t("errNotConfigured") : t("errGeneric")) + orWhatsapp
       : null;
 
   return (
-    <form onSubmit={submit} noValidate className={cn("space-y-5", className)} aria-describedby={formError ? `${uid}-status` : undefined}>
+    <form onSubmit={submit} noValidate className={cn("space-y-6", className)} aria-describedby={formError ? `${uid}-status` : undefined}>
       <input type="hidden" name="formType" value={formType} />
       <input type="hidden" name="locale" value={locale} />
       {context && <input type="hidden" name="context" value={context} />}
@@ -134,10 +133,10 @@ export function LeadForm({
       </div>
 
       <div ref={statusRef} tabIndex={-1} id={`${uid}-status`} aria-live="polite" className="outline-none">
-        {formError && <p className="rounded-xs border border-risk-high/40 bg-risk-high/5 px-3 py-2 text-[0.9375rem] text-risk-high">{formError}</p>}
+        {formError && <p className="border-l-2 border-oxblood py-1 pl-4 text-small text-oxblood">{formError}</p>}
       </div>
 
-      <div className={cn("grid gap-5", full && "sm:grid-cols-2")}>
+      <div className={cn("grid gap-6", full && "sm:grid-cols-2")}>
         <Field id={fieldId("name")} label={t("name")} error={errorText("name")}>
           <Input id={fieldId("name")} name="name" autoComplete="name" required maxLength={120} aria-invalid={!!errors.name} aria-describedby={describedBy("name")} />
         </Field>
@@ -157,14 +156,14 @@ export function LeadForm({
       {full && (
         <>
           <fieldset>
-            <legend className="text-[0.9375rem] font-medium text-navy">{t("segment")}</legend>
-            <div className="mt-2 grid gap-2 sm:grid-cols-2">
+            <legend className="text-small font-medium text-navy">{t("segment")}</legend>
+            <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
               {[
                 { value: "us_entity", label: t("segmentUs") },
                 { value: "sells_from_tr", label: t("segmentTr") },
               ].map((o) => (
-                <label key={o.value} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-xs border border-field bg-paper px-3 has-[:checked]:border-navy has-[:checked]:bg-sand">
-                  <input type="radio" name="segment" value={o.value} defaultChecked={segment === o.value} className="size-4 accent-navy" />
+                <label key={o.value} className="flex min-h-12 cursor-pointer items-center gap-3 rounded-xs border border-field bg-paper px-3.5 py-2.5 text-small leading-snug transition-colors duration-200 hover:border-navy/70 has-[:checked]:border-navy has-[:checked]:bg-sand has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-navy">
+                  <input type="radio" name="segment" value={o.value} defaultChecked={segment === o.value} className="size-4 shrink-0 accent-navy focus-visible:outline-none" />
                   <span>{o.label}</span>
                 </label>
               ))}
@@ -172,14 +171,14 @@ export function LeadForm({
           </fieldset>
           {paymentLabels && (
             <div>
-              <Label htmlFor={fieldId("paymentDays")} className="text-[0.9375rem] font-medium text-navy">
+              <Label htmlFor={fieldId("paymentDays")} className="text-small leading-snug font-medium text-navy">
                 {t("paymentDays")}
               </Label>
               <select
                 id={fieldId("paymentDays")}
                 name="paymentDays"
                 defaultValue={paymentDays ?? ""}
-                className="mt-2 h-11 w-full rounded-xs border border-field bg-paper px-3 text-[1rem] text-graphite"
+                className="mt-2.5 h-12 w-full rounded-xs border border-field bg-paper px-3 text-base text-navy transition-colors duration-200 hover:border-navy/70 focus-visible:border-navy"
               >
                 <option value="">{t("paymentDaysNone")}</option>
                 {PAYMENT_OPTIONS.map((o) => (
@@ -197,14 +196,14 @@ export function LeadForm({
       )}
 
       <div>
-        <label className="flex cursor-pointer items-start gap-3 text-[0.875rem] leading-relaxed text-mist">
+        <label className="flex cursor-pointer items-start gap-3 text-caption text-mist">
           <input
             type="checkbox"
             name="consent"
             required
             aria-invalid={!!errors.consent}
             aria-describedby={errors.consent ? `${fieldId("consent")}-error` : undefined}
-            className="mt-1 size-5 shrink-0 accent-navy"
+            className="mt-0.5 size-5 shrink-0 accent-navy"
           />
           <span>
             {t.rich("consent", {
@@ -217,13 +216,13 @@ export function LeadForm({
           </span>
         </label>
         {errors.consent && (
-          <p id={`${fieldId("consent")}-error`} className="mt-1.5 text-[0.875rem] text-risk-high">
+          <p id={`${fieldId("consent")}-error`} className="mt-2 text-caption text-oxblood">
             {errorText("consent")}
           </p>
         )}
       </div>
 
-      {!full && <p className="text-[0.8125rem] text-mist">{t("noTaxIds")}</p>}
+      {!full && <p className="text-caption text-mist-soft">{t("noTaxIds")}</p>}
 
       <Button type="submit" size="lg" disabled={pending} className="w-full sm:w-auto">
         {pending ? t("sending") : (submitLabel ?? t("submit"))}
@@ -247,17 +246,17 @@ function Field({
 }) {
   return (
     <div>
-      <Label htmlFor={id} className="text-[0.9375rem] font-medium text-navy">
+      <Label htmlFor={id} className="text-small font-medium text-navy">
         {label}
       </Label>
-      <div className="mt-2">{children}</div>
+      <div className="mt-2.5">{children}</div>
       {hint && (
-        <p id={`${id}-hint`} className="mt-1.5 text-[0.8125rem] text-mist">
+        <p id={`${id}-hint`} className="mt-2 text-caption text-mist-soft">
           {hint}
         </p>
       )}
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-[0.875rem] text-risk-high">
+        <p id={`${id}-error`} className="mt-2 text-caption text-oxblood">
           {error}
         </p>
       )}

@@ -99,7 +99,7 @@ export async function sendLeadEmails(lead: Lead, internalSummary: string) {
     `${t("signoff")}\n${founder}\nPonenti`,
   ];
   const text = paragraphs.join("\n\n");
-  const html = `<div style="font-family:Georgia,'Times New Roman',serif;color:#1c1c1c;font-size:16px;line-height:1.6;max-width:560px">${paragraphs
+  const html = `<div style="font-family:Georgia,'Times New Roman',serif;color:#0e1a2b;font-size:16px;line-height:1.6;max-width:560px">${paragraphs
     .map((p) => `<p style="margin:0 0 16px">${escapeHtml(p).replace(/\n/g, "<br>")}</p>`)
     .join("")}</div>`;
 

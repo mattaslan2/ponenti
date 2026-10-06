@@ -9,83 +9,142 @@
  *   @import "./tokens.css";
  *
  * Tailwind v4 turns every token below into utilities (bg-navy, text-brass-deep,
- * font-display, max-w-page ...) and also exposes each one as a CSS variable at
- * runtime (var(--color-navy)), so plain CSS and server-rendered images can use
- * the same values.
+ * font-display, py-section, max-w-page ...) and also exposes each one as a CSS
+ * variable at runtime (var(--color-navy)), so plain CSS and server-rendered
+ * images can use the same values. The full specification, with the reasoning,
+ * is in docs/DESIGN.md.
+ *
+ * PALETTE: three roles, nothing else.
+ *   Neutral  ivory   the ground. paper and sand are the same hue, one step
+ *                    lighter and one step darker; line and field are its hairlines.
+ *   Ink      navy    every heading and all body text. mist and mist-soft are
+ *                    navy mixed toward ivory for secondary and meta text.
+ *   Accent   brass   hairline rules, the wind rose, link underlines, small labels.
+ *                    Never a fill behind text, never large areas.
+ * One functional color sits outside the palette: oxblood, for errors and
+ * negative figures (accounting convention: positive in ink, negative in red).
  *
  * Contrast (WCAG 2.2, verified; ratio against the background named):
- *   graphite on ivory 15.1   navy on ivory 15.5    ivory on navy 15.5
- *   mist on ivory 6.4        brass-deep on ivory 5.5  cobalt on ivory 7.4
- *   brass on navy 5.7        brass-light on navy 8.3  ivory-dim on navy 9.8
- *   navy on brass 5.7        mist on sand 5.7         field on ivory 3.6 (UI)
- *   risk-low 5.6 / risk-medium 5.3 / risk-high 6.7 on ivory
+ *   navy on ivory 15.5    on paper 16.5    on sand 14.5    ivory on navy 15.5
+ *   mist on ivory 6.6     on sand 6.1      mist-soft on ivory 5.1   on sand 4.7
+ *   brass-deep on ivory 5.5   on sand 5.1  oxblood on ivory 7.6     on sand 7.1
+ *   brass on navy 5.7     brass-light on navy 8.3
+ *   ivory-dim on navy 9.8 ivory-soft on navy 6.3   field on ivory 3.3 (UI, needs 3)
  * Rule: brass (#B08D57) is never text on ivory (2.75). Use brass-deep for
  * brass-toned text on light grounds; brass is for rules, marks and text on navy.
  */
 
 @theme {
-  /* Brand palette */
-  --color-navy: #0e1a2b; /* midnight navy */
-  --color-navy-800: #14233a; /* raised surface on navy */
-  --color-navy-700: #1a2a40; /* cards on navy */
+  /* Neutral: the ground */
   --color-ivory: #f6f1e7;
-  --color-paper: #fbf8f2; /* cards on ivory */
-  --color-sand: #ece4d3; /* quiet band on ivory */
+  --color-paper: #fbf8f2; /* sheets and form fields on ivory */
+  --color-sand: #efe9dc; /* one quiet band; selected rows */
+  --color-line: #d9cfbc; /* hairlines on ivory */
+  --color-field: #8a8376; /* form field borders: 3.3:1 on ivory, 3.5:1 on paper */
+
+  /* Ink: the one dark tone */
+  --color-navy: #0e1a2b; /* midnight navy: headings, body text, dark bands */
+  --color-navy-800: #14233a; /* raised surface on navy */
+  --color-navy-700: #1a2a40; /* hover on navy */
+  --color-mist: #4f5660; /* secondary text on light grounds */
+  --color-mist-soft: #62676f; /* meta text and captions on light grounds */
+  --color-ivory-dim: #c9c1b1; /* secondary text on navy */
+  --color-ivory-soft: #999b9c; /* meta text on navy */
+  --color-line-navy: #2f3845; /* hairlines on navy */
+
+  /* Accent: brass, used sparingly */
   --color-brass: #b08d57;
   --color-brass-light: #cdae7c; /* brass text and focus on navy */
   --color-brass-deep: #7a5c2e; /* brass-toned text on light grounds */
-  --color-graphite: #1c1c1c;
-  --color-mist: #55575c; /* secondary text on ivory */
-  --color-ivory-dim: #c9c1b1; /* secondary text on navy */
-  --color-cobalt: #1f4e8c; /* Iznik cobalt: rare accent, links, focus */
-  --color-line: #d9cfbc; /* hairlines on ivory */
-  --color-field: #847d70; /* form field borders, 3:1 on ivory */
 
-  /* Status (risk test) */
-  --color-risk-low: #2f6b4f;
-  --color-risk-medium: #8a5a00;
-  --color-risk-high: #9b2c2c;
+  /* Functional: errors and negative figures only */
+  --color-oxblood: #8a2a2a;
 
-  /* Charts (trade data). Validated on paper #fbf8f2: accent 7.8:1, negative 7.1:1,
-     accent vs negative CVD ΔE 15.7. The muted bar (2.0:1) always sits next to its
-     value in text, which carries the number. */
-  --color-chart-accent: #1f4e8c; /* the series that matters: cobalt */
+  /* Charts (trade data). The accent is the ink's own hue (OKLCH 257°) lifted until it
+     reads as a color, so data stays inside the palette. Validated on ivory #f6f1e7:
+     accent 6.8:1, negative 7.6:1, accent vs negative ΔE 16.3 under protanopia and
+     21.1 in normal vision. The muted bar (1.9:1) always sits next to its value in
+     text, which carries the number. */
+  --color-chart-accent: #2a548c; /* the series that matters */
   --color-chart-muted: #b9b2a5; /* context series and other countries */
-  --color-chart-negative: #9b2c2c; /* declines */
+  --color-chart-negative: #8a2a2a; /* declines */
   --color-chart-grid: #e7e0d2; /* hairline gridlines */
   --color-chart-axis: #c9c1b1; /* baseline */
 
-  /* Type scale: mobile first, display sizes grow with the viewport */
-  --text-display-xl: clamp(2.25rem, 1.55rem + 3.2vw, 4.25rem);
-  --text-display-xl--line-height: 1.06;
-  --text-display-xl--letter-spacing: -0.01em;
-  --text-display-lg: clamp(1.875rem, 1.45rem + 2vw, 3rem);
+  /*
+   * Type scale. Display sizes are fluid between a 390 px phone and a 1440 px
+   * desktop; the two ends are the explicit sizes in docs/DESIGN.md.
+   *                 phone        desktop      weight  tracking
+   * display-xl      42 / 45      76 / 78      500     -0.02em    serif
+   * display-lg      32 / 36      52 / 56      500     -0.015em   serif
+   * display-md      26 / 31      36 / 42      500     -0.01em    serif
+   * display-sm      22 / 28      27 / 34      500     -0.005em   serif
+   * numeral         52 / 52      88 / 84      500     -0.02em    serif, lining
+   * lead            18 / 28      21 / 33      400     -0.011em   sans
+   * body            16 / 27      17 / 29      400     -0.006em   sans
+   * title           17 / 24      18 / 26      600     -0.01em    sans
+   * small           14 / 22      14 / 22      400     0          sans
+   * caption         13 / 20      13 / 20      400     0          sans
+   * label           12 / 16      12 / 16      500     0.16em     sans, uppercase
+   */
+  --text-display-xl: clamp(2.625rem, 1.836rem + 3.238vw, 4.75rem);
+  --text-display-xl--line-height: 1.04;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-lg: clamp(2rem, 1.536rem + 1.905vw, 3.25rem);
   --text-display-lg--line-height: 1.1;
-  --text-display-md: clamp(1.5rem, 1.25rem + 1.1vw, 2.125rem);
-  --text-display-md--line-height: 1.15;
-  --text-display-sm: 1.375rem;
-  --text-display-sm--line-height: 1.25;
-  --text-numeral: clamp(2.75rem, 2.1rem + 2.8vw, 4rem);
-  --text-numeral--line-height: 1;
-  --text-lead: 1.125rem;
-  --text-lead--line-height: 1.6;
-  --text-eyebrow: 0.8125rem;
-  --text-eyebrow--line-height: 1.4;
-  --text-eyebrow--letter-spacing: 0.12em;
+  --text-display-lg--letter-spacing: -0.015em;
+  --text-display-md: clamp(1.625rem, 1.393rem + 0.952vw, 2.25rem);
+  --text-display-md--line-height: 1.17;
+  --text-display-md--letter-spacing: -0.01em;
+  --text-display-sm: clamp(1.375rem, 1.259rem + 0.476vw, 1.6875rem);
+  --text-display-sm--line-height: 1.26;
+  --text-display-sm--letter-spacing: -0.005em;
+  --text-numeral: clamp(3.25rem, 2.414rem + 3.429vw, 5.5rem);
+  --text-numeral--line-height: 0.96;
+  --text-numeral--letter-spacing: -0.02em;
+  --text-lead: clamp(1.125rem, 1.055rem + 0.286vw, 1.3125rem);
+  --text-lead--line-height: 1.56;
+  --text-lead--letter-spacing: -0.011em;
+  --text-body: clamp(1rem, 0.977rem + 0.095vw, 1.0625rem);
+  --text-body--line-height: 1.7;
+  --text-body--letter-spacing: -0.006em;
+  --text-title: clamp(1.0625rem, 1.039rem + 0.095vw, 1.125rem);
+  --text-title--line-height: 1.42;
+  --text-title--letter-spacing: -0.01em;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.57;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.54;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.34;
+  --text-eyebrow--letter-spacing: 0.16em;
+
+  /*
+   * Space. Whitespace is a design element here: sections are separated by
+   * air and one hairline, not by boxes or background bands.
+   *                 phone   desktop
+   * section         104     192     vertical padding of every section
+   * band            72      120     page headers, the closing band, the footer
+   * stack           48      96      from a section header to its content
+   */
+  --spacing-section: clamp(6.5rem, 4.457rem + 8.381vw, 12rem);
+  --spacing-band: clamp(4.5rem, 3.386rem + 4.571vw, 7.5rem);
+  --spacing-stack: clamp(3rem, 1.886rem + 4.571vw, 6rem);
 
   /* Shape: restraint, almost square */
   --radius-xs: 2px;
-  --radius-sm: 4px;
+  --radius-sm: 3px;
 
   /* Layout */
-  --container-page: 75rem; /* 1200px max content width */
-  --container-prose: 42rem;
+  --container-page: 80rem; /* 1280 px, with 24 / 40 / 64 px side gutters */
+  --container-prose: 38rem; /* about 72 characters of body text */
 
-  /* Motion: 200-300 ms fades, disabled under prefers-reduced-motion */
+  /* Motion: three quiet transitions, all disabled under prefers-reduced-motion */
   --ease-quiet: cubic-bezier(0.2, 0, 0, 1);
-  --animate-fade-in: fade-in 250ms var(--ease-quiet) both;
+  --animate-fade-in: fade-in 300ms var(--ease-quiet) both;
 
-  --shadow-quiet: 0 1px 0 rgb(14 26 43 / 0.05), 0 12px 32px -18px rgb(14 26 43 / 0.25);
+  /* One shadow, for a sheet of paper lying on the page and for menus */
+  --shadow-sheet: 0 1px 0 rgb(14 26 43 / 0.04), 0 24px 48px -32px rgb(14 26 43 / 0.28);
 
   @keyframes fade-in {
     from {
@@ -106,19 +165,19 @@
 
 /* Motion durations (plain CSS variables) */
 :root {
-  --duration-fast: 200ms;
-  --duration-base: 250ms;
-  --duration-slow: 300ms;
+  --duration-fast: 200ms; /* color and border changes */
+  --duration-base: 400ms; /* reveals, the hover rule */
+  --duration-slow: 900ms; /* a section rule drawing itself */
 }
 
 /* shadcn/ui semantic tokens, mapped onto the brand palette */
 :root {
   --background: var(--color-ivory);
-  --foreground: var(--color-graphite);
+  --foreground: var(--color-navy);
   --card: var(--color-paper);
-  --card-foreground: var(--color-graphite);
+  --card-foreground: var(--color-navy);
   --popover: var(--color-paper);
-  --popover-foreground: var(--color-graphite);
+  --popover-foreground: var(--color-navy);
   --primary: var(--color-navy);
   --primary-foreground: var(--color-ivory);
   --secondary: var(--color-sand);
@@ -127,11 +186,11 @@
   --muted-foreground: var(--color-mist);
   --accent: var(--color-sand);
   --accent-foreground: var(--color-navy);
-  --destructive: var(--color-risk-high);
+  --destructive: var(--color-oxblood);
   --border: var(--color-line);
   --input: var(--color-field);
-  --ring: var(--color-cobalt);
-  --radius: 0.25rem;
+  --ring: var(--color-navy);
+  --radius: 0.125rem;
 }
 
 @theme inline {

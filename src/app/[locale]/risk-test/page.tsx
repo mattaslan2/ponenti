@@ -25,11 +25,13 @@ export default async function RiskTestPage() {
   return (
     <>
       <PageHeader eyebrow={t("eyebrow")} title={t("title")} />
-      <section className="py-10 sm:py-16">
-        <div className="page max-w-3xl">
-          <NextIntlClientProvider messages={pick(messages, ["riskTest", "forms", "common", "cta"])}>
-            <RiskTest sourceUrls={sourceUrls} />
-          </NextIntlClientProvider>
+      <section>
+        <div className="page py-section">
+          <div className="mx-auto max-w-3xl">
+            <NextIntlClientProvider messages={pick(messages, ["riskTest", "forms", "common", "cta"])}>
+              <RiskTest sourceUrls={sourceUrls} />
+            </NextIntlClientProvider>
+          </div>
         </div>
       </section>
     </>

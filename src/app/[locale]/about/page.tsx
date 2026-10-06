@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { PageHeader, Section } from "@/components/section";
-import { WindRose } from "@/components/brand/logo";
+import { CompassCard } from "@/components/brand/compass-card";
 import { FinalCta } from "@/components/home/sections";
-import { Confirm, Fact } from "@/components/placeholders";
+import { Confirm } from "@/components/placeholders";
 import { isPlaceholder, site } from "@/lib/site";
 import { PhotoBand } from "@/components/photo";
 import { buildMetadata } from "@/lib/seo";
@@ -16,12 +17,23 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/about">)
   return buildMetadata({ locale, href: "/about", title: t("title"), description: t("description") });
 }
 
+/** "The founder: reviews every file." → ["The founder", "reviews every file."] */
+function splitTerm(line: string, locale: Locale): [string, string] {
+  const at = line.indexOf(": ");
+  if (at === -1) return ["", line];
+  const rest = line.slice(at + 2);
+  // Locale-aware: a Turkish "i" must become "İ", not "I".
+  return [line.slice(0, at), rest.charAt(0).toLocaleUpperCase(locale === "tr" ? "tr-TR" : "en-US") + rest.slice(1)];
+}
+
 export default async function AboutPage({ params }: PageProps<"/[locale]/about">) {
   const locale = (await params).locale as Locale;
   const t = await getTranslations("about");
   const brand = await getTranslations("brand");
   const home = await getTranslations("home.founder");
   const name = site.founder.name[locale];
+  const hasPhoto = !isPlaceholder(site.founder.photo);
+  const hasLinkedin = !isPlaceholder(site.founder.linkedin);
 
   const steps = [1, 2, 3, 4, 5].map((i) => ({
     label: t(`step${i}Label` as "step1Label"),
@@ -34,95 +46,104 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
       <PhotoBand photo={site.photos.bosphorus} locale={locale} />
 
       {/* Name story */}
-      <section aria-labelledby="name-title" className="py-14 sm:py-20">
-        <div className="page grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
-          <div className="on-navy grid size-56 place-items-center rounded-sm bg-navy text-brass ring-1 ring-brass/40 sm:size-72">
-            <WindRose className="size-44 sm:size-56" title={locale === "tr" ? "Batıyı gösteren rüzgârgülü" : "Wind rose pointing west"} />
+      <section aria-labelledby="name-title" className="overflow-hidden">
+        <div className="page grid items-center gap-x-8 gap-y-14 py-section lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <CompassCard
+              locale={locale}
+              className="mx-auto w-full max-w-[26rem] lg:max-w-none"
+              title={locale === "tr" ? "Batıyı, ponente yönünü gösteren rüzgârgülü" : "Wind rose with the west point, ponente, in brass"}
+            />
           </div>
-          <div className="max-w-2xl">
-            <h2 id="name-title" className="text-display-lg">{t("nameTitle")}</h2>
-            <p className="mt-5 text-lead text-graphite">{t("nameBody1")}</p>
-            <p className="mt-3 text-lead text-graphite">{t("nameBody2")}</p>
-            <p className="mt-8 border-l-2 border-brass pl-5 font-display text-[1.75rem] leading-snug text-navy">{brand("pride")}</p>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <h2 id="name-title" className="text-display-lg">
+              {t("nameTitle")}
+            </h2>
+            <p className="mt-8 text-lead text-navy">{t("nameBody1")}</p>
+            <p className="mt-4 text-lead text-navy">{t("nameBody2")}</p>
+            <p className="mt-12 border-t border-brass pt-8 font-display text-display-md font-medium text-navy">{brand.rich("pride", { em: (chunks) => <em>{chunks}</em> })}</p>
           </div>
         </div>
       </section>
 
       {/* Founder */}
-      <Section id="founder-note" tone="sand" title={t("founderTitle")}>
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-sm bg-navy ring-1 ring-brass/50">
-              {isPlaceholder(site.founder.photo) ? (
-                <div className="on-navy absolute inset-0 grid place-items-center p-4 text-center">
-                  <WindRose className="absolute size-40 text-brass opacity-20" />
-                  <span className="ph relative">[REPLACE WITH REAL] {locale === "tr" ? "kurucu fotoğrafı" : "founder photo"}</span>
-                </div>
-              ) : (
-                <Image src={site.founder.photo} alt={name} fill sizes="(min-width: 1024px) 320px, 80vw" className="object-cover" />
-              )}
-            </div>
-            <div className="mt-4 font-display text-2xl text-navy">
+      <Section
+        id="founder-note"
+        layout="split"
+        title={t("founderTitle")}
+        aside={
+          <div>
+            {hasPhoto && (
+              <div className="relative mb-6 aspect-[4/5] w-full max-w-[15rem] overflow-hidden rounded-xs bg-sand">
+                <Image src={site.founder.photo} alt={name} fill sizes="240px" className="object-cover" />
+              </div>
+            )}
+            <p className="font-display text-display-sm font-medium text-navy">
               <Confirm note="display name">{name}</Confirm>
-            </div>
-            <p className="mt-1 text-[0.9375rem]">
-              {isPlaceholder(site.founder.linkedin) ? (
-                <Fact value={site.founder.linkedin} />
-              ) : (
-                <a href={site.founder.linkedin} className="link" target="_blank" rel="noopener noreferrer me">
-                  {home("linkedin")}
-                </a>
-              )}
             </p>
+            {hasLinkedin && (
+              <a href={site.founder.linkedin} className="link mt-1 inline-flex min-h-11 items-center gap-2 text-small font-medium" target="_blank" rel="noopener noreferrer me">
+                {home("linkedin")}
+                <ArrowUpRight aria-hidden="true" className="nudge-up size-4" />
+              </a>
+            )}
           </div>
-          <div className="space-y-4 text-lead text-graphite lg:col-span-8">
-            <Confirm note="founder story draft">
-              <span className="block">{t("founderP1", { name })}</span>
-            </Confirm>
-            <p>{t("founderP2")}</p>
-            <p>{t("founderP3")}</p>
-            <div className="!mt-10 rounded-sm border border-line bg-paper p-6">
-              <h3 className="eyebrow text-brass-deep">{t("bioTitle")}</h3>
-              <p className="mt-3 text-[1rem] leading-relaxed text-graphite">
-                <Confirm note="bio draft">{t("bio")}</Confirm>
-              </p>
-            </div>
-          </div>
+        }
+      >
+        <div className="max-w-2xl space-y-5 text-lead text-navy">
+          <Confirm note="founder story draft">
+            <span className="block">{t("founderP1", { name })}</span>
+          </Confirm>
+          <p>{t("founderP2")}</p>
+          <p>{t("founderP3")}</p>
+        </div>
+        <div className="mt-14 max-w-2xl border-t border-line pt-6">
+          <h3 className="eyebrow">{t("bioTitle")}</h3>
+          <p className="mt-4 text-mist">
+            <Confirm note="bio draft">{t("bio")}</Confirm>
+          </p>
         </div>
       </Section>
 
       {/* How we work */}
-      <Section id="how" title={t("howTitle")}>
-        <ul className="grid gap-6 sm:grid-cols-2">
+      <Section id="how" layout="split" title={t("howTitle")}>
+        <ol className="border-t border-line">
           {[1, 2, 3, 4].map((i) => (
-            <li key={i} data-reveal className="border-t border-brass/70 pt-5 text-graphite">
-              {t(`how${i}` as "how1")}
+            <li key={i} data-reveal className="grid gap-x-8 gap-y-2 border-b border-line py-7 sm:grid-cols-[2.5rem_minmax(0,1fr)]">
+              <span aria-hidden="true" className="font-display text-[1.375rem] leading-[1.45] font-medium text-brass-deep">
+                0{i}
+              </span>
+              <p className="max-w-2xl font-display text-display-sm font-medium text-navy">{t(`how${i}` as "how1")}</p>
             </li>
           ))}
-        </ul>
+        </ol>
       </Section>
 
       {/* First 10 business days */}
       <Section id="first-10" tone="sand" title={t("first10Title")} intro={t("first10Intro")}>
-        <ol className="relative grid gap-px overflow-hidden rounded-sm border border-line bg-line md:grid-cols-5">
+        <ol className="grid gap-x-8 md:grid-cols-5">
           {steps.map((step) => (
-            <li key={step.label} data-reveal className="bg-paper p-5">
-              <h3 className="font-display text-[1.375rem] font-semibold text-brass-deep">{step.label}</h3>
-              <p className="mt-2 text-[0.9375rem] text-graphite">{step.body}</p>
+            <li key={step.label} data-reveal className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-6 border-t border-navy py-6 md:block md:py-0 md:pt-6">
+              <h3 className="font-display text-display-sm font-medium text-navy">{step.label}</h3>
+              <p className="text-small text-mist md:mt-4">{step.body}</p>
             </li>
           ))}
         </ol>
       </Section>
 
       {/* Who touches your data */}
-      <Section id="data-access" title={t("dataTitle")}>
-        <ul className="divide-y divide-line border-y border-line">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <li key={i} className="py-4 text-graphite">
-              {i === 3 ? <Confirm note="review and e-file partner">{t("data3")}</Confirm> : t(`data${i}` as "data1")}
-            </li>
-          ))}
-        </ul>
+      <Section id="data-access" layout="split" rule={false} title={t("dataTitle")}>
+        <dl className="border-t border-line">
+          {[1, 2, 3, 4, 5].map((i) => {
+            const [term, detail] = splitTerm(t(`data${i}` as "data1"), locale);
+            return (
+              <div key={i} className="grid gap-x-8 gap-y-1 border-b border-line py-5 sm:grid-cols-[14rem_minmax(0,1fr)]">
+                <dt className="font-semibold text-navy">{term}</dt>
+                <dd className="text-mist">{i === 3 ? <Confirm note="review and e-file partner">{detail}</Confirm> : detail}</dd>
+              </div>
+            );
+          })}
+        </dl>
       </Section>
 
       <FinalCta location="about_final" />

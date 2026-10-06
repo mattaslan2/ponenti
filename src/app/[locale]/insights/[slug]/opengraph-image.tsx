@@ -16,6 +16,6 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const { locale, slug } = (await params) as { locale: Locale; slug: string };
   const { meta } = await loadArticle(locale, slug);
   const nav = await getTranslations({ locale, namespace: "nav" });
-  const brand = await getTranslations({ locale, namespace: "brand" });
-  return renderOg({ title: meta.title, kicker: nav("insights"), footer: brand("pride"), locale });
+  const site = await getTranslations({ locale, namespace: "meta" });
+  return renderOg({ title: meta.title, kicker: nav("insights"), footer: site("ogTagline"), locale });
 }

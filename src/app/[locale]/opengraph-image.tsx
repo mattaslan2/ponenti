@@ -14,6 +14,8 @@ export function generateStaticParams() {
 export default async function Image({ params }: { params: Promise<{ locale: string }> }) {
   const locale = (await params).locale as Locale;
   const brand = await getTranslations({ locale, namespace: "brand" });
+  const meta = await getTranslations({ locale, namespace: "meta" });
   const hero = await getTranslations({ locale, namespace: "home.hero" });
-  return renderOg({ title: brand("tagline"), kicker: hero("eyebrow"), footer: brand("pride"), locale });
+  // brand.pride carries markup for the page; the share card uses the plain line.
+  return renderOg({ title: brand("tagline"), kicker: hero("eyebrow"), footer: meta("ogTagline"), locale });
 }

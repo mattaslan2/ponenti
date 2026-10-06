@@ -56,7 +56,7 @@ export function CalEmbed({
   labels,
 }: {
   calLink: string;
-  labels: { load: string; notice: string; missing: string };
+  labels: { load: string; notice: string };
 }) {
   const [open, setOpen] = useState(false);
   const started = useRef(false);
@@ -99,22 +99,20 @@ export function CalEmbed({
     });
   }, [open, calLink]);
 
-  if (!calLink) {
-    return <p className="rounded-xs border border-line bg-paper p-4 text-mist">{labels.missing}</p>;
-  }
+  if (!calLink) return null;
 
   return (
     <div>
       {!open && (
-        <div className="rounded-sm border border-line bg-paper p-6">
+        <div>
           <Button size="lg" onClick={start}>
             <CalendarDays aria-hidden="true" />
             {labels.load}
           </Button>
-          <p className="mt-3 text-[0.8125rem] text-mist">{labels.notice}</p>
+          <p className="mt-4 text-caption text-mist-soft">{labels.notice}</p>
         </div>
       )}
-      <div id="cal-inline" className={open ? "min-h-[640px] overflow-hidden rounded-sm border border-line bg-paper" : "hidden"} />
+      <div id="cal-inline" className={open ? "min-h-[640px] overflow-hidden rounded-xs border border-line bg-paper" : "hidden"} />
     </div>
   );
 }
@@ -168,23 +166,23 @@ export function DualClock() {
     hours = t("callHours", { nyStart: "08:00", nyEnd: "16:00", istStart: hhmm(8 * 60 + delta), istEnd: hhmm(16 * 60 + delta) });
   }
 
+  const clocks = [
+    { label: t("istanbul"), zone: "Europe/Istanbul" },
+    { label: t("newYork"), zone: "America/New_York" },
+  ];
   return (
-    <div className="rounded-sm border border-line bg-paper p-5">
-      <dl className="grid grid-cols-2 gap-4">
-        <div>
-          <dt className="text-[0.8125rem] text-mist">{t("istanbul")}</dt>
-          <dd className="font-display text-[2rem] leading-tight font-semibold text-navy [font-variant-numeric:tabular-nums]">
-            {now ? fmt("Europe/Istanbul", now) : "--:--"}
-          </dd>
-        </div>
-        <div>
-          <dt className="text-[0.8125rem] text-mist">{t("newYork")}</dt>
-          <dd className="font-display text-[2rem] leading-tight font-semibold text-navy [font-variant-numeric:tabular-nums]">
-            {now ? fmt("America/New_York", now) : "--:--"}
-          </dd>
-        </div>
+    <div>
+      <dl className="grid grid-cols-2 border-y border-line">
+        {clocks.map((clock, i) => (
+          <div key={clock.zone} className={i === 0 ? "border-r border-line py-6 pr-6" : "py-6 pl-6 sm:pl-10"}>
+            <dt className="eyebrow">{clock.label}</dt>
+            <dd className="figures mt-4 font-display text-[clamp(2.5rem,2rem+2vw,3.5rem)] leading-none font-medium text-navy">
+              {now ? fmt(clock.zone, now) : "--:--"}
+            </dd>
+          </div>
+        ))}
       </dl>
-      <p className="mt-3 min-h-[1.5em] text-[0.875rem] text-mist">{hours}</p>
+      <p className="mt-4 min-h-[1.5em] text-caption text-mist-soft">{hours}</p>
     </div>
   );
 }

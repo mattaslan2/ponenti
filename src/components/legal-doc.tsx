@@ -16,18 +16,22 @@ export async function LegalDoc({ locale, docKey }: { locale: Locale; docKey: Leg
   const { Content, meta } = await loadLegal(locale, docKey);
   const common = await getTranslations("common");
   return (
-    <article className="py-10 sm:py-16">
-      <div className="page">
-        <h1 className="max-w-3xl text-display-lg">{meta.title}</h1>
-        <p className="mt-4 border-t border-brass/70 pt-4 text-[0.875rem] text-mist">
-          <time dateTime={meta.updated}>{common("updated", { date: formatDate(meta.updated, locale) })}</time>
-        </p>
-        <div className="prose-ponenti mt-10">
-          <Content />
+    <article>
+      <div className="page pt-band pb-section">
+        <h1 className="max-w-4xl text-display-lg">{meta.title}</h1>
+        <div className="mt-12 border-t border-navy pt-8 lg:grid lg:grid-cols-12 lg:gap-x-8">
+          <p className="figures text-caption text-mist-soft lg:col-span-3">
+            <time dateTime={meta.updated}>{common("updated", { date: formatDate(meta.updated, locale) })}</time>
+          </p>
+          <div className="mt-10 lg:col-span-8 lg:col-start-5 lg:mt-0">
+            <div className="prose-ponenti">
+              <Content />
+            </div>
+            <span id="new-tab-note" hidden>
+              {common("opensNewTab")}
+            </span>
+          </div>
         </div>
-        <span id="new-tab-note" hidden>
-          {common("opensNewTab")}
-        </span>
       </div>
     </article>
   );
