@@ -97,6 +97,20 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 |---|---|---|
 | `meta.ogTagline` | Türkiye'de üretilir, ABD'de doğru yönetilir. | Made in Türkiye. Run right in the United States. |
 
+## meta.trade
+
+| Key | Türkçe | English |
+|---|---|---|
+| `title` | ABD ithalat verileri: ürün, ülke ve gümrük vergisi | US import data: products, countries and duties |
+| `description` | ABD'nin ürün ve ülke bazında aylık ithalatı. Türkiye'nin payı, rakipler, ödenen gümrük vergisi ve giriş limanları. Kaynak: U.S. Census Bureau. | Monthly US imports by product and country. Türkiye's share, competitors, the duty actually paid and ports of entry. Source: US Census Bureau. |
+
+## meta.tradeProduct
+
+| Key | Türkçe | English |
+|---|---|---|
+| `title` | HS {code} ABD ithalatı: {country} ve rakipler | HS {code} US imports: {country} and competitors |
+| `description` | {label}. ABD'nin son 12 aylık ithalatı, tedarikçi ülkeler, pay, büyüme ve etkin gümrük vergisi. Kaynak: U.S. Census Bureau. | {label}. US imports over the last 12 months, supplying countries, share, growth and effective duty rate. Source: US Census Bureau. |
+
 ## common
 
 | Key | Türkçe | English |
@@ -148,6 +162,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `contact` | İletişim | Contact |
 | `portal` | Müşteri Portalı | Client portal |
 | `portalShort` | Portal | Portal |
+| `tradeData` | Ticaret verileri | Trade data |
 
 ## cta
 
@@ -530,6 +545,113 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `form5472.multiple` | Birden fazla ilişkili taraf varsa her biri için ayrı form gerekir. | With more than one related party, each needs its own form. |
 | `emailCta` | Sonucu e-postayla gönder | Email me my result |
 
+## trade
+
+| Key | Türkçe | English |
+|---|---|---|
+| `eyebrow` | Ticaret verileri | Trade data |
+| `title` | ABD ithalat verileri: ürününüzün ABD pazarını görün. | US import data: see your product's US market. |
+| `intro` | ABD Census Bureau'nun resmi aylık verileri. Ürün adını veya GTİP kodunu yazın; ABD'nin kimden ne kadar aldığını, büyümeyi, ödenen gümrük vergisini ve giriş limanlarını görün. | Official monthly figures from the US Census Bureau. Type a product or an HS code to see who the US buys from and how much, growth, the duty actually paid and the ports goods enter through. |
+| `lead.title` | Bu analizi e-postayla alın | Email me this analysis |
+| `lead.body` | Özet rakamları ve bu sayfanın bağlantısını gönderelim. İsterseniz sonuçları 15 dakikalık bir görüşmede birlikte okuyalım. | We'll send the key figures and a link to this page. If you like, we can read them together on a 15-minute call. |
+| `lead.submit` | Analizi gönder | Send the analysis |
+| `freshness` | Son veri: {month}. Veriler her ay güncellenir. | Latest data: {month}. Updated monthly. |
+| `filters.search` | Ürün veya GTİP kodu | Product or HS code |
+| `filters.placeholder` | Örnek: halı, zeytinyağı, 8708 | e.g. carpets, olive oil, 8708 |
+| `filters.hint` | GTİP kodunuzun ilk 6 hanesi ABD'deki HS koduyla aynıdır. | The first 6 digits of a Turkish GTİP code match the US HS code. |
+| `filters.noResults` | Sonuç yok. Kodun ilk 4 hanesini veya ürünün İngilizce adını deneyin. | No results. Try the first 4 digits of the code or an English product name. |
+| `filters.country` | Kaynak ülke | Partner country |
+| `filters.countryTop` | En büyük tedarikçiler | Largest suppliers |
+| `filters.countryAll` | Diğer ülkeler | Other countries |
+| `filters.apply` | Göster | Show |
+| `filters.usImports` | ABD {year}: | US {year}: |
+| `filters.fromTurkiye` | Türkiye: | Türkiye: |
+| `filters.chapter` | Fasıl | Chapter |
+| `search.title` | “{query}” için sonuçlar | Results for “{query}” |
+| `search.empty` | “{query}” için sonuç bulunamadı. Kodun ilk 4 hanesini veya ürünün İngilizce adını deneyin. | Nothing found for “{query}”. Try the first 4 digits of the code or an English product name. |
+| `search.meta` | ABD ithalatı {year}: {value} | US imports {year}: {value} |
+| `overview.title` | {country} çıkışlı ABD ithalatı | US imports from {country} |
+| `overview.intro` | Son 12 ay: {window}. Karşılaştırma, bir önceki 12 aya göre. | Last 12 months: {window}, compared with the 12 months before. |
+| `overview.kpiValue` | Son 12 ay | Last 12 months |
+| `overview.vsPrev` | önceki 12 aya göre | vs prior 12 months |
+| `overview.kpiShare` | ABD ithalatındaki pay | Share of US imports |
+| `overview.rank` | Tedarikçiler arasında {rank}. sırada ({total} ülke) | No. {rank} of {total} supplying countries |
+| `overview.kpiDuty` | Etkin gümrük vergisi | Effective duty rate |
+| `overview.dutyPrev` | Önceki 12 ay: {rate} | Prior 12 months: {rate} |
+| `overview.kpiVessel` | Deniz yolu payı | Arrived by sea |
+| `overview.airShare` | Hava yolu: {rate} | By air: {rate} |
+| `overview.trendTitle` | Aylık ithalat | Monthly imports |
+| `overview.trendSubtitle` | Son 36 ay, gümrük değeri (ABD doları) | Last 36 months, customs value (USD) |
+| `overview.dutyTitle` | Etkin gümrük vergisi oranı | Effective duty rate |
+| `overview.dutySubtitle` | Aylık; hesaplanan vergi ÷ tüketim için ithalat | Monthly; calculated duty ÷ imports for consumption |
+| `overview.productsTitle` | En çok ithal edilen ürünler | Top products |
+| `overview.productsIntro` | {period}, 4 haneli HS kodu düzeyinde. Pay: ABD'nin o ürünü tüm ülkelerden ithalatı içindeki pay. | {period}, at the 4-digit HS level. Share: share of all US imports of that product. |
+| `overview.gainersTitle` | En çok artanlar | Biggest gains |
+| `overview.declinersTitle` | En çok azalanlar | Biggest declines |
+| `overview.changeIntro` | {period}, bir önceki yılın aynı dönemine göre dolar farkı. | {period}, dollar change vs the same months a year earlier. |
+| `overview.portsTitle` | Başlıca giriş limanları | Main ports of entry |
+| `overview.portsIntro` | Son 12 ay, tüm {country} çıkışlı ürünler. | Last 12 months, all goods from {country}. |
+| `overview.noData` | Bu dönemde {country} çıkışlı kayıtlı ithalat yok. | No recorded imports from {country} in this period. |
+| `product.eyebrow` | HS {code} · ABD ithalatı | HS {code} · US imports |
+| `product.chapter` | Fasıl {code}: {name} | Chapter {code}: {name} |
+| `product.officialName` | Resmi ABD tanımı (İngilizce) | Official US description |
+| `product.kpiWorld` | ABD'nin toplam ithalatı, son 12 ay | Total US imports, last 12 months |
+| `product.kpiSelected` | {country} çıkışlı, son 12 ay | From {country}, last 12 months |
+| `product.kpiShare` | Pay ve sıra | Share and rank |
+| `product.rank` | {rank}. sırada, {total} tedarikçi arasında | No. {rank} of {total} suppliers |
+| `product.noRank` | Bu dönemde kayıtlı ithalat yok | No recorded imports in this period |
+| `product.sharePrev` | önceki 12 aya göre | vs prior 12 months |
+| `product.kpiDuty` | Etkin gümrük vergisi | Effective duty rate |
+| `product.dutyWorld` | Tüm ülkeler: {rate} | All countries: {rate} |
+| `product.chartWorld` | Tüm ülkelerden | From all countries |
+| `product.chartSelected` | {country} çıkışlı | From {country} |
+| `product.chartSubtitle` | Aylık, son 36 ay, gümrük değeri (ABD doları) | Monthly, last 36 months, customs value (USD) |
+| `product.suppliersTitle` | En büyük tedarikçiler | Largest suppliers |
+| `product.suppliersIntro` | Son 12 ay ({window}). Etkin vergi: ödenen vergi ÷ ithalat değeri. | Last 12 months ({window}). Effective duty: duty paid ÷ import value. |
+| `product.childrenTitle` | Alt ürünler | Sub-products |
+| `product.childrenIntro` | {period}, {country} çıkışlı. Pay: ABD'nin o ürünü tüm ülkelerden ithalatı içindeki pay. | {period}, from {country}. Share: share of all US imports of that product. |
+| `product.portsTitle` | Giriş limanları | Ports of entry |
+| `product.portsIntro` | Son 12 ay, {country} çıkışlı. | Last 12 months, from {country}. |
+| `product.tariffTitle` | ABD gümrük tarifesi (HTS) | US tariff schedule (HTS) |
+| `product.tariffIntro` | Genel (MFN) oranlar, USITC verisi. Bölüm 232, 301 veya başka ek vergiler bu oranlara eklenebilir. Gerçekte ödenen oranı yukarıdaki etkin vergi gösterir. | General (MFN) rates from USITC. Section 232, 301 or other additional duties may apply on top. The effective duty above shows what importers actually paid. |
+| `product.tariffLink` | Güncel tarifeyi hts.usitc.gov adresinde kontrol edin | Check the current schedule at hts.usitc.gov |
+| `product.tariffNone` | Tarife satırları şu anda gösterilemiyor. | Tariff lines can't be shown right now. |
+| `product.free` | Muaf | Free |
+| `product.backToOverview` | Ticaret verileri | Trade data |
+| `product.deeper` | Daha ayrıntılı bir kod seçin | Pick a more detailed code |
+| `cols.country` | Ülke | Country |
+| `cols.value` | Değer | Value |
+| `cols.share` | Pay | Share |
+| `cols.growth` | Değişim | Change |
+| `cols.duty` | Etkin vergi | Effective duty |
+| `cols.product` | Ürün | Product |
+| `cols.usShare` | ABD pazar payı | US market share |
+| `cols.code` | Kod | Code |
+| `cols.hts` | HTS kodu | HTS code |
+| `cols.description` | Tanım | Description |
+| `cols.rate` | Genel oran | General rate |
+| `cols.units` | Birim | Units |
+| `cols.vessel` | Deniz yolu | By sea |
+| `cols.month` | Ay | Month |
+| `chart.table` | Tablo olarak göster | Show as table |
+| `chart.scrub` | Ok tuşlarıyla aylar arasında gezinin. | Use the arrow keys to move between months. |
+| `chart.noData` | Bu dönem için veri yok. | No data for this period. |
+| `notes.title` | Veriler ve tanımlar | Data and definitions |
+| `notes.value` | Değer: genel ithalat, gümrük değeri; ABD doları, navlun ve sigorta hariç. | Value: general imports at customs value, in US dollars, excluding freight and insurance. |
+| `notes.window` | Son 12 ay: yayımlanmış son 12 ay. Değişim, bir önceki 12 aya göredir. | Last 12 months: the latest 12 published months. Change compares them with the 12 months before. |
+| `notes.duty` | Etkin gümrük vergisi: Census'un gümrük beyanlarından hesapladığı vergi tutarının tüketim için ithalat değerine oranı. Ek vergiler dahildir; sonradan yapılan iade ve düzeltmeler yansımaz. | Effective duty rate: the duty the Census Bureau calculates from customs entries, divided by the value of imports for consumption. Additional duties are included; later refunds and corrections are not. |
+| `notes.release` | Census, verileri ayın bitiminden yaklaşık 5 hafta sonra yayımlar ve geçmiş ayları her yıl Nisan verileriyle günceller. | The Census Bureau publishes about five weeks after month end and revises past months each year with the April release. |
+| `notes.census` | Bu araç Census Bureau Veri API'sini kullanır; Census Bureau tarafından onaylanmış değildir. | This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau. |
+| `notes.censusOfficial` | This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau. | This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau. |
+| `notes.sourceCensus` | U.S. Census Bureau, Uluslararası Ticaret API'si | U.S. Census Bureau, International Trade API |
+| `notes.sourceUsitc` | USITC DataWeb, HTS tarife verisi | USITC DataWeb, HTS tariff data |
+| `errors.unavailable` | Veriler şu anda alınamıyor. Lütfen birkaç dakika sonra tekrar deneyin. | The data can't be loaded right now. Please try again in a few minutes. |
+| `errors.notConfigured` | Ticaret verileri henüz bağlanmadı. | Trade data isn't connected yet. |
+| `errors.unknownCode` | Bu kodu bulamadık. Aramadan bir ürün seçin. | We couldn't find that code. Pick a product from the search. |
+| `loading` | Veriler yükleniyor… | Loading data… |
+| `ctaTitle` | Bu rakamlar sizin için ne anlama geliyor? | What do these numbers mean for you? |
+| `ctaBody` | ABD'deki alıcılarınızı, gümrük vergisi yükünüzü ve tahsilat sürenizi 15 dakikada birlikte değerlendirelim. | In 15 minutes we'll look at your US buyers, your duty burden and how fast you get paid. |
+
 ## insights
 
 | Key | Türkçe | English |
@@ -656,6 +778,13 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `cta` | Bu gözlemleri 15 dakikada konuşalım. | Let's talk through these in 15 minutes. |
 | `sample` | Örnek sayfa: gerçek bir şirkete ait değildir. | Sample page: not about a real company. |
 | `note` | Bu sayfa yalnızca bağlantıyı alan kişi içindir ve arama motorlarında listelenmez. | This page is only for the person who received the link and is not listed in search engines. |
+| `marketTitle` | ABD pazarı: HS {code} | US market: HS {code} |
+| `marketBody` | Son 12 ay ({window}), ABD Census Bureau verisi. | Last 12 months ({window}), US Census Bureau data. |
+| `marketWorld` | ABD'nin toplam ithalatı | Total US imports |
+| `marketTurkiye` | Türkiye çıkışlı | From Türkiye |
+| `marketShare` | Türkiye'nin payı | Türkiye's share |
+| `marketRank` | {rank}. sırada | No. {rank} |
+| `marketLink` | Analizin tamamını görün | See the full analysis |
 
 ## footer
 
@@ -719,6 +848,11 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `noTaxIds` | Lütfen bu e-postaya vergi kimlik numarası, EIN veya finansal belge eklemeyin. | Please don't attach tax ID numbers, EINs or financial documents to this email. |
 | `informational` | Bu e-postadaki bilgiler bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir. | The information in this email is informational; it is not legal, tax or customs advice. |
 | `signoff` | Saygılarımla, | Best regards, |
+| `tradeProduct` | ABD'nin HS {code} ({label}) ithalatı, {window}: tüm ülkelerden {world}; {country} çıkışlı {value} (önceki 12 aya göre {growth}). Pay: {share}. | US imports of HS {code} ({label}), {window}: {world} from all countries; {value} from {country} ({growth} vs the prior 12 months). Share: {share}. |
+| `tradeRank` | {country}, bu üründe ABD'nin {rank}. büyük tedarikçisi. | {country} is the number {rank} US supplier of this product. |
+| `tradeCountry` | {country} çıkışlı ABD ithalatı, {window}: {value} (önceki 12 aya göre {growth}). ABD ithalatındaki pay: {share}. | US imports from {country}, {window}: {value} ({growth} vs the prior 12 months). Share of US imports: {share}. |
+| `tradeLink` | Analizin tamamı: {url} | Full analysis: {url} |
+| `tradeSource` | Kaynak: U.S. Census Bureau. Rakamlar bilgilendirme amaçlıdır. | Source: U.S. Census Bureau. Figures are informational. |
 
 ## Knowledge center articles (MDX, src/content/insights)
 

@@ -44,6 +44,7 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 | Prospect pages (`/tr/ozel/{firm}`) | `src/content/prospects/{firm}.json` (copy `_template.json`) |
 | Risk-test questions and scoring | `src/lib/risk-test.ts` (copy in `riskTest.*` messages) |
 | Calculator formulas | `src/lib/calculators.ts` |
+| Trade-data copy, Turkish product words, data logic | `trade.*` messages, `src/data/trade/hs-tr.ts`, `src/lib/trade/` |
 | Design tokens (colors, type, spacing, motion) | `src/design/tokens.css` |
 
 ```
@@ -83,6 +84,8 @@ Copy `.env.example`. Nothing is required to build; each integration switches on 
 | `NEXT_PUBLIC_CAL_LINK` | public | Cal.com event, e.g. `ponenti/15min` | Contact page says the calendar isn't connected |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | public | Click-to-chat with a prefilled Turkish or English message | WhatsApp buttons go to the contact page |
 | `NEXT_PUBLIC_PORTAL_URL` | public | Client-portal button target, default `/portal` | Placeholder portal page |
+| `CENSUS_API_KEY` | server | US import statistics for the trade-data pages | Trade pages say the data isn't connected |
+| `USITC_DATAWEB_TOKEN` | server | HTS tariff lines on 6-digit product pages. Expires every 180 days (current: 2027-04-04) | Tariff card hidden; everything else works |
 | `NEXT_PUBLIC_SITE_URL` | public | Canonical URL, hreflang, sitemap | Falls back to Vercel's production URL |
 | `SITE_INDEXABLE` | server | `true` lets search engines index the site | `noindex` + `Disallow: /` (pre-launch default) |
 | `NEXT_PUBLIC_EO_CONFIRMED` | public | Shows the penalty promise | Promise stays hidden |
@@ -110,6 +113,20 @@ The GitHub repo `mattaslan2/ponenti` is already connected to Vercel, and `main` 
 5. UTM tags from the landing link are kept in page memory only (no cookie, no storage) and attached to the submission.
 
 To test this flow without real accounts, run a mock server and set `ATTIO_API_URL` and `RESEND_BASE_URL` to it (see the end of `.env.example`). Never set them in Vercel.
+
+## Trade data tool
+
+`/tr/ticaret-verileri` (`/en/trade-data`) lets anyone explore US imports by product and country. It opens on Türkiye; any partner country can be selected.
+
+- **Overview** (per country): last-12-month imports and change, share of US imports and rank, effective duty rate, sea/air split, a 36-month trend, the duty-rate trend, top products, biggest gains and declines, and main US ports of entry.
+- **Product pages** (`/tr/ticaret-verileri/{HS code}`, 2, 4 or 6 digits): total US imports vs the selected country, share and rank, duty paid, top 10 suppliers with growth and duty rates, sub-products, ports of entry, and for 6-digit codes the HTS tariff lines from USITC.
+- **Search**: HS codes, GTİP codes (first 6 digits), English product words and everyday Turkish words (`src/data/trade/hs-tr.ts`). Works without JavaScript too (`?q=`).
+- **Leads**: "Email me this analysis" creates an Attio lead (`ponenti_form = trade_data`) and emails the visitor a summary recomputed on the server.
+- **Prospect pages**: add `"hs": "5702"` to a prospect JSON file to show a US market snapshot for that firm's product.
+
+Data: U.S. Census Bureau International Trade API (imports, monthly, about five weeks after month end), cached for a day; USITC DataWeb for HTS rates, cached for a week. Keys never reach the browser. The Census terms require the notice shown under every trade page ("This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau."); keep it. Search ranking uses a static index in `src/data/trade/` (2025 values); rebuild it once a year with `CENSUS_API_KEY=... USITC_DATAWEB_TOKEN=... node scripts/build-trade-index.mjs 2026`.
+
+Definitions shown on the pages: value = general imports at customs value; effective duty rate = Census calculated duty ÷ imports for consumption (includes additional duties, not later refunds). Quantities exist only at the 10-digit level, so unit prices are not shown yet.
 
 ## Analytics events (PostHog, after consent)
 

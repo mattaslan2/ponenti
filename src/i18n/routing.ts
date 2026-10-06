@@ -13,6 +13,8 @@ export const routing = defineRouting({
     "/services": { tr: "/hizmetler", en: "/services" },
     "/risk-test": { tr: "/risk-testi", en: "/risk-test" },
     "/calculators": { tr: "/hesaplayicilar", en: "/calculators" },
+    "/trade-data": { tr: "/ticaret-verileri", en: "/trade-data" },
+    "/trade-data/[hs]": { tr: "/ticaret-verileri/[hs]", en: "/trade-data/[hs]" },
     "/insights": { tr: "/bilgi-merkezi", en: "/insights" },
     "/insights/[slug]": { tr: "/bilgi-merkezi/[slug]", en: "/insights/[slug]" },
     "/about": { tr: "/hakkimizda", en: "/about" },
@@ -27,7 +29,7 @@ export const routing = defineRouting({
 
 export type Locale = (typeof routing.locales)[number];
 export type AppPathname = keyof typeof routing.pathnames;
-export type StaticPathname = Exclude<AppPathname, "/insights/[slug]" | "/ozel/[firm]">;
+export type StaticPathname = Exclude<AppPathname, "/insights/[slug]" | "/ozel/[firm]" | "/trade-data/[hs]">;
 
 /** Cookie written by the language switcher; read by src/proxy.ts for the bare domain. */
 export const LOCALE_COOKIE = "NEXT_LOCALE";

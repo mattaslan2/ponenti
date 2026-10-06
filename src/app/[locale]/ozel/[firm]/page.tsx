@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
@@ -9,6 +10,12 @@ import { getProspect, listProspects } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { pick } from "@/lib/messages";
 import { buildMetadata } from "@/lib/seo";
+import { Link } from "@/i18n/navigation";
+import { getProductSnapshot } from "@/lib/trade/analysis";
+import { censusConfigured } from "@/lib/trade/census";
+import { TURKIYE } from "@/lib/trade/countries";
+import { pct, usdCompact, windowLabel } from "@/lib/trade/format";
+import { normalizeHs } from "@/lib/trade/hs";
 
 /**
  * Prospect pages at /tr/ozel/[firm] and /en/ozel/[firm]. One JSON file per firm in
@@ -77,6 +84,12 @@ export default async function ProspectPage({ params }: PageProps<"/[locale]/ozel
         </ol>
       </section>
 
+      {prospect.hs && normalizeHs(prospect.hs) && censusConfigured() && (
+        <Suspense fallback={null}>
+          <ProspectMarket hs={normalizeHs(prospect.hs)!} locale={locale} />
+        </Suspense>
+      )}
+
       <section className="on-navy bg-navy py-14 text-ivory sm:py-16">
         <div className="page grid max-w-5xl gap-10 lg:grid-cols-2">
           <div>
@@ -95,5 +108,47 @@ export default async function ProspectPage({ params }: PageProps<"/[locale]/ozel
         </div>
       </section>
     </>
+  );
+}
+
+/** US market snapshot for the firm's main product (Census data, cached daily). Hidden if the data is unavailable. */
+async function ProspectMarket({ hs, locale }: { hs: string; locale: Locale }) {
+  const t = await getTranslations("prospect");
+  const snap = await getProductSnapshot(hs, TURKIYE.code, locale).catch(() => null);
+  if (!snap || snap.worldValue === 0) return null;
+  const window = windowLabel(snap.windows.cur.first, snap.windows.cur.last, locale);
+  const facts = [
+    { label: t("marketWorld"), value: usdCompact(snap.worldValue, locale) },
+    { label: t("marketTurkiye"), value: usdCompact(snap.value, locale) },
+    { label: t("marketShare"), value: pct(snap.share, locale), note: snap.rank ? t("marketRank", { rank: snap.rank }) : undefined },
+  ];
+  return (
+    <section aria-labelledby="prospect-market-title" className="pb-12 sm:pb-16">
+      <div className="page max-w-4xl">
+        <div className="rounded-sm border border-line bg-paper p-6 sm:p-8">
+          <h2 id="prospect-market-title" className="text-display-sm">
+            {t("marketTitle", { code: snap.hs.code })}
+          </h2>
+          <p className="mt-1 text-[0.9375rem] text-mist" lang={locale === "tr" && snap.hs.level > 2 ? "en" : undefined}>
+            {snap.label}
+          </p>
+          <p className="mt-1 text-[0.8125rem] text-mist">{t("marketBody", { window })}</p>
+          <dl className="mt-6 grid gap-4 sm:grid-cols-3">
+            {facts.map((f) => (
+              <div key={f.label}>
+                <dt className="text-[0.875rem] text-mist">{f.label}</dt>
+                <dd className="mt-1 font-display text-[2rem] leading-none font-semibold text-navy">{f.value}</dd>
+                {f.note && <dd className="mt-1 text-[0.8125rem] text-mist">{f.note}</dd>}
+              </div>
+            ))}
+          </dl>
+          <p className="mt-6">
+            <Link href={{ pathname: "/trade-data/[hs]", params: { hs: snap.hs.code } }} className="link">
+              {t("marketLink")}
+            </Link>
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }

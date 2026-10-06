@@ -1,11 +1,15 @@
 {
   "firm": "[REPLACE WITH REAL] Firm name as it appears in import records",
   "preparedOn": "2026-10-05",
+  "hs": "[REPLACE WITH REAL] 4 or 6 digit HS code, e.g. 5702 (optional; delete the line if unknown)",
   "observations": [
     {
       "tr": "[REPLACE WITH REAL] Gözlem 1, kamuya açık ithalat kaydından. Tarih ve rakam yazın.",
       "en": "[REPLACE WITH REAL] Observation 1, from a public import record. Include the date and the number.",
-      "source": { "label": "[REPLACE WITH REAL] Source name", "url": "https://" }
+      "source": {
+        "label": "[REPLACE WITH REAL] Source name",
+        "url": "https://"
+      }
     },
     {
       "tr": "[REPLACE WITH REAL] Gözlem 2.",

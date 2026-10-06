@@ -2,6 +2,7 @@
   "firm": "Örnek Firma A.Ş.",
   "preparedOn": "2026-10-05",
   "sample": true,
+  "hs": "5702",
   "observations": [
     {
       "tr": "Örnek gözlem: son 12 ayda ABD'ye gönderilen konşimento sayısı ve hangi limanlardan geçtiği burada yazar. Gerçek sayfada tarih ve kaynak belirtilir.",

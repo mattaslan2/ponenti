@@ -70,6 +70,8 @@ export type Prospect = {
   preparedOn: string;
   /** true for the template page shipped with the site */
   sample?: boolean;
+  /** Optional HS code (2, 4 or 6 digits) of the firm's main product: adds a US market snapshot. */
+  hs?: string;
   observations: ProspectObservation[];
 };
 

@@ -2,12 +2,13 @@ import type { MetadataRoute } from "next";
 import { routing, type Locale, type StaticPathname } from "@/i18n/routing";
 import { getPathname } from "@/i18n/navigation";
 import { listArticles } from "@/lib/content";
+import { topTurkishCodes } from "@/lib/trade/hs";
 import { localizedPaths, siteUrl } from "@/lib/seo";
 
 /** Every public page in both languages, with hreflang alternates. Prospect and portal pages are excluded. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteUrl();
-  const pages: StaticPathname[] = ["/", "/services", "/risk-test", "/calculators", "/insights", "/about", "/contact", "/privacy", "/terms", "/cookies"];
+  const pages: StaticPathname[] = ["/", "/services", "/risk-test", "/calculators", "/trade-data", "/insights", "/about", "/contact", "/privacy", "/terms", "/cookies"];
   const entries: MetadataRoute.Sitemap = [];
 
   for (const href of pages) {
@@ -38,6 +39,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     );
     for (const [locale, v] of Object.entries(versions) as [Locale, { updated: string }][]) {
       entries.push({ url: urls[locale], lastModified: v.updated, changeFrequency: "monthly", priority: 0.6, alternates: { languages: urls } });
+    }
+  }
+  // Trade-data pages for the products Türkiye ships most to the US.
+  for (const hs of topTurkishCodes(4, 30)) {
+    const paths = localizedPaths({ pathname: "/trade-data/[hs]", params: { hs } });
+    const languages = { tr: `${base}${paths.tr}`, en: `${base}${paths.en}` };
+    for (const locale of routing.locales) {
+      entries.push({ url: `${base}${paths[locale]}`, changeFrequency: "monthly", priority: 0.5, alternates: { languages } });
     }
   }
   return entries;

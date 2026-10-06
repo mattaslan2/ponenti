@@ -42,7 +42,15 @@
     "notFound": {
       "title": "Sayfa bulunamadı"
     },
-    "ogTagline": "Türkiye'de üretilir, ABD'de doğru yönetilir."
+    "ogTagline": "Türkiye'de üretilir, ABD'de doğru yönetilir.",
+    "trade": {
+      "title": "ABD ithalat verileri: ürün, ülke ve gümrük vergisi",
+      "description": "ABD'nin ürün ve ülke bazında aylık ithalatı. Türkiye'nin payı, rakipler, ödenen gümrük vergisi ve giriş limanları. Kaynak: U.S. Census Bureau."
+    },
+    "tradeProduct": {
+      "title": "HS {code} ABD ithalatı: {country} ve rakipler",
+      "description": "{label}. ABD'nin son 12 aylık ithalatı, tedarikçi ülkeler, pay, büyüme ve etkin gümrük vergisi. Kaynak: U.S. Census Bureau."
+    }
   },
   "common": {
     "skipToContent": "İçeriğe geç",
@@ -85,7 +93,8 @@
     "about": "Hakkımızda",
     "contact": "İletişim",
     "portal": "Müşteri Portalı",
-    "portalShort": "Portal"
+    "portalShort": "Portal",
+    "tradeData": "Ticaret verileri"
   },
   "cta": {
     "book": "15 dakikalık görüşme planlayın",
@@ -542,6 +551,128 @@
     },
     "emailCta": "Sonucu e-postayla gönder"
   },
+  "trade": {
+    "eyebrow": "Ticaret verileri",
+    "title": "ABD ithalat verileri: ürününüzün ABD pazarını görün.",
+    "intro": "ABD Census Bureau'nun resmi aylık verileri. Ürün adını veya GTİP kodunu yazın; ABD'nin kimden ne kadar aldığını, büyümeyi, ödenen gümrük vergisini ve giriş limanlarını görün.",
+    "lead": {
+      "title": "Bu analizi e-postayla alın",
+      "body": "Özet rakamları ve bu sayfanın bağlantısını gönderelim. İsterseniz sonuçları 15 dakikalık bir görüşmede birlikte okuyalım.",
+      "submit": "Analizi gönder"
+    },
+    "freshness": "Son veri: {month}. Veriler her ay güncellenir.",
+    "filters": {
+      "search": "Ürün veya GTİP kodu",
+      "placeholder": "Örnek: halı, zeytinyağı, 8708",
+      "hint": "GTİP kodunuzun ilk 6 hanesi ABD'deki HS koduyla aynıdır.",
+      "noResults": "Sonuç yok. Kodun ilk 4 hanesini veya ürünün İngilizce adını deneyin.",
+      "country": "Kaynak ülke",
+      "countryTop": "En büyük tedarikçiler",
+      "countryAll": "Diğer ülkeler",
+      "apply": "Göster",
+      "usImports": "ABD {year}:",
+      "fromTurkiye": "Türkiye:",
+      "chapter": "Fasıl"
+    },
+    "search": {
+      "title": "“{query}” için sonuçlar",
+      "empty": "“{query}” için sonuç bulunamadı. Kodun ilk 4 hanesini veya ürünün İngilizce adını deneyin.",
+      "meta": "ABD ithalatı {year}: {value}"
+    },
+    "overview": {
+      "title": "{country} çıkışlı ABD ithalatı",
+      "intro": "Son 12 ay: {window}. Karşılaştırma, bir önceki 12 aya göre.",
+      "kpiValue": "Son 12 ay",
+      "vsPrev": "önceki 12 aya göre",
+      "kpiShare": "ABD ithalatındaki pay",
+      "rank": "Tedarikçiler arasında {rank}. sırada ({total} ülke)",
+      "kpiDuty": "Etkin gümrük vergisi",
+      "dutyPrev": "Önceki 12 ay: {rate}",
+      "kpiVessel": "Deniz yolu payı",
+      "airShare": "Hava yolu: {rate}",
+      "trendTitle": "Aylık ithalat",
+      "trendSubtitle": "Son 36 ay, gümrük değeri (ABD doları)",
+      "dutyTitle": "Etkin gümrük vergisi oranı",
+      "dutySubtitle": "Aylık; hesaplanan vergi ÷ tüketim için ithalat",
+      "productsTitle": "En çok ithal edilen ürünler",
+      "productsIntro": "{period}, 4 haneli HS kodu düzeyinde. Pay: ABD'nin o ürünü tüm ülkelerden ithalatı içindeki pay.",
+      "gainersTitle": "En çok artanlar",
+      "declinersTitle": "En çok azalanlar",
+      "changeIntro": "{period}, bir önceki yılın aynı dönemine göre dolar farkı.",
+      "portsTitle": "Başlıca giriş limanları",
+      "portsIntro": "Son 12 ay, tüm {country} çıkışlı ürünler.",
+      "noData": "Bu dönemde {country} çıkışlı kayıtlı ithalat yok."
+    },
+    "product": {
+      "eyebrow": "HS {code} · ABD ithalatı",
+      "chapter": "Fasıl {code}: {name}",
+      "officialName": "Resmi ABD tanımı (İngilizce)",
+      "kpiWorld": "ABD'nin toplam ithalatı, son 12 ay",
+      "kpiSelected": "{country} çıkışlı, son 12 ay",
+      "kpiShare": "Pay ve sıra",
+      "rank": "{rank}. sırada, {total} tedarikçi arasında",
+      "noRank": "Bu dönemde kayıtlı ithalat yok",
+      "sharePrev": "önceki 12 aya göre",
+      "kpiDuty": "Etkin gümrük vergisi",
+      "dutyWorld": "Tüm ülkeler: {rate}",
+      "chartWorld": "Tüm ülkelerden",
+      "chartSelected": "{country} çıkışlı",
+      "chartSubtitle": "Aylık, son 36 ay, gümrük değeri (ABD doları)",
+      "suppliersTitle": "En büyük tedarikçiler",
+      "suppliersIntro": "Son 12 ay ({window}). Etkin vergi: ödenen vergi ÷ ithalat değeri.",
+      "childrenTitle": "Alt ürünler",
+      "childrenIntro": "{period}, {country} çıkışlı. Pay: ABD'nin o ürünü tüm ülkelerden ithalatı içindeki pay.",
+      "portsTitle": "Giriş limanları",
+      "portsIntro": "Son 12 ay, {country} çıkışlı.",
+      "tariffTitle": "ABD gümrük tarifesi (HTS)",
+      "tariffIntro": "Genel (MFN) oranlar, USITC verisi. Bölüm 232, 301 veya başka ek vergiler bu oranlara eklenebilir. Gerçekte ödenen oranı yukarıdaki etkin vergi gösterir.",
+      "tariffLink": "Güncel tarifeyi hts.usitc.gov adresinde kontrol edin",
+      "tariffNone": "Tarife satırları şu anda gösterilemiyor.",
+      "free": "Muaf",
+      "backToOverview": "Ticaret verileri",
+      "deeper": "Daha ayrıntılı bir kod seçin"
+    },
+    "cols": {
+      "country": "Ülke",
+      "value": "Değer",
+      "share": "Pay",
+      "growth": "Değişim",
+      "duty": "Etkin vergi",
+      "product": "Ürün",
+      "usShare": "ABD pazar payı",
+      "code": "Kod",
+      "hts": "HTS kodu",
+      "description": "Tanım",
+      "rate": "Genel oran",
+      "units": "Birim",
+      "vessel": "Deniz yolu",
+      "month": "Ay"
+    },
+    "chart": {
+      "table": "Tablo olarak göster",
+      "scrub": "Ok tuşlarıyla aylar arasında gezinin.",
+      "noData": "Bu dönem için veri yok."
+    },
+    "notes": {
+      "title": "Veriler ve tanımlar",
+      "value": "Değer: genel ithalat, gümrük değeri; ABD doları, navlun ve sigorta hariç.",
+      "window": "Son 12 ay: yayımlanmış son 12 ay. Değişim, bir önceki 12 aya göredir.",
+      "duty": "Etkin gümrük vergisi: Census'un gümrük beyanlarından hesapladığı vergi tutarının tüketim için ithalat değerine oranı. Ek vergiler dahildir; sonradan yapılan iade ve düzeltmeler yansımaz.",
+      "release": "Census, verileri ayın bitiminden yaklaşık 5 hafta sonra yayımlar ve geçmiş ayları her yıl Nisan verileriyle günceller.",
+      "census": "Bu araç Census Bureau Veri API'sini kullanır; Census Bureau tarafından onaylanmış değildir.",
+      "censusOfficial": "This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.",
+      "sourceCensus": "U.S. Census Bureau, Uluslararası Ticaret API'si",
+      "sourceUsitc": "USITC DataWeb, HTS tarife verisi"
+    },
+    "errors": {
+      "unavailable": "Veriler şu anda alınamıyor. Lütfen birkaç dakika sonra tekrar deneyin.",
+      "notConfigured": "Ticaret verileri henüz bağlanmadı.",
+      "unknownCode": "Bu kodu bulamadık. Aramadan bir ürün seçin."
+    },
+    "loading": "Veriler yükleniyor…",
+    "ctaTitle": "Bu rakamlar sizin için ne anlama geliyor?",
+    "ctaBody": "ABD'deki alıcılarınızı, gümrük vergisi yükünüzü ve tahsilat sürenizi 15 dakikada birlikte değerlendirelim."
+  },
   "insights": {
     "eyebrow": "Bilgi merkezi",
     "title": "ABD kuralları, kısa ve kaynaklı",
@@ -649,7 +780,14 @@
     "prepared": "Hazırlanma tarihi: {date}",
     "cta": "Bu gözlemleri 15 dakikada konuşalım.",
     "sample": "Örnek sayfa: gerçek bir şirkete ait değildir.",
-    "note": "Bu sayfa yalnızca bağlantıyı alan kişi içindir ve arama motorlarında listelenmez."
+    "note": "Bu sayfa yalnızca bağlantıyı alan kişi içindir ve arama motorlarında listelenmez.",
+    "marketTitle": "ABD pazarı: HS {code}",
+    "marketBody": "Son 12 ay ({window}), ABD Census Bureau verisi.",
+    "marketWorld": "ABD'nin toplam ithalatı",
+    "marketTurkiye": "Türkiye çıkışlı",
+    "marketShare": "Türkiye'nin payı",
+    "marketRank": "{rank}. sırada",
+    "marketLink": "Analizin tamamını görün"
   },
   "footer": {
     "services": "Hizmetler",
@@ -700,6 +838,11 @@
     "form5472Result": "Hesaplama sonucunuz: {years} eksik yıl için başlangıç cezası {result}.",
     "noTaxIds": "Lütfen bu e-postaya vergi kimlik numarası, EIN veya finansal belge eklemeyin.",
     "informational": "Bu e-postadaki bilgiler bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir.",
-    "signoff": "Saygılarımla,"
+    "signoff": "Saygılarımla,",
+    "tradeProduct": "ABD'nin HS {code} ({label}) ithalatı, {window}: tüm ülkelerden {world}; {country} çıkışlı {value} (önceki 12 aya göre {growth}). Pay: {share}.",
+    "tradeRank": "{country}, bu üründe ABD'nin {rank}. büyük tedarikçisi.",
+    "tradeCountry": "{country} çıkışlı ABD ithalatı, {window}: {value} (önceki 12 aya göre {growth}). ABD ithalatındaki pay: {share}.",
+    "tradeLink": "Analizin tamamı: {url}",
+    "tradeSource": "Kaynak: U.S. Census Bureau. Rakamlar bilgilendirme amaçlıdır."
   }
 }

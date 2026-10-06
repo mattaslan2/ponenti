@@ -2,7 +2,7 @@ import "server-only";
 import { z } from "zod";
 import { UTM_KEYS } from "@/lib/utm";
 
-export const FORM_TYPES = ["contact", "risk_test", "calc_cash", "calc_5472", "prospect"] as const;
+export const FORM_TYPES = ["contact", "risk_test", "calc_cash", "calc_5472", "prospect", "trade_data"] as const;
 export const PAYMENT_DAYS = ["0-29", "30-45", "46-60", "61-90", "90+"] as const;
 export const SEGMENTS = ["us_entity", "sells_from_tr"] as const;
 export const RISK_LEVELS = ["low", "medium", "high"] as const;
@@ -85,6 +85,14 @@ export const cashContextSchema = z.object({
   current: z.number().nonnegative().max(1000),
   target: z.number().nonnegative().max(1000),
   result: z.number().nonnegative().max(1e12),
+});
+
+export const tradeContextSchema = z.object({
+  hs: z
+    .string()
+    .regex(/^\d{2}(\d{2}){0,2}$/)
+    .optional(),
+  country: z.string().regex(/^[A-Z]{2}$/),
 });
 
 export const form5472ContextSchema = z.object({

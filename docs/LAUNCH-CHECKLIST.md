@@ -119,6 +119,14 @@ Use a link with campaign tags, e.g. `/tr?utm_source=test&utm_medium=email&utm_ca
 - [ ] KVKK: counsel's decision on VERBIS registration (controllers abroad must register, through a Türkiye-based representative) and standard contracts with processors (Article 9).
 - [ ] Secure document upload link set up (the site promises no email attachments).
 
+## 12b. Trade data tool
+
+- [ ] Vercel → Settings → Environment Variables: add `CENSUS_API_KEY` and `USITC_DATAWEB_TOKEN` (Production and Preview), then redeploy.
+- [ ] Open `/tr/ticaret-verileri`: the Türkiye overview shows numbers and "Son veri: [month]". Open `/tr/ticaret-verileri/570242`: suppliers, ports and the HTS tariff table appear.
+- [ ] Send yourself "Bu analizi e-postayla alın" from a product page: the email shows the product summary and link; the lead appears in Attio with form `trade_data`.
+- [ ] Calendar reminder for 2027-03-25: renew the USITC DataWeb token (it expires 2027-04-04) at https://dataweb.usitc.gov/api-key and update `USITC_DATAWEB_TOKEN` in Vercel.
+- [ ] Each January or February, after full-year data is out: rebuild the search index with `node scripts/build-trade-index.mjs <last year>` and commit `src/data/trade/`.
+
 ## 13. Go live
 
 - [ ] `SITE_INDEXABLE=true` for Production, then redeploy.

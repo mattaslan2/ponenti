@@ -46,6 +46,15 @@
   --color-risk-medium: #8a5a00;
   --color-risk-high: #9b2c2c;
 
+  /* Charts (trade data). Validated on paper #fbf8f2: accent 7.8:1, negative 7.1:1,
+     accent vs negative CVD ΔE 15.7. The muted bar (2.0:1) always sits next to its
+     value in text, which carries the number. */
+  --color-chart-accent: #1f4e8c; /* the series that matters: cobalt */
+  --color-chart-muted: #b9b2a5; /* context series and other countries */
+  --color-chart-negative: #9b2c2c; /* declines */
+  --color-chart-grid: #e7e0d2; /* hairline gridlines */
+  --color-chart-axis: #c9c1b1; /* baseline */
+
   /* Type scale: mobile first, display sizes grow with the viewport */
   --text-display-xl: clamp(2.25rem, 1.55rem + 3.2vw, 4.25rem);
   --text-display-xl--line-height: 1.06;

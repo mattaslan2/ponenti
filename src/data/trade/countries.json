@@ -1,0 +1,1511 @@
+{
+ "basisYear": 2025,
+ "countries": [
+  {
+   "code": "2010",
+   "iso2": "MX",
+   "name": "Mexico",
+   "imports": 534314909385
+  },
+  {
+   "code": "1220",
+   "iso2": "CA",
+   "name": "Canada",
+   "imports": 381922058292
+  },
+  {
+   "code": "5700",
+   "iso2": "CN",
+   "name": "China",
+   "imports": 308651863680
+  },
+  {
+   "code": "5830",
+   "iso2": "TW",
+   "name": "Taiwan",
+   "imports": 201369178666
+  },
+  {
+   "code": "5520",
+   "iso2": "VN",
+   "name": "Vietnam",
+   "imports": 193879321149
+  },
+  {
+   "code": "4280",
+   "iso2": "DE",
+   "name": "Germany",
+   "imports": 155827881820
+  },
+  {
+   "code": "5880",
+   "iso2": "JP",
+   "name": "Japan",
+   "imports": 145841993111
+  },
+  {
+   "code": "4190",
+   "iso2": "IE",
+   "name": "Ireland",
+   "imports": 133649943802
+  },
+  {
+   "code": "5800",
+   "iso2": "KR",
+   "name": "South Korea",
+   "imports": 125545945311
+  },
+  {
+   "code": "4419",
+   "iso2": "CH",
+   "name": "Switzerland",
+   "imports": 106214216880
+  },
+  {
+   "code": "5330",
+   "iso2": "IN",
+   "name": "India",
+   "imports": 103776313283
+  },
+  {
+   "code": "5490",
+   "iso2": "TH",
+   "name": "Thailand",
+   "imports": 91255261590
+  },
+  {
+   "code": "4759",
+   "iso2": "IT",
+   "name": "Italy",
+   "imports": 74436778549
+  },
+  {
+   "code": "4279",
+   "iso2": "FR",
+   "name": "France",
+   "imports": 68073546928
+  },
+  {
+   "code": "4120",
+   "iso2": "GB",
+   "name": "United Kingdom",
+   "imports": 64784371990
+  },
+  {
+   "code": "5570",
+   "iso2": "MY",
+   "name": "Malaysia",
+   "imports": 59536770464
+  },
+  {
+   "code": "3510",
+   "iso2": "BR",
+   "name": "Brazil",
+   "imports": 39881521362
+  },
+  {
+   "code": "5590",
+   "iso2": "SG",
+   "name": "Singapore",
+   "imports": 38228011254
+  },
+  {
+   "code": "4210",
+   "iso2": "NL",
+   "name": "Netherlands",
+   "imports": 34944850747
+  },
+  {
+   "code": "5600",
+   "iso2": "ID",
+   "name": "Indonesia",
+   "imports": 34637159015
+  },
+  {
+   "code": "6021",
+   "iso2": "AU",
+   "name": "Australia",
+   "imports": 28953283685
+  },
+  {
+   "code": "4231",
+   "iso2": "BE",
+   "name": "Belgium",
+   "imports": 27176857214
+  },
+  {
+   "code": "4700",
+   "iso2": "ES",
+   "name": "Spain",
+   "imports": 21348606140
+  },
+  {
+   "code": "5081",
+   "iso2": "IL",
+   "name": "Israel",
+   "imports": 20734258467
+  },
+  {
+   "code": "3370",
+   "iso2": "CL",
+   "name": "Chile",
+   "imports": 18979910309
+  },
+  {
+   "code": "3010",
+   "iso2": "CO",
+   "name": "Colombia",
+   "imports": 17879072392
+  },
+  {
+   "code": "4330",
+   "iso2": "AT",
+   "name": "Austria",
+   "imports": 17773966318
+  },
+  {
+   "code": "5650",
+   "iso2": "PH",
+   "name": "Philippines",
+   "imports": 17762118681
+  },
+  {
+   "code": "7910",
+   "iso2": "ZA",
+   "name": "South Africa",
+   "imports": 16454035960
+  },
+  {
+   "code": "4890",
+   "iso2": "TR",
+   "name": "Turkey",
+   "imports": 16419499435
+  },
+  {
+   "code": "4010",
+   "iso2": "SE",
+   "name": "Sweden",
+   "imports": 16047608388
+  },
+  {
+   "code": "5550",
+   "iso2": "KH",
+   "name": "Cambodia",
+   "imports": 15294567981
+  },
+  {
+   "code": "4550",
+   "iso2": "PL",
+   "name": "Poland",
+   "imports": 14053291337
+  },
+  {
+   "code": "2230",
+   "iso2": "CR",
+   "name": "Costa Rica",
+   "imports": 13900374676
+  },
+  {
+   "code": "4099",
+   "iso2": "DK",
+   "name": "Denmark",
+   "imports": 12154895672
+  },
+  {
+   "code": "4370",
+   "iso2": "HU",
+   "name": "Hungary",
+   "imports": 11811482172
+  },
+  {
+   "code": "3330",
+   "iso2": "PE",
+   "name": "Peru",
+   "imports": 10712916514
+  },
+  {
+   "code": "5170",
+   "iso2": "SA",
+   "name": "Saudi Arabia",
+   "imports": 10486837350
+  },
+  {
+   "code": "5380",
+   "iso2": "BD",
+   "name": "Bangladesh",
+   "imports": 9473484124
+  },
+  {
+   "code": "3310",
+   "iso2": "EC",
+   "name": "Ecuador",
+   "imports": 9048855469
+  },
+  {
+   "code": "3570",
+   "iso2": "AR",
+   "name": "Argentina",
+   "imports": 8283562038
+  },
+  {
+   "code": "4351",
+   "iso2": "CZ",
+   "name": "Czechia (Czech Republic)",
+   "imports": 8166539327
+  },
+  {
+   "code": "4050",
+   "iso2": "FI",
+   "name": "Finland",
+   "imports": 8079063150
+  },
+  {
+   "code": "5200",
+   "iso2": "AE",
+   "name": "United Arab Emirates",
+   "imports": 7680221450
+  },
+  {
+   "code": "2470",
+   "iso2": "DO",
+   "name": "Dominican Republic",
+   "imports": 7564858524
+  },
+  {
+   "code": "4039",
+   "iso2": "NO",
+   "name": "Norway",
+   "imports": 6622516214
+  },
+  {
+   "code": "4359",
+   "iso2": "SK",
+   "name": "Slovakia",
+   "imports": 6586311203
+  },
+  {
+   "code": "5050",
+   "iso2": "IQ",
+   "name": "Iraq",
+   "imports": 6274723173
+  },
+  {
+   "code": "4710",
+   "iso2": "PT",
+   "name": "Portugal",
+   "imports": 6256166897
+  },
+  {
+   "code": "6141",
+   "iso2": "NZ",
+   "name": "New Zealand",
+   "imports": 5578866812
+  },
+  {
+   "code": "2150",
+   "iso2": "HN",
+   "name": "Honduras",
+   "imports": 5504088658
+  },
+  {
+   "code": "5350",
+   "iso2": "PK",
+   "name": "Pakistan",
+   "imports": 5418373291
+  },
+  {
+   "code": "2050",
+   "iso2": "GT",
+   "name": "Guatemala",
+   "imports": 5173245664
+  },
+  {
+   "code": "5820",
+   "iso2": "HK",
+   "name": "Hong Kong",
+   "imports": 5146474327
+  },
+  {
+   "code": "3120",
+   "iso2": "GY",
+   "name": "Guyana",
+   "imports": 5106631959
+  },
+  {
+   "code": "7530",
+   "iso2": "NG",
+   "name": "Nigeria",
+   "imports": 5022188292
+  },
+  {
+   "code": "2190",
+   "iso2": "NI",
+   "name": "Nicaragua",
+   "imports": 4958799765
+  },
+  {
+   "code": "4634",
+   "iso2": "KZ",
+   "name": "Kazakhstan",
+   "imports": 4072944440
+  },
+  {
+   "code": "4850",
+   "iso2": "RO",
+   "name": "Romania",
+   "imports": 3875514888
+  },
+  {
+   "code": "4621",
+   "iso2": "RU",
+   "name": "Russia",
+   "imports": 3776799667
+  },
+  {
+   "code": "3070",
+   "iso2": "VE",
+   "name": "Venezuela",
+   "imports": 3696663697
+  },
+  {
+   "code": "4792",
+   "iso2": "SI",
+   "name": "Slovenia",
+   "imports": 3112505919
+  },
+  {
+   "code": "5420",
+   "iso2": "LK",
+   "name": "Sri Lanka",
+   "imports": 3110896054
+  },
+  {
+   "code": "5110",
+   "iso2": "JO",
+   "name": "Jordan",
+   "imports": 3069447046
+  },
+  {
+   "code": "7290",
+   "iso2": "EG",
+   "name": "Egypt",
+   "imports": 2849967479
+  },
+  {
+   "code": "2740",
+   "iso2": "TT",
+   "name": "Trinidad and Tobago",
+   "imports": 2675766778
+  },
+  {
+   "code": "2360",
+   "iso2": "BS",
+   "name": "Bahamas",
+   "imports": 2615232068
+  },
+  {
+   "code": "2110",
+   "iso2": "SV",
+   "name": "El Salvador",
+   "imports": 2278838723
+  },
+  {
+   "code": "4840",
+   "iso2": "GR",
+   "name": "Greece",
+   "imports": 2256482065
+  },
+  {
+   "code": "7210",
+   "iso2": "DZ",
+   "name": "Algeria",
+   "imports": 2235813601
+  },
+  {
+   "code": "5530",
+   "iso2": "LA",
+   "name": "Laos",
+   "imports": 2106078998
+  },
+  {
+   "code": "5180",
+   "iso2": "QA",
+   "name": "Qatar",
+   "imports": 2062238035
+  },
+  {
+   "code": "7480",
+   "iso2": "CI",
+   "name": "Côte d`Ivoire",
+   "imports": 1928357171
+  },
+  {
+   "code": "7660",
+   "iso2": "CD",
+   "name": "Democratic Republic of the Congo",
+   "imports": 1927639620
+  },
+  {
+   "code": "4510",
+   "iso2": "LT",
+   "name": "Lithuania",
+   "imports": 1899930148
+  },
+  {
+   "code": "7140",
+   "iso2": "MA",
+   "name": "Morocco",
+   "imports": 1858937946
+  },
+  {
+   "code": "3550",
+   "iso2": "UY",
+   "name": "Uruguay",
+   "imports": 1582725184
+  },
+  {
+   "code": "4870",
+   "iso2": "BG",
+   "name": "Bulgaria",
+   "imports": 1472458797
+  },
+  {
+   "code": "4623",
+   "iso2": "UA",
+   "name": "Ukraine",
+   "imports": 1444679526
+  },
+  {
+   "code": "7250",
+   "iso2": "LY",
+   "name": "Libya",
+   "imports": 1416832230
+  },
+  {
+   "code": "5130",
+   "iso2": "KW",
+   "name": "Kuwait",
+   "imports": 1411992067
+  },
+  {
+   "code": "5250",
+   "iso2": "BH",
+   "name": "Bahrain",
+   "imports": 1257886113
+  },
+  {
+   "code": "7490",
+   "iso2": "GH",
+   "name": "Ghana",
+   "imports": 1216345393
+  },
+  {
+   "code": "5230",
+   "iso2": "OM",
+   "name": "Oman",
+   "imports": 1125615327
+  },
+  {
+   "code": "7749",
+   "iso2": "ET",
+   "name": "Ethiopia",
+   "imports": 1039456701
+  },
+  {
+   "code": "4470",
+   "iso2": "EE",
+   "name": "Estonia",
+   "imports": 1018835457
+  },
+  {
+   "code": "7230",
+   "iso2": "TN",
+   "name": "Tunisia",
+   "imports": 1014024333
+  },
+  {
+   "code": "4000",
+   "iso2": "IS",
+   "name": "Iceland",
+   "imports": 1007018507
+  },
+  {
+   "code": "4239",
+   "iso2": "LU",
+   "name": "Luxembourg",
+   "imports": 951462692
+  },
+  {
+   "code": "4791",
+   "iso2": "HR",
+   "name": "Croatia",
+   "imports": 949425637
+  },
+  {
+   "code": "4801",
+   "iso2": "RS",
+   "name": "Serbia",
+   "imports": 944201752
+  },
+  {
+   "code": "7620",
+   "iso2": "AO",
+   "name": "Angola",
+   "imports": 871134164
+  },
+  {
+   "code": "7790",
+   "iso2": "KE",
+   "name": "Kenya",
+   "imports": 862208718
+  },
+  {
+   "code": "5460",
+   "iso2": "MM",
+   "name": "Myanmar (Burma)",
+   "imports": 762326353
+  },
+  {
+   "code": "7880",
+   "iso2": "MG",
+   "name": "Madagascar",
+   "imports": 695131567
+  },
+  {
+   "code": "2250",
+   "iso2": "PA",
+   "name": "Panama",
+   "imports": 659467586
+  },
+  {
+   "code": "3350",
+   "iso2": "BO",
+   "name": "Bolivia",
+   "imports": 618240859
+  },
+  {
+   "code": "4490",
+   "iso2": "LV",
+   "name": "Latvia",
+   "imports": 609937049
+  },
+  {
+   "code": "7550",
+   "iso2": "GA",
+   "name": "Gabon",
+   "imports": 603060646
+  },
+  {
+   "code": "4644",
+   "iso2": "UZ",
+   "name": "Uzbekistan",
+   "imports": 574859162
+  },
+  {
+   "code": "3530",
+   "iso2": "PY",
+   "name": "Paraguay",
+   "imports": 558826402
+  },
+  {
+   "code": "2450",
+   "iso2": "HT",
+   "name": "Haiti",
+   "imports": 535743533
+  },
+  {
+   "code": "2410",
+   "iso2": "JM",
+   "name": "Jamaica",
+   "imports": 379221457
+  },
+  {
+   "code": "7940",
+   "iso2": "ZM",
+   "name": "Zambia",
+   "imports": 321537474
+  },
+  {
+   "code": "4794",
+   "iso2": "MK",
+   "name": "North Macedonia",
+   "imports": 307499559
+  },
+  {
+   "code": "7420",
+   "iso2": "CM",
+   "name": "Cameroon",
+   "imports": 287344711
+  },
+  {
+   "code": "4730",
+   "iso2": "MT",
+   "name": "Malta",
+   "imports": 282818085
+  },
+  {
+   "code": "7920",
+   "iso2": "NA",
+   "name": "Namibia",
+   "imports": 271461817
+  },
+  {
+   "code": "4091",
+   "iso2": "FO",
+   "name": "Faroe Islands",
+   "imports": 268102307
+  },
+  {
+   "code": "7830",
+   "iso2": "TZ",
+   "name": "Tanzania",
+   "imports": 241719994
+  },
+  {
+   "code": "4411",
+   "iso2": "LI",
+   "name": "Liechtenstein",
+   "imports": 233015485
+  },
+  {
+   "code": "7930",
+   "iso2": "BW",
+   "name": "Botswana",
+   "imports": 228633527
+  },
+  {
+   "code": "7440",
+   "iso2": "SN",
+   "name": "Senegal",
+   "imports": 217915116
+  },
+  {
+   "code": "5040",
+   "iso2": "LB",
+   "name": "Lebanon",
+   "imports": 217404125
+  },
+  {
+   "code": "6863",
+   "iso2": "FJ",
+   "name": "Fiji",
+   "imports": 206907481
+  },
+  {
+   "code": "7780",
+   "iso2": "UG",
+   "name": "Uganda",
+   "imports": 198534523
+  },
+  {
+   "code": "7850",
+   "iso2": "MU",
+   "name": "Mauritius",
+   "imports": 190882499
+  },
+  {
+   "code": "7990",
+   "iso2": "LS",
+   "name": "Lesotho",
+   "imports": 170200313
+  },
+  {
+   "code": "7870",
+   "iso2": "MZ",
+   "name": "Mozambique",
+   "imports": 162416771
+  },
+  {
+   "code": "4793",
+   "iso2": "BA",
+   "name": "Bosnia and Herzegovina",
+   "imports": 157371483
+  },
+  {
+   "code": "2774",
+   "iso2": "SX",
+   "name": "Sint Maarten",
+   "imports": 133359236
+  },
+  {
+   "code": "5660",
+   "iso2": "MO",
+   "name": "Macau",
+   "imports": 129158778
+  },
+  {
+   "code": "5360",
+   "iso2": "NP",
+   "name": "Nepal",
+   "imports": 123771219
+  },
+  {
+   "code": "4810",
+   "iso2": "AL",
+   "name": "Albania",
+   "imports": 110271224
+  },
+  {
+   "code": "5610",
+   "iso2": "BN",
+   "name": "Brunei",
+   "imports": 105409696
+  },
+  {
+   "code": "7630",
+   "iso2": "CG",
+   "name": "Republic of the Congo",
+   "imports": 104247300
+  },
+  {
+   "code": "4633",
+   "iso2": "GE",
+   "name": "Georgia",
+   "imports": 102111704
+  },
+  {
+   "code": "4632",
+   "iso2": "AZ",
+   "name": "Azerbaijan",
+   "imports": 100953052
+  },
+  {
+   "code": "4641",
+   "iso2": "MD",
+   "name": "Moldova",
+   "imports": 100198643
+  },
+  {
+   "code": "7380",
+   "iso2": "GQ",
+   "name": "Equatorial Guinea",
+   "imports": 95560297
+  },
+  {
+   "code": "7520",
+   "iso2": "TG",
+   "name": "Togo",
+   "imports": 80746033
+  },
+  {
+   "code": "7960",
+   "iso2": "ZW",
+   "name": "Zimbabwe",
+   "imports": 79756764
+  },
+  {
+   "code": "4910",
+   "iso2": "CY",
+   "name": "Cyprus",
+   "imports": 79301851
+  },
+  {
+   "code": "6040",
+   "iso2": "PG",
+   "name": "Papua New Guinea",
+   "imports": 78529778
+  },
+  {
+   "code": "3150",
+   "iso2": "SR",
+   "name": "Suriname",
+   "imports": 74649013
+  },
+  {
+   "code": "7650",
+   "iso2": "LR",
+   "name": "Liberia",
+   "imports": 72202669
+  },
+  {
+   "code": "4631",
+   "iso2": "AM",
+   "name": "Armenia",
+   "imports": 64549541
+  },
+  {
+   "code": "2080",
+   "iso2": "BZ",
+   "name": "Belize",
+   "imports": 58264656
+  },
+  {
+   "code": "2777",
+   "iso2": "CW",
+   "name": "Curaçao",
+   "imports": 54262031
+  },
+  {
+   "code": "7470",
+   "iso2": "SL",
+   "name": "Sierra Leone",
+   "imports": 50330788
+  },
+  {
+   "code": "7770",
+   "iso2": "DJ",
+   "name": "Djibouti",
+   "imports": 49280859
+  },
+  {
+   "code": "7970",
+   "iso2": "MW",
+   "name": "Malawi",
+   "imports": 48621705
+  },
+  {
+   "code": "2320",
+   "iso2": "BM",
+   "name": "Bermuda",
+   "imports": 47446620
+  },
+  {
+   "code": "2720",
+   "iso2": "BB",
+   "name": "Barbados",
+   "imports": 46694111
+  },
+  {
+   "code": "6414",
+   "iso2": "PF",
+   "name": "French Polynesia",
+   "imports": 44727130
+  },
+  {
+   "code": "5740",
+   "iso2": "MN",
+   "name": "Mongolia",
+   "imports": 43445054
+  },
+  {
+   "code": "7690",
+   "iso2": "RW",
+   "name": "Rwanda",
+   "imports": 43308671
+  },
+  {
+   "code": "4272",
+   "iso2": "MC",
+   "name": "Monaco",
+   "imports": 41725640
+  },
+  {
+   "code": "2440",
+   "iso2": "KY",
+   "name": "Cayman Islands",
+   "imports": 40532911
+  },
+  {
+   "code": "7610",
+   "iso2": "BJ",
+   "name": "Benin",
+   "imports": 40442743
+  },
+  {
+   "code": "4643",
+   "iso2": "TM",
+   "name": "Turkmenistan",
+   "imports": 39434938
+  },
+  {
+   "code": "5310",
+   "iso2": "AF",
+   "name": "Afghanistan",
+   "imports": 34627386
+  },
+  {
+   "code": "7904",
+   "iso2": "RE",
+   "name": "Reunion",
+   "imports": 32346115
+  },
+  {
+   "code": "4635",
+   "iso2": "KG",
+   "name": "Kyrgyzstan",
+   "imports": 31590885
+  },
+  {
+   "code": "6412",
+   "iso2": "NC",
+   "name": "New Caledonia",
+   "imports": 30927098
+  },
+  {
+   "code": "1010",
+   "iso2": "GL",
+   "name": "Greenland",
+   "imports": 29774035
+  },
+  {
+   "code": "4751",
+   "iso2": "SM",
+   "name": "San Marino",
+   "imports": 26503327
+  },
+  {
+   "code": "7950",
+   "iso2": "SZ",
+   "name": "Eswatini (Swaziland)",
+   "imports": 25235194
+  },
+  {
+   "code": "3720",
+   "iso2": "FK",
+   "name": "Falkland Islands",
+   "imports": 20873822
+  },
+  {
+   "code": "2483",
+   "iso2": "KN",
+   "name": "Saint Kitts and Nevis",
+   "imports": 20236922
+  },
+  {
+   "code": "4622",
+   "iso2": "BY",
+   "name": "Belarus",
+   "imports": 19100116
+  },
+  {
+   "code": "6150",
+   "iso2": "WS",
+   "name": "Samoa",
+   "imports": 18018175
+  },
+  {
+   "code": "2390",
+   "iso2": "CU",
+   "name": "Cuba",
+   "imports": 17524688
+  },
+  {
+   "code": "6810",
+   "iso2": "MH",
+   "name": "Marshall Islands",
+   "imports": 17096835
+  },
+  {
+   "code": "6224",
+   "iso2": "VU",
+   "name": "Vanuatu",
+   "imports": 17095779
+  },
+  {
+   "code": "7560",
+   "iso2": "TD",
+   "name": "Chad",
+   "imports": 16440526
+  },
+  {
+   "code": "2489",
+   "iso2": "GD",
+   "name": "Grenada",
+   "imports": 13996579
+  },
+  {
+   "code": "2482",
+   "iso2": "VG",
+   "name": "British Virgin Islands",
+   "imports": 13903321
+  },
+  {
+   "code": "2487",
+   "iso2": "LC",
+   "name": "Saint Lucia",
+   "imports": 13255516
+  },
+  {
+   "code": "2484",
+   "iso2": "AG",
+   "name": "Antigua and Barbuda",
+   "imports": 12645642
+  },
+  {
+   "code": "4803",
+   "iso2": "XK",
+   "name": "Kosovo",
+   "imports": 12315276
+  },
+  {
+   "code": "5601",
+   "iso2": "TL",
+   "name": "Timor-Leste",
+   "imports": 12038855
+  },
+  {
+   "code": "7321",
+   "iso2": "SD",
+   "name": "Sudan",
+   "imports": 11486689
+  },
+  {
+   "code": "4804",
+   "iso2": "ME",
+   "name": "Montenegro",
+   "imports": 10672076
+  },
+  {
+   "code": "2779",
+   "iso2": "AW",
+   "name": "Aruba",
+   "imports": 10319652
+  },
+  {
+   "code": "7460",
+   "iso2": "GN",
+   "name": "Guinea",
+   "imports": 9668945
+  },
+  {
+   "code": "2430",
+   "iso2": "TC",
+   "name": "Turks and Caicos Islands",
+   "imports": 8633753
+  },
+  {
+   "code": "7670",
+   "iso2": "BI",
+   "name": "Burundi",
+   "imports": 8127628
+  },
+  {
+   "code": "5020",
+   "iso2": "SY",
+   "name": "Syria",
+   "imports": 7554485
+  },
+  {
+   "code": "5210",
+   "iso2": "YE",
+   "name": "Yemen",
+   "imports": 7522055
+  },
+  {
+   "code": "4271",
+   "iso2": "AD",
+   "name": "Andorra",
+   "imports": 6884401
+  },
+  {
+   "code": "7410",
+   "iso2": "MR",
+   "name": "Mauritania",
+   "imports": 6516208
+  },
+  {
+   "code": "2839",
+   "iso2": "MQ",
+   "name": "Martinique",
+   "imports": 6452770
+  },
+  {
+   "code": "2488",
+   "iso2": "VC",
+   "name": "Saint Vincent and the Grenadines",
+   "imports": 6364137
+  },
+  {
+   "code": "5682",
+   "iso2": "BT",
+   "name": "Bhutan",
+   "imports": 6149437
+  },
+  {
+   "code": "7580",
+   "iso2": "SH",
+   "name": "Saint Helena",
+   "imports": 6004513
+  },
+  {
+   "code": "7643",
+   "iso2": "CV",
+   "name": "Cabo Verde",
+   "imports": 5969093
+  },
+  {
+   "code": "7450",
+   "iso2": "ML",
+   "name": "Mali",
+   "imports": 5591756
+  },
+  {
+   "code": "2831",
+   "iso2": "GP",
+   "name": "Guadeloupe",
+   "imports": 5407605
+  },
+  {
+   "code": "5683",
+   "iso2": "MV",
+   "name": "Maldives",
+   "imports": 5115554
+  },
+  {
+   "code": "7600",
+   "iso2": "BF",
+   "name": "Burkina Faso",
+   "imports": 5074746
+  },
+  {
+   "code": "5083",
+   "iso2": "WE",
+   "name": "West Bank",
+   "imports": 4959840
+  },
+  {
+   "code": "7800",
+   "iso2": "SC",
+   "name": "Seychelles",
+   "imports": 4307732
+  },
+  {
+   "code": "6864",
+   "iso2": "TO",
+   "name": "Tonga",
+   "imports": 3177543
+  },
+  {
+   "code": "7510",
+   "iso2": "NE",
+   "name": "Niger",
+   "imports": 3057643
+  },
+  {
+   "code": "7323",
+   "iso2": "SS",
+   "name": "South Sudan",
+   "imports": 2215076
+  },
+  {
+   "code": "2486",
+   "iso2": "DM",
+   "name": "Dominica",
+   "imports": 2145250
+  },
+  {
+   "code": "6223",
+   "iso2": "SB",
+   "name": "Solomon Islands",
+   "imports": 1601178
+  },
+  {
+   "code": "3170",
+   "iso2": "GF",
+   "name": "French Guiana",
+   "imports": 1417153
+  },
+  {
+   "code": "5070",
+   "iso2": "IR",
+   "name": "Iran",
+   "imports": 1383558
+  },
+  {
+   "code": "6226",
+   "iso2": "KI",
+   "name": "Kiribati",
+   "imports": 1354362
+  },
+  {
+   "code": "7540",
+   "iso2": "CF",
+   "name": "Central African Republic",
+   "imports": 1078135
+  },
+  {
+   "code": "7890",
+   "iso2": "KM",
+   "name": "Comoros",
+   "imports": 849417
+  },
+  {
+   "code": "6144",
+   "iso2": "NU",
+   "name": "Niue",
+   "imports": 782124
+  },
+  {
+   "code": "2481",
+   "iso2": "AI",
+   "name": "Anguilla",
+   "imports": 719085
+  },
+  {
+   "code": "7700",
+   "iso2": "SO",
+   "name": "Somalia",
+   "imports": 700754
+  },
+  {
+   "code": "4720",
+   "iso2": "GI",
+   "name": "Gibraltar",
+   "imports": 692463
+  },
+  {
+   "code": "7500",
+   "iso2": "GM",
+   "name": "Gambia",
+   "imports": 687951
+  },
+  {
+   "code": "6820",
+   "iso2": "FM",
+   "name": "Micronesia",
+   "imports": 674581
+  },
+  {
+   "code": "4642",
+   "iso2": "TJ",
+   "name": "Tajikistan",
+   "imports": 570790
+  },
+  {
+   "code": "6830",
+   "iso2": "PW",
+   "name": "Palau",
+   "imports": 413783
+  },
+  {
+   "code": "2485",
+   "iso2": "MS",
+   "name": "Montserrat",
+   "imports": 398296
+  },
+  {
+   "code": "6142",
+   "iso2": "CK",
+   "name": "Cook Islands",
+   "imports": 320940
+  },
+  {
+   "code": "6023",
+   "iso2": "CC",
+   "name": "Cocos (Keeling) Islands",
+   "imports": 206874
+  },
+  {
+   "code": "7644",
+   "iso2": "ST",
+   "name": "São Tomé and Príncipe",
+   "imports": 198225
+  },
+  {
+   "code": "7741",
+   "iso2": "ER",
+   "name": "Eritrea",
+   "imports": 178268
+  },
+  {
+   "code": "6862",
+   "iso2": "NR",
+   "name": "Nauru",
+   "imports": 165957
+  },
+  {
+   "code": "5790",
+   "iso2": "KP",
+   "name": "North Korea",
+   "imports": 138902
+  },
+  {
+   "code": "7881",
+   "iso2": "YT",
+   "name": "Mayotte",
+   "imports": 117034
+  },
+  {
+   "code": "6143",
+   "iso2": "TK",
+   "name": "Tokelau",
+   "imports": 101837
+  },
+  {
+   "code": "6413",
+   "iso2": "WF",
+   "name": "Wallis and Futuna",
+   "imports": 70061
+  },
+  {
+   "code": "6024",
+   "iso2": "CX",
+   "name": "Christmas Island",
+   "imports": 68422
+  },
+  {
+   "code": "4031",
+   "iso2": "SJ",
+   "name": "Svalbard and Jan Mayen",
+   "imports": 19172
+  },
+  {
+   "code": "1610",
+   "iso2": "PM",
+   "name": "Saint Pierre and Miquelon",
+   "imports": 18158
+  },
+  {
+   "code": "6227",
+   "iso2": "TV",
+   "name": "Tuvalu",
+   "imports": 16763
+  },
+  {
+   "code": "7642",
+   "iso2": "GW",
+   "name": "Guinea-Bissau",
+   "imports": 13468
+  },
+  {
+   "code": "4752",
+   "iso2": "VA",
+   "name": "Vatican City",
+   "imports": 10537
+  },
+  {
+   "code": "5082",
+   "iso2": "GZ",
+   "name": "Gaza Strip",
+   "imports": 8626
+  },
+  {
+   "code": "7810",
+   "iso2": "IO",
+   "name": "British Indian Ocean Territory",
+   "imports": 5775
+  },
+  {
+   "code": "6225",
+   "iso2": "PN",
+   "name": "Pitcairn Islands",
+   "imports": 2302
+  },
+  {
+   "code": "7905",
+   "iso2": "TF",
+   "name": "French Southern and Antarctic Lands",
+   "imports": 1398
+  },
+  {
+   "code": "9510",
+   "iso2": "AS",
+   "name": "American Samoa",
+   "imports": 0
+  },
+  {
+   "code": "4350",
+   "iso2": "CS",
+   "name": "Czechoslovakia",
+   "imports": 0
+  },
+  {
+   "code": "4290",
+   "iso2": "DD",
+   "name": "East Germany",
+   "imports": 0
+  },
+  {
+   "code": "7740",
+   "iso2": "ET",
+   "name": "Ethiopia prior to Eritrea split",
+   "imports": 0
+  },
+  {
+   "code": "9350",
+   "iso2": "GU",
+   "name": "Guam",
+   "imports": 0
+  },
+  {
+   "code": "6029",
+   "iso2": "HM",
+   "name": "Heard and McDonald Islands",
+   "imports": 0
+  },
+  {
+   "code": "5080",
+   "iso2": "IL",
+   "name": "Israel prior to 1989",
+   "imports": 0
+  },
+  {
+   "code": "2771",
+   "iso2": "AN",
+   "name": "Netherlands Antilles",
+   "imports": 0
+  },
+  {
+   "code": "6022",
+   "iso2": "NF",
+   "name": "Norfolk Island",
+   "imports": 0
+  },
+  {
+   "code": "9610",
+   "iso2": "MP",
+   "name": "Northern Mariana Islands",
+   "imports": 0
+  },
+  {
+   "code": "9000",
+   "iso2": "PR",
+   "name": "Puerto Rico/US",
+   "imports": 0
+  },
+  {
+   "code": "4799",
+   "iso2": "CS",
+   "name": "Serbia and Montenegro",
+   "imports": 0
+  },
+  {
+   "code": "4802",
+   "iso2": "RS",
+   "name": "Serbia prior to 2009",
+   "imports": 0
+  },
+  {
+   "code": "5220",
+   "iso2": "YD",
+   "name": "South Yemen",
+   "imports": 0
+  },
+  {
+   "code": "4610",
+   "iso2": "SU",
+   "name": "Soviet Union",
+   "imports": 0
+  },
+  {
+   "code": "7320",
+   "iso2": "SD",
+   "name": "Sudan prior to South Sudan split",
+   "imports": 0
+  },
+  {
+   "code": "9800",
+   "iso2": "UM",
+   "name": "U.S. Minor Outlying Islands",
+   "imports": 0
+  },
+  {
+   "code": "9110",
+   "iso2": "VI",
+   "name": "U.S. Virgin Islands",
+   "imports": 0
+  },
+  {
+   "code": "7370",
+   "iso2": "EH",
+   "name": "Western Sahara",
+   "imports": 0
+  },
+  {
+   "code": "4790",
+   "iso2": "YU",
+   "name": "Yugoslavia",
+   "imports": 0
+  }
+ ]
+}

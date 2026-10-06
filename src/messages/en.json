@@ -42,7 +42,15 @@
     "notFound": {
       "title": "Page not found"
     },
-    "ogTagline": "Made in Türkiye. Run right in the United States."
+    "ogTagline": "Made in Türkiye. Run right in the United States.",
+    "trade": {
+      "title": "US import data: products, countries and duties",
+      "description": "Monthly US imports by product and country. Türkiye's share, competitors, the duty actually paid and ports of entry. Source: US Census Bureau."
+    },
+    "tradeProduct": {
+      "title": "HS {code} US imports: {country} and competitors",
+      "description": "{label}. US imports over the last 12 months, supplying countries, share, growth and effective duty rate. Source: US Census Bureau."
+    }
   },
   "common": {
     "skipToContent": "Skip to content",
@@ -85,7 +93,8 @@
     "about": "About",
     "contact": "Contact",
     "portal": "Client portal",
-    "portalShort": "Portal"
+    "portalShort": "Portal",
+    "tradeData": "Trade data"
   },
   "cta": {
     "book": "Book a 15-minute call",
@@ -542,6 +551,128 @@
     },
     "emailCta": "Email me my result"
   },
+  "trade": {
+    "eyebrow": "Trade data",
+    "title": "US import data: see your product's US market.",
+    "intro": "Official monthly figures from the US Census Bureau. Type a product or an HS code to see who the US buys from and how much, growth, the duty actually paid and the ports goods enter through.",
+    "lead": {
+      "title": "Email me this analysis",
+      "body": "We'll send the key figures and a link to this page. If you like, we can read them together on a 15-minute call.",
+      "submit": "Send the analysis"
+    },
+    "freshness": "Latest data: {month}. Updated monthly.",
+    "filters": {
+      "search": "Product or HS code",
+      "placeholder": "e.g. carpets, olive oil, 8708",
+      "hint": "The first 6 digits of a Turkish GTİP code match the US HS code.",
+      "noResults": "No results. Try the first 4 digits of the code or an English product name.",
+      "country": "Partner country",
+      "countryTop": "Largest suppliers",
+      "countryAll": "Other countries",
+      "apply": "Show",
+      "usImports": "US {year}:",
+      "fromTurkiye": "Türkiye:",
+      "chapter": "Chapter"
+    },
+    "search": {
+      "title": "Results for “{query}”",
+      "empty": "Nothing found for “{query}”. Try the first 4 digits of the code or an English product name.",
+      "meta": "US imports {year}: {value}"
+    },
+    "overview": {
+      "title": "US imports from {country}",
+      "intro": "Last 12 months: {window}, compared with the 12 months before.",
+      "kpiValue": "Last 12 months",
+      "vsPrev": "vs prior 12 months",
+      "kpiShare": "Share of US imports",
+      "rank": "No. {rank} of {total} supplying countries",
+      "kpiDuty": "Effective duty rate",
+      "dutyPrev": "Prior 12 months: {rate}",
+      "kpiVessel": "Arrived by sea",
+      "airShare": "By air: {rate}",
+      "trendTitle": "Monthly imports",
+      "trendSubtitle": "Last 36 months, customs value (USD)",
+      "dutyTitle": "Effective duty rate",
+      "dutySubtitle": "Monthly; calculated duty ÷ imports for consumption",
+      "productsTitle": "Top products",
+      "productsIntro": "{period}, at the 4-digit HS level. Share: share of all US imports of that product.",
+      "gainersTitle": "Biggest gains",
+      "declinersTitle": "Biggest declines",
+      "changeIntro": "{period}, dollar change vs the same months a year earlier.",
+      "portsTitle": "Main ports of entry",
+      "portsIntro": "Last 12 months, all goods from {country}.",
+      "noData": "No recorded imports from {country} in this period."
+    },
+    "product": {
+      "eyebrow": "HS {code} · US imports",
+      "chapter": "Chapter {code}: {name}",
+      "officialName": "Official US description",
+      "kpiWorld": "Total US imports, last 12 months",
+      "kpiSelected": "From {country}, last 12 months",
+      "kpiShare": "Share and rank",
+      "rank": "No. {rank} of {total} suppliers",
+      "noRank": "No recorded imports in this period",
+      "sharePrev": "vs prior 12 months",
+      "kpiDuty": "Effective duty rate",
+      "dutyWorld": "All countries: {rate}",
+      "chartWorld": "From all countries",
+      "chartSelected": "From {country}",
+      "chartSubtitle": "Monthly, last 36 months, customs value (USD)",
+      "suppliersTitle": "Largest suppliers",
+      "suppliersIntro": "Last 12 months ({window}). Effective duty: duty paid ÷ import value.",
+      "childrenTitle": "Sub-products",
+      "childrenIntro": "{period}, from {country}. Share: share of all US imports of that product.",
+      "portsTitle": "Ports of entry",
+      "portsIntro": "Last 12 months, from {country}.",
+      "tariffTitle": "US tariff schedule (HTS)",
+      "tariffIntro": "General (MFN) rates from USITC. Section 232, 301 or other additional duties may apply on top. The effective duty above shows what importers actually paid.",
+      "tariffLink": "Check the current schedule at hts.usitc.gov",
+      "tariffNone": "Tariff lines can't be shown right now.",
+      "free": "Free",
+      "backToOverview": "Trade data",
+      "deeper": "Pick a more detailed code"
+    },
+    "cols": {
+      "country": "Country",
+      "value": "Value",
+      "share": "Share",
+      "growth": "Change",
+      "duty": "Effective duty",
+      "product": "Product",
+      "usShare": "US market share",
+      "code": "Code",
+      "hts": "HTS code",
+      "description": "Description",
+      "rate": "General rate",
+      "units": "Units",
+      "vessel": "By sea",
+      "month": "Month"
+    },
+    "chart": {
+      "table": "Show as table",
+      "scrub": "Use the arrow keys to move between months.",
+      "noData": "No data for this period."
+    },
+    "notes": {
+      "title": "Data and definitions",
+      "value": "Value: general imports at customs value, in US dollars, excluding freight and insurance.",
+      "window": "Last 12 months: the latest 12 published months. Change compares them with the 12 months before.",
+      "duty": "Effective duty rate: the duty the Census Bureau calculates from customs entries, divided by the value of imports for consumption. Additional duties are included; later refunds and corrections are not.",
+      "release": "The Census Bureau publishes about five weeks after month end and revises past months each year with the April release.",
+      "census": "This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.",
+      "censusOfficial": "This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.",
+      "sourceCensus": "U.S. Census Bureau, International Trade API",
+      "sourceUsitc": "USITC DataWeb, HTS tariff data"
+    },
+    "errors": {
+      "unavailable": "The data can't be loaded right now. Please try again in a few minutes.",
+      "notConfigured": "Trade data isn't connected yet.",
+      "unknownCode": "We couldn't find that code. Pick a product from the search."
+    },
+    "loading": "Loading data…",
+    "ctaTitle": "What do these numbers mean for you?",
+    "ctaBody": "In 15 minutes we'll look at your US buyers, your duty burden and how fast you get paid."
+  },
   "insights": {
     "eyebrow": "Knowledge center",
     "title": "US rules, short and sourced",
@@ -649,7 +780,14 @@
     "prepared": "Prepared on {date}",
     "cta": "Let's talk through these in 15 minutes.",
     "sample": "Sample page: not about a real company.",
-    "note": "This page is only for the person who received the link and is not listed in search engines."
+    "note": "This page is only for the person who received the link and is not listed in search engines.",
+    "marketTitle": "US market: HS {code}",
+    "marketBody": "Last 12 months ({window}), US Census Bureau data.",
+    "marketWorld": "Total US imports",
+    "marketTurkiye": "From Türkiye",
+    "marketShare": "Türkiye's share",
+    "marketRank": "No. {rank}",
+    "marketLink": "See the full analysis"
   },
   "footer": {
     "services": "Services",
@@ -700,6 +838,11 @@
     "form5472Result": "Your result: the initial penalty for {years} missing years is {result}.",
     "noTaxIds": "Please don't attach tax ID numbers, EINs or financial documents to this email.",
     "informational": "The information in this email is informational; it is not legal, tax or customs advice.",
-    "signoff": "Best regards,"
+    "signoff": "Best regards,",
+    "tradeProduct": "US imports of HS {code} ({label}), {window}: {world} from all countries; {value} from {country} ({growth} vs the prior 12 months). Share: {share}.",
+    "tradeRank": "{country} is the number {rank} US supplier of this product.",
+    "tradeCountry": "US imports from {country}, {window}: {value} ({growth} vs the prior 12 months). Share of US imports: {share}.",
+    "tradeLink": "Full analysis: {url}",
+    "tradeSource": "Source: U.S. Census Bureau. Figures are informational."
   }
 }

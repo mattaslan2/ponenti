@@ -92,7 +92,7 @@ From the legal drafts (both languages):
 ## 8. Prospect pages
 
 - `src/content/prospects/ornek-firma.json`: a labeled sample page at `/tr/ozel/ornek-firma`. Delete it before outreach, or keep it as a demo (it is noindex).
-- `src/content/prospects/_template.json`: copy to `{firm-slug}.json` for each prospect. Every observation must come from public import records, with a date and a source.
+- `src/content/prospects/_template.json`: copy to `{firm-slug}.json` for each prospect. Every observation must come from public import records, with a date and a source. The optional `hs` field (the firm's main product, 4 or 6 digits) adds a live US market snapshot from Census data; delete the line if you don't know the code.
 
 ## 9. Time-sensitive facts to re-check
 

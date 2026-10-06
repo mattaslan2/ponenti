@@ -117,7 +117,53 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   await page.waitForTimeout(300);
   ok('menu link navigates and closes', page.url().endsWith('/tr/hizmetler') && !(await page.locator('dialog#mobile-menu[open]').count()), page.url());
 
-  // 8. 404, prospect, portal
+  // 8. Trade data (skipped when CENSUS_API_KEY is not set on the server)
+  r = await page.goto(base + '/tr/ticaret-verileri', { waitUntil: 'networkidle', timeout: 60000 });
+  ok('trade page 200', r.status() === 200, String(r.status()));
+  const tradeText = await page.locator('main').innerText();
+  if (tradeText.includes('henüz bağlanmadı')) {
+    ok('trade data connected (skipped: no CENSUS_API_KEY)', true);
+  } else {
+    ok('trade overview KPIs', /\$[\d.,]+ milyar/.test(tradeText) && tradeText.includes('Türkiye çıkışlı ABD ithalatı'), tradeText.slice(0, 200));
+    ok('trade overview lists products', (await page.locator('main ol li a[href*="/tr/ticaret-verileri/"]').count()) >= 10);
+    const slider = page.getByRole('slider').first();
+    await slider.focus();
+    const before = await slider.getAttribute('aria-valuetext');
+    await page.keyboard.press('ArrowLeft');
+    ok('chart scrubber moves by keyboard', (await slider.getAttribute('aria-valuetext')) !== before, before);
+    const search = page.getByRole('combobox', { name: 'Ürün veya GTİP kodu' });
+    await search.fill('fındık');
+    await page.getByRole('option').first().waitFor({ timeout: 10000 });
+    ok('search suggests hazelnuts', (await page.getByRole('option').first().innerText()).includes('080222'));
+    await page.getByRole('option').first().click();
+    await page.waitForURL('**/tr/ticaret-verileri/080222', { timeout: 30000 });
+    await page.waitForLoadState('networkidle');
+    ok('search opens product page', page.url().endsWith('/tr/ticaret-verileri/080222'), page.url());
+    await page.goto(base + '/tr/ticaret-verileri/5702', { waitUntil: 'networkidle', timeout: 60000 });
+    const productText = await page.locator('main').innerText();
+    ok('product page suppliers', productText.includes('En büyük tedarikçiler') && productText.includes('Türkiye'));
+    await page.getByLabel('Kaynak ülke').selectOption('IN');
+    await page.waitForURL('**/tr/ticaret-verileri/5702?country=IN', { timeout: 30000 });
+    const switched = await page.getByText('Hindistan çıkışlı, son 12 ay').first().waitFor({ timeout: 45000 }).then(() => true, () => false);
+    ok('country switch', switched, page.url());
+    await page.goBack();
+    await page.waitForURL(/\/tr\/ticaret-verileri\/5702$/, { timeout: 30000 });
+    const restored = await page.getByText('Türkiye çıkışlı, son 12 ay').first().waitFor({ timeout: 45000 }).then(() => true, () => false);
+    const selected = await page.getByLabel('Kaynak ülke').inputValue();
+    ok('Back restores the country and the selector', restored && selected === 'TR', selected);
+    const countryFocused = page.getByLabel('Kaynak ülke');
+    await countryFocused.focus();
+    await countryFocused.selectOption('DE');
+    await page.waitForURL('**/tr/ticaret-verileri/5702?country=DE', { timeout: 30000 });
+    await page.getByText('Almanya çıkışlı, son 12 ay').first().waitFor({ timeout: 45000 }).catch(() => {});
+    ok('selector keeps focus after a country change', await countryFocused.evaluate((el) => el === document.activeElement));
+    r = await page.goto(base + '/tr/ticaret-verileri?q=zeytinya%C4%9F%C4%B1', { waitUntil: 'load' });
+    ok('search works without JavaScript (GET ?q=)', (await page.locator('#trade-search-title').innerText()).includes('zeytinyağı') && (await page.locator('main').innerText()).includes('1509'));
+    r = await page.goto(base + '/tr/ticaret-verileri/5702429020', { waitUntil: 'load' });
+    ok('10-digit HTS code redirects to HS6', page.url().endsWith('/tr/ticaret-verileri/570242'), page.url());
+  }
+
+  // 9. 404, prospect, portal
   r = await page.goto(base + '/tr/olmayan-sayfa', { waitUntil: 'load' });
   ok('404 status', r.status() === 404, String(r.status()));
   ok('404 localized', (await page.locator('h1').innerText()).includes('Bu sayfa bulunamadı'));

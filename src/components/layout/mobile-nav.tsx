@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "./language-switcher";
 import { Logo } from "@/components/brand/logo";
 
-export type NavItem = { href: StaticPathname; key: "services" | "riskTest" | "calculators" | "insights" | "about" | "contact" };
+export type NavItem = { href: StaticPathname; key: "services" | "riskTest" | "calculators" | "tradeData" | "insights" | "about" | "contact" };
 
 /**
  * Phone and tablet menu. A native modal <dialog>: focus stays inside, Esc closes,

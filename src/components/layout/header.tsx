@@ -11,6 +11,7 @@ export const navItems: NavItem[] = [
   { href: "/services", key: "services" },
   { href: "/risk-test", key: "riskTest" },
   { href: "/calculators", key: "calculators" },
+  { href: "/trade-data", key: "tradeData" },
   { href: "/insights", key: "insights" },
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },

@@ -6,7 +6,13 @@ import { sources } from "@/lib/sources";
 import { riskSources, type RiskId } from "@/lib/risk-test";
 import { calUrl } from "@/lib/links";
 import { formatUsd, formatUsdRounded } from "@/lib/format";
-import { cashContextSchema, form5472ContextSchema, riskContextSchema, type Lead } from "./schema";
+import { getPathname } from "@/i18n/navigation";
+import { getCountryOverview, getProductSnapshot } from "@/lib/trade/analysis";
+import { TURKIYE, countryByIso, countryName } from "@/lib/trade/countries";
+import { pct, usdCompact, windowLabel } from "@/lib/trade/format";
+import { siteUrl } from "@/lib/seo";
+import { overviewHref, productHref } from "@/lib/trade/links";
+import { cashContextSchema, form5472ContextSchema, riskContextSchema, tradeContextSchema, type Lead } from "./schema";
 
 /**
  * Resend: a confirmation to the visitor in their language and an internal
@@ -58,6 +64,9 @@ export async function resultLines(lead: Lead): Promise<string[]> {
         }),
       );
     }
+  } else if (lead.formType === "trade_data") {
+    const r = tradeContextSchema.safeParse(ctx);
+    if (r.success) lines.push(...(await tradeLines(r.data, lead.locale)));
   } else if (lead.formType === "calc_5472") {
     const r = form5472ContextSchema.safeParse(ctx);
     if (r.success) {
@@ -116,4 +125,49 @@ export async function sendLeadEmails(lead: Lead, internalSummary: string) {
     console.error("[resend] alert failed", alert.status === "rejected" ? alert.reason : (alert.value as { error?: unknown }).error);
   }
   return { confirmation: ok(confirmation), alert: ok(alert) };
+}
+
+/** Trade-data summary for the visitor's email, recomputed on the server from cached Census data. */
+async function tradeLines(ctx: { hs?: string; country: string }, locale: "tr" | "en"): Promise<string[]> {
+  const t = await getTranslations({ locale, namespace: "emails" });
+  const country = countryByIso(ctx.country) ?? TURKIYE;
+  const name = countryName(country, locale);
+  const url = siteUrl() + getPathname({ locale, href: ctx.hs ? productHref(ctx.hs, country.iso2) : overviewHref(country.iso2) });
+  const growthText = (g: number | null) => (g === null ? "–" : pct(g, locale, { signed: true }));
+  try {
+    if (ctx.hs) {
+      const snap = await getProductSnapshot(ctx.hs, country.code, locale);
+      if (!snap) return [t("tradeLink", { url })];
+      const label = snap.label.length > 90 ? `${snap.label.slice(0, 87)}…` : snap.label;
+      return [
+        t("tradeProduct", {
+          code: snap.hs.code,
+          label,
+          window: windowLabel(snap.windows.cur.first, snap.windows.cur.last, locale),
+          world: usdCompact(snap.worldValue, locale),
+          country: name,
+          value: usdCompact(snap.value, locale),
+          growth: growthText(snap.growth),
+          share: pct(snap.share, locale),
+        }),
+        ...(snap.rank ? [t("tradeRank", { country: name, rank: snap.rank })] : []),
+        t("tradeLink", { url }),
+        t("tradeSource"),
+      ];
+    }
+    const o = await getCountryOverview(country.code, locale);
+    return [
+      t("tradeCountry", {
+        country: name,
+        window: windowLabel(o.windows.cur.first, o.windows.cur.last, locale),
+        value: usdCompact(o.value, locale),
+        growth: growthText(o.growth),
+        share: pct(o.share, locale),
+      }),
+      t("tradeLink", { url }),
+      t("tradeSource"),
+    ];
+  } catch {
+    return [t("tradeLink", { url })];
+  }
 }

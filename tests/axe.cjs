@@ -3,7 +3,7 @@
 const { chromium } = require('playwright-core');
 const { AxeBuilder } = require('@axe-core/playwright');
 const base = process.env.BASE_URL || 'http://localhost:3000';
-const pages = ['/tr', '/tr/hizmetler', '/tr/risk-testi', '/tr/hesaplayicilar', '/tr/bilgi-merkezi', '/tr/bilgi-merkezi/eo-14411-ithalatci-kaydi-kurallari', '/tr/hakkimizda', '/tr/iletisim', '/tr/gizlilik', '/tr/cerezler', '/tr/portal', '/tr/ozel/ornek-firma', '/tr/yok', '/en', '/en/services', '/en/contact', '/en/insights/sales-tax-nexus-by-state', '/en/about'];
+const pages = ['/tr', '/tr/hizmetler', '/tr/risk-testi', '/tr/hesaplayicilar', '/tr/bilgi-merkezi', '/tr/bilgi-merkezi/eo-14411-ithalatci-kaydi-kurallari', '/tr/hakkimizda', '/tr/iletisim', '/tr/gizlilik', '/tr/cerezler', '/tr/portal', '/tr/ozel/ornek-firma', '/tr/ticaret-verileri', '/tr/ticaret-verileri/570242', '/en/trade-data/8708', '/tr/yok', '/en', '/en/services', '/en/contact', '/en/insights/sales-tax-nexus-by-state', '/en/about'];
 (async () => {
   const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : { channel: 'chrome' });
   let total = 0;

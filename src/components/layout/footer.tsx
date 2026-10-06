@@ -60,6 +60,7 @@ export async function Footer() {
                 <li><Link href="/services" className="hover:underline">{nav("services")}</Link></li>
                 <li><Link href="/risk-test" className="hover:underline">{nav("riskTest")}</Link></li>
                 <li><Link href="/calculators" className="hover:underline">{nav("calculators")}</Link></li>
+                <li><Link href="/trade-data" className="hover:underline">{nav("tradeData")}</Link></li>
               </ul>
             </div>
             <div>
