@@ -1,0 +1,201 @@
+export const meta = {
+  key: "privacy",
+  locale: "tr",
+  slug: "gizlilik",
+  title: "Gizlilik Politikası ve KVKK Aydınlatma Metni",
+  description: "Ponenti web sitesinde hangi kişisel verileri, hangi amaçla ve hangi hukuki sebeple işlediğimizi, kimlere aktardığımızı ve haklarınızı açıklar.",
+  updated: "2026-10-05",
+  sources: [
+    { title: "6698 sayılı Kişisel Verilerin Korunması Kanunu", url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6698&MevzuatTur=1&MevzuatTertip=5", publisher: "Mevzuat Bilgi Sistemi" },
+    { title: "Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ", url: "https://www.kvkk.gov.tr/Icerik/4132/aydinlatma-yukumlulugunun-yerine-getirilmesinde-uyulacak-usul-ve-esaslar-hakkinda-teblig", publisher: "Kişisel Verileri Koruma Kurumu" },
+    { title: "Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ", url: "https://www.resmigazete.gov.tr/eskiler/2018/03/20180310-6.htm", publisher: "T.C. Resmî Gazete" },
+    { title: "Kişisel Verilerin Yurt Dışına Aktarılmasına İlişkin Usul ve Esaslar Hakkında Yönetmelik", url: "https://www.resmigazete.gov.tr/eskiler/2024/07/20240710-2.htm", publisher: "T.C. Resmî Gazete" },
+    { title: "Yurt Dışına Aktarım", url: "https://www.kvkk.gov.tr/Icerik/2053/Yurtdisina-Aktarim", publisher: "Kişisel Verileri Koruma Kurumu" },
+    { title: "Kişisel Verilerin Yurt Dışına Aktarılması Rehberi (Ocak 2025)", url: "https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/13711235-abb6-4b17-9a6b-0a68c1ad86c5.pdf", publisher: "Kişisel Verileri Koruma Kurumu" },
+    { title: "Veri Sorumluları Sicili Hakkında Yönetmelik", url: "https://www.kvkk.gov.tr/Icerik/5442/VERI-SORUMLULARI-SICILI-HAKKINDA-YONETMELIK", publisher: "Kişisel Verileri Koruma Kurumu" },
+    { title: "İlgili Kişilerin Başvurularına Verilecek Cevabın Bildirim Usulüne İlişkin Kamuoyu Duyurusu (1 Ekim 2026)", url: "https://www.kvkk.gov.tr/Icerik/9024/ilgili-kisilerin-basvurularina-verilecek-cevabin-bildirim-usulune-iliskin-kamuoyu-duyurusu", publisher: "Kişisel Verileri Koruma Kurumu" },
+  ],
+}
+
+> [confirm with counsel] Bu metin taslaktır. / This text is a draft.
+
+## 1. Bu metin hakkında
+
+Bu metin, Ponenti web sitesini ziyaret ettiğinizde ve sitedeki formları kullandığınızda kişisel verilerinizi nasıl işlediğimizi açıklar. 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (KVKK) 10. maddesi ve Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ uyarınca aydınlatma metni olarak hazırlanmıştır.
+
+Bu metin yalnızca web sitesi içindir. Müşteri çalışmalarındaki farklar aşağıdaki "Müşteri çalışmaları" bölümünde yer alır.
+
+## 2. Veri sorumlusu
+
+Kişisel verileriniz bakımından veri sorumlusu bilgileri şunlardır:
+
+- Veri sorumlusu: <Company field="legalName" />
+- Adres: <Company field="address" />
+- E-posta: <Company field="email" />
+- Telefon: <Company field="phone" />
+- Türkiye'deki veri sorumlusu temsilcisi: [REPLACE WITH REAL: temsilcinin unvanı ve adresi]
+- VERBİS kaydı: [confirm with counsel]
+
+Bu metinde geçen "Ponenti", "biz" ve "bizim" ifadeleri bu şirketi anlatır.
+
+## 3. İşlediğimiz kişisel veriler
+
+Sitede bir form doldurduğunuzda (iletişim formu veya hesaplayıcılardaki ve risk testindeki "sonucumu e-postayla gönder" formu) şu bilgileri alırız:
+
+- Kimlik ve iletişim: ad, iş e-postası, şirket adı, telefon (isteğe bağlı).
+- Talep: mesajınız, form dili ve segmentiniz (ABD'de şirketi olan işletme veya Türkiye'den ABD'ye satış yapan işletme).
+- Test ve hesaplama: risk testi seviyesi ve cevaplarınız (yalnızca evet/hayır ve aralıklar), ödeme süresi aralığı (gün).
+- Kampanya bilgisi: siteye geldiğiniz bağlantıdaki UTM kampanya parametreleri.
+- Onay kaydı: onay kutusunu işaretlediğinize dair kayıt ve zaman damgası.
+
+Siteyi kullanırken ayrıca şu bilgiler oluşur:
+
+- Teknik kayıtlar: IP adresi, tarayıcı ve cihaz bilgisi, ziyaret edilen sayfa, tarih ve saat (barındırma sağlayıcımızın sunucu kayıtları).
+- Bot kontrolü: form gönderilirken Vercel BotID'nin tarayıcınızdan okuduğu teknik sinyaller ve formdaki gizli tuzak alanı (honeypot).
+- Hata kayıtları: bir hata oluştuğunda hata mesajı, sayfa adresi, tarayıcı ve işletim sistemi bilgisi (Sentry).
+- Analitik: yalnızca analitik çerezleri kabul ederseniz sayfa görüntülemeleri, tıklamalar, cihaz ve tarayıcı bilgisi, IP adresi ve buna dayalı yaklaşık konum, yönlendiren sayfa (PostHog).
+- Tercihler: çerez tercihiniz ve dil tercihiniz.
+
+Takvimi açıp randevu alırsanız Cal.com üzerinden adınızı, e-posta adresinizi, seçtiğiniz saati ve eklediğiniz notu alırız. WhatsApp bağlantısına dokunup bize yazarsanız telefon numaranızı ve mesajlarınızı WhatsApp üzerinden alırız.
+
+Sitemiz vergi kimlik numarası, EIN veya mali belge istemez. Lütfen bu tür bilgileri formlara yazmayın.
+
+KVKK'nın 6. maddesinde sayılan özel nitelikli kişisel verileri (örneğin sağlık, din, ceza mahkûmiyeti, biyometrik veri) toplamıyoruz. Lütfen mesajınıza bu tür bilgiler yazmayın.
+
+## 4. Toplama yöntemi
+
+Kişisel verilerinizi web sitesindeki formlar, çerezler ve benzeri teknolojiler ile sunucu kayıtları aracılığıyla, elektronik ortamda ve tamamen veya kısmen otomatik yollarla topluyoruz. E-posta, WhatsApp veya Cal.com üzerinden ilettiğiniz bilgiler de elektronik ortamda elde edilir.
+
+## 5. Amaçlar ve hukuki sebepler
+
+| Amaç | Veriler | Hukuki sebep (KVKK m. 5) |
+|---|---|---|
+| Talebinizi yanıtlamak, istediğiniz sonucu e-postayla göndermek, görüşme planlamak | Kimlik, iletişim, talep, test ve hesaplama bilgileri, randevu bilgileri | m. 5/2-c: bir sözleşmenin kurulmasıyla doğrudan ilgili olması. m. 5/2-f: iş taleplerini yanıtlamaktaki meşru menfaatimiz. |
+| Talebi CRM'e kaydetmek, ekibimize iç bildirim göndermek ve talebinizle ilgili sizinle yeniden iletişime geçmek | Kimlik, iletişim, talep, test ve hesaplama bilgileri | m. 5/2-f: meşru menfaat |
+| Talebin hangi kampanyadan geldiğini anlamak | UTM parametreleri | m. 5/2-f: meşru menfaat |
+| Siteyi spam ve botlardan korumak, güvenliği sağlamak | Teknik kayıtlar, bot kontrolü sinyalleri | m. 5/2-f: meşru menfaat |
+| Hataları bulmak ve düzeltmek | Hata kayıtları, teknik kayıtlar | m. 5/2-f: meşru menfaat |
+| Sitenin nasıl kullanıldığını ölçmek | Analitik verileri | m. 5/1: açık rıza (yalnızca analitik çerezleri kabul ederseniz) |
+| Dil ve çerez tercihinizi hatırlamak | Tercih bilgileri | m. 5/2-f: meşru menfaat |
+| Onayınızı kaydetmek ve gerektiğinde ispat etmek | Onay kaydı, çerez tercihi | m. 5/2-ç: hukuki yükümlülük. m. 5/2-e: bir hakkın tesisi, kullanılması veya korunması |
+| KVKK başvurularını yanıtlamak ve yasal yükümlülükleri yerine getirmek | Başvurudaki bilgiler | m. 5/2-ç: hukuki yükümlülük |
+| Hukuki taleplerde haklarımızı korumak | İlgili kayıtlar | m. 5/2-e: bir hakkın tesisi, kullanılması veya korunması |
+
+Meşru menfaate dayandığımız işlemlerde menfaatimizi temel hak ve özgürlüklerinizle tartarız ve yalnızca gerekli veriyi kullanırız.
+
+Analitik için verdiğiniz açık rızayı istediğiniz zaman geri alabilirsiniz. Bunun için sitenin alt kısmındaki "Çerez tercihleri" bağlantısını kullanın. Geri alma ileriye dönük sonuç doğurur.
+
+## 6. Verileri kimlere aktarıyoruz
+
+Verilerinizi satmayız. Verilerinize yalnızca talebinizi yanıtlaması gereken çalışanlarımız erişir. Siteyi çalıştırmak için şu hizmet sağlayıcıları (veri işleyenler) kullanırız:
+
+| Sağlayıcı | Ne yapar | Genel konum | Ne zaman |
+|---|---|---|---|
+| Vercel | Barındırma, sunucu kayıtları, BotID bot kontrolü | ABD; içerik küresel bir sunucu ağıyla sunulur | Her ziyarette |
+| Attio | Form kayıtlarını saklayan CRM | Birleşik Krallık merkezli; barındırma bölgesi teyit edilecek | Form gönderdiğinizde |
+| Resend | Size onay e-postası, ekibimize iç bildirim gönderir | ABD | Form gönderdiğinizde |
+| PostHog | Analitik (ABD bulutu) | ABD | Yalnızca analitik çerezleri kabul ederseniz |
+| Sentry | Hata izleme | ABD | Bir hata oluştuğunda |
+| Cal.com | Randevu takvimi | ABD | Yalnızca takvimi açtığınızda |
+| Kurumsal e-posta ve takvim hizmetimiz | İç bildirimleri, yazışmaları ve randevuları tutar | [REPLACE WITH REAL: sağlayıcı ve konum] | Form gönderdiğinizde veya bize yazdığınızda |
+
+Konum bilgileri, her sağlayıcının sözleşmesine göre teyit edilecektir. [confirm with counsel]
+
+WhatsApp bağlantısı yalnızca siz dokunursanız açılır. Bize WhatsApp'tan yazarsanız WhatsApp (Meta) yazışmayı kendi koşullarına göre ve kendi sorumluluğunda işler. Hizmeti, bulunduğunuz bölgeye göre ABD'deki WhatsApp LLC veya başka bir Meta şirketi sunar.
+
+Hukuken zorunlu olduğunda yetkili kamu kurum ve kuruluşlarına bilgi verebiliriz (m. 5/2-ç).
+
+## 7. Yurt dışına aktarım
+
+Ponenti ABD'de faaliyet gösterir ve formlar bilgilerinizi doğrudan bize iletir. Kişisel Verileri Koruma Kurumu'nun Kişisel Verilerin Yurt Dışına Aktarılması Rehberi'ne göre bilgilerin doğrudan sizden alınması tek başına yurt dışına aktarım sayılmaz. Bu bilgileri yurt dışındaki hizmet sağlayıcılarımıza iletmemiz ise aktarımdır. Bu aktarım, KVKK'nın 7499 sayılı Kanunla değişik ve 1 Haziran 2024'ten beri yürürlükte olan 9. maddesine tabidir.
+
+- Yeterlilik kararı: Kişisel Verileri Koruma Kurulu henüz hiçbir ülke için yeterlilik kararı vermemiştir. ABD ve Birleşik Krallık için de böyle bir karar yoktur.
+- Uygun güvence: Hizmet sağlayıcılarımızla Kurul'un ilan ettiği standart sözleşmeleri imzalamayı ve her sözleşmeyi imzadan sonra beş iş günü içinde Kurum'a bildirmeyi planlıyoruz (m. 9/4-c ve m. 9/5). [confirm with counsel: sözleşmeler henüz imzalanmadı]
+- Bu sözleşmeler imzalanıp bildirilene kadar: Aktarım, formdaki onay kutusuyla verdiğiniz açık rızaya (m. 9/6-a) ve talebiniz üzerine alınan sözleşme öncesi tedbirlere (m. 9/6-b) dayanır. Kanun bu istisnaları yalnızca arızi aktarımlar için tanır. [confirm with counsel]
+- Analitik: Verileriniz PostHog'a yalnızca analitik çerezleri kabul ederseniz aktarılır ve aynı esaslara tabidir.
+
+Muhtemel riskler: Başta ABD olmak üzere aktarım yapılan ülkeler için Kurul'un verdiği bir yeterlilik kararı yoktur. Bu ülkelerin hukuku size KVKK'daki hakların ve başvuru yollarının aynısını tanımayabilir ve bu ülkelerde Kurul'a denk bir denetim otoritesi bulunmayabilir. ABD'deki kamu makamları, ABD hukukuna göre verilere erişim talep edebilir.
+
+Açık rızanızı istediğiniz zaman geri alabilirsiniz. Geri alma, daha önce yapılmış aktarımları etkilemez.
+
+## 8. Saklama süreleri
+
+- Form ve CRM kayıtları: sizinle son iletişimden sonra en fazla 24 ay. Müşterimiz olursanız hizmet sözleşmesindeki süreler uygulanır. [confirm with counsel]
+- Onay kayıtları: ilgili form kaydı saklandığı sürece. [confirm with counsel]
+- E-posta gönderim, analitik, hata ve sunucu kayıtları: [REPLACE WITH REAL: Resend, PostHog, Sentry ve Vercel saklama süreleri]
+- Çerezler ve tarayıcı depolaması: Çerez Bildirimi'nde belirtilen süreler.
+
+Süre dolduğunda veya işleme sebebi ortadan kalktığında verileri siler, yok eder veya anonim hâle getiririz (KVKK m. 7).
+
+## 9. Güvenlik
+
+- Tarayıcınız ile site arasındaki bağlantı TLS ile şifrelenir.
+- Ziyaretçi bilgilerine yalnızca işi gereği ihtiyaç duyan çalışanlarımız erişir.
+- Ziyaretçi bilgilerini tutan sistemlere iki aşamalı doğrulamayla giriş yapılır.
+- Pazarlama sitesinin kendi veritabanı yoktur. Form kayıtları doğrudan CRM'e gider.
+- Formlarda bot kontrolü ve gizli tuzak alanı kullanırız.
+
+Bir veri ihlali olursa, KVKK'nın 12. maddesi uyarınca ilgili kişileri ve Kurul'u en kısa sürede bilgilendiririz.
+
+## 10. Otomatik değerlendirme
+
+Risk testi, cevaplarınızdan otomatik olarak bir risk seviyesi hesaplar. Bu sonuç yalnızca bilgi amaçlıdır. Hakkınızda hukuki sonuç doğuran otomatik bir karar vermeyiz. Sonuca itiraz etmek veya bir kişiyle görüşmek isterseniz bize yazabilirsiniz.
+
+## 11. Haklarınız (KVKK m. 11)
+
+KVKK'nın 11. maddesi uyarınca bize başvurarak şunları yapabilirsiniz:
+
+- Kişisel verilerinizin işlenip işlenmediğini öğrenmek.
+- İşlenmişse buna ilişkin bilgi talep etmek.
+- İşlenme amacını ve verilerin amacına uygun kullanılıp kullanılmadığını öğrenmek.
+- Verilerin yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilmek.
+- Eksik veya yanlış işlenmiş verilerin düzeltilmesini istemek.
+- KVKK'nın 7. maddesindeki şartlar çerçevesinde verilerin silinmesini veya yok edilmesini istemek.
+- Düzeltme, silme ve yok etme işlemlerinin, verilerin aktarıldığı üçüncü kişilere bildirilmesini istemek.
+- Verilerin yalnızca otomatik sistemlerle analiz edilmesi sonucunda aleyhinize bir sonuç çıkmasına itiraz etmek.
+- Kanuna aykırı işleme nedeniyle zarara uğrarsanız zararın giderilmesini talep etmek.
+
+## 12. Nasıl başvurabilirsiniz
+
+Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ uyarınca başvurunuzu Türkçe yapmanız gerekir. Başvurunuzu şu yollarla iletebilirsiniz:
+
+- Islak imzalı dilekçeyle şu adrese: <Company field="address" />
+- Bize daha önce bildirdiğiniz ve sistemimizde kayıtlı e-posta adresinizden şu adrese: <Company field="email" />
+- Güvenli elektronik imza veya mobil imzayla imzaladığınız başvuruyu e-postayla şu adrese: <Company field="email" />
+- Kayıtlı elektronik posta (KEP) ile: [REPLACE WITH REAL: KEP adresi; yoksa bu satırı kaldırın]
+- Türkiye'deki veri sorumlusu temsilcimiz aracılığıyla: [REPLACE WITH REAL: temsilcinin adresi]
+
+Başvurunuzda şunlar bulunmalıdır: adınız ve soyadınız (yazılı başvuruda imzanız), T.C. vatandaşıysanız T.C. kimlik numaranız, yabancıysanız uyruğunuz ile pasaport numaranız veya varsa kimlik numaranız, tebligata esas yerleşim yeri veya iş yeri adresiniz, varsa bildirim için e-posta adresiniz, telefon ve faks numaranız ve talebinizin konusu. Konuyla ilgili bilgi ve belgeleri ekleyin. Bu bilgileri yalnızca kimliğinizi doğrulamak ve başvurunuzu yanıtlamak için kullanırız.
+
+Başvurunuzu talebin niteliğine göre en kısa sürede ve en geç 30 gün içinde ücretsiz sonuçlandırırız. İşlem ayrıca bir maliyet gerektirirse Tebliğ'deki ücreti alabiliriz: yazılı cevapta on sayfaya kadar ücret alınmaz, sonraki her sayfa için 1 TL alınabilir. Cevap CD veya flash bellek gibi bir kayıt ortamında verilirse ücret, ortamın maliyetini geçemez. Nihai cevabımızı yazılı olarak veya elektronik ortamda bildiririz. Telefon görüşmesi veya yüz yüze görüşme cevap yerine geçmez.
+
+Başvurunuz reddedilirse, cevabımızı yetersiz bulursanız veya süresinde cevap vermezsek, cevabı öğrendiğiniz tarihten itibaren 30 gün ve her hâlde başvuru tarihinden itibaren 60 gün içinde Kişisel Verileri Koruma Kurulu'na şikâyette bulunabilirsiniz (KVKK m. 14). Kurul'a şikâyet etmeden önce bize başvurmanız gerekir.
+
+## 13. ABD'deki ziyaretçiler
+
+Bu metindeki uygulamalar tüm ziyaretçiler için aynıdır. ABD'deyseniz bilgilerinize erişmek, bilgilerinizi düzeltmek veya silinmesini istemek için <Company field="email" /> adresine e-posta gönderebilirsiniz. Kimliğinizi doğrulamak için makul bilgi isteyebiliriz. Kişisel bilgilerinizi satmayız ve reklam amacıyla paylaşmayız. Tarayıcıların "Do Not Track" sinyaline göre ayrıca işlem yapmayız; analitik zaten yalnızca onayınızla çalışır. [confirm with counsel]
+
+## 14. Çocuklar
+
+Sitemiz işletmelere yöneliktir ve 18 yaşından küçüklere yönelik değildir. Çocuklardan bilerek bilgi toplamayız. Bir çocuğun bize bilgi gönderdiğini fark edersek bu bilgiyi sileriz.
+
+## 15. Müşteri çalışmaları
+
+Bu metin web sitesi içindir. Müşterimiz olursanız verileriniz hizmet sözleşmesi ve ayrı bir bilgilendirme kapsamında işlenir. [confirm with counsel]
+
+- Müşteri çalışmalarında yazılı bir bilgi güvenliği planı uygularız.
+- Vergi beyannamesi bilgilerini ABD dışında işlemeden önce ABD İç Gelir Kanunu'nun (Internal Revenue Code) 7216. bölümü kapsamında onay alırız.
+- Müşteri işlerinde kullandığımız yapay zekâ araçları, müşteri verileriyle model eğitimini yasaklayan iş planlarında çalışır. Başka planlarda kullanılmaz.
+- Sitemizde herkese açık bir yapay zekâ sohbet aracı yoktur.
+
+## 16. Değişiklikler
+
+Bu metni güncelleyebiliriz. Son güncelleme tarihi bu sayfada yer alır. Önemli değişiklikleri sitede duyururuz.
+
+## 17. İletişim
+
+Sorularınız için:
+
+- E-posta: <Company field="email" />
+- Telefon: <Company field="phone" />
+- Adres: <Company field="address" />

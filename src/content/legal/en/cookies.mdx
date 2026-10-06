@@ -1,0 +1,70 @@
+export const meta = {
+  key: "cookies",
+  locale: "en",
+  slug: "cookies",
+  title: "Cookie Notice",
+  description: "The cookies and browser storage items the Ponenti website uses, how long they last, and how to change your cookie choice at any time.",
+  updated: "2026-10-05",
+  sources: [
+    { title: "Guide on Cookie Practices, July 2025 (Turkish)", url: "https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/fb193dbb-b159-4221-8a7b-3addc083d33f.pdf", publisher: "Personal Data Protection Authority (KVKK)" },
+    { title: "Law No. 6698 on the Protection of Personal Data (official Turkish text)", url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6698&MevzuatTur=1&MevzuatTertip=5", publisher: "Mevzuat Bilgi Sistemi (Turkish Legislation Information System)" },
+    { title: "Communiqué on the Procedures and Principles for the Information Obligation (Turkish)", url: "https://www.kvkk.gov.tr/Icerik/4132/aydinlatma-yukumlulugunun-yerine-getirilmesinde-uyulacak-usul-ve-esaslar-hakkinda-teblig", publisher: "Personal Data Protection Authority (KVKK)" },
+  ],
+}
+
+> [confirm with counsel] Bu metin taslaktır. / This text is a draft.
+
+## 1. What cookies and browser storage are
+
+Cookies are small text files that a website saves in your browser. Websites can also keep similar information in browser storage (localStorage and sessionStorage). This notice covers both.
+
+## 2. What we use
+
+| Name | Type | Purpose | Duration | Category |
+|---|---|---|---|---|
+| `ponenti_consent` | First-party cookie | Remembers your cookie choice. | 12 months | Strictly necessary |
+| `NEXT_LOCALE` | First-party cookie | Remembers the language you chose. Set only when you switch language. | 12 months | Preference |
+| `ph_phc_…_posthog` and other items starting with `ph_` | First-party cookie and browser storage; data goes to PostHog in the US | Measures visits: gives your browser a random ID and records the session and page use. | Cookie: 365 days (PostHog default). localStorage: until you clear it | Analytics (only with consent) |
+| Cal.com cookies | Third-party cookies (cal.com) | Make the booking calendar work. Loaded only when you open the calendar. | Set by Cal.com | Third party |
+
+In `ph_phc_…_posthog`, the dots stand for our PostHog project key.
+
+Campaign tags (UTM parameters) in the link that brought you here are not stored in your browser. The page keeps them in memory while it is open and sends them only with a form you choose to submit.
+
+## 3. Categories
+
+- Strictly necessary: needed for the site to work and to remember your cookie choice. No consent is needed.
+- Preference: remembers a setting you chose (language). Created only when you switch language.
+- Analytics: measures how the site is used. PostHog analytics loads only if you accept.
+- Third party: cookies that another company sets from its own domain (Cal.com).
+
+## 4. Analytics stays off until you accept
+
+PostHog does not load until you click "Accept" on the cookie banner or turn analytics on under "Preferences". If you click "Decline", analytics stays off and the site works normally.
+
+## 5. Changing your choice
+
+The "Cookie settings" link in the site footer reopens the cookie banner. There you can give consent or withdraw it. Withdrawal applies from that point on.
+
+You can also delete or block cookies and site data in your browser settings. If you block strictly necessary cookies, we cannot remember your choice and the banner will appear again.
+
+## 6. Third-party services
+
+- Cal.com: the booking calendar loads only when you open it. Cal.com may then set its own cookies. See the [Cal.com Privacy Policy](https://cal.com/privacy).
+- WhatsApp: the WhatsApp link opens only when you tap it, and it places no WhatsApp cookies on our site. Once you tap it, WhatsApp's own terms apply: [WhatsApp Privacy Policy](https://www.whatsapp.com/legal/privacy-policy).
+
+## 7. Other technologies
+
+- Sentry: used for error monitoring. It sets no cookies, records no sessions and does not send personal information by default.
+- Vercel BotID: an invisible check that runs in your browser to tell whether a form submission comes from a bot.
+- Honeypot: a hidden form field that people do not see. It helps us filter out automated submissions.
+
+## 8. No advertising cookies
+
+We do not use advertising or retargeting cookies.
+
+## 9. More information
+
+Our Privacy Policy explains how we handle personal data, transfers abroad and your rights. You can find it in the site footer.
+
+Questions: <Company field="email" />

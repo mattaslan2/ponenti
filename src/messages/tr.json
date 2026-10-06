@@ -1,0 +1,705 @@
+{
+  "meta": {
+    "siteName": "Ponenti",
+    "titleDefault": "Ponenti | ABD işiniz için Türkçe uyum ve tahsilat masası",
+    "descriptionDefault": "ABD şirketinizin beyannameleri, eyalet satış vergileri, ithalatçı kaydı ve ABD'li müşterilerden tahsilat tek masada. Fiyatlar açık, sınırlar yazılı.",
+    "home": {
+      "title": "Ponenti | ABD işiniz için Türkçe uyum ve tahsilat masası",
+      "description": "ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde, sizin adınıza."
+    },
+    "services": {
+      "title": "Hizmetler ve fiyatlar",
+      "description": "ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım. Tüm fiyatlar açık."
+    },
+    "riskTest": {
+      "title": "3 dakikalık ABD risk testi",
+      "description": "10 soru, yalnızca evet/hayır ve aralıklar. Form 5472 cezası, ithalatçı kaydı, ABD satış vergisi ve tahsilat risklerinizi görün."
+    },
+    "calculators": {
+      "title": "Hesaplayıcılar: tahsilat ve Form 5472 cezası",
+      "description": "Daha hızlı ABD tahsilatının serbest bıraktığı nakdi ve eksik Form 5472 yıllarının ceza riskini hesaplayın."
+    },
+    "insights": {
+      "title": "Bilgi merkezi",
+      "description": "ABD şirket vergi beyannamesi, Form 5472 cezası, ABD satış vergisi, ABD tahsilat ve ithalatçı kaydı hakkında kısa, tarihli ve kaynaklı yazılar."
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "description": "Ponenti adı Akdeniz rüzgârgülünde batı yönünden gelir. Türk şirketlerinin ABD tarafını tek masada, Türkçe ve ABD mesai saatinde yürütürüz."
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "15 dakikalık görüşme planlayın, WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz."
+    },
+    "portal": {
+      "title": "Müşteri portalı",
+      "description": "Müşteri portalı hazırlanıyor. Müşterilerimiz erişimi işe başlangıçta alır."
+    },
+    "prospect": {
+      "title": "{firm} için hazırlandı",
+      "description": "Kamuya açık ithalat kayıtlarından üç gözlem."
+    },
+    "notFound": {
+      "title": "Sayfa bulunamadı"
+    },
+    "ogTagline": "Türkiye'de üretilir, ABD'de doğru yönetilir."
+  },
+  "common": {
+    "skipToContent": "İçeriğe geç",
+    "menu": "Menü",
+    "close": "Kapat",
+    "language": "Dil",
+    "switchTo": "Dili değiştir",
+    "scrollTable": "Tablo, yana kaydırılabilir",
+    "turkish": "Türkçe",
+    "english": "English",
+    "source": "Kaynak",
+    "sources": "Kaynaklar",
+    "sampleData": "Örnek veriler / Sample data",
+    "informational": "Bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir.",
+    "perMonth": "/ay",
+    "monthly": "aylık",
+    "approx": "yaklaşık",
+    "onboarding": "{amount} kurulum",
+    "readMore": "Devamını okuyun",
+    "minutes": "{n} dk okuma",
+    "published": "Yayın: {date}",
+    "updated": "Güncelleme: {date}",
+    "opensNewTab": "(yeni sekmede açılır)",
+    "home": "Ana sayfa",
+    "breadcrumb": "Sayfa yolu",
+    "onThisPage": "Bu sayfada"
+  },
+  "brand": {
+    "tagline": "ABD işiniz için Türkçe uyum ve tahsilat masası.",
+    "pride": "Türkiye'de üretilir, ABD'de doğru yönetilir.",
+    "logoLabel": "Ponenti, ana sayfa"
+  },
+  "nav": {
+    "primary": "Ana menü",
+    "services": "Hizmetler ve fiyatlar",
+    "pricing": "Fiyatlar",
+    "riskTest": "Risk testi",
+    "calculators": "Hesaplayıcılar",
+    "insights": "Bilgi merkezi",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "portal": "Müşteri Portalı",
+    "portalShort": "Portal"
+  },
+  "cta": {
+    "book": "15 dakikalık görüşme planlayın",
+    "bookShort": "Görüşme planlayın",
+    "whatsapp": "WhatsApp'tan yazın",
+    "riskTest": "3 dakikalık risk testi",
+    "seePricing": "Tüm fiyatları görün",
+    "whatsappMessage": "Merhaba, Ponenti sitesinden yazıyorum. ABD tarafımız için 15 dakikalık bir görüşme planlamak istiyorum."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "ABD'de iş yapan Türk şirketleri için",
+      "title": "ABD işiniz için Türkçe uyum ve tahsilat masası.",
+      "subtitle": "ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır.",
+      "price": "Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir.",
+      "trustLabel": "Neden güvenebilirsiniz",
+      "trustFounder": "Kurucu: eski UPS finans analisti ve kıdemli müdür",
+      "trustMoney": "Paranızı hiçbir zaman tutmayız veya taşımayız",
+      "trustReply": "1 iş günü içinde yanıt"
+    },
+    "doors": {
+      "eyebrow": "İki başlangıç noktası",
+      "title": "Durumunuza göre başlayın",
+      "us": {
+        "title": "ABD'de şirketim var",
+        "body": "Beyannameler, eyalet satış vergisi ve ithalatçı kaydı için aylık uyum planı. Gerekirse tahsilat ve sipariş masaları.",
+        "link": "Planları ve masaları görün"
+      },
+      "tr": {
+        "title": "ABD'ye Türkiye'den satıyorum",
+        "body": "ABD'li müşterilerinizden tahsilatı ABD mesai saatlerinde, sizin adınıza yürütürüz. İlk adım: arka ofis kontrolü.",
+        "link": "Tahsilat masasını ve kontrolü görün"
+      }
+    },
+    "facts": {
+      "eyebrow": "Rakamlarla",
+      "title": "ABD tarafında kurallar ve rakamlar net",
+      "intro": "Her bilgi resmi kaynağına bağlıdır.",
+      "f1": {
+        "text": "Verilmeyen her Form 5472 için, her yıl IRS cezası.",
+        "source": "IRS, Form 5472 talimatları"
+      },
+      "f2": {
+        "value": "18 Eylül 2026",
+        "text": "Bu tarihten beri CBP, Form 5106'daki adresi kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor.",
+        "source": "Federal Register, 19 Ağustos 2026"
+      },
+      "f3": {
+        "value": "08:00-16:00",
+        "text": "Tahsilat aramaları ABD Doğu saatiyle, müşterilerinizin mesai saatinde yapılır.",
+        "source": "Tahsilat masası koşulları"
+      }
+    },
+    "offer": {
+      "eyebrow": "Ne yapıyoruz",
+      "title": "Kontrolle başlayın, ihtiyacınız kadar büyütün",
+      "intro": "Her şey tek masada. Fiyatlar açık ve ABD doları cinsinden.",
+      "check": {
+        "title": "ABD arka ofis kontrolü",
+        "body": "İthalatçı kaydı, beyanname geçmişi, satış vergisi riski ve alacak yaşlandırması. 10 iş gününde yazılı rapor.",
+        "note": "ilk plana veya masaya mahsup"
+      },
+      "plans": {
+        "title": "Uyum planları",
+        "body": "Form 1120 ve 5472, eyalet beyannameleri, satış vergisi, defterler ve son tarih takvimi.",
+        "note": "{standard} ve {complete} planları da var"
+      },
+      "cash": {
+        "title": "Tahsilat masası",
+        "body": "Faturalama, ABD mesai saatinde hatırlatma ve aramalar, onayınıza hazır ödemeler, haftalık nakit raporu."
+      },
+      "order": {
+        "title": "Sipariş masası",
+        "body": "Sipariş girişi, 3PL talimatları, sevkiyat belgeleri, teslimat takibi ve iadeler."
+      },
+      "more": "Tüm fiyatları ve kapsamları görün"
+    },
+    "weekly": {
+      "eyebrow": "Şeffaflık",
+      "title": "Her hafta göreceğiniz rapor",
+      "intro": "Her pazartesi kısa bir nakit raporu, her çeyrek tek sayfalık bir karne. Rakamlar kendi defterlerinizden gelir."
+    },
+    "dont": {
+      "eyebrow": "Sınırlarımız",
+      "title": "Yapmadığımız işler",
+      "intro": "Sınırlarımız yazılıdır. Güven buradan başlar.",
+      "i1": {
+        "title": "İthalatçı kaydı (Importer of Record) olarak hiçbir zaman hareket etmeyiz.",
+        "body": "Kayıt sizin şirketinizde kalır. Biz kaydı denetler ve eksikleri raporlarız."
+      },
+      "i2": {
+        "title": "Paranızı hiçbir zaman tutmayız veya taşımayız.",
+        "body": "Tahsilatlar doğrudan sizin hesabınıza yatar. Ödemeleri hazırlarız; onay ve gönderim sizin bankanızdan, sizin elinizdedir."
+      },
+      "i3": {
+        "title": "Gümrük beyannamelerinin tamamını lisanslı gümrük müşaviriniz verir.",
+        "body": "CBP'ye giden her belgeyi müşaviriniz hazırlar ve verir. Biz müşavirinizin istediği bilgileri derlemenize yardım ederiz."
+      },
+      "i4": {
+        "title": "Sanal ofis adresi hiçbir zaman kullanmayız.",
+        "body": "Adresimiz gerçek bir iş adresidir. CBP de Form 5106'da kayıtlı temsilci veya iş merkezi adresini kabul etmiyor."
+      },
+      "i5": {
+        "title": "Tahsilat sizin adınıza yürür; 90 günü aşan alacaklar lisanslı bir tahsilat ajansına devredilir.",
+        "body": "Müşterilerinizle ilişki sizde kalır. 90 günü aşan hesapları bu iş için lisanslı bir ajans üstlenir."
+      }
+    },
+    "data": {
+      "eyebrow": "Verileriniz",
+      "title": "Verileriniz nasıl korunur",
+      "intro": "Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez.",
+      "d1": {
+        "title": "İki adımlı giriş",
+        "body": "Verilerinizin bulunduğu her sistemde iki adımlı giriş (2FA) zorunludur."
+      },
+      "d2": {
+        "title": "Şifreli müşteri portalı",
+        "body": "Raporlar ve belgeler şifreli bir portalda durur. Portal hazırlanırken raporlar e-postayla gelir."
+      },
+      "d3": {
+        "title": "Yazılı bilgi güvenliği planı",
+        "body": "FTC Safeguards Rule'un istediği yazılı bilgi güvenliği planına göre çalışırız.",
+        "source": "16 CFR 314.3"
+      },
+      "d4": {
+        "title": "Section 7216 onayı",
+        "body": "ABD dışında herhangi bir işlemden önce imzalı Section 7216 onayınızı alırız.",
+        "source": "26 CFR 301.7216-2"
+      },
+      "d5": {
+        "title": "Yapay zekâda açık sınır",
+        "body": "Yapay zekâyı yalnızca müşteri verisiyle model eğitimini yasaklayan kurumsal planlarda kullanırız."
+      },
+      "d6": {
+        "title": "Cevabı bir insan verir",
+        "body": "Sitede yapay zekâ sohbet robotu yoktur. Vergi ve gümrük sorularınızı bir insan yanıtlar."
+      }
+    },
+    "founder": {
+      "eyebrow": "Kurucu",
+      "body": "Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Defter tutma, ay sonu kapanışı, B2B tahsilat, satış vergisi beyannameleri ve lisanslı gümrük müşavirleriyle gümrük girişlerinde uygulamalı deneyime sahip.",
+      "more": "Hikâyemizi okuyun",
+      "linkedin": "LinkedIn profili"
+    },
+    "proof": {
+      "title": "Müşterilerimiz ne diyor"
+    },
+    "promise": {
+      "title": "Ceza sözümüz",
+      "body": "Sorumluluğumuzdaki bir beyanname geç kalırsa cezayı biz öderiz; müşteri başına yıllık üst sınır {cap}."
+    },
+    "final": {
+      "title": "ABD tarafınızı 15 dakikada konuşalım.",
+      "body": "Üç soru soruyoruz: Form 5472'nizi kim veriyor? İthalatçı kaydınız adres kuralına göre en son ne zaman kontrol edildi? ABD'li müşterileriniz kaç günde ödüyor?"
+    }
+  },
+  "report": {
+    "weekLabel": "Haftalık nakit raporu",
+    "weekOf": "Hafta: 28 Eylül - 2 Ekim",
+    "cash": "Nakit (banka bakiyesi)",
+    "dso": "Ortalama tahsilat süresi",
+    "days": "{days} gün",
+    "dsoPrev": "geçen çeyrek {days} gün",
+    "overdue": "Vadesi geçmiş faturalar",
+    "overdueValue": "{count} fatura, {amount}",
+    "payables": "Onayınızı bekleyen ödemeler",
+    "payablesValue": "{count} ödeme, {amount}",
+    "orders": "Bu haftaki siparişler",
+    "ordersValue": "{count} sipariş",
+    "filings": "Yaklaşan beyannameler",
+    "filing1": "Form 1120 ve 5472 (uzatılmış): 15 Ekim",
+    "filing2": "Satış vergisi, 2 eyalet: 20 Ekim",
+    "scorecardLabel": "Çeyreklik karne",
+    "quarter": "2026, 3. çeyrek",
+    "metric": "Gösterge",
+    "previous": "Önceki çeyrek",
+    "current": "Bu çeyrek",
+    "rowDso": "Ortalama tahsilat süresi",
+    "rowOverdue": "Vadesi geçmiş oranı",
+    "rowOrders": "Siparişler",
+    "rowErrors": "3PL hataları",
+    "rowFilings": "Zamanında verilen beyannameler"
+  },
+  "services": {
+    "eyebrow": "Fiyatlar açık",
+    "title": "Hizmetler ve fiyatlar",
+    "intro": "Tüm fiyatlar ABD doları cinsindendir. Kapsam ve son fiyat, imzalı hizmet sözleşmesiyle kesinleşir.",
+    "includes": "Kapsam",
+    "check": {
+      "title": "ABD arka ofis kontrolü",
+      "lede": "İlk adım: ABD tarafınızın tam fotoğrafı.",
+      "credit": "{days} gün içinde imzalanan ilk plana veya masaya mahsup edilir.",
+      "i1": "İthalatçı kaydı: adres, ortaklar, teminat (bond), müşavir yetkisi ve iade için banka bilgileri",
+      "i2": "Beyanname geçmişi: Form 1120 ve 5472, eyalet beyannameleri",
+      "i3": "Eyalet bazında satış vergisi riski",
+      "i4": "Dolar cinsinden ceza riski",
+      "i5": "Alacak yaşlandırması ve ortalama tahsilat süresi",
+      "i6": "Düzeltme planı ve teklif",
+      "delivery": "10 iş gününde yazılı rapor. CBP'nin yeni ithalatçı kuralları yayımlanınca ücretsiz güncelleme."
+    },
+    "plans": {
+      "title": "Uyum planları",
+      "lede": "Zorunlu beyannameler için sabit aylık ücret.",
+      "essentials": {
+        "name": "Temel",
+        "for": "Tek şirket, az sayıda eyalet",
+        "i1": "1 şirket",
+        "i2": "Form 1120 ve Form 5472",
+        "i3": "1 eyalet beyannamesi",
+        "i4": "Eyalet yıllık raporu (annual report)",
+        "i5": "En fazla 2 eyalette satış vergisi",
+        "i6": "Çeyreklik defter",
+        "i7": "İthalatçı kaydı dosyası",
+        "i8": "Son tarih takvimi"
+      },
+      "standard": {
+        "name": "Standart",
+        "for": "Aylık kapanış isteyen ithalatçılar",
+        "i1": "Temel plandaki her şey",
+        "i2": "Aylık defter ve ay sonu kapanışı",
+        "i3": "En fazla 6 eyalette satış vergisi",
+        "i4": "1099 formları",
+        "i5": "Bordro sağlayıcınızla koordinasyon",
+        "i6": "Çeyreklik 3PL envanter mutabakatı"
+      },
+      "complete": {
+        "name": "Kapsamlı",
+        "for": "Birden fazla şirket, çok eyalet",
+        "i1": "Standart plandaki her şey",
+        "i2": "İkinci şirket",
+        "i3": "En fazla 12 eyalette satış vergisi",
+        "i4": "Aylık envanter mutabakatı",
+        "i5": "Ana şirket faturalarıyla mutabakat"
+      },
+      "scorecard": "Her plan müşterisine çeyreklik karne: tahsilat süresi, vadesi geçmiş faturalar, siparişler ve 3PL hataları.",
+      "sizing": "Plan bandını satış vergisi eyalet sayısı ve aylık işlem hacmi belirler."
+    },
+    "cash": {
+      "title": "Tahsilat masası",
+      "lede": "ABD'li müşterilerinizden tahsilat, ABD mesai saatinde ve sizin adınıza.",
+      "capacity": "Ayda {count} faturaya kadar",
+      "i1": "Faturalama",
+      "i2": "Gelen ödemelerin kayda alınması",
+      "i3": "Hatırlatmalar ve aramalar, ABD Doğu saatiyle 08:00-16:00",
+      "i4": "Kesinti (deduction) araştırması",
+      "i5": "Kredi durdurma uyarıları",
+      "i6": "Onayınıza hazır ödemeler; gönderimi siz yaparsınız",
+      "i7": "Haftalık nakit raporu",
+      "rules": "Sizin adınıza çalışır. 90 günü aşan faturalar lisanslı bir tahsilat ajansına devredilir. İlk 90 gün çıkış hakkınız vardır."
+    },
+    "order": {
+      "title": "Sipariş masası",
+      "lede": "Siparişten teslimata, ABD tarafındaki operasyon.",
+      "capacity": "Ayda {count} siparişe kadar",
+      "i1": "Sipariş girişi ve onayları",
+      "i2": "3PL'e sevk talimatları",
+      "i3": "Sevkiyat belgeleri",
+      "i4": "Teslimat takibi",
+      "i5": "İadeler",
+      "note": "Gümrük belgeleri bu kapsamda değildir; onları lisanslı gümrük müşaviriniz hazırlar."
+    },
+    "full": {
+      "title": "Tam masa",
+      "lede": "Kapsamlı plan, tahsilat masası ve sipariş masası birlikte."
+    },
+    "hiring": {
+      "title": "ABD'de işe alım",
+      "lede": "ABD satışlarınız bir çalışanı taşıyınca doğru kişiyi bulmanıza yardım ederiz.",
+      "assist": {
+        "name": "İşe Alım Desteği",
+        "body": "LinkedIn ilanı, ön eleme ve mülakatlar."
+      },
+      "full": {
+        "name": "Tam İşe Alım",
+        "body": "Buna ek olarak iş teklifi ve işe başlangıç. Kişi 90 gün içinde ayrılırsa yerine yenisini buluruz."
+      },
+      "oneTime": "tek seferlik"
+    },
+    "terms": {
+      "title": "Koşullar",
+      "i1": "Planlar ve masalar 12 ay sürelidir, aylık peşin faturalanır.",
+      "i2": "Fiyatlar her yıl %4 artar.",
+      "i3": "Masalar 90 günlük çıkış hakkıyla başlar.",
+      "i4": "Kapasite üstü: her ek 100 fatura veya sipariş için aylık {extra}.",
+      "i5": "Kesin kapsam ve fiyat, imzalı hizmet sözleşmesinde yazılıdır."
+    },
+    "faq": {
+      "title": "Sık sorulan sorular",
+      "q1": "İthalatçı kaydımız (Importer of Record) olur musunuz?",
+      "a1": "Hayır. İthalatçı kaydı olarak hiçbir zaman hareket etmeyiz. Kaydınızı denetler, müşavirinizin istediği bilgileri derlemenize yardım ederiz.",
+      "q2": "Gümrük beyannamesi veya CBP iade talebi veriyor musunuz?",
+      "a2": "Hayır. Gümrük girişlerinin ve CBP iade taleplerinin tamamını lisanslı gümrük müşaviriniz hazırlar ve verir.",
+      "q3": "Paramızı tutar mısınız?",
+      "a3": "Hayır. Tahsilatlar doğrudan sizin hesabınıza yatar. Ödemeleri hazırlarız; onaylayıp kendi bankanızdan siz gönderirsiniz.",
+      "q4": "Tahsilatı kimin adına yapıyorsunuz?",
+      "a4": "Sizin adınıza. 90 günü aşan alacaklar lisanslı bir tahsilat ajansına devredilir.",
+      "q5": "Hangi saatlerde çalışıyorsunuz?",
+      "a5": "Tahsilat aramaları ABD Doğu saatiyle 08:00-16:00 arasında yapılır. Size Türkçe yanıt veririz; ilk yanıt 1 iş günü içindedir.",
+      "q6": "Ne kadar sürede başlıyoruz?",
+      "a6": "Kontrol raporu 10 iş gününde teslim edilir. Plan veya masa, sözleşme imzalandıktan sonra başlar.",
+      "q7": "Vergi numaramızı siteye girmemiz gerekiyor mu?",
+      "a7": "Hayır. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez. Belgeler sözleşmeden sonra güvenli bir kanaldan alınır."
+    }
+  },
+  "riskTest": {
+    "eyebrow": "3 dakika",
+    "title": "ABD risk testi",
+    "intro": "10 soru. Yalnızca evet/hayır ve aralıklar. Vergi numarası veya belge istemiyoruz.",
+    "autoAdvance": "Bir seçeneğe dokunduğunuzda bir sonraki soruya geçilir.",
+    "start": "Teste başlayın",
+    "progress": "Soru {current} / {total}",
+    "back": "Geri",
+    "next": "İleri",
+    "restart": "Testi yeniden başlatın",
+    "options": {
+      "yes": "Evet",
+      "no": "Hayır",
+      "unsure": "Emin değilim",
+      "na": "Bizim için geçerli değil"
+    },
+    "q": {
+      "usEntity": {
+        "text": "ABD'de kayıtlı bir şirketiniz (LLC veya Corporation) var mı?"
+      },
+      "ior": {
+        "text": "ABD'ye giden ürünlerde ithalatçı kaydı (Importer of Record) sizin şirketinize mi ait?",
+        "help": "ABD'li müşteriniz ithalatı kendi adına yapıyorsa Hayır seçin."
+      },
+      "iorAddress": {
+        "text": "İthalatçı kaydınızdaki adres (Form 5106) bir kayıtlı temsilci (registered agent), sanal ofis veya iş merkezi adresi mi?"
+      },
+      "brokerCheck": {
+        "text": "Gümrük müşaviriniz, 18 Eylül 2026'dan beri ithalatçı kaydınızı yeni adres kuralına göre kontrol etti mi?"
+      },
+      "form5472": {
+        "text": "ABD şirketiniz için her yıl Form 5472 verildi mi?",
+        "help": "Form 5472, yabancı ortaklı ABD şirketlerinin ilişkili taraf işlemlerini bildirdiği IRS formudur."
+      },
+      "salesStates": {
+        "text": "ABD'de kaç eyalette müşteriye satış yapıyorsunuz?",
+        "r0": "Hiç",
+        "r1": "1-5",
+        "r2": "6-15",
+        "r3": "16 veya daha fazla"
+      },
+      "taxRegs": {
+        "text": "Kaç eyalette satış vergisi kaydınız var?",
+        "r0": "Hiç",
+        "r1": "1-5",
+        "r2": "6-15",
+        "r3": "16 veya daha fazla"
+      },
+      "paymentDays": {
+        "text": "ABD'li müşterileriniz ortalama kaç günde ödüyor?",
+        "r0": "30 günden az",
+        "r1": "30-45 gün",
+        "r2": "46-60 gün",
+        "r3": "61-90 gün",
+        "r4": "90 günden fazla"
+      },
+      "followUp": {
+        "text": "ABD'li müşterilerinizden tahsilatı ABD mesai saatinde takip eden biri var mı?"
+      },
+      "refundBank": {
+        "text": "CBP iadeleri için ACE'de kayıtlı bir ABD banka hesabınız (ACH) var mı?",
+        "help": "CBP, 6 Şubat 2026'dan beri iadeleri yalnızca elektronik olarak öder."
+      }
+    },
+    "result": {
+      "title": "Sonucunuz",
+      "low": "Düşük risk",
+      "medium": "Orta risk",
+      "high": "Yüksek risk",
+      "lowBody": "Cevaplarınızda öne çıkan bir açık görünmüyor. Kuralları yılda bir kontrol etmek yine de iyi bir alışkanlıktır.",
+      "mediumBody": "Birkaç konuda açık var. Bunlar genellikle tek bir kontrolle netleşir.",
+      "highBody": "En az bir konuda doğrudan ceza veya iptal riski var. Önceliklendirmek için kısa bir görüşme öneririz.",
+      "top": "Öne çıkan konular",
+      "none": "Öne çıkan bir risk yok.",
+      "informational": "Bu sonuç bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir.",
+      "emailTitle": "Sonucu e-postayla alın",
+      "emailBody": "Sonucunuzu ve konuların kaynaklarını e-postanıza gönderelim."
+    },
+    "risks": {
+      "form5472Missing": {
+        "title": "Eksik Form 5472 yılları",
+        "body": "Verilmeyen her Form 5472 için yıllık $25.000 IRS cezası var. IRS bildiriminden sonra 90 gün geçerse, her 30 gün için $25.000 daha eklenir."
+      },
+      "form5472Unknown": {
+        "title": "Form 5472 durumu belirsiz",
+        "body": "Hangi yılların verildiğini bilmek ilk adımdır. Eksik her yıl için ceza tutarı $25.000."
+      },
+      "iorAddress": {
+        "title": "İthalatçı kaydı adresi",
+        "body": "18 Eylül 2026'dan beri CBP, Form 5106 adresi kayıtlı temsilci, posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor."
+      },
+      "iorUnknown": {
+        "title": "İthalatçı kaydı belirsiz",
+        "body": "Kaydın kimde olduğunu ve hangi adresi kullandığını bilmeden yeni kurallara hazırlanamazsınız."
+      },
+      "brokerCheck": {
+        "title": "Müşavir kontrolü yapılmadı",
+        "body": "Kaydınızın yeni adres kuralına uyduğunu müşavirinizle teyit edin. EO 14411 kapsamında yeni ithalatçı şartları hazırlanıyor."
+      },
+      "salesTaxGap": {
+        "title": "Satış vergisi açığı",
+        "body": "Wayfair kararından (2018) beri eyaletler, fiziksel varlığınız olmasa da satışınız eşiği aşınca vergi toplamanızı isteyebilir. Kayıtlı olmadığınız her satış eyaleti olası bir açıktır."
+      },
+      "salesTaxUnknown": {
+        "title": "Satış vergisi kayıtları belirsiz",
+        "body": "Hangi eyaletlerde kayıtlı olduğunuzu bilmek, açıkları kapatmanın ilk adımıdır."
+      },
+      "paymentDays": {
+        "title": "Uzun tahsilat süresi",
+        "body": "Ortalama tahsilat süresini her 10 gün kısaltmak, yıllık ABD satışınızın yaklaşık yüzde 2,7'si kadar nakdi serbest bırakır."
+      },
+      "noFollowUp": {
+        "title": "ABD saatinde takip yok",
+        "body": "İstanbul, ABD Doğu saatinden 7-8 saat ileride. ABD mesaisinde takip eden kimse yoksa, ödeme soruları ertesi güne kalır."
+      },
+      "refundBank": {
+        "title": "CBP iadeleri için banka hesabı yok",
+        "body": "CBP iadeleri yalnızca ABD banka hesabına ACH ile öder; ACE'de banka bilgisi olmayan ithalatçının IEEPA iadesi bekletilir."
+      },
+      "refundUnknown": {
+        "title": "İade hesabı belirsiz",
+        "body": "ACE'de ACH bilgisi olup olmadığını müşavirinize sorun. Bilgi yoksa iadeler bekletilir."
+      }
+    }
+  },
+  "calculators": {
+    "eyebrow": "Hesaplayıcılar",
+    "title": "Rakamla görün",
+    "intro": "İki hızlı hesap. Girdiğiniz rakamlar tarayıcınızda kalır; yalnızca sonucu e-postayla isterseniz gönderilir.",
+    "cash": {
+      "title": "Daha hızlı tahsilatın serbest bıraktığı nakit",
+      "sales": "Yıllık ABD satışı ($)",
+      "current": "Mevcut ortalama tahsilat süresi (gün)",
+      "target": "Hedef süre (gün)",
+      "result": "Serbest kalan nakit",
+      "formula": "Formül: yıllık ABD satışı / 365 x (mevcut gün - hedef gün)",
+      "example": "Örnek: {sales} satış, 62 günden 40 güne: yaklaşık {result}.",
+      "note": "Bu bir aritmetiktir, söz değildir.",
+      "invalid": "Hedef süre, mevcut süreden kısa olmalı."
+    },
+    "form5472": {
+      "title": "Form 5472 ceza riski",
+      "years": "Verilmemiş yıl sayısı",
+      "decrease": "Bir yıl azalt",
+      "increase": "Bir yıl artır",
+      "result": "Başlangıç cezası",
+      "formula": "Formül: eksik yıl x {penalty}",
+      "continuation": "IRS bildiriminden sonra 90 gün geçerse, her 30 gün için {penalty} daha eklenir; üst sınır yoktur.",
+      "multiple": "Birden fazla ilişkili taraf varsa her biri için ayrı form gerekir."
+    },
+    "emailCta": "Sonucu e-postayla gönder"
+  },
+  "insights": {
+    "eyebrow": "Bilgi merkezi",
+    "title": "ABD kuralları, kısa ve kaynaklı",
+    "intro": "Her yazı tarihlidir ve resmi kaynaklara bağlıdır. Kurallar değişirse güncelleriz.",
+    "articleCta": "Bu konuyu kendi durumunuz için 15 dakikada konuşalım.",
+    "disclaimer": "Bu yazı bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir. Kurallar değişebilir; karar vermeden önce resmi kaynağı kontrol edin.",
+    "back": "Tüm yazılar"
+  },
+  "about": {
+    "eyebrow": "Hakkımızda",
+    "title": "Türk şirketlerini batıya taşıyoruz",
+    "nameTitle": "İsim: Ponenti",
+    "nameBody1": "Akdeniz denizcilerinin rüzgârgülünde batının adı ponente'dir. Bizim denizcilerimiz ona günbatısı der.",
+    "nameBody2": "Ponenti, Türk şirketlerini batıya, ABD'ye taşır.",
+    "founderTitle": "Kurucunun notu",
+    "founderP1": "Ben {name}. Türkçe ve İngilizce büyüdüm; kariyerimi ABD'de finans ve ticaret operasyonlarında geçirdim.",
+    "founderP2": "Türk şirketlerinin ABD tarafında hep aynı sorunlarla karşılaştığını gördüm: beyannameler geç kalıyor, satış vergisi birkaç eyalette açık kalıyor, ABD'li müşteriler geç ödüyor ve takip İstanbul'dan e-postayla yapılıyor.",
+    "founderP3": "Ponenti bu işleri tek masada, Türkçe ve ABD mesai saatinde yürütmek için var.",
+    "bioTitle": "Özgeçmiş",
+    "bio": "Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı (fiyatlandırma, gelir yönetimi, FP&A). Defter tutma ve ay sonu kapanışı, B2B faturalama ve tahsilat, satış vergisi beyannameleri ve lisanslı gümrük müşavirleriyle gümrük girişleri konularında uygulamalı deneyime sahip.",
+    "howTitle": "Nasıl çalışırız",
+    "how1": "Her müşterinin tek bir sorumlusu ve yazılı bir son tarih takvimi vardır.",
+    "how2": "Takvimi iki kişi kontrol eder.",
+    "how3": "Rakamlar kendi defterlerinizden gelir: her hafta nakit raporu, her çeyrek karne.",
+    "how4": "Sınırlar yazılıdır: ithalatçı kaydı olmayız, paranızı tutmayız, gümrük girişlerini müşaviriniz yapar.",
+    "first10Title": "İlk 10 iş günü",
+    "first10Intro": "ABD arka ofis kontrolü böyle ilerler.",
+    "step1Label": "1. gün",
+    "step1": "Tanışma görüşmesi ve belge listesi. Belgeleri güvenli bir yükleme bağlantısıyla isteriz; e-posta eki istemeyiz.",
+    "step2Label": "2-4. gün",
+    "step2": "İthalatçı kaydı: adres, ortaklar, teminat ve müşavir yetkisi. Beyanname geçmişi.",
+    "step3Label": "5-7. gün",
+    "step3": "Eyalet bazında satış vergisi riski. Alacak yaşlandırması ve ortalama tahsilat süresi.",
+    "step4Label": "8-9. gün",
+    "step4": "Dolar cinsinden ceza riski, düzeltme planı ve teklif.",
+    "step5Label": "10. gün",
+    "step5": "Sonuç görüşmesi: rapor, öncelik sırası ve teklif.",
+    "dataTitle": "Verilerinize kim dokunur",
+    "data1": "Kurucu: her dosyayı inceler.",
+    "data2": "Ekip: yalnızca dosyanıza atanan kişiler görür. ABD dışındaki her erişimden önce imzalı Section 7216 onayınız alınır.",
+    "data3": "Beyanname incelemesi ve elektronik gönderim: anlaşmalı bir ABD muhasebe firması.",
+    "data4": "Yazılım: iki adımlı girişli kurumsal hesaplar. Yapay zekâ yalnızca eğitim yasağı olan kurumsal planlarda.",
+    "data5": "Kimse: verilerinizi satmayız ve pazarlama için paylaşmayız."
+  },
+  "contact": {
+    "eyebrow": "İletişim",
+    "title": "15 dakikada tanışalım",
+    "intro": "Görüşme planlayın, WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz.",
+    "bookTitle": "Görüşme planlayın",
+    "bookBody": "Saatleri İstanbul ve ABD Doğu saatiyle aşağıda görebilirsiniz.",
+    "loadCalendar": "Takvimi açın",
+    "calendarNotice": "Takvim Cal.com tarafından yüklenir ve kendi çerezlerini kullanabilir.",
+    "calendarMissing": "Takvim henüz bağlanmadı. Lütfen WhatsApp'tan yazın veya formu kullanın.",
+    "istanbul": "İstanbul",
+    "newYork": "New York (ABD Doğu)",
+    "callHours": "Tahsilat saatlerimiz bugün: New York {nyStart}-{nyEnd}, İstanbul {istStart}-{istEnd}.",
+    "whatsappTitle": "WhatsApp",
+    "whatsappBody": "Türkçe yazabilirsiniz. Mesajınız hazır gelir; göndermeden önce düzenleyebilirsiniz.",
+    "whatsappMissing": "WhatsApp numarası henüz eklenmedi.",
+    "formTitle": "Kısa form",
+    "human": "Sorularınızı bir insan yanıtlar; sitede yapay zekâ sohbet robotu yoktur.",
+    "reply": "1 iş günü içinde yanıt"
+  },
+  "forms": {
+    "name": "Ad soyad",
+    "email": "İş e-postası",
+    "company": "Şirket",
+    "phone": "Telefon (isteğe bağlı)",
+    "phoneHint": "Ülke koduyla, örneğin +90 532 000 00 00",
+    "segment": "Durumunuz",
+    "segmentUs": "ABD'de şirketim var",
+    "segmentTr": "ABD'ye Türkiye'den satıyorum",
+    "paymentDays": "ABD'li müşterileriniz ortalama kaç günde ödüyor? (isteğe bağlı)",
+    "paymentDaysNone": "Seçmek istemiyorum",
+    "message": "Mesajınız (isteğe bağlı)",
+    "noTaxIds": "Lütfen vergi kimlik numarası, EIN veya finansal belge göndermeyin.",
+    "consent": "Talebimin yanıtlanması için verilerimin nasıl işleneceğini anlatan <link>Gizlilik Politikası ve KVKK Aydınlatma Metni</link>'ni okudum. Verilerimin bu amaçla başta ABD olmak üzere yurt dışındaki hizmet sağlayıcılarınıza aktarılmasına, metindeki riskler hakkında bilgilendirilmiş olarak açık rıza veriyorum.",
+    "submit": "Gönder",
+    "sending": "Gönderiliyor...",
+    "successTitle": "Teşekkürler.",
+    "successBody": "Talebinizi aldık. 1 iş günü içinde dönüş yapacağız. Onay e-postası gönderdik.",
+    "successNoEmail": "Talebinizi aldık. 1 iş günü içinde dönüş yapacağız.",
+    "errRequired": "Bu alan zorunludur.",
+    "errEmail": "Geçerli bir e-posta adresi yazın.",
+    "errTooLong": "Bu alan çok uzun.",
+    "errPhone": "Telefonu rakamlarla ve ülke koduyla yazın.",
+    "errConsent": "Devam etmek için onay kutusunu işaretleyin.",
+    "errTaxId": "Lütfen vergi kimlik numarası veya EIN paylaşmayın.",
+    "errGeneric": "Gönderilemedi. Lütfen tekrar deneyin veya WhatsApp'tan yazın.",
+    "errBot": "Gönderim doğrulanamadı. Lütfen sayfayı yenileyip tekrar deneyin veya WhatsApp'tan yazın.",
+    "errNotConfigured": "Form henüz bağlanmadı. Lütfen WhatsApp'tan yazın veya görüşme planlayın.",
+    "errSummary": "Lütfen işaretli alanları düzeltin."
+  },
+  "portal": {
+    "eyebrow": "Müşteri portalı",
+    "title": "Müşteri portalı",
+    "body": "Müşteri portalı hazırlanıyor. Müşterilerimiz erişimi işe başlangıçta alır; o zamana kadar raporlar e-postayla gelir.",
+    "request": "Erişim talep edin"
+  },
+  "prospect": {
+    "eyebrow": "Size özel",
+    "title": "{firm} için hazırlandı",
+    "intro": "Kamuya açık ithalat kayıtlarından üç gözlem. Şirket içi hiçbir bilginizi kullanmadık.",
+    "observation": "Gözlem {n}",
+    "prepared": "Hazırlanma tarihi: {date}",
+    "cta": "Bu gözlemleri 15 dakikada konuşalım.",
+    "sample": "Örnek sayfa: gerçek bir şirkete ait değildir.",
+    "note": "Bu sayfa yalnızca bağlantıyı alan kişi içindir ve arama motorlarında listelenmez."
+  },
+  "footer": {
+    "services": "Hizmetler",
+    "resources": "Kaynaklar",
+    "company": "Şirket",
+    "legal": "Yasal",
+    "privacy": "Gizlilik ve KVKK",
+    "terms": "Kullanım koşulları",
+    "cookies": "Çerez bildirimi",
+    "cookieSettings": "Çerez tercihleri",
+    "contactTitle": "İletişim bilgileri",
+    "legalEntity": "Ticari unvan",
+    "address": "Adres",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "founder": "Kurucu",
+    "linkedin": "LinkedIn",
+    "disclaimer": "Bu sitedeki içerik bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir. Ponenti bir devlet kurumu değildir ve hiçbir devlet kurumuyla bağlantılı değildir.",
+    "copyright": "© {year} {legalName}"
+  },
+  "consent": {
+    "title": "Çerez tercihleriniz.",
+    "body": "Siteyi çalıştırmak için gerekli çerezleri kullanırız. PostHog analitik çerezlerini yalnızca kabul ederseniz kullanırız; ayrıntılar <link>Çerez Bildirimi</link>'nde.",
+    "accept": "Kabul et",
+    "decline": "Reddet",
+    "preferences": "Tercihler",
+    "save": "Kaydet",
+    "necessary": "Gerekli çerezler",
+    "necessaryBody": "Çerez tercihiniz ve dil seçiminiz. Her zaman açıktır.",
+    "analytics": "Analitik (PostHog)",
+    "analyticsBody": "Hangi sayfaların işe yaradığını anlamamıza yardım eder. Siz açmadıkça kapalıdır.",
+    "dialogLabel": "Çerez tercihleri"
+  },
+  "notFound": {
+    "title": "Bu sayfa bulunamadı.",
+    "body": "Aradığınız sayfa taşınmış veya hiç olmamış olabilir.",
+    "home": "Ana sayfaya dönün"
+  },
+  "emails": {
+    "confirmSubject": "Talebinizi aldık | Ponenti",
+    "greeting": "Sayın {name},",
+    "thanks": "Talebinizi aldık; bilgileriniz için teşekkür ederiz.",
+    "reply": "1 iş günü içinde size dönüş yapacağız.",
+    "book": "Beklemeden görüşme planlamak isterseniz: {url}",
+    "riskIntro": "Risk testi sonucunuz: {level}.",
+    "riskTop": "Öne çıkan konular:",
+    "cashResult": "Hesaplama sonucunuz: yıllık {sales} satışta tahsilat süresi {current} günden {target} güne inerse yaklaşık {result} nakit serbest kalır.",
+    "form5472Result": "Hesaplama sonucunuz: {years} eksik yıl için başlangıç cezası {result}.",
+    "noTaxIds": "Lütfen bu e-postaya vergi kimlik numarası, EIN veya finansal belge eklemeyin.",
+    "informational": "Bu e-postadaki bilgiler bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir.",
+    "signoff": "Saygılarımla,"
+  }
+}

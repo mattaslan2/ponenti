@@ -1,0 +1,223 @@
+@import "tailwindcss";
+@import "../design/tokens.css";
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply bg-ivory font-sans text-graphite antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply min-h-dvh bg-ivory text-[1rem] leading-[1.65];
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-semibold text-navy;
+    text-wrap: balance;
+    font-variant-numeric: lining-nums;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  /* Visible, high-contrast focus on every surface */
+  :focus-visible {
+    outline: 2px solid var(--color-cobalt);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-navy :focus-visible {
+    outline-color: var(--color-brass-light);
+  }
+  .on-navy .on-light :focus-visible {
+    outline-color: var(--color-cobalt);
+  }
+  ::selection {
+    background: var(--color-sand);
+    color: var(--color-navy);
+  }
+}
+
+@layer components {
+  .page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8;
+  }
+  .eyebrow {
+    @apply font-sans text-eyebrow font-medium tracking-[0.12em] uppercase;
+  }
+  /* Thin brass rule */
+  .rule {
+    @apply h-px w-full bg-brass/70;
+  }
+  .rule-short {
+    @apply h-px w-12 bg-brass;
+  }
+  /* Large serif numerals for key figures */
+  .numeral {
+    @apply font-display text-numeral font-semibold;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .link {
+    @apply text-cobalt underline decoration-cobalt/40 hover:decoration-cobalt;
+  }
+  .on-navy .link {
+    @apply text-brass-light decoration-brass-light/50 hover:decoration-brass-light;
+  }
+  /* A light card inside a navy section returns to light-ground colors. */
+  .on-navy .on-light .link {
+    @apply text-cobalt decoration-cobalt/40 hover:decoration-cobalt;
+  }
+  /* Placeholder markers ([REPLACE WITH REAL], [confirm]) */
+  .ph {
+    @apply rounded-xs border border-dashed border-risk-medium/70 bg-risk-medium/10 px-1.5 py-0.5 font-sans text-[0.8125rem] text-[#6a4700];
+  }
+  .on-navy .ph {
+    @apply border-brass-light/70 bg-brass-light/10 text-brass-light;
+  }
+}
+
+/* Reveal: 250 ms fade for content that starts below the fold, never for the hero.
+   ClientRuntime marks off-screen blocks as pending, then shows them on scroll. */
+[data-reveal] {
+  transition:
+    opacity var(--duration-base) var(--ease-quiet),
+    transform var(--duration-base) var(--ease-quiet);
+}
+[data-reveal][data-pending] {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Mobile menu: native modal <dialog> shown as a right-hand sheet */
+.mobile-menu {
+  margin: 0 0 0 auto;
+  inset-block: 0;
+  width: min(88vw, 24rem);
+  max-width: 24rem;
+  height: 100dvh;
+  max-height: 100dvh;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid var(--color-line);
+  background: var(--color-ivory);
+  color: var(--color-graphite);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  transform: translateX(1.5rem);
+  transition:
+    opacity var(--duration-base) var(--ease-quiet),
+    transform var(--duration-base) var(--ease-quiet),
+    overlay var(--duration-base) allow-discrete,
+    display var(--duration-base) allow-discrete;
+}
+.mobile-menu[open] {
+  opacity: 1;
+  transform: none;
+}
+.mobile-menu::backdrop {
+  background: rgb(14 26 43 / 0);
+  transition:
+    background-color var(--duration-base) var(--ease-quiet),
+    overlay var(--duration-base) allow-discrete,
+    display var(--duration-base) allow-discrete;
+}
+.mobile-menu[open]::backdrop {
+  background: rgb(14 26 43 / 0.55);
+}
+@starting-style {
+  .mobile-menu[open] {
+    opacity: 0;
+    transform: translateX(1.5rem);
+  }
+  .mobile-menu[open]::backdrop {
+    background: rgb(14 26 43 / 0);
+  }
+}
+html:has(.mobile-menu[open]) {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal][data-pending] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Iznik-inspired geometric pattern, used at 3-5% opacity as section dividers */
+.iznik-divider {
+  height: 56px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%230E1A2B' stroke-width='1'%3E%3Cpath d='M28 4 L34 22 L52 28 L34 34 L28 52 L22 34 L4 28 L22 22 Z'/%3E%3Ccircle cx='28' cy='28' r='6'/%3E%3Cpath d='M0 0 L8 8 M56 0 L48 8 M0 56 L8 48 M56 56 L48 48'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 56px 56px;
+  background-position: center;
+  opacity: 0.045;
+}
+.iznik-field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23B08D57' stroke-width='1'%3E%3Cpath d='M36 6 L43 29 L66 36 L43 43 L36 66 L29 43 L6 36 L29 29 Z'/%3E%3Cpath d='M36 22 L50 36 L36 50 L22 36 Z'/%3E%3Ccircle cx='36' cy='36' r='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 72px 72px;
+}
+
+/* Prose (articles, legal pages) */
+.prose-ponenti {
+  @apply max-w-prose text-[1.0625rem] leading-[1.75] text-graphite;
+}
+.prose-ponenti > * + * {
+  margin-top: 1.1em;
+}
+.prose-ponenti h2 {
+  @apply mt-12 font-display text-display-sm font-semibold text-navy sm:text-[1.75rem];
+}
+.prose-ponenti h3 {
+  @apply mt-8 font-display text-[1.25rem] font-semibold text-navy;
+}
+.prose-ponenti a {
+  @apply text-cobalt underline decoration-cobalt/40 hover:decoration-cobalt;
+}
+.prose-ponenti ul {
+  @apply list-disc pl-5;
+}
+.prose-ponenti ol {
+  @apply list-decimal pl-5;
+}
+.prose-ponenti li + li {
+  margin-top: 0.4em;
+}
+.prose-ponenti strong {
+  @apply font-semibold text-navy;
+}
+.prose-ponenti blockquote {
+  @apply border-l-2 border-brass bg-paper px-4 py-3 text-[0.9375rem] text-mist;
+}
+.prose-ponenti table {
+  @apply w-full border-collapse text-[0.9375rem];
+}
+.prose-ponenti th {
+  @apply border-b border-navy/30 py-2 pr-4 text-left font-semibold text-navy;
+}
+.prose-ponenti td {
+  @apply border-b border-line py-2 pr-4 align-top;
+}
+.prose-ponenti hr {
+  @apply my-10 border-line;
+}

@@ -1,0 +1,83 @@
+export const meta = {
+  key: "form-5472-penalty",
+  locale: "tr",
+  slug: "form-5472-cezasi",
+  title: "Form 5472 cezası: Her form için yıllık $25.000",
+  description: "ABD'deki yabancı sahipli şirketler Form 5472'yi vermezse her form ve yıl için $25.000 ceza doğabilir. Kimler verir, son tarih ne, risk nasıl büyür?",
+  published: "2026-10-05",
+  updated: "2026-10-05",
+  readingMinutes: 5,
+  keywords: ["Form 5472 cezası", "ABD şirket vergi beyannamesi", "tek üyeli LLC Form 5472", "pro forma Form 1120", "yabancı sahipli ABD şirketi", "IRC 6038A", "makul sebep"],
+  sources: [
+    { title: "IRS: Instructions for Form 5472", url: "https://www.irs.gov/instructions/i5472", publisher: "Internal Revenue Service", date: "2024-12" },
+    { title: "IRS: International information reporting penalties", url: "https://www.irs.gov/payments/international-information-reporting-penalties", publisher: "Internal Revenue Service", date: "2026-08-20" },
+    { title: "26 U.S.C. 6038A, Information with respect to certain foreign-owned corporations", url: "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleF-chap61-subchapA-partIII-subpartA-sec6038A.htm", publisher: "U.S. Government Publishing Office", date: "2024-12-31" },
+    { title: "26 U.S.C. 6501, Limitations on assessment and collection", url: "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleF-chap66-subchapA-sec6501.htm", publisher: "U.S. Government Publishing Office", date: "2024-12-31" },
+    { title: "26 CFR 1.6038A-4, Monetary penalty", url: "https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR31749dec6d4756f/section-1.6038A-4", publisher: "eCFR, Office of the Federal Register", date: "2026-10-02" },
+    { title: "T.D. 9796, Treatment of Certain Domestic Entities Disregarded as Separate From Their Owners as Corporations for Purposes of Section 6038A", url: "https://www.federalregister.gov/documents/2016/12/13/2016-29641/treatment-of-certain-domestic-entities-disregarded-as-separate-from-their-owners-as-corporations-for", publisher: "Federal Register", date: "2016-12-13" },
+    { title: "IRS: Instructions for Form 1120", url: "https://www.irs.gov/instructions/i1120", publisher: "Internal Revenue Service", date: "2026-04-30" },
+    { title: "IRS: Instructions for Form 7004", url: "https://www.irs.gov/instructions/i7004", publisher: "Internal Revenue Service", date: "2025-12" },
+    { title: "IRS: Delinquent international information return submission procedures", url: "https://www.irs.gov/individuals/international-taxpayers/delinquent-international-information-return-submission-procedures", publisher: "Internal Revenue Service", date: "2026-04-19" },
+  ],
+}
+
+## Form 5472 nedir?
+
+Form 5472, IRS'e (ABD federal vergi idaresi) verilen bir bilgi beyannamesidir. ABD şirketinizin ilişkili kişilerle (related party) yaptığı işlemleri gösterir. İlişkili kişi, yurt dışındaki ortağınız veya grup şirketiniz olabilir. Form vergi hesaplamaz. Ancak verilmemesinin bedeli yüksektir.
+
+[IRS'in Form 5472 talimatlarına](https://www.irs.gov/instructions/i5472) göre bu formu "raporlayan şirket" (reporting corporation) verir. Şart, yıl içinde ilişkili bir kişiyle bildirime tabi bir işlem yapılmış olmasıdır. Kuralın dayanağı, ABD Vergi Kanunu'nun (Internal Revenue Code, IRC) 6038A maddesidir. Raporlayan şirket şunlardan biridir:
+
+- **%25 yabancı sahipli ABD şirketi:** Yıl içinde herhangi bir anda bir yabancı kişi, oyların veya değerin en az %25'ine sahiptir. Sahiplik doğrudan veya dolaylı olabilir ([IRC 6038A(c)(1)](https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleF-chap61-subchapA-partIII-subpartA-sec6038A.htm)).
+- **ABD'de ticari faaliyet yürüten yabancı şirket.**
+
+## Tek üyeli LLC'ler de kapsamda
+
+Gelir vergisinde tek üyeli LLC (Limited Liability Company, limited şirkete benzer yapı) genellikle "disregarded entity" sayılır. Yani IRS onu sahibinden ayrı bir vergi mükellefi saymaz. Form 5472'de ise kural farklıdır.
+
+[Aralık 2016'da yayımlanan Hazine yönetmeliği](https://www.federalregister.gov/documents/2016/12/13/2016-29641/treatment-of-certain-domestic-entities-disregarded-as-separate-from-their-owners-as-corporations-for) (Treasury Regulations), tamamı tek bir yabancıya ait ABD LLC'sini bu form için şirket sayar. [Talimatlar](https://www.irs.gov/instructions/i5472) bu kuralı 1 Ocak 2017 ve sonrasında başlayan vergi yıllarına uygular.
+
+Bu LLC'lerde kuruluş, devralma ve tasfiye ile ilgili ödemeler de bildirilir. Şirkete konan sermaye ve şirketten yapılan dağıtımlar da buna dahildir ([talimatlar, Part V](https://www.irs.gov/instructions/i5472)). Yani hiç satışı olmayan bir LLC'nin de form vermesi gerekebilir.
+
+## Nasıl ve ne zaman verilir?
+
+- **ABD şirketleri (corporation):** Form 5472'yi Form 1120'ye (ABD kurumlar vergisi beyannamesi) ekler.
+- **Yabancıya ait tek üyeli LLC'ler:** Formu "pro forma" bir Form 1120'ye ekler. Bu beyannamede sadece ad, adres ve ilk sayfadaki iki alan doldurulur. Bu LLC'ler Form 5472'yi elektronik ortamda veremez. Belgeler IRS'in özel faks numarasına veya adresine gönderilir ([talimatlar](https://www.irs.gov/instructions/i5472)).
+- **Her ilişkili kişi için ayrı form:** Bildirime tabi işlem yapılan her ilişkili kişi için ayrı bir Form 5472 gerekir.
+
+Son tarih, uzatmalar dahil Form 1120'nin son tarihidir. Bu tarih genellikle vergi yılı bitiminden sonraki 4. ayın 15. günüdür ([Form 1120 talimatları](https://www.irs.gov/instructions/i1120)). Takvim yılı kullanan şirket için bu, 15 Nisan demektir. Bu tarihe kadar [Form 7004](https://www.irs.gov/instructions/i7004) verilirse süre genellikle 6 ay uzar ve 15 Ekim olur. Yabancıya ait LLC, sahibinin ABD vergi yılını kullanır. Sahibin ABD vergi yılı yoksa takvim yılı esas alınır.
+
+## Ceza: Her form için yıllık $25.000
+
+[IRC 6038A(d)](https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleF-chap61-subchapA-partIII-subpartA-sec6038A.htm) uyarınca Form 5472'yi zamanında vermemenin cezası her vergi yılı için $25.000'dir. Gerekli kayıtları tutmamak da aynı cezayı doğurur. [Hazine yönetmeliği](https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR31749dec6d4756f/section-1.6038A-4) bu cezayı her ilişkili kişi için ayrı uygular. "Önemli ölçüde eksik" (substantially incomplete) bir form, hiç verilmemiş sayılır.
+
+IRS size yazılı bir bildirim gönderebilir. Eksiklik bildirimden sonra 90 günü aşarsa ek ceza başlar. Her 30 günlük dönem veya dönemin bir kısmı için $25.000 daha eklenir. [IRS'in ceza sayfasına](https://www.irs.gov/payments/international-information-reporting-penalties) göre bu cezanın üst sınırı yoktur.
+
+## Örnek hesap
+
+Bu tablo, kanundaki tutar üzerinden yapılmış basit bir çarpımdır. IRS'in ne kadar ceza keseceğine dair bir tahmin değildir. Tek ilişkili kişi olduğu ve ek ceza uygulanmadığı varsayılmıştır.
+
+| Eksik yıl sayısı | Kanuni tutar |
+| --- | --- |
+| 1 | $25.000 |
+| 2 | $50.000 |
+| 3 | $75.000 |
+
+Üç eksik yıl, ek ceza öncesinde $75.000 eder. Her ek ilişkili kişi, yıl başına $25.000 daha ekleyebilir. [Yönetmelikteki örnekte](https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR31749dec6d4756f/section-1.6038A-4) formlar, IRS bildiriminden 135 gün sonra verilir. 90 günden sonraki 45 gün, biri tam biri kısmi iki adet 30 günlük dönem sayılır. Sonuçta her yıl için tutar $75.000'e, üç yıl için $225.000'e çıkar.
+
+## Tarh süresi açık kalır
+
+Normalde IRS'in vergi tarhı (assessment) için 3 yılı vardır. Bu süre, beyannamenin verildiği tarihten itibaren işler ([IRC 6501(a)](https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleF-chap66-subchapA-sec6501.htm)). Form 5472 bilgisi eksikse [IRC 6501(c)(8)](https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleF-chap66-subchapA-sec6501.htm) devreye girer. Bu durumda ilgili beyannamenin tarh süresi, bilgi IRS'e verildikten sonraki 3 yıl dolmadan kapanmaz. Form hiç verilmezse bu süre hiç dolmaz. Eksikliğin makul bir sebebi varsa uzatma, sadece ilgili kalemlere uygulanır.
+
+## Makul sebep (reasonable cause) istisnası
+
+Kanun, makul sebep varsa cezanın uygulanmamasına imkân tanır ([IRC 6038A(d)(3)](https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleF-chap61-subchapA-partIII-subpartA-sec6038A.htm)). [Hazine yönetmeliği](https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR31749dec6d4756f/section-1.6038A-4), olguların yazılı bir beyanla gösterilmesini ister. Bu beyan, yalan beyan cezası (penalties of perjury) altında imzalanır. Yönetmelik, küçük şirketlerde bu istisnanın esnek uygulanmasını öngörür. Küçük şirket, yıllık brüt hasılatı $20.000.000 veya altında olan şirkettir. Bunun için şirketin kuralı bilmemesi ve ABD ile bağlantısının sınırlı olması gerekir. Şirket ayrıca IRS taleplerine hızla ve tam olarak uymalıdır.
+
+Geç beyan, cezayı tek başına ortadan kaldırmaz. [IRS prosedürü](https://www.irs.gov/individuals/international-taxpayers/delinquent-international-information-return-submission-procedures), incelemede olmayan ve IRS'ten henüz yazı almamış şirketler için geçerlidir. Bu şirketler eksik beyannameleri normal yolla verir. Makul sebep beyanı eklenebilir. Ancak IRS, ilk aşamada bu beyanı dikkate almadan ceza kesebilir.
+
+## Ne yapmalısınız?
+
+1. **Kuruluştan bu yana her vergi yılını kontrol edin.** Form 1120 veya pro forma Form 1120 ile Form 5472 verilmiş mi, bakın. Kopyaları ve faks ya da posta kanıtını isteyin.
+2. **İlişkili kişilerinizi belirleyin.** ABD şirketiyle işlem yapan her yabancı ortağı, ana şirketi veya grup şirketini listeleyin. Her biri için ayrı form gerekir ([talimatlar](https://www.irs.gov/instructions/i5472)).
+3. **İşlem kayıtlarını yıl bazında toplayın.** Faturalar, borç sözleşmeleri, grup içi ödemeler ve sermaye giriş çıkışlarının banka kayıtları buna dahildir. Kanun bu kayıtları zaten saklamanızı ister ([IRC 6038A(a)](https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleF-chap61-subchapA-partIII-subpartA-sec6038A.htm)).
+4. **Bir sonraki son tarihi takvime işleyin.** Takvim yılı kullanan şirket için son tarih 15 Nisan'dır. 15 Nisan'a kadar Form 7004 verilirse süre 15 Ekim'e uzar.
+5. **Geç form vermeden önce makul sebep konusunu yetkin bir vergi profesyoneline danışın.** Böylece olgu beyanı, formlarla birlikte verilir.

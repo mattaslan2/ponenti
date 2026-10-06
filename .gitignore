@@ -1,13 +1,37 @@
-# macOS
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# Next.js and builds
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing
+/coverage
+/test-results/
+/playwright-report/
+
+# Environment files: never commit real keys. The example file is safe.
+.env*
+!.env.example
+.env.sentry-build-plugin
+
+# Vercel
+.vercel
+
+# macOS and editors
 .DS_Store
 ._*
-
-# Editors
 .vscode/
 .idea/
 
-# Secrets and local tooling
-.env
-.env.*
-.vercel/
-node_modules/
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.pem

@@ -1,0 +1,91 @@
+export const meta = {
+  key: "sales-tax-nexus",
+  locale: "en",
+  slug: "sales-tax-nexus-by-state",
+  title: "US sales tax nexus: thresholds in 9 states",
+  description: "Economic nexus thresholds for California, Texas, New York and 6 more states as of October 2026, from official pages, plus marketplace and inventory rules.",
+  published: "2026-10-05",
+  updated: "2026-10-05",
+  readingMinutes: 5,
+  keywords: ["US sales tax", "economic nexus", "sales tax nexus by state", "Wayfair", "remote seller thresholds", "marketplace facilitator", "3PL inventory nexus"],
+  sources: [
+    { title: "South Dakota v. Wayfair, Inc., 585 U.S. 162 (2018), No. 17-494", url: "https://www.supremecourt.gov/opinions/17pdf/585us1r58_pok0.pdf", publisher: "Supreme Court of the United States", date: "2018-06-21" },
+    { title: "Use Tax Collection Requirements Based on Sales into California Due to the Wayfair Decision: General Information", url: "https://cdtfa.ca.gov/industry/wayfair/general-information.htm", publisher: "California Department of Tax and Fee Administration", date: "2026-10-05" },
+    { title: "Remote Sellers", url: "https://comptroller.texas.gov/taxes/sales/remote-sellers.php", publisher: "Texas Comptroller of Public Accounts", date: "2026-05-18" },
+    { title: "Registration requirement for businesses with no physical presence in New York State", url: "https://www.tax.ny.gov/pubs_and_bulls/publications/sales/nexus.htm", publisher: "New York State Department of Taxation and Finance", date: "2026-07-29" },
+    { title: "Florida Sales and Use Tax", url: "https://floridarevenue.com/taxes/taxesfees/Pages/sales_tax.aspx", publisher: "Florida Department of Revenue", date: "2026-10-05" },
+    { title: "FY 2026-12, Destination-Based Retailers' Occupation Tax Changes", url: "https://tax.illinois.gov/research/publications/bulletins/fy-2026-12.html", publisher: "Illinois Department of Revenue", date: "2025-12" },
+    { title: "FY 2026-28, 2026 Illinois Remote Retailer Tax Amnesty Program", url: "https://tax.illinois.gov/research/publications/bulletins/fy-2026-28.html", publisher: "Illinois Department of Revenue", date: "2026-06" },
+    { title: "Out-of-State Sellers", url: "https://dor.georgia.gov/taxes/sales-use-tax/out-state-sellers", publisher: "Georgia Department of Revenue", date: "2026-10-05" },
+    { title: "Policy Bulletin SUT-2019-02: Remote Sellers, Sales and Use Tax Obligations", url: "https://dor.georgia.gov/media/35301/download", publisher: "Georgia Department of Revenue", date: "2019-05-07" },
+    { title: "Remote Sellers", url: "https://www.nj.gov/treasury/taxation/remotesellers.shtml", publisher: "New Jersey Division of Taxation", date: "2025-04-24" },
+    { title: "Remote Sellers Frequently Asked Questions", url: "https://www.nj.gov/treasury/taxation/remotesellersfaq.shtml", publisher: "New Jersey Division of Taxation", date: "2026-09-28" },
+    { title: "Online Retailers", url: "https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/online-retailers", publisher: "Pennsylvania Department of Revenue", date: "2026-10-05" },
+    { title: "Remote sellers", url: "https://dor.wa.gov/taxes-rates/retail-sales-tax/marketplace-fairness-leveling-playing-field/remote-sellers", publisher: "Washington State Department of Revenue", date: "2026-10-05" },
+    { title: "Out of state businesses reporting thresholds and nexus", url: "https://dor.wa.gov/education/industry-guides/out-state-businesses-reporting-thresholds-and-nexus", publisher: "Washington State Department of Revenue", date: "2020-04" },
+  ],
+}
+
+## What Wayfair changed
+
+US sales tax is a state and local tax, not a federal one. Each state writes its own rules.
+
+Until 2018, a state could only make a seller collect its sales tax if the seller had a physical presence there. On June 21, 2018, the US Supreme Court ended that rule in *South Dakota v. Wayfair*. The Court called the physical presence rule "unsound and incorrect" and overruled *Quill* (1992) and *National Bellas Hess* (1967) ([opinion](https://www.supremecourt.gov/opinions/17pdf/585us1r58_pok0.pdf)).
+
+The South Dakota law in the case covered sellers that deliver more than $100,000 of goods or services into the state each year. It also covered sellers with 200 or more separate transactions there a year ([opinion](https://www.supremecourt.gov/opinions/17pdf/585us1r58_pok0.pdf)). Six of the nine states below now use a $100,000 test.
+
+Once you pass a state's threshold, you have sales tax nexus there. You then have to register, collect tax from customers and remit it to the state ([New Jersey, for example](https://www.nj.gov/treasury/taxation/remotesellers.shtml)).
+
+## State thresholds as of October 5, 2026
+
+We checked each state's official page on October 5, 2026. Tap a state name to open its source. What counts toward the threshold varies by state.
+
+| State | Sales threshold | Transaction test | Measurement period |
+| --- | --- | --- | --- |
+| [California](https://cdtfa.ca.gov/industry/wayfair/general-information.htm) | Over $500,000 | None | Prior or current calendar year |
+| [Texas](https://comptroller.texas.gov/taxes/sales/remote-sellers.php) | $500,000 or more | None | Prior 12 calendar months |
+| [New York](https://www.tax.ny.gov/pubs_and_bulls/publications/sales/nexus.htm) | Over $500,000 | Over 100 sales, both tests required | Prior 4 sales tax quarters |
+| [Florida](https://floridarevenue.com/taxes/taxesfees/Pages/sales_tax.aspx) | Over $100,000 of taxable sales | None | Prior calendar year |
+| [Illinois](https://tax.illinois.gov/research/publications/bulletins/fy-2026-12.html) | $100,000 or more | None, removed January 1, 2026 | Prior 4 quarters (12 months) |
+| [Georgia](https://dor.georgia.gov/media/35301/download) | Over $100,000 | 200 or more sales | Prior or current calendar year |
+| [New Jersey](https://www.nj.gov/treasury/taxation/remotesellers.shtml) | Over $100,000 | 200 or more transactions | Prior or current calendar year |
+| [Pennsylvania](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/online-retailers) | Over $100,000 | None | Prior calendar year |
+| [Washington](https://dor.wa.gov/taxes-rates/retail-sales-tax/marketplace-fairness-leveling-playing-field/remote-sellers) | Over $100,000 | None | Prior or current calendar year |
+
+Three notes:
+
+- New York requires both tests. A seller that passes the dollar test alone does not have to register ([New York](https://www.tax.ny.gov/pubs_and_bulls/publications/sales/nexus.htm)).
+- Since January 1, 2026, Illinois uses only the $100,000 test. The 200-transaction test is gone ([Illinois](https://tax.illinois.gov/research/publications/bulletins/fy-2026-12.html)).
+- California adds the sales of related companies to your total ([California](https://cdtfa.ca.gov/industry/wayfair/general-information.htm)).
+
+## What counts toward the threshold
+
+States count the same sale in different ways. Three differences matter most.
+
+**Exempt and wholesale sales.** If you sell B2B, this one matters. Texas counts sales for resale and sales to exempt entities in total Texas revenue ([Texas](https://comptroller.texas.gov/taxes/sales/remote-sellers.php)). Washington requires you to include exempt sales ([Washington](https://dor.wa.gov/taxes-rates/retail-sales-tax/marketplace-fairness-leveling-playing-field/remote-sellers)). Florida looks only at taxable remote sales ([Florida](https://floridarevenue.com/taxes/taxesfees/Pages/sales_tax.aspx)).
+
+**Marketplace sales.** New York tells sellers to include sales made through an online marketplace ([New York](https://www.tax.ny.gov/pubs_and_bulls/publications/sales/nexus.htm)).
+
+**Timing.** Some states use calendar years. Others use a rolling 12 months or the last four quarters. Start dates for registration and collection vary too. In Texas, you must get a permit and start collecting no later than the first day of the fourth month after the month you cross ([Texas](https://comptroller.texas.gov/taxes/sales/remote-sellers.php)).
+
+## When the marketplace collects for you
+
+A marketplace facilitator is a platform that lists your products and takes payment from the buyer. In New Jersey, the marketplace collects and remits tax on all marketplace sales, whether or not the seller is over the threshold ([New Jersey](https://www.nj.gov/treasury/taxation/remotesellers.shtml)).
+
+Two caveats. The rule covers marketplace sales only. Sales from your own website or on direct B2B invoices stay your responsibility. And in New Jersey, a seller over the threshold must register even if it sells only through marketplaces. It can then ask for non-reporting status ([New Jersey](https://www.nj.gov/treasury/taxation/remotesellers.shtml)).
+
+## Inventory still creates nexus
+
+Economic thresholds did not replace physical presence. In Washington, a business with physical presence in the state must register whatever its sales volume ([Washington](https://dor.wa.gov/education/industry-guides/out-state-businesses-reporting-thresholds-and-nexus)).
+
+New Jersey lists employees or agents in the state, an office or warehouse, and deliveries in your own vehicles. It also lists "the storage of inventory at a location in the State, regardless of ownership of the facility" ([New Jersey](https://www.nj.gov/treasury/taxation/remotesellersfaq.shtml)). Stock in a 3PL warehouse or a marketplace fulfillment center can therefore create nexus.
+
+Illinois makes a similar point: a retailer that fills any orders from Illinois inventory is not a remote retailer ([Illinois](https://tax.illinois.gov/research/publications/bulletins/fy-2026-12.html)).
+
+## What to do now
+
+1. Split your US sales for the last two calendar years and the last 12 months by ship-to state. Track dollars and transaction counts separately.
+2. Test each state against its own measurement period. Confirm on the official page whether exempt and marketplace sales count.
+3. List every state where you hold inventory: your own warehouse, 3PLs and marketplace fulfillment centers. These states can require registration with no sales threshold.
+4. Collect resale certificates from your B2B customers and match them to your invoices.
+5. If you owe past Illinois sales tax as a remote seller, mark the date. The state's amnesty ends October 31, 2026. It covers sales from January 1, 2021 to June 30, 2026, and waives penalties and interest on eligible tax paid in full ([Illinois](https://tax.illinois.gov/research/publications/bulletins/fy-2026-28.html)).

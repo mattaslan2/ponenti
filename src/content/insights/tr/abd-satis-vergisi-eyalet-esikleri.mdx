@@ -1,0 +1,91 @@
+export const meta = {
+  key: "sales-tax-nexus",
+  locale: "tr",
+  slug: "abd-satis-vergisi-eyalet-esikleri",
+  title: "ABD satış vergisi: 9 eyalette bağlantı (nexus) eşikleri",
+  description: "Kaliforniya, Teksas, New York ve 6 eyalette satış vergisi eşikleri. Ekim 2026 itibarıyla resmi kaynaklı tablo, pazar yeri ve depo kuralları.",
+  published: "2026-10-05",
+  updated: "2026-10-05",
+  readingMinutes: 5,
+  keywords: ["ABD satış vergisi", "satış vergisi bağlantısı", "nexus", "Wayfair kararı", "eyalet eşikleri", "pazar yeri aracısı", "3PL depo"],
+  sources: [
+    { title: "South Dakota v. Wayfair, Inc., 585 U.S. 162 (2018), No. 17-494", url: "https://www.supremecourt.gov/opinions/17pdf/585us1r58_pok0.pdf", publisher: "Supreme Court of the United States", date: "2018-06-21" },
+    { title: "Use Tax Collection Requirements Based on Sales into California Due to the Wayfair Decision: General Information", url: "https://cdtfa.ca.gov/industry/wayfair/general-information.htm", publisher: "California Department of Tax and Fee Administration", date: "2026-10-05" },
+    { title: "Remote Sellers", url: "https://comptroller.texas.gov/taxes/sales/remote-sellers.php", publisher: "Texas Comptroller of Public Accounts", date: "2026-05-18" },
+    { title: "Registration requirement for businesses with no physical presence in New York State", url: "https://www.tax.ny.gov/pubs_and_bulls/publications/sales/nexus.htm", publisher: "New York State Department of Taxation and Finance", date: "2026-07-29" },
+    { title: "Florida Sales and Use Tax", url: "https://floridarevenue.com/taxes/taxesfees/Pages/sales_tax.aspx", publisher: "Florida Department of Revenue", date: "2026-10-05" },
+    { title: "FY 2026-12, Destination-Based Retailers' Occupation Tax Changes", url: "https://tax.illinois.gov/research/publications/bulletins/fy-2026-12.html", publisher: "Illinois Department of Revenue", date: "2025-12" },
+    { title: "FY 2026-28, 2026 Illinois Remote Retailer Tax Amnesty Program", url: "https://tax.illinois.gov/research/publications/bulletins/fy-2026-28.html", publisher: "Illinois Department of Revenue", date: "2026-06" },
+    { title: "Out-of-State Sellers", url: "https://dor.georgia.gov/taxes/sales-use-tax/out-state-sellers", publisher: "Georgia Department of Revenue", date: "2026-10-05" },
+    { title: "Policy Bulletin SUT-2019-02: Remote Sellers, Sales and Use Tax Obligations", url: "https://dor.georgia.gov/media/35301/download", publisher: "Georgia Department of Revenue", date: "2019-05-07" },
+    { title: "Remote Sellers", url: "https://www.nj.gov/treasury/taxation/remotesellers.shtml", publisher: "New Jersey Division of Taxation", date: "2025-04-24" },
+    { title: "Remote Sellers Frequently Asked Questions", url: "https://www.nj.gov/treasury/taxation/remotesellersfaq.shtml", publisher: "New Jersey Division of Taxation", date: "2026-09-28" },
+    { title: "Online Retailers", url: "https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/online-retailers", publisher: "Pennsylvania Department of Revenue", date: "2026-10-05" },
+    { title: "Remote sellers", url: "https://dor.wa.gov/taxes-rates/retail-sales-tax/marketplace-fairness-leveling-playing-field/remote-sellers", publisher: "Washington State Department of Revenue", date: "2026-10-05" },
+    { title: "Out of state businesses reporting thresholds and nexus", url: "https://dor.wa.gov/education/industry-guides/out-state-businesses-reporting-thresholds-and-nexus", publisher: "Washington State Department of Revenue", date: "2020-04" },
+  ],
+}
+
+## Wayfair kararı neyi değiştirdi?
+
+ABD'de satış vergisi (sales tax) federal değil, eyalet ve yerel düzeyde bir vergidir. Her eyalet kendi kuralını koyar.
+
+2018'e kadar bir eyalet, yalnızca orada fiziksel olarak bulunan satıcıya vergi toplatabiliyordu. ABD Yüksek Mahkemesi (Supreme Court), 21 Haziran 2018'de *South Dakota v. Wayfair* davasında bu kuralı kaldırdı. Mahkeme, fiziksel varlık kuralını "sağlam olmayan ve yanlış" buldu. Quill (1992) ve National Bellas Hess (1967) kararlarını bozdu ([karar metni](https://www.supremecourt.gov/opinions/17pdf/585us1r58_pok0.pdf)).
+
+Davadaki Güney Dakota yasası, eyalete yılda $100.000'den fazla satış yapan satıcılara uygulanıyordu. Yılda 200 veya daha fazla ayrı işlem yapanlar da kapsamdaydı ([karar metni](https://www.supremecourt.gov/opinions/17pdf/585us1r58_pok0.pdf)). Aşağıdaki 9 eyaletin 6'sı bugün $100.000 eşiği kullanıyor.
+
+Bir eyaletin eşiğini aştığınızda orada satış vergisi bağlantınız (nexus) oluşur. Bu durumda eyalete kayıt olmanız, vergiyi müşteriden toplamanız ve eyalete ödemeniz gerekir ([New Jersey örneği](https://www.nj.gov/treasury/taxation/remotesellers.shtml)).
+
+## Eyalet eşikleri (5 Ekim 2026 itibarıyla)
+
+Tablo, her eyaletin resmi sayfasına göre 5 Ekim 2026'da hazırlandı. Kaynağı açmak için eyalet adına dokunun. Hangi satışların sayıldığı eyalete göre değişir.
+
+| Eyalet | Satış eşiği | İşlem sayısı testi | Ölçüm dönemi |
+| --- | --- | --- | --- |
+| [Kaliforniya](https://cdtfa.ca.gov/industry/wayfair/general-information.htm) | $500.000 üzeri | Yok | Önceki veya cari takvim yılı |
+| [Teksas](https://comptroller.texas.gov/taxes/sales/remote-sellers.php) | $500.000 ve üzeri | Yok | Önceki 12 takvim ayı |
+| [New York](https://www.tax.ny.gov/pubs_and_bulls/publications/sales/nexus.htm) | $500.000 üzeri | 100'den fazla satış, iki koşul birlikte | Önceki 4 satış vergisi çeyreği |
+| [Florida](https://floridarevenue.com/taxes/taxesfees/Pages/sales_tax.aspx) | $100.000 üzeri vergiye tabi satış | Yok | Önceki takvim yılı |
+| [Illinois](https://tax.illinois.gov/research/publications/bulletins/fy-2026-12.html) | $100.000 ve üzeri | Yok, 1 Ocak 2026'da kaldırıldı | Önceki 4 çeyrek (12 ay) |
+| [Georgia](https://dor.georgia.gov/media/35301/download) | $100.000 üzeri | 200 veya daha fazla satış | Önceki veya cari takvim yılı |
+| [New Jersey](https://www.nj.gov/treasury/taxation/remotesellers.shtml) | $100.000 üzeri | 200 veya daha fazla işlem | Önceki veya cari takvim yılı |
+| [Pensilvanya](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/online-retailers) | $100.000 üzeri | Yok | Önceki takvim yılı |
+| [Washington](https://dor.wa.gov/taxes-rates/retail-sales-tax/marketplace-fairness-leveling-playing-field/remote-sellers) | $100.000 üzeri | Yok | Önceki veya cari takvim yılı |
+
+Üç not:
+
+- New York'ta iki koşul birlikte aranır. Yalnızca tutar eşiğini aşan satıcının kayıt olması gerekmez ([New York](https://www.tax.ny.gov/pubs_and_bulls/publications/sales/nexus.htm)).
+- Illinois eyaleti, 1 Ocak 2026'dan beri yalnızca $100.000 testini uygular. 200 işlem testi kalktı ([Illinois](https://tax.illinois.gov/research/publications/bulletins/fy-2026-12.html)).
+- Kaliforniya, ilişkili şirketlerinizin satışlarını da toplama ekler ([Kaliforniya](https://cdtfa.ca.gov/industry/wayfair/general-information.htm)).
+
+## Eşiği hesaplarken nelere dikkat etmelisiniz?
+
+Eyaletler aynı satışı farklı sayar. Üç fark öne çıkar.
+
+**Muaf ve toptan satışlar.** Toptan (B2B) satıyorsanız bu madde sizin için önemlidir. Teksas, yeniden satış (resale) amaçlı satışları ve muaf kurumlara satışları da toplam gelire katar ([Teksas](https://comptroller.texas.gov/taxes/sales/remote-sellers.php)). Washington da muaf satışların hesaba katılmasını ister ([Washington](https://dor.wa.gov/taxes-rates/retail-sales-tax/marketplace-fairness-leveling-playing-field/remote-sellers)). Florida ise yalnızca vergiye tabi uzaktan satışlara bakar ([Florida](https://floridarevenue.com/taxes/taxesfees/Pages/sales_tax.aspx)).
+
+**Pazar yeri satışları.** New York, çevrim içi pazar yeri (marketplace) üzerinden yaptığınız satışları da hesaba katmanızı ister ([New York](https://www.tax.ny.gov/pubs_and_bulls/publications/sales/nexus.htm)).
+
+**Zamanlama.** Bazı eyaletler takvim yılına, bazıları son 12 aya veya son 4 çeyreğe bakar. Kayıt ve vergi toplamaya başlama tarihi de eyalete göre değişir. Teksas'ta eşiği aştığınız aydan sonraki dördüncü ayın ilk gününe kadar izin almanız ve vergi toplamaya başlamanız gerekir ([Teksas](https://comptroller.texas.gov/taxes/sales/remote-sellers.php)).
+
+## Pazar yeri vergiyi ne zaman sizin yerinize toplar?
+
+Pazar yeri aracısı (marketplace facilitator), ürününüzü listeleyen ve ödemeyi alıcıdan tahsil eden platformdur. New Jersey'de pazar yeri üzerinden yapılan satışlarda vergiyi pazar yeri toplar ve öder. Bu kural, sizin eşiği aşıp aşmamanıza bakmaz ([New Jersey](https://www.nj.gov/treasury/taxation/remotesellers.shtml)).
+
+İki noktaya dikkat edin. Bu kural yalnızca pazar yeri satışlarını kapsar. Kendi sitenizden veya doğrudan faturayla yaptığınız satışlar sizin sorumluluğunuzda kalır. Ayrıca New Jersey'de eşiği aşan satıcı, yalnızca pazar yerinden satsa bile kayıt olmalıdır. Bu satıcı, beyan vermeme statüsü (non-reporting) talep edebilir ([New Jersey](https://www.nj.gov/treasury/taxation/remotesellers.shtml)).
+
+## Depo ve stok: fiziksel varlık hâlâ bağlantı yaratır
+
+Ekonomik eşikler, fiziksel varlık (physical presence) kuralını kaldırmadı. Washington'da eyalette fiziksel varlığı olan işletme, satış tutarından bağımsız olarak kayıt olmalıdır ([Washington](https://dor.wa.gov/education/industry-guides/out-state-businesses-reporting-thresholds-and-nexus)).
+
+New Jersey'nin fiziksel varlık örnekleri: eyalette çalışan veya temsilci, ofis veya depo, kendi aracınızla teslimat ve stok. Stok için tesisin kime ait olduğu önemli değildir ([New Jersey](https://www.nj.gov/treasury/taxation/remotesellersfaq.shtml)). Yani bir 3PL deposunda veya pazar yeri deposunda duran stok da bağlantı yaratabilir.
+
+Illinois da eyaletteki stoktan herhangi bir sipariş karşılayan satıcıyı uzaktan satıcı (remote retailer) saymaz ([Illinois](https://tax.illinois.gov/research/publications/bulletins/fy-2026-12.html)).
+
+## Ne yapmalısınız?
+
+1. Son iki takvim yılının ve son 12 ayın ABD satışlarını teslimat eyaletine göre ayırın. Tutarı ve işlem sayısını ayrı tutun.
+2. Her eyaleti kendi ölçüm dönemiyle yukarıdaki tabloya göre kontrol edin. Muaf ve pazar yeri satışlarının sayılıp sayılmadığını resmi sayfadan doğrulayın.
+3. Stokunuzun durduğu her eyaleti listeleyin: kendi deponuz, 3PL ve pazar yeri depoları. Bu eyaletlerde satış eşiği beklenmeden kayıt gerekebilir.
+4. B2B müşterilerinizden yeniden satış belgesi (resale certificate) toplayın ve faturalarınızla eşleştirin.
+5. Illinois eyaletine ödenmemiş geçmiş satış vergisi borcunuz varsa tarihi not edin. Uzaktan satıcı vergi affı (amnesty) 31 Ekim 2026'da bitiyor. 1 Ocak 2021 ile 30 Haziran 2026 arasındaki satışlardan doğan uygun borçlar tam ödenirse ceza ve faiz siliniyor ([Illinois](https://tax.illinois.gov/research/publications/bulletins/fy-2026-28.html)).

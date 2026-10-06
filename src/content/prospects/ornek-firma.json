@@ -1,0 +1,19 @@
+{
+  "firm": "Örnek Firma A.Ş.",
+  "preparedOn": "2026-10-05",
+  "sample": true,
+  "observations": [
+    {
+      "tr": "Örnek gözlem: son 12 ayda ABD'ye gönderilen konşimento sayısı ve hangi limanlardan geçtiği burada yazar. Gerçek sayfada tarih ve kaynak belirtilir.",
+      "en": "Sample observation: the number of bills of lading shipped to the US in the last 12 months, and through which ports, goes here. A real page states the date and source."
+    },
+    {
+      "tr": "Örnek gözlem: ABD tarafındaki alıcının (consignee) sizin ABD şirketiniz mi, yoksa bağımsız bir müşteri mi olduğu burada yazar.",
+      "en": "Sample observation: whether the US consignee is your own US company or an unaffiliated customer goes here."
+    },
+    {
+      "tr": "Örnek gözlem: kayıtlarda görünen ithalatçı adresinin türü (gerçek ofis, kayıtlı temsilci veya iş merkezi) burada yazar.",
+      "en": "Sample observation: the type of importer address shown in the records (real office, registered agent or business center) goes here."
+    }
+  ]
+}

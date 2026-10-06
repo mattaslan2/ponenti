@@ -1,0 +1,705 @@
+{
+  "meta": {
+    "siteName": "Ponenti",
+    "titleDefault": "Ponenti | The US compliance and collections desk for Turkish companies",
+    "descriptionDefault": "Your US filings, multi-state sales tax, importer record and US receivables at one bilingual desk. Public prices, written limits.",
+    "home": {
+      "title": "Ponenti | The US compliance and collections desk for Turkish companies",
+      "description": "Your US filings, multi-state sales tax and importer record at one bilingual desk. Your US receivables worked in US business hours, in your name."
+    },
+    "services": {
+      "title": "Services and pricing",
+      "description": "US back-office check {check}. Compliance plans at {essentials}, {standard} or {complete} a month. Cash desk, order desk and US hiring. Every price is public."
+    },
+    "riskTest": {
+      "title": "3-minute US risk test",
+      "description": "10 questions, yes/no and ranges only. See your Form 5472, importer record, US sales tax and collections risks."
+    },
+    "calculators": {
+      "title": "Calculators: collections and the Form 5472 penalty",
+      "description": "See how much cash faster US collections free up, and what missed Form 5472 years can cost."
+    },
+    "insights": {
+      "title": "Knowledge center",
+      "description": "Short, dated, sourced notes on US corporate returns, the Form 5472 penalty, US sales tax, US collections and the importer record."
+    },
+    "about": {
+      "title": "About",
+      "description": "Ponenti takes its name from the west on the Mediterranean wind rose. We run the US side of Turkish companies at one desk, in Turkish, in US business hours."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Book a 15-minute call, message us on WhatsApp or use the short form. We reply within 1 business day."
+    },
+    "portal": {
+      "title": "Client portal",
+      "description": "The client portal is being prepared. Clients get access at onboarding."
+    },
+    "prospect": {
+      "title": "Prepared for {firm}",
+      "description": "Three observations from public import records."
+    },
+    "notFound": {
+      "title": "Page not found"
+    },
+    "ogTagline": "Made in Türkiye. Run right in the United States."
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language",
+    "switchTo": "Switch language",
+    "scrollTable": "Table, scrolls sideways",
+    "turkish": "Türkçe",
+    "english": "English",
+    "source": "Source",
+    "sources": "Sources",
+    "sampleData": "Örnek veriler / Sample data",
+    "informational": "Informational only; not legal, tax or customs advice.",
+    "perMonth": "/mo",
+    "monthly": "a month",
+    "approx": "about",
+    "onboarding": "{amount} onboarding",
+    "readMore": "Read more",
+    "minutes": "{n} min read",
+    "published": "Published {date}",
+    "updated": "Updated {date}",
+    "opensNewTab": "(opens in a new tab)",
+    "home": "Home",
+    "breadcrumb": "Breadcrumb",
+    "onThisPage": "On this page"
+  },
+  "brand": {
+    "tagline": "The US compliance and collections desk for Turkish companies.",
+    "pride": "Made in Türkiye. Run right in the United States.",
+    "logoLabel": "Ponenti, home"
+  },
+  "nav": {
+    "primary": "Main menu",
+    "services": "Services & pricing",
+    "pricing": "Pricing",
+    "riskTest": "Risk test",
+    "calculators": "Calculators",
+    "insights": "Knowledge center",
+    "about": "About",
+    "contact": "Contact",
+    "portal": "Client portal",
+    "portalShort": "Portal"
+  },
+  "cta": {
+    "book": "Book a 15-minute call",
+    "bookShort": "Book a call",
+    "whatsapp": "Message us on WhatsApp",
+    "riskTest": "3-minute risk test",
+    "seePricing": "See every price",
+    "whatsappMessage": "Hello, I'm writing from the Ponenti website. I'd like to book a 15-minute call about our US operations."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "For Turkish companies doing business in the US",
+      "title": "The US compliance and collections desk for Turkish companies.",
+      "subtitle": "Your US filings, multi-state sales tax and importer record at one bilingual desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval.",
+      "price": "Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk.",
+      "trustLabel": "Why you can trust us",
+      "trustFounder": "Founder: former UPS financial analyst and senior manager",
+      "trustMoney": "We never hold or move your money",
+      "trustReply": "Reply within 1 business day"
+    },
+    "doors": {
+      "eyebrow": "Two ways in",
+      "title": "Start where you are",
+      "us": {
+        "title": "I have a US company",
+        "body": "A monthly compliance plan for your filings, state sales tax and importer record. Collections and order desks when you need them.",
+        "link": "See plans and desks"
+      },
+      "tr": {
+        "title": "I sell to the US from Türkiye",
+        "body": "We work your US receivables in US business hours, in your name. The first step is the back-office check.",
+        "link": "See the cash desk and the check"
+      }
+    },
+    "facts": {
+      "eyebrow": "By the numbers",
+      "title": "On the US side, the rules and the numbers are clear",
+      "intro": "Every fact links to its official source.",
+      "f1": {
+        "text": "IRS penalty for each Form 5472 not filed, per year.",
+        "source": "IRS, Instructions for Form 5472"
+      },
+      "f2": {
+        "value": "Sep 18, 2026",
+        "text": "Since this date, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center.",
+        "source": "Federal Register, August 19, 2026"
+      },
+      "f3": {
+        "value": "8:00-16:00",
+        "text": "Collections calls run on US Eastern time, during your customers' business hours.",
+        "source": "Cash desk terms"
+      }
+    },
+    "offer": {
+      "eyebrow": "What we do",
+      "title": "Start with the check, grow as you need",
+      "intro": "Everything at one desk. Prices are public and in US dollars.",
+      "check": {
+        "title": "US back-office check",
+        "body": "Importer record, filing history, sales-tax exposure and receivables aging. A written report in 10 business days.",
+        "note": "credited to your first plan or desk"
+      },
+      "plans": {
+        "title": "Compliance plans",
+        "body": "Form 1120 and 5472, state returns, sales tax, books and a deadline calendar.",
+        "note": "Also {standard} and {complete} plans"
+      },
+      "cash": {
+        "title": "Cash desk",
+        "body": "Invoicing, reminders and calls in US business hours, payables ready for your approval, a weekly cash report."
+      },
+      "order": {
+        "title": "Order desk",
+        "body": "Order entry, 3PL releases, shipping documents, delivery tracking and returns."
+      },
+      "more": "See every price and scope"
+    },
+    "weekly": {
+      "eyebrow": "Transparency",
+      "title": "What you'll see every week",
+      "intro": "A short cash report every Monday and a one-page scorecard every quarter. The numbers come from your own books."
+    },
+    "dont": {
+      "eyebrow": "Our limits",
+      "title": "What we don't do",
+      "intro": "Our limits are in writing. Trust starts there.",
+      "i1": {
+        "title": "We never act as importer of record.",
+        "body": "The record stays with your company. We audit it and report what is missing."
+      },
+      "i2": {
+        "title": "We never hold or move your money.",
+        "body": "Customer payments go straight to your account. We prepare payables; you approve and release them from your own bank."
+      },
+      "i3": {
+        "title": "Your licensed customs broker files all customs entries.",
+        "body": "Your broker prepares and files everything that goes to CBP. We help you gather the information your broker asks for."
+      },
+      "i4": {
+        "title": "We never use virtual-office addresses.",
+        "body": "Our address is a real business address. CBP no longer accepts a registered-agent or business-center address on Form 5106 either."
+      },
+      "i5": {
+        "title": "Collections run in your name, and accounts more than 90 days late go to a licensed agency.",
+        "body": "Your customer relationships stay yours. Accounts past 90 days go to an agency licensed for that work."
+      }
+    },
+    "data": {
+      "eyebrow": "Your data",
+      "title": "How your data is protected",
+      "intro": "This site never asks for tax ID numbers, EINs or financial documents.",
+      "d1": {
+        "title": "Two-factor login",
+        "body": "Every system that holds your data requires two-factor login (2FA)."
+      },
+      "d2": {
+        "title": "Encrypted client portal",
+        "body": "Reports and documents live in an encrypted portal. Until it opens, reports arrive by email."
+      },
+      "d3": {
+        "title": "Written information security plan",
+        "body": "We work under a written information security plan, as the FTC Safeguards Rule requires.",
+        "source": "16 CFR 314.3"
+      },
+      "d4": {
+        "title": "Section 7216 consent",
+        "body": "We get your signed Section 7216 consent before any processing outside the US.",
+        "source": "26 CFR 301.7216-2"
+      },
+      "d5": {
+        "title": "A clear line on AI",
+        "body": "We use AI only on business plans that bar training on client data."
+      },
+      "d6": {
+        "title": "A person answers",
+        "body": "There is no AI chatbot on this site. A person answers your tax and customs questions."
+      }
+    },
+    "founder": {
+      "eyebrow": "Founder",
+      "body": "Bilingual in Turkish and English. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy. Hands-on in bookkeeping, month-end close, B2B collections, sales-tax filings, and customs entries with licensed brokers.",
+      "more": "Read our story",
+      "linkedin": "LinkedIn profile"
+    },
+    "proof": {
+      "title": "What clients say"
+    },
+    "promise": {
+      "title": "Our penalty promise",
+      "body": "If a filing we own is late, we pay the penalty, up to {cap} a year per client."
+    },
+    "final": {
+      "title": "Let's look at your US side in 15 minutes.",
+      "body": "We ask three questions: Who files your Form 5472? When was your importer record last checked against the address rule? How many days do your US customers take to pay?"
+    }
+  },
+  "report": {
+    "weekLabel": "Weekly cash report",
+    "weekOf": "Week of Sep 28 - Oct 2",
+    "cash": "Cash (bank balance)",
+    "dso": "Average payment days",
+    "days": "{days} days",
+    "dsoPrev": "last quarter {days} days",
+    "overdue": "Overdue invoices",
+    "overdueValue": "{count} invoices, {amount}",
+    "payables": "Payables awaiting your approval",
+    "payablesValue": "{count} payments, {amount}",
+    "orders": "Orders this week",
+    "ordersValue": "{count} orders",
+    "filings": "Filings due",
+    "filing1": "Form 1120 and 5472 (extended): Oct 15",
+    "filing2": "Sales tax, 2 states: Oct 20",
+    "scorecardLabel": "Quarterly scorecard",
+    "quarter": "Q3 2026",
+    "metric": "Metric",
+    "previous": "Previous quarter",
+    "current": "This quarter",
+    "rowDso": "Average payment days",
+    "rowOverdue": "Share overdue",
+    "rowOrders": "Orders",
+    "rowErrors": "3PL errors",
+    "rowFilings": "Filings on time"
+  },
+  "services": {
+    "eyebrow": "Public prices",
+    "title": "Services and pricing",
+    "intro": "All prices are in US dollars. Final scope and price are set in a signed engagement letter.",
+    "includes": "Includes",
+    "check": {
+      "title": "US back-office check",
+      "lede": "Step one: a complete picture of your US side.",
+      "credit": "Credited to the first plan or desk you sign within {days} days.",
+      "i1": "Importer record: address, owners, bond, broker authorization and refund bank details",
+      "i2": "Filing history: Form 1120 and 5472, state returns",
+      "i3": "Sales-tax exposure by state",
+      "i4": "Penalty exposure in dollars",
+      "i5": "Receivables aging and average payment days",
+      "i6": "A fix plan and a quote",
+      "delivery": "A written report in 10 business days. A free update when CBP publishes its new importer rules."
+    },
+    "plans": {
+      "title": "Compliance plans",
+      "lede": "A flat monthly fee for the filings you must make.",
+      "essentials": {
+        "name": "Essentials",
+        "for": "One company, a few states",
+        "i1": "1 entity",
+        "i2": "Form 1120 and Form 5472",
+        "i3": "1 state return",
+        "i4": "State annual report",
+        "i5": "Sales tax in up to 2 states",
+        "i6": "Quarterly books",
+        "i7": "Importer-record file",
+        "i8": "Deadline calendar"
+      },
+      "standard": {
+        "name": "Standard",
+        "for": "Importers who want a monthly close",
+        "i1": "Everything in Essentials",
+        "i2": "Monthly books and close",
+        "i3": "Sales tax in up to 6 states",
+        "i4": "1099s",
+        "i5": "Payroll-provider coordination",
+        "i6": "Quarterly 3PL inventory tie-out"
+      },
+      "complete": {
+        "name": "Complete",
+        "for": "Several companies, many states",
+        "i1": "Everything in Standard",
+        "i2": "A second entity",
+        "i3": "Sales tax in up to 12 states",
+        "i4": "Monthly inventory tie-out",
+        "i5": "Parent-invoice reconciliation"
+      },
+      "scorecard": "Every plan client gets a one-page quarterly scorecard: payment days, overdue invoices, orders and 3PL errors.",
+      "sizing": "Sales-tax states and monthly transaction volume set the plan band."
+    },
+    "cash": {
+      "title": "Cash desk",
+      "lede": "Your US receivables, worked in US business hours and in your name.",
+      "capacity": "Up to {count} invoices a month",
+      "i1": "Invoicing",
+      "i2": "Payment posting",
+      "i3": "Reminders and calls, 8:00-16:00 US Eastern",
+      "i4": "Deduction research",
+      "i5": "Credit-hold flags",
+      "i6": "Payables prepared for your approval; you release them",
+      "i7": "A weekly cash report",
+      "rules": "Works in your name. Invoices more than 90 days late go to a licensed collection agency. You can exit in the first 90 days."
+    },
+    "order": {
+      "title": "Order desk",
+      "lede": "From order to delivery, the US side of operations.",
+      "capacity": "Up to {count} orders a month",
+      "i1": "Order entry and confirmations",
+      "i2": "Releases to your 3PL",
+      "i3": "Shipping documents",
+      "i4": "Delivery tracking",
+      "i5": "Returns",
+      "note": "Customs documents are not part of this scope; your licensed customs broker prepares them."
+    },
+    "full": {
+      "title": "Full desk",
+      "lede": "The Complete plan, the cash desk and the order desk together."
+    },
+    "hiring": {
+      "title": "US hiring",
+      "lede": "When your US sales can carry a hire, we help you find the right person.",
+      "assist": {
+        "name": "Hire Assist",
+        "body": "LinkedIn listing, screening and interviews."
+      },
+      "full": {
+        "name": "Full Hire",
+        "body": "Adds the offer and onboarding. If the hire leaves within 90 days, we find a replacement."
+      },
+      "oneTime": "one-time"
+    },
+    "terms": {
+      "title": "Terms",
+      "i1": "Plans and desks run for 12 months, billed monthly in advance.",
+      "i2": "Prices rise 4% each year.",
+      "i3": "Desks start with a 90-day exit period.",
+      "i4": "Above capacity: {extra} a month per extra 100 invoices or orders.",
+      "i5": "Exact scope and price are written in a signed engagement letter."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "q1": "Will you act as our importer of record?",
+      "a1": "No. We never act as importer of record. We audit your record and help you gather the information your broker asks for.",
+      "q2": "Do you file customs entries or CBP refund requests?",
+      "a2": "No. Your licensed customs broker prepares and files all customs entries and CBP refund requests.",
+      "q3": "Will you hold our money?",
+      "a3": "No. Customer payments go straight to your account. We prepare payables; you approve them and release them from your own bank.",
+      "q4": "Whose name do collections run in?",
+      "a4": "Yours. Accounts more than 90 days late go to a licensed collection agency.",
+      "q5": "What hours do you work?",
+      "a5": "Collections calls run 8:00-16:00 US Eastern. We answer you in Turkish, and the first reply comes within 1 business day.",
+      "q6": "How fast can we start?",
+      "a6": "The check report arrives in 10 business days. A plan or desk starts once the engagement letter is signed.",
+      "q7": "Do we need to enter our tax ID on the site?",
+      "a7": "No. This site never asks for tax ID numbers, EINs or financial documents. Documents come through a secure channel after you sign."
+    }
+  },
+  "riskTest": {
+    "eyebrow": "3 minutes",
+    "title": "US risk test",
+    "intro": "10 questions. Yes/no answers and ranges only. No tax IDs, no documents.",
+    "autoAdvance": "Tapping an answer moves you to the next question.",
+    "start": "Start the test",
+    "progress": "Question {current} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "restart": "Start over",
+    "options": {
+      "yes": "Yes",
+      "no": "No",
+      "unsure": "Not sure",
+      "na": "Doesn't apply to us"
+    },
+    "q": {
+      "usEntity": {
+        "text": "Do you have a US-registered company (LLC or corporation)?"
+      },
+      "ior": {
+        "text": "Is your company the importer of record on goods shipped to the US?",
+        "help": "If your US customer imports in its own name, choose No."
+      },
+      "iorAddress": {
+        "text": "Is the address on your importer record (Form 5106) a registered-agent, virtual-office or business-center address?"
+      },
+      "brokerCheck": {
+        "text": "Has your customs broker checked your importer record against the new address rule since September 18, 2026?"
+      },
+      "form5472": {
+        "text": "Has Form 5472 been filed for your US company every year?",
+        "help": "Form 5472 is the IRS form foreign-owned US companies use to report related-party transactions."
+      },
+      "salesStates": {
+        "text": "How many US states do you sell into?",
+        "r0": "None",
+        "r1": "1-5",
+        "r2": "6-15",
+        "r3": "16 or more"
+      },
+      "taxRegs": {
+        "text": "In how many states are you registered for sales tax?",
+        "r0": "None",
+        "r1": "1-5",
+        "r2": "6-15",
+        "r3": "16 or more"
+      },
+      "paymentDays": {
+        "text": "On average, how many days do your US customers take to pay?",
+        "r0": "Under 30 days",
+        "r1": "30-45 days",
+        "r2": "46-60 days",
+        "r3": "61-90 days",
+        "r4": "Over 90 days"
+      },
+      "followUp": {
+        "text": "Does someone follow up on your US receivables during US business hours?"
+      },
+      "refundBank": {
+        "text": "Do you have a US bank account on file in ACE for CBP refunds (ACH)?",
+        "help": "Since February 6, 2026, CBP issues refunds electronically only."
+      }
+    },
+    "result": {
+      "title": "Your result",
+      "low": "Low risk",
+      "medium": "Medium risk",
+      "high": "High risk",
+      "lowBody": "Your answers show no clear gap. Checking the rules once a year is still a good habit.",
+      "mediumBody": "A few areas have gaps. One check usually clears them up.",
+      "highBody": "At least one area carries a direct penalty or cancellation risk. We suggest a short call to set priorities.",
+      "top": "Top issues",
+      "none": "No issue stands out.",
+      "informational": "This result is informational; it is not legal, tax or customs advice.",
+      "emailTitle": "Get your result by email",
+      "emailBody": "We'll send your result and the sources for each issue."
+    },
+    "risks": {
+      "form5472Missing": {
+        "title": "Missing Form 5472 years",
+        "body": "The IRS penalty is $25,000 for each Form 5472 not filed, per year. If 90 days pass after an IRS notice, another $25,000 is added for each 30 days."
+      },
+      "form5472Unknown": {
+        "title": "Form 5472 status unclear",
+        "body": "Knowing which years were filed is the first step. Each missing year carries a $25,000 penalty."
+      },
+      "iorAddress": {
+        "title": "Importer record address",
+        "body": "Since September 18, 2026, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center."
+      },
+      "iorUnknown": {
+        "title": "Importer record unclear",
+        "body": "Without knowing who holds the record and what address it uses, you can't prepare for the new rules."
+      },
+      "brokerCheck": {
+        "title": "No broker check yet",
+        "body": "Confirm with your broker that your record meets the new address rule. New importer requirements are being prepared under EO 14411."
+      },
+      "salesTaxGap": {
+        "title": "Sales-tax gap",
+        "body": "Since Wayfair (2018), a state can require you to collect its sales tax once your sales there pass its threshold, even with no physical presence. Each state you sell into without registering is a possible gap."
+      },
+      "salesTaxUnknown": {
+        "title": "Sales-tax registrations unclear",
+        "body": "Knowing where you are registered is the first step to closing gaps."
+      },
+      "paymentDays": {
+        "title": "Long payment days",
+        "body": "Every 10 days you cut from average payment days frees cash equal to about 2.7% of your annual US sales."
+      },
+      "noFollowUp": {
+        "title": "No follow-up in US hours",
+        "body": "Istanbul is 7-8 hours ahead of US Eastern. Without someone following up in US hours, payment questions wait until the next day."
+      },
+      "refundBank": {
+        "title": "No bank account for CBP refunds",
+        "body": "CBP pays refunds only by ACH to a US bank account, and it holds IEEPA refunds for importers with no bank details on file in ACE."
+      },
+      "refundUnknown": {
+        "title": "Refund account unclear",
+        "body": "Ask your broker whether ACH details are on file in ACE. Without them, refunds are held."
+      }
+    }
+  },
+  "calculators": {
+    "eyebrow": "Calculators",
+    "title": "See it in numbers",
+    "intro": "Two quick calculations. Your numbers stay in your browser; they are sent only if you ask us to email the result.",
+    "cash": {
+      "title": "Cash freed by faster collections",
+      "sales": "Annual US sales ($)",
+      "current": "Current average payment days",
+      "target": "Target days",
+      "result": "Cash freed",
+      "formula": "Formula: annual US sales / 365 x (current days - target days)",
+      "example": "Example: {sales} in sales, from 62 days down to 40: about {result}.",
+      "note": "This is arithmetic, not a promise.",
+      "invalid": "Target days must be lower than current days."
+    },
+    "form5472": {
+      "title": "Form 5472 penalty exposure",
+      "years": "Years not filed",
+      "decrease": "One year fewer",
+      "increase": "One year more",
+      "result": "Initial penalty",
+      "formula": "Formula: missing years x {penalty}",
+      "continuation": "If 90 days pass after an IRS notice, another {penalty} is added for each 30 days, with no cap.",
+      "multiple": "With more than one related party, each needs its own form."
+    },
+    "emailCta": "Email me my result"
+  },
+  "insights": {
+    "eyebrow": "Knowledge center",
+    "title": "US rules, short and sourced",
+    "intro": "Every article is dated and linked to official sources. When rules change, we update.",
+    "articleCta": "Let's talk about your situation in 15 minutes.",
+    "disclaimer": "This article is informational; it is not legal, tax or customs advice. Rules change; check the official source before you decide.",
+    "back": "All articles"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "We carry Turkish companies west",
+    "nameTitle": "The name: Ponenti",
+    "nameBody1": "On the Mediterranean sailors' wind rose, the west is ponente. Turkish sailors call it günbatısı, where the sun sets.",
+    "nameBody2": "Ponenti carries Turkish companies west, to the United States.",
+    "founderTitle": "A note from the founder",
+    "founderP1": "I'm {name}. I grew up with Turkish and English, and I've spent my career in US finance and trade operations.",
+    "founderP2": "I kept seeing Turkish companies hit the same problems on the US side: filings run late, sales tax stays open in several states, US customers pay late, and follow-up happens by email from Istanbul.",
+    "founderP3": "Ponenti exists to run that work at one desk, in Turkish, during US business hours.",
+    "bioTitle": "Background",
+    "bio": "Bilingual in Turkish and English. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy (pricing, revenue management, FP&A). Hands-on in bookkeeping and month-end close, B2B invoicing and collections, sales-tax filings, and customs entries with licensed brokers.",
+    "howTitle": "How we work",
+    "how1": "Every client has one owner and a written deadline calendar.",
+    "how2": "Two people check the calendar.",
+    "how3": "The numbers come from your own books: a cash report every week, a scorecard every quarter.",
+    "how4": "Our limits are in writing: we're not your importer of record, we don't hold your money, and your broker files customs entries.",
+    "first10Title": "The first 10 business days",
+    "first10Intro": "This is how the US back-office check runs.",
+    "step1Label": "Day 1",
+    "step1": "Intro call and document list. We ask for documents through a secure upload link, never as email attachments.",
+    "step2Label": "Days 2-4",
+    "step2": "Importer record: address, owners, bond and broker authorization. Filing history.",
+    "step3Label": "Days 5-7",
+    "step3": "Sales-tax exposure by state. Receivables aging and average payment days.",
+    "step4Label": "Days 8-9",
+    "step4": "Penalty exposure in dollars, a fix plan and a quote.",
+    "step5Label": "Day 10",
+    "step5": "Results call: the report, the priorities and the quote.",
+    "dataTitle": "Who touches your data",
+    "data1": "The founder: reviews every file.",
+    "data2": "The team: only the people assigned to your file. Before any access from outside the US, we get your signed Section 7216 consent.",
+    "data3": "Return review and e-filing: a US accounting firm under contract.",
+    "data4": "Software: business accounts with two-factor login. AI only on business plans that bar training.",
+    "data5": "No one else: we don't sell your data or share it for marketing."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's meet in 15 minutes",
+    "intro": "Book a call, message us on WhatsApp or use the short form. We reply within 1 business day.",
+    "bookTitle": "Book a call",
+    "bookBody": "Istanbul and US Eastern times are shown below.",
+    "loadCalendar": "Open the calendar",
+    "calendarNotice": "The calendar loads from Cal.com, which may set its own cookies.",
+    "calendarMissing": "The calendar isn't connected yet. Please message us on WhatsApp or use the form.",
+    "istanbul": "Istanbul",
+    "newYork": "New York (US Eastern)",
+    "callHours": "Our collections hours today: New York {nyStart}-{nyEnd}, Istanbul {istStart}-{istEnd}.",
+    "whatsappTitle": "WhatsApp",
+    "whatsappBody": "Write in Turkish or English. Your message arrives prefilled; edit it before you send.",
+    "whatsappMissing": "The WhatsApp number hasn't been added yet.",
+    "formTitle": "Short form",
+    "human": "A person answers your questions; there is no AI chatbot on this site.",
+    "reply": "Reply within 1 business day"
+  },
+  "forms": {
+    "name": "Full name",
+    "email": "Work email",
+    "company": "Company",
+    "phone": "Phone (optional)",
+    "phoneHint": "With country code, e.g. +1 404 000 0000",
+    "segment": "Your situation",
+    "segmentUs": "I have a US company",
+    "segmentTr": "I sell to the US from Türkiye",
+    "paymentDays": "On average, how many days do your US customers take to pay? (optional)",
+    "paymentDaysNone": "Prefer not to say",
+    "message": "Message (optional)",
+    "noTaxIds": "Please don't send tax ID numbers, EINs or financial documents.",
+    "consent": "I have read the <link>Privacy Policy</link>, which explains how my data is used to answer my request. I explicitly consent to my data being transferred for this purpose to Ponenti's service providers in the US and other countries, and I understand the risks it describes.",
+    "submit": "Send",
+    "sending": "Sending...",
+    "successTitle": "Thank you.",
+    "successBody": "We have your request and will reply within 1 business day. A confirmation email is on its way.",
+    "successNoEmail": "We have your request and will reply within 1 business day.",
+    "errRequired": "This field is required.",
+    "errEmail": "Enter a valid email address.",
+    "errTooLong": "This field is too long.",
+    "errPhone": "Enter the phone number in digits, with the country code.",
+    "errConsent": "Check the consent box to continue.",
+    "errTaxId": "Please don't share tax ID numbers or EINs.",
+    "errGeneric": "We couldn't send this. Please try again or message us on WhatsApp.",
+    "errBot": "We couldn't verify this submission. Please reload the page and try again, or message us on WhatsApp.",
+    "errNotConfigured": "The form isn't connected yet. Please message us on WhatsApp or book a call.",
+    "errSummary": "Please fix the marked fields."
+  },
+  "portal": {
+    "eyebrow": "Client portal",
+    "title": "Client portal",
+    "body": "The client portal is being prepared. Clients get access at onboarding; until then, reports arrive by email.",
+    "request": "Request access"
+  },
+  "prospect": {
+    "eyebrow": "Prepared for you",
+    "title": "Prepared for {firm}",
+    "intro": "Three observations from public import records. We used none of your internal information.",
+    "observation": "Observation {n}",
+    "prepared": "Prepared on {date}",
+    "cta": "Let's talk through these in 15 minutes.",
+    "sample": "Sample page: not about a real company.",
+    "note": "This page is only for the person who received the link and is not listed in search engines."
+  },
+  "footer": {
+    "services": "Services",
+    "resources": "Resources",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy and KVKK",
+    "terms": "Terms of use",
+    "cookies": "Cookie notice",
+    "cookieSettings": "Cookie settings",
+    "contactTitle": "Contact details",
+    "legalEntity": "Legal entity",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "founder": "Founder",
+    "linkedin": "LinkedIn",
+    "disclaimer": "Content on this site is informational; it is not legal, tax or customs advice. Ponenti is not a government agency and is not affiliated with any government agency.",
+    "copyright": "© {year} {legalName}"
+  },
+  "consent": {
+    "title": "Your cookie choices.",
+    "body": "We use the cookies the site needs to work. We use PostHog analytics cookies only if you accept; details are in our <link>Cookie Notice</link>.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "preferences": "Preferences",
+    "save": "Save",
+    "necessary": "Necessary cookies",
+    "necessaryBody": "Your cookie choice and your language. Always on.",
+    "analytics": "Analytics (PostHog)",
+    "analyticsBody": "Helps us see which pages are useful. Off unless you turn it on.",
+    "dialogLabel": "Cookie settings"
+  },
+  "notFound": {
+    "title": "We can't find that page.",
+    "body": "It may have moved, or it may never have existed.",
+    "home": "Back to the home page"
+  },
+  "emails": {
+    "confirmSubject": "We have your request | Ponenti",
+    "greeting": "Dear {name},",
+    "thanks": "We have your request. Thank you for the details.",
+    "reply": "We will reply within 1 business day.",
+    "book": "If you'd like to book a call now: {url}",
+    "riskIntro": "Your risk test result: {level}.",
+    "riskTop": "Top issues:",
+    "cashResult": "Your result: with {sales} in annual sales, cutting payment days from {current} to {target} frees about {result} in cash.",
+    "form5472Result": "Your result: the initial penalty for {years} missing years is {result}.",
+    "noTaxIds": "Please don't attach tax ID numbers, EINs or financial documents to this email.",
+    "informational": "The information in this email is informational; it is not legal, tax or customs advice.",
+    "signoff": "Best regards,"
+  }
+}

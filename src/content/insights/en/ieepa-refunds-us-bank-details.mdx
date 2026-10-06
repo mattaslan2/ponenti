@@ -1,0 +1,92 @@
+export const meta = {
+  key: "ieepa-refunds-bank-details",
+  locale: "en",
+  slug: "ieepa-refunds-us-bank-details",
+  title: "IEEPA refunds held for missing U.S. bank details",
+  description: "CBP now pays refunds only by ACH to a U.S. bank account. IEEPA refunds owed to importers with no bank details on file in ACE are being held.",
+  published: "2026-10-05",
+  updated: "2026-10-05",
+  readingMinutes: 5,
+  keywords: ["IEEPA refund", "CBP refund", "ACH refund enrollment", "U.S. bank account", "CAPE declaration", "CBP Form 4811", "importer of record"],
+  sources: [
+    { title: "Learning Resources, Inc. v. Trump, No. 24-1287 (with Trump v. V.O.S. Selections, Inc., No. 25-250)", url: "https://www.supremecourt.gov/opinions/25pdf/24-1287_4gcj.pdf", publisher: "Supreme Court of the United States", date: "2026-02-20" },
+    { title: "Executive Order 14389: Ending Certain Tariff Actions", url: "https://www.whitehouse.gov/presidential-actions/2026/02/ending-certain-tariff-actions/", publisher: "The White House", date: "2026-02-20" },
+    { title: "CSMS # 67834313: Ending Collection of International Emergency Economic Powers Act Duties", url: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9", publisher: "U.S. Customs and Border Protection", date: "2026-02-22" },
+    { title: "Electronic Refunds, interim final rule, 91 FR 21", url: "https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds", publisher: "U.S. Customs and Border Protection", date: "2026-01-02" },
+    { title: "CSMS # 68179006: ACE Portal Access and ACH Set-Up Required to Receive CBP Refunds", url: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/410543e", publisher: "U.S. Customs and Border Protection", date: "2026-03-27" },
+    { title: "CSMS # 68340863: CAPE for IEEPA Refunds, April 20, 2026, Deployment", url: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/412cc7f", publisher: "U.S. Customs and Border Protection", date: "2026-04-13" },
+    { title: "CSMS # 68396594: CAPE for IEEPA Refunds Available Now", url: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/413a632", publisher: "U.S. Customs and Border Protection", date: "2026-04-20" },
+    { title: "CSMS # 68536553: ACE Reports for Monitoring CAPE Refund Claims", url: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/415c8e9", publisher: "U.S. Customs and Border Protection", date: "2026-05-04" },
+    { title: "CSMS # 69066837: CAPE Entries Flagged for Reconciliation Deployed", url: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/41de055", publisher: "U.S. Customs and Border Protection", date: "2026-06-29" },
+    { title: "CSMS # 69570464: Review ACE Reports for Rejected Refunds Due to Lack of ACH Enrollment", url: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/4258fa0", publisher: "U.S. Customs and Border Protection", date: "2026-08-18" },
+    { title: "Accuracy of Importer of Record Data Submitted to CBP, 91 FR 53627", url: "https://www.federalregister.gov/documents/2026/08/19/2026-16911/accuracy-of-importer-of-record-data-submitted-to-cbp", publisher: "U.S. Customs and Border Protection", date: "2026-08-19" },
+    { title: "Court-Ordered Refunds Under the IEEPA Worksheet, 30-day notice, 91 FR 63299", url: "https://www.federalregister.gov/documents/2026/10/05/2026-20228/agency-information-collection-activities-court-ordered-refunds-under-the-international-emergency", publisher: "U.S. Customs and Border Protection", date: "2026-10-05" },
+    { title: "19 CFR 111.1 Definitions", url: "https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.1", publisher: "eCFR, Office of the Federal Register", date: "2026-10-01" },
+    { title: "19 CFR 111.2 License and permit required", url: "https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.2", publisher: "eCFR, Office of the Federal Register", date: "2026-10-02" },
+    { title: "19 CFR 24.36 Refunds of excessive duties, taxes, etc.", url: "https://www.ecfr.gov/current/title-19/chapter-I/part-24/section-24.36", publisher: "eCFR, Office of the Federal Register", date: "2026-09-24" },
+    { title: "31 CFR 208.4 Waivers", url: "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-II/subchapter-A/part-208/section-208.4", publisher: "eCFR, Office of the Federal Register", date: "2026-10-01" },
+  ],
+}
+
+## What happened
+
+On February 20, 2026, the U.S. Supreme Court ruled on tariffs imposed under the International Emergency Economic Powers Act (IEEPA). The cases were Learning Resources, Inc. v. Trump and Trump v. V.O.S. Selections, Inc. The holding fits in one line: ["IEEPA does not authorize the President to impose tariffs."](https://www.supremecourt.gov/opinions/25pdf/24-1287_4gcj.pdf)
+
+The same day, [Executive Order 14389](https://www.whitehouse.gov/presidential-actions/2026/02/ending-certain-tariff-actions/) ended those duties. U.S. Customs and Border Protection (CBP) [stopped collecting IEEPA duties](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9) on goods entered on or after February 24, 2026.
+
+CBP estimates that IEEPA duties assessed from February 3, 2025 through February 24, 2026 total about $166 billion. More than 53 million entry summaries need processing to issue the refunds ([91 FR 63300](https://www.federalregister.gov/documents/2026/10/05/2026-20228/agency-information-collection-activities-court-ordered-refunds-under-the-international-emergency)).
+
+## How refunds are claimed
+
+CBP built a refund tool called CAPE inside ACE, its online system of record for imports. CAPE [went live on April 20, 2026](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/413a632) and its scope [was expanded on June 29, 2026](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/41de055).
+
+Only two parties can file a CAPE Declaration: the importer of record (IOR) itself, or the customs broker that filed the entries. CBP set this out in [CSMS # 68340863](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/412cc7f). CSMS messages are CBP's official trade notices.
+
+For standard unliquidated entries, valid refunds [generally issue within 60-90 days](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/412cc7f) after a CAPE Declaration is accepted. Further review can take longer. Refunds are [consolidated into one payment](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/412cc7f) to the IOR or to the third party it names on CBP Form 4811.
+
+## Why your U.S. bank details decide the outcome
+
+[Since February 6, 2026, CBP has issued all refunds electronically](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds). A paper check requires an [approved waiver](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds), and the waiver grounds in [31 CFR 208.4](https://www.ecfr.gov/current/title-31/subtitle-B/chapter-II/subchapter-A/part-208/section-208.4) are narrow.
+
+Payment goes by ACH (Automated Clearing House), the U.S. electronic bank transfer network. CBP's ACH refund application [requires a U.S. bank account](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds).
+
+An importer without a U.S. account has two options. It can open one, or it can use CBP Form 4811 to name a refund recipient that has one. CBP's rule says [foreign importers will need a U.S. bank account or must authorize their broker](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds) to receive refunds for them.
+
+If bank details are missing, an approved refund [is rejected](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds). In a [Federal Register notice dated October 5, 2026](https://www.federalregister.gov/documents/2026/10/05/2026-20228/agency-information-collection-activities-court-ordered-refunds-under-the-international-emergency), CBP said it is holding refunds for filers with no ACH account on file in ACE. It will do the same for IEEPA refunds.
+
+Waiting does not earn extra interest either. If CBP approves a refund within 30 days of liquidation but cannot send it solely because bank details are missing, [no delinquency interest accrues](https://www.ecfr.gov/current/title-19/chapter-I/part-24/section-24.36).
+
+As of March 27, 2026, CBP reported more than 12,300 approved refunds rejected since February 6 for missing banking information ([CSMS # 68179006](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/410543e)). That count covers all CBP refunds and predates IEEPA refund payments, which CBP said would start [as early as May 12, 2026](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/415c8e9).
+
+## Where refunds get stuck
+
+| Situation | Result |
+|---|---|
+| Your Turkish company is the IOR and has no U.S. account | The refund waits. You need a U.S. account or a Form 4811 designee ([91 FR 23](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds)). |
+| No ACE Portal account | Bank details cannot be entered. Open an account first ([91 FR 22](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds)). |
+| No email on your CBP Form 5106 (importer identity record) | The ACE account cannot be created automatically ([91 FR 27](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds)). The email must belong to the IOR. Since September 18, 2026, inaccurate 5106 data can get the IOR number voided ([91 FR 53627](https://www.federalregister.gov/documents/2026/08/19/2026-16911/accuracy-of-importer-of-record-data-submitted-to-cbp)). |
+| Your Form 4811 designee is not enrolled in ACH | The refund defaults to your ACH account. With no account, it is rejected ([91 FR 23](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds)). |
+
+## Can a rejected refund be reissued?
+
+Yes. First, complete the ACH refund application in the ACE Portal. Then email CBP at frn-achrefundsupport@cbp.dhs.gov and ask that the rejected refunds be sent to the new account ([91 FR 23](https://www.federalregister.gov/documents/2026/01/02/2025-24171/electronic-refunds)).
+
+Rejected refunds appear in the REV-613 report in ACE Reports. On August 18, 2026, CBP urged brokers to run this report for their importers. Importers can also run it themselves ([CSMS # 69570464](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/4258fa0)).
+
+## What Ponenti does and does not do
+
+Preparing a refund request for CBP is "customs business." The definition in [19 CFR 111.1](https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.1) covers refunds and the preparation of documents to be filed with CBP. Doing that work for someone else [requires a CBP broker license](https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.2). An importer may do it [for its own account](https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.2).
+
+Ponenti never acts as importer of record. Ponenti does not prepare or file customs entries or CBP refund requests. You or your licensed customs broker file them.
+
+Ponenti never holds or moves client money, so Ponenti cannot be your Form 4811 refund recipient.
+
+What Ponenti can do: spot a missing refund setup, flag it, and tell you what to ask your broker and your bank.
+
+## What to do now
+
+1. Ask your broker to run the REV-613 report to see whether any refunds were rejected.
+2. In your ACE Portal account, confirm that U.S. bank details appear under the ACH Refund Authorization tab.
+3. Confirm with your broker that the email, phone number, and address on your Form 5106 are your own and current.
+4. If you have no U.S. account, ask your bank about U.S. account options. If you use Form 4811 instead, agree in writing with your broker on when, and at what cost, the money reaches you.
+5. If any refunds were rejected, enroll first, then email frn-achrefundsupport@cbp.dhs.gov to request reissue.

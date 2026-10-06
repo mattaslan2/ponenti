@@ -1,0 +1,70 @@
+export const meta = {
+  key: "cookies",
+  locale: "tr",
+  slug: "cerezler",
+  title: "Çerez Bildirimi",
+  description: "Ponenti web sitesinde kullanılan çerezler ve tarayıcı depolama kayıtları, süreleri ve çerez tercihinizi nasıl değiştirebileceğiniz.",
+  updated: "2026-10-05",
+  sources: [
+    { title: "Çerez Uygulamaları Hakkında Rehber (Temmuz 2025)", url: "https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/fb193dbb-b159-4221-8a7b-3addc083d33f.pdf", publisher: "Kişisel Verileri Koruma Kurumu" },
+    { title: "6698 sayılı Kişisel Verilerin Korunması Kanunu", url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6698&MevzuatTur=1&MevzuatTertip=5", publisher: "Mevzuat Bilgi Sistemi" },
+    { title: "Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ", url: "https://www.kvkk.gov.tr/Icerik/4132/aydinlatma-yukumlulugunun-yerine-getirilmesinde-uyulacak-usul-ve-esaslar-hakkinda-teblig", publisher: "Kişisel Verileri Koruma Kurumu" },
+  ],
+}
+
+> [confirm with counsel] Bu metin taslaktır. / This text is a draft.
+
+## 1. Çerez ve tarayıcı depolaması nedir
+
+Çerezler, ziyaret ettiğiniz sitenin tarayıcınıza kaydettiği küçük metin dosyalarıdır. Siteler benzer bilgileri tarayıcı depolamasında (localStorage ve sessionStorage) da tutabilir. Bu bildirim her ikisini de açıklar.
+
+## 2. Kullandığımız çerezler ve depolama kayıtları
+
+| Ad | Tür | Amaç | Süre | Kategori |
+|---|---|---|---|---|
+| `ponenti_consent` | Birinci taraf çerez | Çerez tercihinizi hatırlar. | 12 ay | Kesinlikle gerekli |
+| `NEXT_LOCALE` | Birinci taraf çerez | Seçtiğiniz dili hatırlar. Yalnızca dil değiştirdiğinizde oluşur. | 12 ay | Tercih |
+| `ph_phc_…_posthog` ve `ph_` ile başlayan diğer kayıtlar | Birinci taraf çerez ve tarayıcı depolaması; veriler PostHog'a (ABD) gider | Ziyaretleri ölçer: tarayıcınıza rastgele bir kimlik atar, oturumu ve sayfa kullanımını kaydeder. | Çerez: 365 gün (PostHog varsayılanı). localStorage: siz silene kadar | Analitik (yalnızca onayla) |
+| Cal.com çerezleri | Üçüncü taraf çerez (cal.com) | Randevu takviminin çalışmasını sağlar. Yalnızca takvimi açtığınızda yüklenir. | Cal.com belirler | Üçüncü taraf |
+
+`ph_phc_…_posthog` adındaki noktaların yerinde PostHog proje anahtarımız yer alır.
+
+Siteye geldiğiniz bağlantıdaki kampanya etiketleri (UTM parametreleri) tarayıcınıza kaydedilmez. Sayfa açıkken yalnızca bellekte tutulur ve yalnızca göndermeyi seçtiğiniz bir formla iletilir.
+
+## 3. Kategoriler
+
+- Kesinlikle gerekli: Sitenin çalışması ve çerez tercihinizin hatırlanması için gerekir. Onay gerektirmez.
+- Tercih: Sizin seçtiğiniz bir ayarı (dil) hatırlar. Yalnızca dil değiştirdiğinizde oluşur.
+- Analitik: Sitenin nasıl kullanıldığını ölçer. PostHog analitiği yalnızca kabul ederseniz yüklenir.
+- Üçüncü taraf: Başka bir şirketin kendi alan adından yerleştirdiği çerezler (Cal.com).
+
+## 4. Analitik, siz kabul edene kadar kapalıdır
+
+PostHog, siz çerez bandında "Kabul et" demeden veya "Tercihler" bölümünde analitiği açmadan yüklenmez. "Reddet" derseniz analitik kapalı kalır ve site normal çalışır.
+
+## 5. Tercihinizi nasıl değiştirirsiniz
+
+Sitenin alt kısmındaki "Çerez tercihleri" bağlantısı çerez bandını yeniden açar. Buradan onay verebilir veya onayınızı geri alabilirsiniz. Geri alma ileriye dönük sonuç doğurur.
+
+Çerezleri ve site verilerini tarayıcı ayarlarınızdan da silebilir veya engelleyebilirsiniz. Kesinlikle gerekli çerezleri engellerseniz tercihinizi hatırlayamayız ve çerez bandı yeniden görünür.
+
+## 6. Üçüncü taraf hizmetler
+
+- Cal.com: Randevu takvimi yalnızca siz açtığınızda yüklenir. Takvim açıldığında Cal.com kendi çerezlerini yerleştirebilir. Ayrıntılar için [Cal.com Gizlilik Politikası](https://cal.com/privacy) sayfasına bakın.
+- WhatsApp: WhatsApp bağlantısı yalnızca siz dokunduğunuzda açılır ve sitemize WhatsApp çerezi yerleştirmez. Bağlantıya dokunduğunuzda WhatsApp'ın kendi koşulları geçerlidir: [WhatsApp Gizlilik İlkesi](https://www.whatsapp.com/legal/privacy-policy).
+
+## 7. Diğer teknolojiler
+
+- Sentry: Hata izleme için kullanılır. Çerez kullanmaz, oturum kaydı yapmaz ve varsayılan olarak kişisel bilgi göndermez.
+- Vercel BotID: Tarayıcınızda çalışan görünmez bir kontroldür. Form gönderiminin bir bottan gelip gelmediğini anlamaya yarar.
+- Gizli tuzak alanı (honeypot): Formdaki görünmez bir alandır. Otomatik gönderimleri ayıklamak için kullanılır.
+
+## 8. Reklam çerezleri
+
+Sitemizde reklam veya yeniden hedefleme çerezi kullanılmaz.
+
+## 9. Daha fazla bilgi
+
+Kişisel verilerinizi nasıl işlediğimizi, yurt dışına aktarımı ve haklarınızı Gizlilik Politikası ve KVKK Aydınlatma Metni'nde açıklıyoruz. Bu metne sitenin alt kısmından ulaşabilirsiniz.
+
+Sorularınız için: <Company field="email" />
