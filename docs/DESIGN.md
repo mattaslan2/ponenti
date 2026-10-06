@@ -38,21 +38,21 @@ Contrast, measured (WCAG 2.2 needs 4.5:1 for text, 3:1 for UI): navy on ivory 15
 
 Two families. Cormorant Garamond Medium (500), roman and italic, is the voice: headings, prices, large numerals. Inter (400 to 600) is the workhorse: body text, labels, forms and all data.
 
-| Style | Phone (390 px) size / line | Desktop (1440 px) size / line | Weight | Tracking | Family | Used for |
-|---|---|---|---|---|---|---|
-| `display-xl` | 42 / 45 | 76 / 78 | 500 | -0.02em | Serif | The one h1 of a page |
-| `display-lg` | 32 / 36 | 52 / 56 | 500 | -0.015em | Serif | Section titles |
-| `display-md` | 26 / 31 | 36 / 42 | 500 | -0.01em | Serif | Titles in a split section, plan names, article h2 |
-| `display-sm` | 22 / 28 | 27 / 34 | 500 | -0.005em | Serif | Row titles, card titles, FAQ questions |
-| `numeral` | 52 / 52 | 88 / 84 | 500 | -0.02em | Serif | One key figure (calculator results, clocks) |
-| `lead` | 18 / 28 | 21 / 33 | 400 | -0.011em | Sans | The paragraph under a title |
-| `body` | 16 / 27 | 17 / 29 | 400 | -0.006em | Sans | Running text |
-| `title` | 17 / 24 | 18 / 26 | 600 | -0.01em | Sans | Small sans headings inside dense lists |
-| `small` | 14 / 22 | 14 / 22 | 400 | 0 | Sans | Supporting text, list items |
-| `caption` | 13 / 20 | 13 / 20 | 400 | 0 | Sans | Captions, sources, meta |
-| `eyebrow` | 12 / 16 | 12 / 16 | 500 | +0.16em, uppercase | Sans | Labels above titles |
+| Style | Phone (390 px) size / line | Desktop (1440 px) size / line | Line ratio | Weight | Tracking | Family | Used for |
+|---|---|---|---|---|---|---|---|
+| `display-xl` | 42 / 44 | 76 / 79 | 1.04 | 500 | -0.02em | Serif | The one h1 of a page |
+| `display-lg` | 32 / 35 | 52 / 57 | 1.10 | 500 | -0.015em | Serif | Section titles |
+| `display-md` | 26 / 30 | 36 / 42 | 1.17 | 500 | -0.01em | Serif | Titles in a split section, plan names, article h2 |
+| `display-sm` | 22 / 28 | 27 / 34 | 1.26 | 500 | -0.005em | Serif | Row titles, card titles, FAQ questions |
+| `numeral` | 52 / 50 | 88 / 84 | 0.96 | 500 | -0.02em | Serif | One key figure (calculator results, clocks) |
+| `lead` | 18 / 28 | 21 / 33 | 1.56 | 400 | -0.011em | Sans | The paragraph under a title |
+| `body` | 16 / 27 | 17 / 29 | 1.70 | 400 | -0.006em | Sans | Running text |
+| `title` | 17 / 24 | 18 / 26 | 1.42 | 600 | -0.01em | Sans | Small sans headings inside dense lists |
+| `small` | 14 / 22 | 14 / 22 | 1.57 | 400 | -0.1px (inherited from body) | Sans | Supporting text, list items |
+| `caption` | 13 / 20 | 13 / 20 | 1.54 | 400 | -0.1px (inherited from body) | Sans | Captions, sources, meta |
+| `eyebrow` | 12 / 16 | 12 / 16 | 1.34 | 500 | +0.16em, uppercase | Sans | Labels above titles |
 
-Sizes between 390 and 1440 px are fluid (`clamp`), so there are no jumps at breakpoints.
+Sizes between 390 and 1440 px are fluid (`clamp`), so there are no jumps at breakpoints. Each style keeps one line-height ratio; the px values are that ratio at each end, rounded. These numbers were measured in the browser on the production build at both widths.
 
 Rules
 
@@ -74,6 +74,8 @@ Whitespace does the work that boxes did before.
 | `py-band` | 72 px | 120 px | Page headers, bands that belong to their neighbor, the footer |
 | `mt-stack` | 48 px | 96 px | From a section header to its content |
 | Side gutter | 24 px | 64 px (40 px from 640 px) | Class `page`, max width 1280 px |
+
+The desktop values are twice the first version's: section padding 96 to 192 px, side gutters 32 to 64 px. Phones stop at 104 px (from 64 px). At a literal 128 px a section break is about 300 px of blank on the roughly 700 px a phone shows between the header and the action bar, against about 250 px now, and phone gutters wider than 24 px squeeze the 42 px headline. To change it, edit the first value of `--spacing-section` in `tokens.css`.
 
 Grid: 12 columns, 32 px gap, from 1024 px. Below that everything is one column.
 
