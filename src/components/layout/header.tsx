@@ -9,6 +9,7 @@ import { PortalButton } from "./portal-button";
 
 export const navItems: NavItem[] = [
   { href: "/services", key: "services" },
+  { href: "/support-file", key: "supportFile" },
   { href: "/risk-test", key: "riskTest" },
   { href: "/calculators", key: "calculators" },
   { href: "/trade-data", key: "tradeData" },
@@ -20,7 +21,8 @@ export const navItems: NavItem[] = [
 /**
  * Clear over the page at the top; a hairline and a veil appear once the page
  * moves (html[data-scrolled], set by ClientRuntime). The bar is wider than the
- * text column so the Turkish menu fits on one line from 1280 px up.
+ * text column so the Turkish menu fits on one line from 1280 px up (About joins
+ * it from 1,365 px in Turkish).
  */
 export async function Header() {
   const t = await getTranslations("nav");
@@ -39,7 +41,9 @@ export async function Header() {
             {navItems
               .filter((i) => i.key !== "contact")
               .map((item) => (
-                <li key={item.key}>
+                // Seven Turkish labels need about 1,365 px. Below that, About leaves the bar
+                // (it stays in the footer and the menu) so the call-to-action keeps its room.
+                <li key={item.key} className={item.key === "about" ? "xl:max-[1365px]:[&:lang(tr)]:hidden" : undefined}>
                   <Link href={item.href} className="hover-rule inline-flex min-h-11 items-center whitespace-nowrap after:bottom-2.5">
                     {item.key === "services" ? t("pricing") : t(item.key)}
                   </Link>

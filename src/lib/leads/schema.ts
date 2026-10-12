@@ -2,7 +2,7 @@ import "server-only";
 import { z } from "zod";
 import { UTM_KEYS } from "@/lib/utm";
 
-export const FORM_TYPES = ["contact", "risk_test", "calc_cash", "calc_5472", "prospect", "trade_data"] as const;
+export const FORM_TYPES = ["contact", "risk_test", "calc_cash", "calc_5472", "calc_support", "prospect", "trade_data"] as const;
 export const PAYMENT_DAYS = ["0-29", "30-45", "46-60", "61-90", "90+"] as const;
 export const SEGMENTS = ["us_entity", "sells_from_tr"] as const;
 export const RISK_LEVELS = ["low", "medium", "high"] as const;
@@ -98,4 +98,15 @@ export const tradeContextSchema = z.object({
 export const form5472ContextSchema = z.object({
   years: z.number().int().nonnegative().max(50),
   result: z.number().nonnegative().max(1e10),
+});
+
+const money = z.number().nonnegative().max(1e11);
+
+/** Support estimator inputs (annual USD). The server recomputes the estimate from these. */
+export const supportContextSchema = z.object({
+  costs: z.object({ rent: money, fulfillment: money, documents: money, trademark: money, promotion: money }),
+  ownership: z.number().min(0).max(100),
+  exports: money.nullable(),
+  onlineSales: money.nullable(),
+  overOneYear: z.boolean(),
 });

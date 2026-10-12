@@ -58,6 +58,19 @@ const base = process.env.BASE_URL || 'http://localhost:3000';
   await form.locator('button[type="submit"]').click();
   await page.waitForTimeout(3000);
   console.log('calc success panel:', (await page.locator('main').innerText()).includes('Thank you'));
+
+  // 4. Support estimator, TR: the map request carries the inputs; the server recomputes the estimate
+  await page.goto(base + '/tr/destek-dosyasi', { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Destek haritanızı alın' }).click();
+  await page.waitForTimeout(300);
+  await page.getByLabel('Ad soyad', { exact: true }).fill('Zeynep Kaya');
+  await page.getByLabel('İş e-postası').fill('zeynep@kaya-seramik.com.tr');
+  await page.getByLabel('Şirket', { exact: true }).fill('Kaya Seramik A.Ş.');
+  await page.locator('input[name="consent"]').check();
+  await page.waitForTimeout(1700);
+  await page.getByRole('button', { name: 'Destek haritamı iste' }).click();
+  await page.waitForTimeout(3000);
+  console.log('support success panel:', (await page.locator('main').innerText()).includes('Teşekkürler.'));
   console.log('page errors:', errors);
   await browser.close();
 

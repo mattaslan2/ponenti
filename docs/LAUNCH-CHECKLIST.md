@@ -48,7 +48,7 @@ Create these attributes with exactly these slugs (Attio → Settings → Objects
 | Ponenti segment | `ponenti_segment` | Select | `us_entity`, `sells_from_tr` |
 | Ponenti risk level | `ponenti_risk_level` | Select | `low`, `medium`, `high` |
 | Ponenti payment days | `ponenti_payment_days` | Select | `0-29`, `30-45`, `46-60`, `61-90`, `90+` |
-| Ponenti form | `ponenti_form` | Select | `contact`, `risk_test`, `calc_cash`, `calc_5472`, `prospect` |
+| Ponenti form | `ponenti_form` | Select | `contact`, `risk_test`, `calc_cash`, `calc_5472`, `calc_support`, `prospect`, `trade_data` |
 | Ponenti consent | `ponenti_consent` | Checkbox | |
 | UTM source | `utm_source` | Text | |
 | UTM medium | `utm_medium` | Text | |
@@ -68,6 +68,7 @@ Use a link with campaign tags, e.g. `/tr?utm_source=test&utm_medium=email&utm_ca
 - [ ] Repeat in English from `/en/contact`.
 - [ ] Risk test → "Get your result by email": risk level, segment, payment days in Attio; the email lists the top issues with sources.
 - [ ] Both calculators → "Email me my result".
+- [ ] Support estimator (`/tr/destek-dosyasi`) → "Destek haritanızı alın": `ponenti_form = calc_support`; the note and the email show both estimates, the inputs and the TCMB rate with its date.
 - [ ] Prospect page form (`/tr/ozel/{firm}`): the note shows the prospect page.
 - [ ] Message with an EIN-shaped number (`12-3456789`) is refused with the "don't share tax IDs" message.
 - [ ] Vercel → Logs: no errors.

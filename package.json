@@ -12,7 +12,8 @@
     "copy:export": "node scripts/export-copy.mjs",
     "test:e2e": "node tests/e2e.cjs",
     "test:a11y": "node tests/axe.cjs",
-    "test:leads": "node tests/lead-flow.cjs"
+    "test:leads": "node tests/lead-flow.cjs",
+    "test:support": "node --conditions=react-server tests/support-math.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

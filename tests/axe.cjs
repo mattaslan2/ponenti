@@ -1,9 +1,9 @@
-// Accessibility scan (axe-core, WCAG 2.2 AA + best practice + experimental rules) of 18 pages
+// Accessibility scan (axe-core, WCAG 2.2 AA + best practice + experimental rules) of 25 pages
 // at 390 px and 1280 px. Run against a local production build: npm run test:a11y.
 const { chromium } = require('playwright-core');
 const { AxeBuilder } = require('@axe-core/playwright');
 const base = process.env.BASE_URL || 'http://localhost:3000';
-const pages = ['/tr', '/tr/hizmetler', '/tr/risk-testi', '/tr/hesaplayicilar', '/tr/bilgi-merkezi', '/tr/bilgi-merkezi/eo-14411-ithalatci-kaydi-kurallari', '/tr/hakkimizda', '/tr/iletisim', '/tr/gizlilik', '/tr/cerezler', '/tr/portal', '/tr/ozel/ornek-firma', '/tr/ticaret-verileri', '/tr/ticaret-verileri/570242', '/en/trade-data/8708', '/tr/ticaret-verileri/5702?country=IN', '/tr/yok', '/en', '/en/services', '/en/contact', '/en/insights/sales-tax-nexus-by-state', '/en/about'];
+const pages = ['/tr', '/tr/hizmetler', '/tr/risk-testi', '/tr/hesaplayicilar', '/tr/destek-dosyasi', '/tr/bilgi-merkezi/abd-kira-destegi-neden-reddedilir', '/tr/bilgi-merkezi', '/tr/bilgi-merkezi/eo-14411-ithalatci-kaydi-kurallari', '/tr/hakkimizda', '/tr/iletisim', '/tr/gizlilik', '/tr/cerezler', '/tr/portal', '/tr/ozel/ornek-firma', '/tr/ticaret-verileri', '/tr/ticaret-verileri/570242', '/en/trade-data/8708', '/tr/ticaret-verileri/5702?country=IN', '/tr/yok', '/en', '/en/services', '/en/contact', '/en/support-file', '/en/insights/sales-tax-nexus-by-state', '/en/about'];
 (async () => {
   const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : { channel: 'chrome' });
   let total = 0;

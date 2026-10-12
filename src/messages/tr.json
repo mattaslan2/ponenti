@@ -19,6 +19,10 @@
       "title": "Hesaplayıcılar: tahsilat ve Form 5472 cezası",
       "description": "Daha hızlı ABD tahsilatının serbest bıraktığı nakdi ve eksik Form 5472 yıllarının ceza riskini hesaplayın."
     },
+    "supportFile": {
+      "title": "ABD destek dosyası: kira, 3PL ve tanıtım destekleri",
+      "description": "ABD'deki kira, 3PL, belge, marka ve tanıtım giderleriniz için Türkiye ihracat desteklerini hesaplayın. Başvurunun ABD tarafını her ay biz hazırlarız."
+    },
     "insights": {
       "title": "Bilgi merkezi",
       "description": "ABD şirket vergi beyannamesi, Form 5472 cezası, ABD satış vergisi, ABD tahsilat ve ithalatçı kaydı hakkında kısa, tarihli ve kaynaklı yazılar."
@@ -90,6 +94,7 @@
     "pricing": "Fiyatlar",
     "riskTest": "Risk testi",
     "calculators": "Hesaplayıcılar",
+    "supportFile": "Destek dosyası",
     "insights": "Bilgi merkezi",
     "about": "Hakkımızda",
     "contact": "İletişim",
@@ -204,6 +209,34 @@
         "body": "Sipariş girişi, 3PL talimatları, sevkiyat belgeleri, teslimat takibi ve iadeler."
       },
       "more": "Tüm fiyatları ve kapsamları görün"
+    },
+    "support": {
+      "eyebrow": "Türkiye destekleri",
+      "title": "Siz ABD'de işinize bakın; destek dosyanız <em>her ay hazır</em>.",
+      "intro": "Ticaret Bakanlığı, ABD'deki kira, 3PL, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar.",
+      "f1": {
+        "kicker": "Destek oranı",
+        "value": "%70'e kadar",
+        "unit": "Temel oran %50",
+        "text": "ABD ödeme yılında Bakanlığın hedef ülkeler listesindeyse kira, 3PL, marka ve tanıtım desteğine 20 puan eklenir.",
+        "source": "Kaynak: Birim kira genelgesi, md. 13"
+      },
+      "f2": {
+        "kicker": "Kira desteği üst limiti",
+        "value": "{amount} TL",
+        "unit": "Birim başına, yıllık (2026)",
+        "text": "Ofis, depo, mağaza ve paylaşımlı ofis kirası; her ülkede en fazla 4 yıl.",
+        "source": "Kaynak: Ticaret Bakanlığı 2026 limitleri"
+      },
+      "f3": {
+        "kicker": "Başvuru süresi",
+        "value": "6 ay",
+        "unit": "Ödeme belgesi tarihinden itibaren",
+        "text": "Her kira ödemesinin süresi ayrı işler. Destek dosyası her birini ayrı izler.",
+        "source": "Kaynak: Birim kira genelgesi, md. 10"
+      },
+      "link": "Desteğinizi hesaplayın",
+      "more": "Destek dosyası nasıl işler"
     },
     "weekly": {
       "eyebrow": "Şeffaflık",
@@ -332,6 +365,7 @@
       "i4": "Dolar cinsinden ceza riski",
       "i5": "Alacak yaşlandırması ve ortalama tahsilat süresi",
       "i6": "Düzeltme planı ve teklif",
+      "i7": "Türkiye destekleri ön incelemesi: ortaklık bağı, kira sözleşmesi, kiranın ödenme şekli ve online satanlar için e-ihracat beyanları",
       "delivery": "10 iş gününde yazılı rapor. CBP'nin yeni ithalatçı kuralları yayımlanınca ücretsiz güncelleme."
     },
     "plans": {
@@ -357,7 +391,8 @@
         "i3": "En fazla 6 eyalette satış vergisi",
         "i4": "1099 formları",
         "i5": "Bordro sağlayıcınızla koordinasyon",
-        "i6": "Çeyreklik 3PL envanter mutabakatı"
+        "i6": "Çeyreklik 3PL envanter mutabakatı",
+        "i7": "Her ay sonu kapanışında Türkiye destekleri için destek dosyası"
       },
       "complete": {
         "name": "Kapsamlı",
@@ -369,7 +404,8 @@
         "i5": "Ana şirket faturalarıyla mutabakat"
       },
       "scorecard": "Her plan müşterisine çeyreklik karne: tahsilat süresi, vadesi geçmiş faturalar, siparişler ve 3PL hataları.",
-      "sizing": "Plan bandını satış vergisi eyalet sayısı ve aylık işlem hacmi belirler."
+      "sizing": "Plan bandını satış vergisi eyalet sayısı ve aylık işlem hacmi belirler.",
+      "supportLink": "Destek dosyası nasıl işler"
     },
     "cash": {
       "title": "Tahsilat masası",
@@ -418,7 +454,8 @@
       "i2": "Fiyatlar her yıl %4 artar.",
       "i3": "Masalar 90 günlük çıkış hakkıyla başlar.",
       "i4": "Kapasite üstü: her ek 100 fatura veya sipariş için aylık {extra}.",
-      "i5": "Kesin kapsam ve fiyat, imzalı hizmet sözleşmesinde yazılıdır."
+      "i5": "Kesin kapsam ve fiyat, imzalı hizmet sözleşmesinde yazılıdır.",
+      "i6": "Belge sözü: Ponenti'nin hazırladığı bir belge yüzünden geri dönen destek başvurusunu ücretsiz düzeltir ve yeniden sunarız. Destek tutarına Ticaret Bakanlığı karar verir."
     },
     "faq": {
       "title": "Sık sorulan sorular",
@@ -435,7 +472,11 @@
       "q6": "Ne kadar sürede başlıyoruz?",
       "a6": "Kontrol raporu 10 iş gününde teslim edilir. Plan veya masa, sözleşme imzalandıktan sonra başlar.",
       "q7": "Vergi numaramızı siteye girmemiz gerekiyor mu?",
-      "a7": "Hayır. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez. Belgeler sözleşmeden sonra güvenli bir kanaldan alınır."
+      "a7": "Hayır. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez. Belgeler sözleşmeden sonra güvenli bir kanaldan alınır.",
+      "q8": "Destek başvurusunu siz mi yapıyorsunuz?",
+      "a8": "Hayır. Başvuruyu Türk destek danışmanınız Ticaret Bakanlığı'nın sisteminde yapar. Biz ABD tarafının belgelerini hazırlar, Ticaret Müşavirliği onayını ve ödemeyi takip ederiz.",
+      "q9": "Ponenti'nin ücreti destekten karşılanır mı?",
+      "a9": "Hayır. Ücretlerimiz destek kapsamında değildir. Destek dosyası, Standart ve Kapsamlı planların sabit aylık ücretine dahildir."
     }
   },
   "riskTest": {
@@ -588,7 +629,172 @@
       "continuation": "IRS bildiriminden sonra 90 gün geçerse, her 30 gün için {penalty} daha eklenir; üst sınır yoktur.",
       "multiple": "Birden fazla ilişkili taraf varsa her biri için ayrı form gerekir."
     },
-    "emailCta": "Sonucu e-postayla gönder"
+    "emailCta": "Sonucu e-postayla gönder",
+    "supportNote": "ABD giderleriniz için Türkiye ihracat desteğini mi hesaplıyorsunuz?",
+    "supportLink": "Destek hesaplayıcısı"
+  },
+  "supportFile": {
+    "eyebrow": "Destek dosyası",
+    "title": "Siz ABD'de işinize bakın; destek dosyanız <em>her ay hazır</em>.",
+    "intro": "Ticaret Bakanlığı; ABD'deki ofis, depo ve mağaza kiranızın, 3PL ücretlerinizin, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar.",
+    "steps": {
+      "eyebrow": "Nasıl işler",
+      "title": "Destek dosyası dört adımda",
+      "intro": "Her adımda kimin ne yaptığı yazılı.",
+      "who": "Kim",
+      "s1": {
+        "title": "Kurulum",
+        "body": "ABD ofisinizi veya deponuzu desteğe uygun kurarız: Türk şirketiyle ortaklık bağı, emsal kirada bir sözleşme ve kiranın şirketin ya da ABD şirketinin hesabından havaleyle ödenmesi.",
+        "who": "Ponenti kurar, siz onaylarsınız."
+      },
+      "s2": {
+        "title": "Kayıt",
+        "body": "Her ay sonu kapanışında desteğe uygun her gider defterinizde etiketlenir. Fatura, ödeme belgesi ve banka dökümü yanına eklenir.",
+        "who": "Ponenti, aylık kapanışta."
+      },
+      "s3": {
+        "title": "Müşavirlik onayı",
+        "body": "ABD'deki Ticaret Müşavirliği'nin onayına gidecek paketi hazırlar, yerinde incelemeyi ve onayı takip ederiz.",
+        "who": "Ponenti hazırlar, Ticaret Müşaviri onaylar."
+      },
+      "s4": {
+        "title": "Başvuru",
+        "body": "Türk danışmanınız başvuruyu Ticaret Bakanlığı'nın Destek Yönetim Sistemi'nde (DYS) yapar. Ödeme gelene kadar takibi biz sürdürürüz.",
+        "who": "Danışmanınız başvurur, biz ödemeye kadar izleriz."
+      }
+    },
+    "estimator": {
+      "eyebrow": "Hesaplayıcı",
+      "title": "Desteğinizi tahmin edin",
+      "intro": "Yıllık ABD giderlerinizi girin. Tahmin, %50 temel oranla ve ABD hedef ülke listesindeyken geçerli %70'e kadar oranla, dolar ve TL olarak hesaplanır."
+    },
+    "reasons": {
+      "eyebrow": "Sık yapılan hatalar",
+      "title": "ABD kira desteği başvuruları neden geri döner?",
+      "intro": "Genelgedeki şartlardan yedi sebep. Destek dosyası her birini başvurudan önce kontrol eder.",
+      "r1": "Kira emsalin üzerinde; Ticaret Müşaviri rayice uygun bulmuyor.",
+      "r2": "Kira yanlış yoldan ödenmiş: nakit, ortağın kişisel hesabı, üçüncü kişi ya da müşteri çeki.",
+      "r3": "Ticaret Müşavirliği onayı yok.",
+      "r4": "Başvuru, ödeme belgesi tarihinden itibaren 6 ay içinde yapılmamış.",
+      "r5": "Birimde Türkiye'de üretilen ürün pazarlanmıyor.",
+      "r6": "Ortaklık yapısı başvuruyla uyuşmuyor.",
+      "r7": "Destek, o yıl ABD'ye yapılan ihracatın yarısını aşıyor.",
+      "card": "Kartla ödeme tek başına ret sebebi değildir. Genelge bu durumda kart ekstresini ister; ödeme yine şirket hesabından yapılmalıdır.",
+      "link": "Yedi sebep ve genelgedeki maddeleri"
+    },
+    "lease": {
+      "eyebrow": "CBP ve kira desteği",
+      "title": "Tek kira, iki sorun",
+      "p1": "18 Eylül 2026'dan beri CBP, Form 5106 adresi kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor. ABD'de gerçek bir ofis ya da depo bu sorunu çözer. Aynı kira, şartları sağlarsa Ticaret Bakanlığı'nın birim kira desteğine de girer.",
+      "p2": "Uygun yeri lisanslı emlak komisyoncularıyla bulmanıza yardım eder, sözleşmeyi iki kurala göre birlikte kontrol ederiz. Paylaşımlı ofis üyeliği kira desteğine girebilir, ama iş merkezi adresi CBP kuralına takılabilir. Bu yüzden adresi tek kurala bakarak seçmeyiz.",
+      "cbp": "CBP kuralı (Federal Register)",
+      "circular": "Birim kira genelgesi"
+    },
+    "promise": {
+      "eyebrow": "Belge sözü",
+      "title": "Hazırladığımız bir belge yüzünden geri dönen başvuruyu ücretsiz düzeltiriz.",
+      "body": "Belgeyi düzeltir ve yeniden sunarız; bunun için ücret almayız. Destek tutarına ise Ticaret Bakanlığı karar verir. Bu yüzden tahmin gösteririz, tutar vaat etmeyiz."
+    },
+    "scope": {
+      "title": "Ücret ve kapsam",
+      "i1": "Destek dosyası, aylık kapanışı olan Standart ve Kapsamlı planların sabit ücretine dahildir.",
+      "i2": "Ponenti'nin ücretleri destek kapsamında değildir. Ücretimiz sabittir; desteğin tutarına bağlı değildir.",
+      "i3": "Başvuruyu Türk destek danışmanınız yapar ve kendi ücretini ayrıca alır.",
+      "i4": "Kayıtlarınızı danışmanınızla yalnızca yazılı onayınızla paylaşırız.",
+      "link": "Planları görün"
+    },
+    "sources": {
+      "eyebrow": "Kaynaklar",
+      "title": "Resmi kaynaklar",
+      "checked": "Kurallar ve limitler {date} tarihinde kontrol edildi.",
+      "decree": "5973 sayılı İhracat Destekleri Hakkında Karar",
+      "unitRent": "Birim Kira Desteğine İlişkin Genelge (yürürlük: 20.04.2026)",
+      "promotion": "Tanıtım Desteğine İlişkin Genelge (yürürlük: 26.06.2026)",
+      "trademark": "Yurt Dışı Marka Tescil Desteğine İlişkin Genelge",
+      "eexportDecree": "E-İhracat Destekleri Hakkında Karar",
+      "eexportCircular": "E-İhracat Desteklerine İlişkin Genelge",
+      "limitsBranding": "2026 destek üst limitleri: birim kira ve tanıtım",
+      "limitsMarketEntry": "2026 destek üst limitleri: pazara giriş belgesi ve marka tescili",
+      "limitsEexport": "2026 e-ihracat destekleri üst limitleri",
+      "targets": "Hedef ve öncelikli ülkeler",
+      "documents": "Destek kapsamındaki pazara giriş belgeleri (Ek-1B)",
+      "tcmb": "TCMB gösterge niteliğindeki döviz kurları",
+      "cbp": "CBP: ithalatçı kaydı verilerinin doğruluğu (Federal Register)"
+    },
+    "partners": "Birlikte çalıştığımız Türk destek danışmanları"
+  },
+  "supportEstimator": {
+    "costsLegend": "Yıllık giderleriniz ($)",
+    "lines": {
+      "rent": {
+        "label": "ABD ofis, depo veya mağaza kirası",
+        "short": "Kira",
+        "hint": "Tek birim için net kira; vergi ve işletme giderleri hariç."
+      },
+      "fulfillment": {
+        "label": "3PL ve sipariş karşılama ücretleri",
+        "short": "3PL ve sipariş karşılama",
+        "hint": "Sipariş başına karşılama, iade ve depolama ücretleri; komisyon ve üyelik hariç."
+      },
+      "documents": {
+        "label": "Sertifika ve ruhsat giderleri",
+        "short": "Pazara giriş belgeleri",
+        "hint": "Bakanlık listesindeki sertifika, test, ruhsat ve kayıt işlemleri."
+      },
+      "trademark": {
+        "label": "ABD marka tescili ve koruma",
+        "short": "Marka tescili",
+        "hint": "Türkiye'de tescilli markanızın ABD'deki başvuru ve koruma giderleri."
+      },
+      "promotion": {
+        "label": "Tanıtım ve pazarlama",
+        "short": "Tanıtım",
+        "hint": "Türkiye'de üretilen ürünleriniz için ABD'deki reklam ve pazarlama."
+      }
+    },
+    "more": "Daha kesin tahmin için",
+    "ownership": "Türk şirketinin ABD şirketindeki payı (%)",
+    "ownershipHint": "Kirayı ve tanıtımı ABD şirketi ödüyorsa destek bu paya göre hesaplanır. Türk şirketi doğrudan ödüyorsa 100 bırakın.",
+    "exports": "ABD'ye yıllık ihracat ($)",
+    "exportsHint": "Gümrük beyannamelerinize göre. Kira ve tanıtım desteği bunun yarısını geçemez.",
+    "onlineSales": "ABD'deki yıllık online satış ($)",
+    "onlineSalesHint": "3PL desteği, bu tutarın %10'unu aşmayan gidere uygulanır.",
+    "optional": "İsteğe bağlı",
+    "age": "Türk şirketi en az 1 yıldır kurulu",
+    "ageHint": "Daha yeni şirketler kira ve tanıtım desteğine başvuramaz.",
+    "resultTitle": "Tahmini yıllık destek",
+    "base": {
+      "title": "Temel oran",
+      "rate": "%50",
+      "short": "%50 ile"
+    },
+    "target": {
+      "title": "Hedef ülke oranı",
+      "rate": "%70'e kadar",
+      "short": "%70'e kadar"
+    },
+    "tableCaption": "Gider kalemine göre tahmini yıllık destek, dolar ve TL",
+    "line": "Gider kalemi",
+    "costOf": "Gider {cost}",
+    "cap": "Üst limit {cap} TL/yıl",
+    "capYears": "Üst limit {cap} TL/yıl, {years} yıl",
+    "total": "Toplam",
+    "tl": "{amount} TL",
+    "limits": {
+      "cap": "Yıllık üst limit uygulandı.",
+      "exports": "İhracatın yarısı sınırı uygulandı.",
+      "onlineSales": "Online satışın %10'u sınırı uygulandı.",
+      "companyAge": "Şirket 1 yaşını doldurmadığı için sıfır."
+    },
+    "asOf": "Kur: 1 $ = {rate} TL, TCMB döviz alış kuru, {date}. Üst limitler {year} yılına aittir. Kurallar {checked} tarihinde kontrol edildi.",
+    "tcmb": "TCMB kurları",
+    "assumptions": "Hedef ülke sütunu, ABD'nin ödeme yılında Bakanlığın hedef ülkeler listesinde olduğunu varsayar; pazara giriş belgeleri iki sütunda da %50 ile hesaplanır. Kira limiti birim başınadır. 3PL desteği için Bakanlık listesindeki bir sağlayıcı ve ön onay gerekir.",
+    "estimate": "Bu bir tahmindir; vaat edilen bir tutar değildir. Desteğe Ticaret Bakanlığı karar verir ve TL olarak, ödeme belgesi tarihindeki TCMB kuruyla öder. Ponenti'nin ücretleri destek kapsamında değildir.",
+    "cta": "Destek haritanızı alın",
+    "mapTitle": "Destek haritanız",
+    "mapIntro": "Hangi giderinizin hangi desteğe girdiğini, şartlarını ve başvuru takvimini tek sayfada gösteririz. Formu gönderin; haritanızı hazırlayıp e-postayla gönderelim.",
+    "submit": "Destek haritamı iste",
+    "privacy": "Rakamlarınız tarayıcınızda kalır; yalnızca destek haritanızı isterseniz bize gönderilir."
   },
   "trade": {
     "eyebrow": "Ticaret verileri",
@@ -881,6 +1087,9 @@
     "riskTop": "Öne çıkan konular:",
     "cashResult": "Hesaplama sonucunuz: yıllık {sales} satışta tahsilat süresi {current} günden {target} güne inerse yaklaşık {result} nakit serbest kalır.",
     "form5472Result": "Hesaplama sonucunuz: {years} eksik yıl için başlangıç cezası {result}.",
+    "supportResult": "Tahmini yıllık desteğiniz: temel oranla (%50) {base} ({baseTl}), hedef ülke oranıyla (%70'e kadar) {target} ({targetTl}).",
+    "supportInputs": "Girdiğiniz yıllık giderler: kira {rent}, 3PL {fulfillment}, pazara giriş belgeleri {documents}, marka tescili {trademark}, tanıtım {promotion}.",
+    "supportRate": "Kur: 1 $ = {rate} TL (TCMB döviz alış, {date}). Bu bir tahmindir; desteğe Ticaret Bakanlığı karar verir. Destek haritanızı hazırlayıp size göndereceğiz.",
     "noTaxIds": "Lütfen bu e-postaya vergi kimlik numarası, EIN veya finansal belge eklemeyin.",
     "informational": "Bu e-postadaki bilgiler bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir.",
     "signoff": "Saygılarımla,",

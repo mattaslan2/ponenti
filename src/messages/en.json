@@ -19,6 +19,10 @@
       "title": "Calculators: collections and the Form 5472 penalty",
       "description": "See how much cash faster US collections free up, and what missed Form 5472 years can cost."
     },
+    "supportFile": {
+      "title": "US support file: Turkish rent, 3PL and promotion support",
+      "description": "Estimate Turkish export support on your US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim, every month."
+    },
     "insights": {
       "title": "Knowledge center",
       "description": "Short, dated, sourced notes on US corporate returns, the Form 5472 penalty, US sales tax, US collections and the importer record."
@@ -90,6 +94,7 @@
     "pricing": "Pricing",
     "riskTest": "Risk test",
     "calculators": "Calculators",
+    "supportFile": "Support file",
     "insights": "Knowledge center",
     "about": "About",
     "contact": "Contact",
@@ -204,6 +209,34 @@
         "body": "Order entry, 3PL releases, shipping documents, delivery tracking and returns."
       },
       "more": "See every price and scope"
+    },
+    "support": {
+      "eyebrow": "Turkish export support",
+      "title": "You run your US business; your support file is <em>ready every month</em>.",
+      "intro": "Türkiye's Ministry of Trade can cover part of your US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim from start to finish; your Turkish consultant only files it.",
+      "f1": {
+        "kicker": "Support rate",
+        "value": "Up to 70%",
+        "unit": "Base rate 50%",
+        "text": "When the US is on the Ministry's target-country list in the payment year, rent, 3PL, trademark and promotion support gain 20 points.",
+        "source": "Source: Unit rent circular, Art. 13"
+      },
+      "f2": {
+        "kicker": "Rent support cap",
+        "value": "{amount} TL",
+        "unit": "Per site, per year (2026)",
+        "text": "Office, warehouse, store and shared-office rent, for up to 4 years in each country.",
+        "source": "Source: Ministry of Trade 2026 caps"
+      },
+      "f3": {
+        "kicker": "Filing window",
+        "value": "6 months",
+        "unit": "From the payment document date",
+        "text": "Each rent payment has its own window. The support file tracks every one.",
+        "source": "Source: Unit rent circular, Art. 10"
+      },
+      "link": "Estimate your support",
+      "more": "How the support file works"
     },
     "weekly": {
       "eyebrow": "Transparency",
@@ -332,6 +365,7 @@
       "i4": "Penalty exposure in dollars",
       "i5": "Receivables aging and average payment days",
       "i6": "A fix plan and a quote",
+      "i7": "Turkish export support review: ownership link, lease terms, how rent is paid and, for online sellers, e-commerce export declarations",
       "delivery": "A written report in 10 business days. A free update when CBP publishes its new importer rules."
     },
     "plans": {
@@ -357,7 +391,8 @@
         "i3": "Sales tax in up to 6 states",
         "i4": "1099s",
         "i5": "Payroll-provider coordination",
-        "i6": "Quarterly 3PL inventory tie-out"
+        "i6": "Quarterly 3PL inventory tie-out",
+        "i7": "A support file for Turkish export support at every month-end close"
       },
       "complete": {
         "name": "Complete",
@@ -369,7 +404,8 @@
         "i5": "Parent-invoice reconciliation"
       },
       "scorecard": "Every plan client gets a one-page quarterly scorecard: payment days, overdue invoices, orders and 3PL errors.",
-      "sizing": "Sales-tax states and monthly transaction volume set the plan band."
+      "sizing": "Sales-tax states and monthly transaction volume set the plan band.",
+      "supportLink": "How the support file works"
     },
     "cash": {
       "title": "Cash desk",
@@ -418,7 +454,8 @@
       "i2": "Prices rise 4% each year.",
       "i3": "Desks start with a 90-day exit period.",
       "i4": "Above capacity: {extra} a month per extra 100 invoices or orders.",
-      "i5": "Exact scope and price are written in a signed engagement letter."
+      "i5": "Exact scope and price are written in a signed engagement letter.",
+      "i6": "Document promise: if a support claim comes back because of a document Ponenti prepared, we fix it and resubmit it at no charge. The Ministry of Trade decides the amount of support."
     },
     "faq": {
       "title": "Frequently asked questions",
@@ -435,7 +472,11 @@
       "q6": "How fast can we start?",
       "a6": "The check report arrives in 10 business days. A plan or desk starts once the engagement letter is signed.",
       "q7": "Do we need to enter our tax ID on the site?",
-      "a7": "No. This site never asks for tax ID numbers, EINs or financial documents. Documents come through a secure channel after you sign."
+      "a7": "No. This site never asks for tax ID numbers, EINs or financial documents. Documents come through a secure channel after you sign.",
+      "q8": "Do you file Turkish export support claims?",
+      "a8": "No. Your Turkish support consultant files them in the Ministry of Trade's system. We prepare the US-side documents and track the Commercial Counselor's approval and the payment.",
+      "q9": "Can Ponenti's fees be claimed as support?",
+      "a9": "No. Our fees are not an eligible cost. The support file is included in the flat monthly fee of the Standard and Complete plans."
     }
   },
   "riskTest": {
@@ -588,7 +629,172 @@
       "continuation": "If 90 days pass after an IRS notice, another {penalty} is added for each 30 days, with no cap.",
       "multiple": "With more than one related party, each needs its own form."
     },
-    "emailCta": "Email me my result"
+    "emailCta": "Email me my result",
+    "supportNote": "Estimating Turkish export support on your US costs?",
+    "supportLink": "Support estimator"
+  },
+  "supportFile": {
+    "eyebrow": "Support file",
+    "title": "You run your US business; your support file is <em>ready every month</em>.",
+    "intro": "Türkiye's Ministry of Trade can cover part of the rent on your US office, warehouse or store, your 3PL fees and your certification, trademark and promotion costs. We prepare the US side of every claim from start to finish; your Turkish consultant only files it.",
+    "steps": {
+      "eyebrow": "How it works",
+      "title": "The support file in four steps",
+      "intro": "Who does what, at every step.",
+      "who": "Who",
+      "s1": {
+        "title": "Setup",
+        "body": "We set up your US office or warehouse so it qualifies: an ownership link to the Turkish company, a lease at market rent, and rent paid by bank transfer from the company or its US entity.",
+        "who": "Ponenti sets it up; you approve."
+      },
+      "s2": {
+        "title": "Capture",
+        "body": "At every month-end close, each eligible cost is tagged in your books, with the invoice, proof of payment and bank statement attached.",
+        "who": "Ponenti, at the monthly close."
+      },
+      "s3": {
+        "title": "Counselor",
+        "body": "We assemble the package for the Turkish Commercial Counselor in the US and track the site visit and the approval.",
+        "who": "Ponenti prepares it; the Commercial Counselor approves."
+      },
+      "s4": {
+        "title": "Filing",
+        "body": "Your Turkish consultant files the claim in the Ministry of Trade's Support Management System (DYS), and we track it until it is paid.",
+        "who": "Your consultant files; we track it to payment."
+      }
+    },
+    "estimator": {
+      "eyebrow": "Estimator",
+      "title": "Estimate your support",
+      "intro": "Enter your annual US costs. The estimate uses the 50% base rate and the rate of up to 70% that applies while the US is on the target-country list, in dollars and TL."
+    },
+    "reasons": {
+      "eyebrow": "Common mistakes",
+      "title": "Why do US rent claims come back?",
+      "intro": "Seven reasons, taken from the circular's conditions. The support file checks each one before filing.",
+      "r1": "Rent above market: the Commercial Counselor does not find it in line with market rates.",
+      "r2": "Rent paid the wrong way: cash, a partner's personal account, a third party or a customer's check.",
+      "r3": "No Commercial Counselor approval.",
+      "r4": "Claim filed more than 6 months after the payment document date.",
+      "r5": "No Turkish-made goods marketed at the site.",
+      "r6": "Ownership that does not match the claim.",
+      "r7": "Support above half of that year's exports to the US.",
+      "card": "Paying by card is not by itself a reason for refusal. The circular then asks for the card statement, and the payment must still come from the company's account.",
+      "link": "The seven reasons and the circular's articles (in Turkish)"
+    },
+    "lease": {
+      "eyebrow": "CBP and rent support",
+      "title": "One lease, two problems",
+      "p1": "Since September 18, 2026, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center. A real US office or warehouse solves that. The same lease, if it meets the conditions, also qualifies for the Ministry of Trade's unit rent support.",
+      "p2": "We help you find the space through licensed brokers and check the lease against both rules at once. A shared-office membership can qualify for rent support, but a business-center address can fail CBP's rule. So we never pick the address against one rule alone.",
+      "cbp": "CBP rule (Federal Register)",
+      "circular": "Unit rent circular"
+    },
+    "promise": {
+      "eyebrow": "Document promise",
+      "title": "If a claim comes back because of a document we prepared, we fix it at no charge.",
+      "body": "We correct the document and resubmit it, with no fee for it. The amount of support is the Ministry of Trade's decision, so we show estimates, never promised amounts."
+    },
+    "scope": {
+      "title": "Fees and scope",
+      "i1": "The support file is included in the flat fee of the Standard and Complete plans, which have a monthly close.",
+      "i2": "Ponenti's fees are not an eligible cost. Our fee is flat and does not depend on the amount of support.",
+      "i3": "Your Turkish support consultant files the claim and charges its own fee.",
+      "i4": "We share your records with your consultant only with your written consent.",
+      "link": "See the plans"
+    },
+    "sources": {
+      "eyebrow": "Sources",
+      "title": "Official sources",
+      "checked": "Rules and caps checked on {date}.",
+      "decree": "Decree 5973 on Export Support (Turkish)",
+      "unitRent": "Unit rent support circular, in force April 20, 2026 (Turkish)",
+      "promotion": "Promotion support circular, in force June 26, 2026 (Turkish)",
+      "trademark": "Foreign trademark registration support circular (Turkish)",
+      "eexportDecree": "E-export support decree (Turkish)",
+      "eexportCircular": "E-export support circular (Turkish)",
+      "limitsBranding": "2026 caps: unit rent and promotion (Turkish)",
+      "limitsMarketEntry": "2026 caps: market entry documents and trademark registration (Turkish)",
+      "limitsEexport": "2026 e-export support caps (Turkish)",
+      "targets": "Target and priority countries (Turkish)",
+      "documents": "Market entry documents covered by the support, Annex 1B (Turkish)",
+      "tcmb": "TCMB indicative exchange rates",
+      "cbp": "CBP: accuracy of importer of record data (Federal Register)"
+    },
+    "partners": "Turkish support consultancies we work with"
+  },
+  "supportEstimator": {
+    "costsLegend": "Your annual costs ($)",
+    "lines": {
+      "rent": {
+        "label": "Rent for a US office, warehouse or store",
+        "short": "Rent",
+        "hint": "Net rent for one site, without taxes and operating costs."
+      },
+      "fulfillment": {
+        "label": "3PL and fulfillment fees",
+        "short": "3PL and fulfillment",
+        "hint": "Per-order fulfillment, returns and storage; not commissions or memberships."
+      },
+      "documents": {
+        "label": "Certifications and licenses",
+        "short": "Market entry documents",
+        "hint": "Certification, testing, licensing and registration on the Ministry's list."
+      },
+      "trademark": {
+        "label": "US trademark registration and protection",
+        "short": "Trademark",
+        "hint": "Filing and protecting in the US a trademark registered in Türkiye."
+      },
+      "promotion": {
+        "label": "Promotion and marketing",
+        "short": "Promotion",
+        "hint": "Advertising and marketing in the US for your Turkish-made products."
+      }
+    },
+    "more": "For a closer estimate",
+    "ownership": "Turkish company's share of the US company (%)",
+    "ownershipHint": "If the US company pays the rent and promotion, support is prorated to this share. If the Turkish company pays directly, leave 100.",
+    "exports": "Annual exports to the US ($)",
+    "exportsHint": "From your customs declarations. Rent and promotion support can't exceed half of it.",
+    "onlineSales": "Annual online sales in the US ($)",
+    "onlineSalesHint": "3PL support applies to costs up to 10% of this amount.",
+    "optional": "Optional",
+    "age": "The Turkish company is at least 1 year old",
+    "ageHint": "Younger companies can't apply for rent or promotion support.",
+    "resultTitle": "Estimated annual support",
+    "base": {
+      "title": "Base rate",
+      "rate": "50%",
+      "short": "At 50%"
+    },
+    "target": {
+      "title": "Target-country rate",
+      "rate": "Up to 70%",
+      "short": "Up to 70%"
+    },
+    "tableCaption": "Estimated annual support by cost line, in dollars and TL",
+    "line": "Cost line",
+    "costOf": "Cost {cost}",
+    "cap": "Cap {cap} TL/yr",
+    "capYears": "Cap {cap} TL/yr, {years} years",
+    "total": "Total",
+    "tl": "{amount} TL",
+    "limits": {
+      "cap": "Annual cap applied.",
+      "exports": "Half-of-exports limit applied.",
+      "onlineSales": "10%-of-online-sales limit applied.",
+      "companyAge": "Zero: the company is under 1 year old."
+    },
+    "asOf": "Rate: $1 = {rate} TL, TCMB buying rate, {date}. Caps are for {year}. Rules checked on {checked}.",
+    "tcmb": "TCMB rates",
+    "assumptions": "The target-country column assumes the US is on the Ministry's target-country list in the payment year; market entry documents are estimated at 50% in both columns. The rent cap is per site. 3PL support needs a provider on the Ministry's list and pre-approval.",
+    "estimate": "This is an estimate, not a promised amount. The Ministry of Trade decides the support and pays it in TL at the TCMB rate on the payment document's date. Ponenti's fees are not an eligible cost.",
+    "cta": "Get your support map",
+    "mapTitle": "Your support map",
+    "mapIntro": "One page showing which of your costs fall under which support, the conditions and the filing calendar. Send the form and we will prepare your map and email it to you.",
+    "submit": "Send me my support map",
+    "privacy": "Your numbers stay in your browser; they reach us only if you ask for a support map."
   },
   "trade": {
     "eyebrow": "Trade data",
@@ -881,6 +1087,9 @@
     "riskTop": "Top issues:",
     "cashResult": "Your result: with {sales} in annual sales, cutting payment days from {current} to {target} frees about {result} in cash.",
     "form5472Result": "Your result: the initial penalty for {years} missing years is {result}.",
+    "supportResult": "Your estimated annual support: at the base rate (50%) {base} ({baseTl}); at the target-country rate (up to 70%) {target} ({targetTl}).",
+    "supportInputs": "The annual costs you entered: rent {rent}, 3PL {fulfillment}, market entry documents {documents}, trademark {trademark}, promotion {promotion}.",
+    "supportRate": "Rate: $1 = {rate} TL (TCMB buying rate, {date}). This is an estimate; the Ministry of Trade decides the support. We will prepare your support map and send it to you.",
     "noTaxIds": "Please don't attach tax ID numbers, EINs or financial documents to this email.",
     "informational": "The information in this email is informational; it is not legal, tax or customs advice.",
     "signoff": "Best regards,",

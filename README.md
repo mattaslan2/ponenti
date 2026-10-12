@@ -28,7 +28,8 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 | `npm run placeholders` | Lists every `[REPLACE WITH REAL]`, `[confirm]` and E&O item; `-- --strict` fails if facts are missing |
 | `npm run copy:export` | Regenerates `docs/COPY.md` from the message files |
 | `npm run test:e2e` | Main journeys on a local production build (uses your Chrome; `BASE_URL` defaults to `http://localhost:3000`) |
-| `npm run test:a11y` | axe-core scan of 18 pages at phone and desktop widths |
+| `npm run test:a11y` | axe-core scan of 25 pages at phone and desktop widths |
+| `npm run test:support` | Support estimator math and the TCMB rate parser (no server needed) |
 | `npm run test:leads` | Lead flow against mock Attio and Resend (`tests/mock-apis.cjs`; setup in the file header) |
 
 ## Where things live
@@ -44,13 +45,15 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 | Prospect pages (`/tr/ozel/{firm}`) | `src/content/prospects/{firm}.json` (copy `_template.json`) |
 | Risk-test questions and scoring | `src/lib/risk-test.ts` (copy in `riskTest.*` messages) |
 | Calculator formulas | `src/lib/calculators.ts` |
+| Turkish export support: rates, 2026 caps, estimator math (update the caps each January) | `src/lib/support.ts` (TCMB rate: `src/lib/tcmb.ts`; copy in `supportFile.*` and `supportEstimator.*`) |
 | Trade-data copy, Turkish product words, data logic | `trade.*` messages, `src/data/trade/hs-tr.ts`, `src/lib/trade/` |
 | Design tokens (colors, type, spacing, motion) | `src/design/tokens.css` (the rules behind them: `docs/DESIGN.md`) |
 
 ```
 src/
-  app/[locale]/        pages: home, services, risk-test, calculators, insights, about,
-                       contact, privacy, terms, cookies, portal, ozel/[firm], 404
+  app/[locale]/        pages: home, services, risk-test, calculators, support-file,
+                       insights, about, contact, privacy, terms, cookies, portal,
+                       ozel/[firm], 404
   actions/lead.ts      the one Server Action: spam checks, validation, Attio, Resend
   components/          layout (header, footer, consent), home sections, forms,
                        risk test, calculators, booking, placeholders, ui (shadcn)
@@ -67,7 +70,7 @@ scripts/               placeholder report, copy export, font subsetting, trade d
 assets/fonts/          fonts for share images (OFL)
 ```
 
-Localized URLs: `/tr/hizmetler` = `/en/services`, `/tr/risk-testi`, `/tr/hesaplayicilar`, `/tr/bilgi-merkezi`, `/tr/hakkimizda`, `/tr/iletisim`, `/tr/gizlilik`, `/tr/kosullar`, `/tr/cerezler`, `/tr/portal`, `/tr/ozel/{firm}`. The bare domain opens Turkish unless the visitor chose English with the switcher (stored in `NEXT_LOCALE` for 12 months). Browser language never redirects.
+Localized URLs: `/tr/hizmetler` = `/en/services`, `/tr/risk-testi`, `/tr/hesaplayicilar`, `/tr/destek-dosyasi`, `/tr/bilgi-merkezi`, `/tr/hakkimizda`, `/tr/iletisim`, `/tr/gizlilik`, `/tr/kosullar`, `/tr/cerezler`, `/tr/portal`, `/tr/ozel/{firm}`. The bare domain opens Turkish unless the visitor chose English with the switcher (stored in `NEXT_LOCALE` for 12 months). Browser language never redirects.
 
 ## Environment variables
 
@@ -106,7 +109,7 @@ The GitHub repo `mattaslan2/ponenti` is already connected to Vercel, and `main` 
 
 ## How a lead flows
 
-1. Visitor submits a form (contact, risk-test result, calculator result, prospect page).
+1. Visitor submits a form (contact, risk-test result, calculator result, support map, trade analysis, prospect page).
 2. `src/actions/lead.ts`: honeypot field and minimum fill time, then `checkBotId()`, then Zod validation. Free text with EIN- or SSN-shaped numbers is refused; the site never asks for tax IDs or documents.
 3. Attio: Company upserted by email domain (by name for Gmail-type addresses), Person upserted by email and linked, custom fields written (language, segment, risk level, payment-days range, form, consent, UTM), and a note with the full submission.
 4. Resend: confirmation to the visitor in Turkish or English, alert to you with reply-to set to the visitor.

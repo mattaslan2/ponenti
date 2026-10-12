@@ -78,6 +78,41 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   await page.getByRole('button', { name: 'Bir yıl artır' }).click();
   ok('5472 increments to $100.000', (await page.locator('main').innerText()).includes('$100.000'));
 
+  // 5b. Support estimator: defaults, caps, the export ceiling, then the support-map form
+  r = await page.goto(base + '/tr/destek-dosyasi', { waitUntil: 'networkidle' });
+  ok('support page 200', r.status() === 200, String(r.status()));
+  const supportText = await page.locator('main').innerText();
+  ok('support default totals $69.000 and $95.000', supportText.includes('$69.000') && supportText.includes('$95.000'));
+  ok('support shows the TCMB rate with its date', /1 \$ = \d{2},\d{4} TL, TCMB döviz alış kuru, \d{1,2} \S+ \d{4}/.test(supportText));
+  ok('support shows the 2026 rent cap', supportText.includes('Üst limit 9.862.972 TL/yıl, 4 yıl'));
+  const rentField = page.getByLabel('ABD ofis, depo veya mağaza kirası');
+  await rentField.click(); await rentField.fill('500000'); await rentField.blur();
+  await page.waitForTimeout(300);
+  ok('support rent above the cap is held at the cap', (await page.locator('main').innerText()).includes('Yıllık üst limit uygulandı.'));
+  await rentField.click(); await rentField.fill('60000'); await rentField.blur();
+  await page.getByText('Daha kesin tahmin için').click();
+  const exportsField = page.getByLabel("ABD'ye yıllık ihracat ($)");
+  await exportsField.click(); await exportsField.fill('40000'); await exportsField.blur();
+  await page.waitForTimeout(300);
+  ok('support half-of-exports ceiling applies', (await page.locator('main').innerText()).includes('İhracatın yarısı sınırı uygulandı.'));
+  await page.getByLabel('Türk şirketi en az 1 yıldır kurulu').uncheck();
+  await page.waitForTimeout(300);
+  ok('support: a young company gets no rent support', (await page.locator('main').innerText()).includes('Şirket 1 yaşını doldurmadığı için sıfır.'));
+  await page.getByRole('button', { name: 'Destek haritanızı alın' }).click();
+  await page.waitForTimeout(300);
+  ok('support map form opens and takes focus', await page.evaluate(() => document.activeElement?.textContent?.includes('Destek haritanız')));
+  await page.getByLabel('Ad soyad', { exact: true }).fill('Test Kişi');
+  await page.getByLabel('İş e-postası').fill('test@ornek-firma.com');
+  await page.getByLabel('Şirket', { exact: true }).fill('Örnek Firma');
+  await page.locator('input[name="consent"]').check();
+  await page.waitForTimeout(1700);
+  await page.getByRole('button', { name: 'Destek haritamı iste' }).click();
+  await page.waitForTimeout(2500);
+  ok('support map form reaches the server', (await page.locator('main').innerText()).includes('Form henüz bağlanmadı'));
+  r = await page.goto(base + '/tr/bilgi-merkezi/abd-kira-destegi-neden-reddedilir', { waitUntil: 'domcontentloaded' });
+  ok('support article 200', r.status() === 200, String(r.status()));
+  ok('support article links the circular', (await page.locator('a[href*="Birim%20Kira%20Deste"]').count()) > 0);
+
   // 6. Language switch on an article + remembered choice
   await page.goto(base + '/tr/bilgi-merkezi/form-5472-cezasi', { waitUntil: 'networkidle' });
   await page.getByRole('link', { name: 'Dili değiştir: English' }).click();
@@ -181,7 +216,7 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   ok('portal sample label', (await page.locator('main').innerText()).includes('Örnek veriler / Sample data'));
 
   // 9. EN pages render
-  for (const p of ['/en', '/en/services', '/en/risk-test', '/en/calculators', '/en/insights', '/en/about', '/en/contact', '/en/privacy', '/en/terms', '/en/cookies', '/tr/gizlilik', '/tr/kosullar', '/tr/cerezler', '/tr/bilgi-merkezi', '/tr/hakkimizda']) {
+  for (const p of ['/en', '/en/services', '/en/risk-test', '/en/calculators', '/en/support-file', '/en/insights', '/en/about', '/en/contact', '/en/privacy', '/en/terms', '/en/cookies', '/tr/gizlilik', '/tr/kosullar', '/tr/cerezler', '/tr/bilgi-merkezi', '/tr/hakkimizda']) {
     r = await page.goto(base + p, { waitUntil: 'domcontentloaded' });
     ok(`200 ${p}`, r.status() === 200, String(r.status()));
   }
@@ -201,7 +236,7 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   ok('article share image is served', ogRes.status() === 200 && (ogRes.headers()['content-type'] || '').includes('image/png'), `${ogRes.status()} ${ogUrl}`);
 
   // 11. Nothing a visitor reads is a placeholder or names a channel that is not connected
-  for (const p of ['/tr', '/tr/hizmetler', '/tr/hakkimizda', '/tr/iletisim', '/en', '/en/contact']) {
+  for (const p of ['/tr', '/tr/hizmetler', '/tr/destek-dosyasi', '/tr/hakkimizda', '/tr/iletisim', '/en', '/en/contact', '/en/support-file']) {
     await page.goto(base + p, { waitUntil: 'domcontentloaded' });
     const text = await page.locator('body').innerText();
     ok(`no placeholder markers on ${p}`, !/\[(REPLACE WITH REAL|confirm)/i.test(text), (text.match(/\[(REPLACE WITH REAL|confirm)[^\]]*\]/i) || [''])[0]);

@@ -9,10 +9,11 @@ import { ArrowLink, BookButton, RiskTestLink, WhatsAppButton } from "@/component
 import { SourceLink } from "@/components/external-link";
 import { Confirm, ReplaceWithReal, ShowAfterEOConfirms } from "@/components/placeholders";
 import { SampleReport } from "@/components/report/sample-report";
-import { formatUsd, priceArgs } from "@/lib/format";
+import { formatNumber, formatUsd, priceArgs } from "@/lib/format";
 import { pricing } from "@/lib/pricing";
 import { isPlaceholder, site } from "@/lib/site";
 import { sources } from "@/lib/sources";
+import { SUPPORT_RULES } from "@/lib/support";
 import { cn } from "@/lib/utils";
 
 async function currentLocale() {
@@ -234,6 +235,65 @@ export async function Offer() {
           </li>
         ))}
       </ul>
+    </Section>
+  );
+}
+
+/**
+ * Turkish export support: the promise, three sourced facts and the way into the
+ * estimator. The facts come from the Ministry's circulars and 2026 caps.
+ */
+export async function SupportFile() {
+  const locale = await currentLocale();
+  const t = await getTranslations("home.support");
+  const facts = [
+    { key: "f1", value: t("f1.value"), href: sources.trUnitRentCircular },
+    { key: "f2", value: t("f2.value", { amount: formatNumber(SUPPORT_RULES.lines.rent.capTl, locale) }), href: sources.trLimits2026Branding },
+    { key: "f3", value: t("f3.value"), href: sources.trUnitRentCircular },
+  ] as const;
+  return (
+    <Section
+      id="support"
+      eyebrow={t("eyebrow")}
+      title={t.rich("title", { em })}
+      intro={t("intro")}
+    >
+      <div className="grid border-t border-line md:grid-cols-3">
+        {facts.map(({ key, value, href }, i) => (
+          <div
+            key={key}
+            data-reveal
+            className={cn(
+              "flex flex-col border-b border-line py-10 md:py-12",
+              i > 0 && "md:border-l md:pl-10",
+              i < facts.length - 1 && "md:pr-10",
+            )}
+          >
+            <p className="eyebrow">{t(`${key}.kicker`)}</p>
+            <p className="mt-6">
+              <span className="block font-display text-[clamp(2.25rem,1.7rem+1.9vw,3.25rem)] leading-none font-medium tracking-[-0.015em] whitespace-nowrap text-navy">
+                {value}
+              </span>
+              <span className="mt-3 block text-small text-mist-soft">{t(`${key}.unit`)}</span>
+            </p>
+            <p className="mt-6 max-w-xs flex-1 text-mist">{t(`${key}.text`)}</p>
+            <p className="mt-8 text-caption text-mist-soft">
+              <SourceLink href={href}>{t(`${key}.source`)}</SourceLink>
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-10">
+        <ArrowLink
+          href={{ pathname: "/support-file", hash: "estimate" }}
+          data-track="cta_click"
+          data-track-label="support_estimate"
+          data-track-location="home_support"
+        >
+          {t("link")}
+        </ArrowLink>
+        <ArrowLink href={{ pathname: "/support-file", hash: "how" }}>{t("more")}</ArrowLink>
+      </div>
     </Section>
   );
 }

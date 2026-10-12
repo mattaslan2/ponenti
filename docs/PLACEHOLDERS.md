@@ -45,6 +45,10 @@ Location: `ProofSlots` in `src/components/home/sections.tsx`. Pass real content 
 
 The site states no client counts and no results anywhere. Add numbers only when they are real and you can back them up.
 
+Support file page (`src/app/[locale]/support-file/page.tsx`, "Fees and scope" section):
+
+- Logos of the Turkish support consultancies you work with, each with written permission. Nothing renders until a consultancy signs and agrees.
+
 ## 4. Hidden until E&O confirms
 
 - Penalty promise (home page): "If a filing we own is late, we pay the penalty, up to $25,000 a year per client." / "Sorumluluğumuzdaki bir beyanname geç kalırsa cezayı biz öderiz; müşteri başına yıllık üst sınır $25.000."
@@ -72,6 +76,8 @@ Real architectural photography only. No stock handshakes or globes. Set each ent
 | Full-desk onboarding | $5,000 (plan v8; the brief listed only the monthly price) | `src/lib/pricing.ts` → `fullDesk.onboarding` |
 | Check, plan and desk inclusions, capacities, terms | Copied from Ponenti plan v8 (Oct 5, 2026) | `messages` → `services.*` |
 | First 10 business days timeline | Drafted from v8's 10-day check delivery | `about.step1-5` |
+| Support file: rates, caps and conditions | 50% base, 20 points more when the US is on the target-country list for the payment year (the latest posted list is 2022-2023; confirm the current one), 2026 caps, filing windows | `src/lib/support.ts`, `supportFile.*`, `supportEstimator.*`, the article `abd-kira-destegi-neden-reddedilir.mdx` |
+| Support file: what Ponenti does | "Ponenti sets it up", Counselor package, licensed real-estate brokers for "one lease, two problems", the document promise, file included in Standard and Complete | `supportFile.*`, `services.check.i7`, `services.plans.standard.i7`, `services.terms.i6`, FAQ q8-q9 |
 | "Your data" commitments | 2FA on every system, encrypted portal (being prepared), written security plan, Section 7216 consent, AI only on no-training business plans | `home.data.*`. The plan and the consent form must exist before launch. |
 | Collections hours | Calls 8:00-16:00 US Eastern | Facts band, cash desk, FAQ |
 | Sample report figures | Invented; always labeled "Örnek veriler / Sample data" | `src/components/report/sample-report.tsx` |
@@ -87,6 +93,7 @@ From the legal drafts (both languages):
 - Lead retention (24 months after last contact) and consent-record retention
 - The Do Not Track line
 - A separate notice for clients (the site policy covers visitors and leads)
+- Sharing support-file records with a client's Turkish support consultant only with written consent, and a separate Section 7216 consent for anything from tax return work
 - Liability cap, governing law (Georgia, USA), courts, and which language prevails
 
 ## 8. Prospect pages
@@ -102,3 +109,7 @@ From the legal drafts (both languages):
 | EO 14411: DHS steps due within 180 days (about Nov 30, 2026); foreign-importer rules "promptly" | Federal Register, Jun 10, 2026 | Weekly until the rules publish |
 | CBP holds IEEPA refunds for filers with no ACH account in ACE | Federal Register, Oct 5, 2026 | Monthly |
 | State sales-tax thresholds table | State revenue department pages | Each January |
+| Turkish support caps (rent 9,862,972 TL per site, promotion, trademark, documents, fulfillment) | Ministry of Trade limit tables for the year | Each January: update `src/lib/support.ts` (`limitsYear` and the TL figures) |
+| Target-country list (the 70% column) | ticaret.gov.tr, "Hedef ve öncelikli ülkeler" | Each January, and before every first claim |
+| Unit rent, promotion, trademark and e-export circulars | ticaret.gov.tr circular PDFs (unit rent in force Apr 20, 2026; promotion Jun 26, 2026) | Quarterly |
+| TCMB fallback rate | `USD_TRY_FALLBACK` in `src/lib/tcmb.ts` (used only if TCMB does not answer) | When you touch the file |

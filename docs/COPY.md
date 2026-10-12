@@ -50,6 +50,13 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `title` | Hesaplayıcılar: tahsilat ve Form 5472 cezası | Calculators: collections and the Form 5472 penalty |
 | `description` | Daha hızlı ABD tahsilatının serbest bıraktığı nakdi ve eksik Form 5472 yıllarının ceza riskini hesaplayın. | See how much cash faster US collections free up, and what missed Form 5472 years can cost. |
 
+## meta.supportFile
+
+| Key | Türkçe | English |
+|---|---|---|
+| `title` | ABD destek dosyası: kira, 3PL ve tanıtım destekleri | US support file: Turkish rent, 3PL and promotion support |
+| `description` | ABD'deki kira, 3PL, belge, marka ve tanıtım giderleriniz için Türkiye ihracat desteklerini hesaplayın. Başvurunun ABD tarafını her ay biz hazırlarız. | Estimate Turkish export support on your US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim, every month. |
+
 ## meta.insights
 
 | Key | Türkçe | English |
@@ -158,6 +165,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `pricing` | Fiyatlar | Pricing |
 | `riskTest` | Risk testi | Risk test |
 | `calculators` | Hesaplayıcılar | Calculators |
+| `supportFile` | Destek dosyası | Support file |
 | `insights` | Bilgi merkezi | Knowledge center |
 | `about` | Hakkımızda | About |
 | `contact` | İletişim | Contact |
@@ -263,6 +271,31 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `order.title` | Sipariş masası | Order desk |
 | `order.body` | Sipariş girişi, 3PL talimatları, sevkiyat belgeleri, teslimat takibi ve iadeler. | Order entry, 3PL releases, shipping documents, delivery tracking and returns. |
 | `more` | Tüm fiyatları ve kapsamları görün | See every price and scope |
+
+## home.support
+
+| Key | Türkçe | English |
+|---|---|---|
+| `eyebrow` | Türkiye destekleri | Turkish export support |
+| `title` | Siz ABD'de işinize bakın; destek dosyanız <em>her ay hazır</em>. | You run your US business; your support file is <em>ready every month</em>. |
+| `intro` | Ticaret Bakanlığı, ABD'deki kira, 3PL, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar. | Türkiye's Ministry of Trade can cover part of your US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim from start to finish; your Turkish consultant only files it. |
+| `f1.kicker` | Destek oranı | Support rate |
+| `f1.value` | %70'e kadar | Up to 70% |
+| `f1.unit` | Temel oran %50 | Base rate 50% |
+| `f1.text` | ABD ödeme yılında Bakanlığın hedef ülkeler listesindeyse kira, 3PL, marka ve tanıtım desteğine 20 puan eklenir. | When the US is on the Ministry's target-country list in the payment year, rent, 3PL, trademark and promotion support gain 20 points. |
+| `f1.source` | Kaynak: Birim kira genelgesi, md. 13 | Source: Unit rent circular, Art. 13 |
+| `f2.kicker` | Kira desteği üst limiti | Rent support cap |
+| `f2.value` | {amount} TL | {amount} TL |
+| `f2.unit` | Birim başına, yıllık (2026) | Per site, per year (2026) |
+| `f2.text` | Ofis, depo, mağaza ve paylaşımlı ofis kirası; her ülkede en fazla 4 yıl. | Office, warehouse, store and shared-office rent, for up to 4 years in each country. |
+| `f2.source` | Kaynak: Ticaret Bakanlığı 2026 limitleri | Source: Ministry of Trade 2026 caps |
+| `f3.kicker` | Başvuru süresi | Filing window |
+| `f3.value` | 6 ay | 6 months |
+| `f3.unit` | Ödeme belgesi tarihinden itibaren | From the payment document date |
+| `f3.text` | Her kira ödemesinin süresi ayrı işler. Destek dosyası her birini ayrı izler. | Each rent payment has its own window. The support file tracks every one. |
+| `f3.source` | Kaynak: Birim kira genelgesi, md. 10 | Source: Unit rent circular, Art. 10 |
+| `link` | Desteğinizi hesaplayın | Estimate your support |
+| `more` | Destek dosyası nasıl işler | How the support file works |
 
 ## home.weekly
 
@@ -394,6 +427,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `check.i4` | Dolar cinsinden ceza riski | Penalty exposure in dollars |
 | `check.i5` | Alacak yaşlandırması ve ortalama tahsilat süresi | Receivables aging and average payment days |
 | `check.i6` | Düzeltme planı ve teklif | A fix plan and a quote |
+| `check.i7` | Türkiye destekleri ön incelemesi: ortaklık bağı, kira sözleşmesi, kiranın ödenme şekli ve online satanlar için e-ihracat beyanları | Turkish export support review: ownership link, lease terms, how rent is paid and, for online sellers, e-commerce export declarations |
 | `check.delivery` | 10 iş gününde yazılı rapor. CBP'nin yeni ithalatçı kuralları yayımlanınca ücretsiz güncelleme. | A written report in 10 business days. A free update when CBP publishes its new importer rules. |
 | `plans.title` | Uyum planları | Compliance plans |
 | `plans.lede` | Zorunlu beyannameler için sabit aylık ücret. | A flat monthly fee for the filings you must make. |
@@ -415,6 +449,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `plans.standard.i4` | 1099 formları | 1099s |
 | `plans.standard.i5` | Bordro sağlayıcınızla koordinasyon | Payroll-provider coordination |
 | `plans.standard.i6` | Çeyreklik 3PL envanter mutabakatı | Quarterly 3PL inventory tie-out |
+| `plans.standard.i7` | Her ay sonu kapanışında Türkiye destekleri için destek dosyası | A support file for Turkish export support at every month-end close |
 | `plans.complete.name` | Kapsamlı | Complete |
 | `plans.complete.for` | Birden fazla şirket, çok eyalet | Several companies, many states |
 | `plans.complete.i1` | Standart plandaki her şey | Everything in Standard |
@@ -424,6 +459,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `plans.complete.i5` | Ana şirket faturalarıyla mutabakat | Parent-invoice reconciliation |
 | `plans.scorecard` | Her plan müşterisine çeyreklik karne: tahsilat süresi, vadesi geçmiş faturalar, siparişler ve 3PL hataları. | Every plan client gets a one-page quarterly scorecard: payment days, overdue invoices, orders and 3PL errors. |
 | `plans.sizing` | Plan bandını satış vergisi eyalet sayısı ve aylık işlem hacmi belirler. | Sales-tax states and monthly transaction volume set the plan band. |
+| `plans.supportLink` | Destek dosyası nasıl işler | How the support file works |
 | `cash.title` | Tahsilat masası | Cash desk |
 | `cash.lede` | ABD'li müşterilerinizden tahsilat, ABD mesai saatinde ve sizin adınıza. | Your US receivables, worked in US business hours and in your name. |
 | `cash.capacity` | Ayda {count} faturaya kadar | Up to {count} invoices a month |
@@ -459,6 +495,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `terms.i3` | Masalar 90 günlük çıkış hakkıyla başlar. | Desks start with a 90-day exit period. |
 | `terms.i4` | Kapasite üstü: her ek 100 fatura veya sipariş için aylık {extra}. | Above capacity: {extra} a month per extra 100 invoices or orders. |
 | `terms.i5` | Kesin kapsam ve fiyat, imzalı hizmet sözleşmesinde yazılıdır. | Exact scope and price are written in a signed engagement letter. |
+| `terms.i6` | Belge sözü: Ponenti'nin hazırladığı bir belge yüzünden geri dönen destek başvurusunu ücretsiz düzeltir ve yeniden sunarız. Destek tutarına Ticaret Bakanlığı karar verir. | Document promise: if a support claim comes back because of a document Ponenti prepared, we fix it and resubmit it at no charge. The Ministry of Trade decides the amount of support. |
 | `faq.title` | Sık sorulan sorular | Frequently asked questions |
 | `faq.q1` | İthalatçı kaydımız (Importer of Record) olur musunuz? | Will you act as our importer of record? |
 | `faq.a1` | Hayır. İthalatçı kaydı olarak hiçbir zaman hareket etmeyiz. Kaydınızı denetler, müşavirinizin istediği bilgileri derlemenize yardım ederiz. | No. We never act as importer of record. We audit your record and help you gather the information your broker asks for. |
@@ -474,6 +511,10 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `faq.a6` | Kontrol raporu 10 iş gününde teslim edilir. Plan veya masa, sözleşme imzalandıktan sonra başlar. | The check report arrives in 10 business days. A plan or desk starts once the engagement letter is signed. |
 | `faq.q7` | Vergi numaramızı siteye girmemiz gerekiyor mu? | Do we need to enter our tax ID on the site? |
 | `faq.a7` | Hayır. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez. Belgeler sözleşmeden sonra güvenli bir kanaldan alınır. | No. This site never asks for tax ID numbers, EINs or financial documents. Documents come through a secure channel after you sign. |
+| `faq.q8` | Destek başvurusunu siz mi yapıyorsunuz? | Do you file Turkish export support claims? |
+| `faq.a8` | Hayır. Başvuruyu Türk destek danışmanınız Ticaret Bakanlığı'nın sisteminde yapar. Biz ABD tarafının belgelerini hazırlar, Ticaret Müşavirliği onayını ve ödemeyi takip ederiz. | No. Your Turkish support consultant files them in the Ministry of Trade's system. We prepare the US-side documents and track the Commercial Counselor's approval and the payment. |
+| `faq.q9` | Ponenti'nin ücreti destekten karşılanır mı? | Can Ponenti's fees be claimed as support? |
+| `faq.a9` | Hayır. Ücretlerimiz destek kapsamında değildir. Destek dosyası, Standart ve Kapsamlı planların sabit aylık ücretine dahildir. | No. Our fees are not an eligible cost. The support file is included in the flat monthly fee of the Standard and Complete plans. |
 
 ## riskTest
 
@@ -578,6 +619,137 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `form5472.continuation` | IRS bildiriminden sonra 90 gün geçerse, her 30 gün için {penalty} daha eklenir; üst sınır yoktur. | If 90 days pass after an IRS notice, another {penalty} is added for each 30 days, with no cap. |
 | `form5472.multiple` | Birden fazla ilişkili taraf varsa her biri için ayrı form gerekir. | With more than one related party, each needs its own form. |
 | `emailCta` | Sonucu e-postayla gönder | Email me my result |
+| `supportNote` | ABD giderleriniz için Türkiye ihracat desteğini mi hesaplıyorsunuz? | Estimating Turkish export support on your US costs? |
+| `supportLink` | Destek hesaplayıcısı | Support estimator |
+
+## supportFile
+
+| Key | Türkçe | English |
+|---|---|---|
+| `eyebrow` | Destek dosyası | Support file |
+| `title` | Siz ABD'de işinize bakın; destek dosyanız <em>her ay hazır</em>. | You run your US business; your support file is <em>ready every month</em>. |
+| `intro` | Ticaret Bakanlığı; ABD'deki ofis, depo ve mağaza kiranızın, 3PL ücretlerinizin, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar. | Türkiye's Ministry of Trade can cover part of the rent on your US office, warehouse or store, your 3PL fees and your certification, trademark and promotion costs. We prepare the US side of every claim from start to finish; your Turkish consultant only files it. |
+| `steps.eyebrow` | Nasıl işler | How it works |
+| `steps.title` | Destek dosyası dört adımda | The support file in four steps |
+| `steps.intro` | Her adımda kimin ne yaptığı yazılı. | Who does what, at every step. |
+| `steps.who` | Kim | Who |
+| `steps.s1.title` | Kurulum | Setup |
+| `steps.s1.body` | ABD ofisinizi veya deponuzu desteğe uygun kurarız: Türk şirketiyle ortaklık bağı, emsal kirada bir sözleşme ve kiranın şirketin ya da ABD şirketinin hesabından havaleyle ödenmesi. | We set up your US office or warehouse so it qualifies: an ownership link to the Turkish company, a lease at market rent, and rent paid by bank transfer from the company or its US entity. |
+| `steps.s1.who` | Ponenti kurar, siz onaylarsınız. | Ponenti sets it up; you approve. |
+| `steps.s2.title` | Kayıt | Capture |
+| `steps.s2.body` | Her ay sonu kapanışında desteğe uygun her gider defterinizde etiketlenir. Fatura, ödeme belgesi ve banka dökümü yanına eklenir. | At every month-end close, each eligible cost is tagged in your books, with the invoice, proof of payment and bank statement attached. |
+| `steps.s2.who` | Ponenti, aylık kapanışta. | Ponenti, at the monthly close. |
+| `steps.s3.title` | Müşavirlik onayı | Counselor |
+| `steps.s3.body` | ABD'deki Ticaret Müşavirliği'nin onayına gidecek paketi hazırlar, yerinde incelemeyi ve onayı takip ederiz. | We assemble the package for the Turkish Commercial Counselor in the US and track the site visit and the approval. |
+| `steps.s3.who` | Ponenti hazırlar, Ticaret Müşaviri onaylar. | Ponenti prepares it; the Commercial Counselor approves. |
+| `steps.s4.title` | Başvuru | Filing |
+| `steps.s4.body` | Türk danışmanınız başvuruyu Ticaret Bakanlığı'nın Destek Yönetim Sistemi'nde (DYS) yapar. Ödeme gelene kadar takibi biz sürdürürüz. | Your Turkish consultant files the claim in the Ministry of Trade's Support Management System (DYS), and we track it until it is paid. |
+| `steps.s4.who` | Danışmanınız başvurur, biz ödemeye kadar izleriz. | Your consultant files; we track it to payment. |
+| `estimator.eyebrow` | Hesaplayıcı | Estimator |
+| `estimator.title` | Desteğinizi tahmin edin | Estimate your support |
+| `estimator.intro` | Yıllık ABD giderlerinizi girin. Tahmin, %50 temel oranla ve ABD hedef ülke listesindeyken geçerli %70'e kadar oranla, dolar ve TL olarak hesaplanır. | Enter your annual US costs. The estimate uses the 50% base rate and the rate of up to 70% that applies while the US is on the target-country list, in dollars and TL. |
+| `reasons.eyebrow` | Sık yapılan hatalar | Common mistakes |
+| `reasons.title` | ABD kira desteği başvuruları neden geri döner? | Why do US rent claims come back? |
+| `reasons.intro` | Genelgedeki şartlardan yedi sebep. Destek dosyası her birini başvurudan önce kontrol eder. | Seven reasons, taken from the circular's conditions. The support file checks each one before filing. |
+| `reasons.r1` | Kira emsalin üzerinde; Ticaret Müşaviri rayice uygun bulmuyor. | Rent above market: the Commercial Counselor does not find it in line with market rates. |
+| `reasons.r2` | Kira yanlış yoldan ödenmiş: nakit, ortağın kişisel hesabı, üçüncü kişi ya da müşteri çeki. | Rent paid the wrong way: cash, a partner's personal account, a third party or a customer's check. |
+| `reasons.r3` | Ticaret Müşavirliği onayı yok. | No Commercial Counselor approval. |
+| `reasons.r4` | Başvuru, ödeme belgesi tarihinden itibaren 6 ay içinde yapılmamış. | Claim filed more than 6 months after the payment document date. |
+| `reasons.r5` | Birimde Türkiye'de üretilen ürün pazarlanmıyor. | No Turkish-made goods marketed at the site. |
+| `reasons.r6` | Ortaklık yapısı başvuruyla uyuşmuyor. | Ownership that does not match the claim. |
+| `reasons.r7` | Destek, o yıl ABD'ye yapılan ihracatın yarısını aşıyor. | Support above half of that year's exports to the US. |
+| `reasons.card` | Kartla ödeme tek başına ret sebebi değildir. Genelge bu durumda kart ekstresini ister; ödeme yine şirket hesabından yapılmalıdır. | Paying by card is not by itself a reason for refusal. The circular then asks for the card statement, and the payment must still come from the company's account. |
+| `reasons.link` | Yedi sebep ve genelgedeki maddeleri | The seven reasons and the circular's articles (in Turkish) |
+| `lease.eyebrow` | CBP ve kira desteği | CBP and rent support |
+| `lease.title` | Tek kira, iki sorun | One lease, two problems |
+| `lease.p1` | 18 Eylül 2026'dan beri CBP, Form 5106 adresi kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor. ABD'de gerçek bir ofis ya da depo bu sorunu çözer. Aynı kira, şartları sağlarsa Ticaret Bakanlığı'nın birim kira desteğine de girer. | Since September 18, 2026, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center. A real US office or warehouse solves that. The same lease, if it meets the conditions, also qualifies for the Ministry of Trade's unit rent support. |
+| `lease.p2` | Uygun yeri lisanslı emlak komisyoncularıyla bulmanıza yardım eder, sözleşmeyi iki kurala göre birlikte kontrol ederiz. Paylaşımlı ofis üyeliği kira desteğine girebilir, ama iş merkezi adresi CBP kuralına takılabilir. Bu yüzden adresi tek kurala bakarak seçmeyiz. | We help you find the space through licensed brokers and check the lease against both rules at once. A shared-office membership can qualify for rent support, but a business-center address can fail CBP's rule. So we never pick the address against one rule alone. |
+| `lease.cbp` | CBP kuralı (Federal Register) | CBP rule (Federal Register) |
+| `lease.circular` | Birim kira genelgesi | Unit rent circular |
+| `promise.eyebrow` | Belge sözü | Document promise |
+| `promise.title` | Hazırladığımız bir belge yüzünden geri dönen başvuruyu ücretsiz düzeltiriz. | If a claim comes back because of a document we prepared, we fix it at no charge. |
+| `promise.body` | Belgeyi düzeltir ve yeniden sunarız; bunun için ücret almayız. Destek tutarına ise Ticaret Bakanlığı karar verir. Bu yüzden tahmin gösteririz, tutar vaat etmeyiz. | We correct the document and resubmit it, with no fee for it. The amount of support is the Ministry of Trade's decision, so we show estimates, never promised amounts. |
+| `scope.title` | Ücret ve kapsam | Fees and scope |
+| `scope.i1` | Destek dosyası, aylık kapanışı olan Standart ve Kapsamlı planların sabit ücretine dahildir. | The support file is included in the flat fee of the Standard and Complete plans, which have a monthly close. |
+| `scope.i2` | Ponenti'nin ücretleri destek kapsamında değildir. Ücretimiz sabittir; desteğin tutarına bağlı değildir. | Ponenti's fees are not an eligible cost. Our fee is flat and does not depend on the amount of support. |
+| `scope.i3` | Başvuruyu Türk destek danışmanınız yapar ve kendi ücretini ayrıca alır. | Your Turkish support consultant files the claim and charges its own fee. |
+| `scope.i4` | Kayıtlarınızı danışmanınızla yalnızca yazılı onayınızla paylaşırız. | We share your records with your consultant only with your written consent. |
+| `scope.link` | Planları görün | See the plans |
+| `sources.eyebrow` | Kaynaklar | Sources |
+| `sources.title` | Resmi kaynaklar | Official sources |
+| `sources.checked` | Kurallar ve limitler {date} tarihinde kontrol edildi. | Rules and caps checked on {date}. |
+| `sources.decree` | 5973 sayılı İhracat Destekleri Hakkında Karar | Decree 5973 on Export Support (Turkish) |
+| `sources.unitRent` | Birim Kira Desteğine İlişkin Genelge (yürürlük: 20.04.2026) | Unit rent support circular, in force April 20, 2026 (Turkish) |
+| `sources.promotion` | Tanıtım Desteğine İlişkin Genelge (yürürlük: 26.06.2026) | Promotion support circular, in force June 26, 2026 (Turkish) |
+| `sources.trademark` | Yurt Dışı Marka Tescil Desteğine İlişkin Genelge | Foreign trademark registration support circular (Turkish) |
+| `sources.eexportDecree` | E-İhracat Destekleri Hakkında Karar | E-export support decree (Turkish) |
+| `sources.eexportCircular` | E-İhracat Desteklerine İlişkin Genelge | E-export support circular (Turkish) |
+| `sources.limitsBranding` | 2026 destek üst limitleri: birim kira ve tanıtım | 2026 caps: unit rent and promotion (Turkish) |
+| `sources.limitsMarketEntry` | 2026 destek üst limitleri: pazara giriş belgesi ve marka tescili | 2026 caps: market entry documents and trademark registration (Turkish) |
+| `sources.limitsEexport` | 2026 e-ihracat destekleri üst limitleri | 2026 e-export support caps (Turkish) |
+| `sources.targets` | Hedef ve öncelikli ülkeler | Target and priority countries (Turkish) |
+| `sources.documents` | Destek kapsamındaki pazara giriş belgeleri (Ek-1B) | Market entry documents covered by the support, Annex 1B (Turkish) |
+| `sources.tcmb` | TCMB gösterge niteliğindeki döviz kurları | TCMB indicative exchange rates |
+| `sources.cbp` | CBP: ithalatçı kaydı verilerinin doğruluğu (Federal Register) | CBP: accuracy of importer of record data (Federal Register) |
+| `partners` | Birlikte çalıştığımız Türk destek danışmanları | Turkish support consultancies we work with |
+
+## supportEstimator
+
+| Key | Türkçe | English |
+|---|---|---|
+| `costsLegend` | Yıllık giderleriniz ($) | Your annual costs ($) |
+| `lines.rent.label` | ABD ofis, depo veya mağaza kirası | Rent for a US office, warehouse or store |
+| `lines.rent.short` | Kira | Rent |
+| `lines.rent.hint` | Tek birim için net kira; vergi ve işletme giderleri hariç. | Net rent for one site, without taxes and operating costs. |
+| `lines.fulfillment.label` | 3PL ve sipariş karşılama ücretleri | 3PL and fulfillment fees |
+| `lines.fulfillment.short` | 3PL ve sipariş karşılama | 3PL and fulfillment |
+| `lines.fulfillment.hint` | Sipariş başına karşılama, iade ve depolama ücretleri; komisyon ve üyelik hariç. | Per-order fulfillment, returns and storage; not commissions or memberships. |
+| `lines.documents.label` | Sertifika ve ruhsat giderleri | Certifications and licenses |
+| `lines.documents.short` | Pazara giriş belgeleri | Market entry documents |
+| `lines.documents.hint` | Bakanlık listesindeki sertifika, test, ruhsat ve kayıt işlemleri. | Certification, testing, licensing and registration on the Ministry's list. |
+| `lines.trademark.label` | ABD marka tescili ve koruma | US trademark registration and protection |
+| `lines.trademark.short` | Marka tescili | Trademark |
+| `lines.trademark.hint` | Türkiye'de tescilli markanızın ABD'deki başvuru ve koruma giderleri. | Filing and protecting in the US a trademark registered in Türkiye. |
+| `lines.promotion.label` | Tanıtım ve pazarlama | Promotion and marketing |
+| `lines.promotion.short` | Tanıtım | Promotion |
+| `lines.promotion.hint` | Türkiye'de üretilen ürünleriniz için ABD'deki reklam ve pazarlama. | Advertising and marketing in the US for your Turkish-made products. |
+| `more` | Daha kesin tahmin için | For a closer estimate |
+| `ownership` | Türk şirketinin ABD şirketindeki payı (%) | Turkish company's share of the US company (%) |
+| `ownershipHint` | Kirayı ve tanıtımı ABD şirketi ödüyorsa destek bu paya göre hesaplanır. Türk şirketi doğrudan ödüyorsa 100 bırakın. | If the US company pays the rent and promotion, support is prorated to this share. If the Turkish company pays directly, leave 100. |
+| `exports` | ABD'ye yıllık ihracat ($) | Annual exports to the US ($) |
+| `exportsHint` | Gümrük beyannamelerinize göre. Kira ve tanıtım desteği bunun yarısını geçemez. | From your customs declarations. Rent and promotion support can't exceed half of it. |
+| `onlineSales` | ABD'deki yıllık online satış ($) | Annual online sales in the US ($) |
+| `onlineSalesHint` | 3PL desteği, bu tutarın %10'unu aşmayan gidere uygulanır. | 3PL support applies to costs up to 10% of this amount. |
+| `optional` | İsteğe bağlı | Optional |
+| `age` | Türk şirketi en az 1 yıldır kurulu | The Turkish company is at least 1 year old |
+| `ageHint` | Daha yeni şirketler kira ve tanıtım desteğine başvuramaz. | Younger companies can't apply for rent or promotion support. |
+| `resultTitle` | Tahmini yıllık destek | Estimated annual support |
+| `base.title` | Temel oran | Base rate |
+| `base.rate` | %50 | 50% |
+| `base.short` | %50 ile | At 50% |
+| `target.title` | Hedef ülke oranı | Target-country rate |
+| `target.rate` | %70'e kadar | Up to 70% |
+| `target.short` | %70'e kadar | Up to 70% |
+| `tableCaption` | Gider kalemine göre tahmini yıllık destek, dolar ve TL | Estimated annual support by cost line, in dollars and TL |
+| `line` | Gider kalemi | Cost line |
+| `costOf` | Gider {cost} | Cost {cost} |
+| `cap` | Üst limit {cap} TL/yıl | Cap {cap} TL/yr |
+| `capYears` | Üst limit {cap} TL/yıl, {years} yıl | Cap {cap} TL/yr, {years} years |
+| `total` | Toplam | Total |
+| `tl` | {amount} TL | {amount} TL |
+| `limits.cap` | Yıllık üst limit uygulandı. | Annual cap applied. |
+| `limits.exports` | İhracatın yarısı sınırı uygulandı. | Half-of-exports limit applied. |
+| `limits.onlineSales` | Online satışın %10'u sınırı uygulandı. | 10%-of-online-sales limit applied. |
+| `limits.companyAge` | Şirket 1 yaşını doldurmadığı için sıfır. | Zero: the company is under 1 year old. |
+| `asOf` | Kur: 1 $ = {rate} TL, TCMB döviz alış kuru, {date}. Üst limitler {year} yılına aittir. Kurallar {checked} tarihinde kontrol edildi. | Rate: $1 = {rate} TL, TCMB buying rate, {date}. Caps are for {year}. Rules checked on {checked}. |
+| `tcmb` | TCMB kurları | TCMB rates |
+| `assumptions` | Hedef ülke sütunu, ABD'nin ödeme yılında Bakanlığın hedef ülkeler listesinde olduğunu varsayar; pazara giriş belgeleri iki sütunda da %50 ile hesaplanır. Kira limiti birim başınadır. 3PL desteği için Bakanlık listesindeki bir sağlayıcı ve ön onay gerekir. | The target-country column assumes the US is on the Ministry's target-country list in the payment year; market entry documents are estimated at 50% in both columns. The rent cap is per site. 3PL support needs a provider on the Ministry's list and pre-approval. |
+| `estimate` | Bu bir tahmindir; vaat edilen bir tutar değildir. Desteğe Ticaret Bakanlığı karar verir ve TL olarak, ödeme belgesi tarihindeki TCMB kuruyla öder. Ponenti'nin ücretleri destek kapsamında değildir. | This is an estimate, not a promised amount. The Ministry of Trade decides the support and pays it in TL at the TCMB rate on the payment document's date. Ponenti's fees are not an eligible cost. |
+| `cta` | Destek haritanızı alın | Get your support map |
+| `mapTitle` | Destek haritanız | Your support map |
+| `mapIntro` | Hangi giderinizin hangi desteğe girdiğini, şartlarını ve başvuru takvimini tek sayfada gösteririz. Formu gönderin; haritanızı hazırlayıp e-postayla gönderelim. | One page showing which of your costs fall under which support, the conditions and the filing calendar. Send the form and we will prepare your map and email it to you. |
+| `submit` | Destek haritamı iste | Send me my support map |
+| `privacy` | Rakamlarınız tarayıcınızda kalır; yalnızca destek haritanızı isterseniz bize gönderilir. | Your numbers stay in your browser; they reach us only if you ask for a support map. |
 
 ## trade
 
@@ -885,6 +1057,9 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `riskTop` | Öne çıkan konular: | Top issues: |
 | `cashResult` | Hesaplama sonucunuz: yıllık {sales} satışta tahsilat süresi {current} günden {target} güne inerse yaklaşık {result} nakit serbest kalır. | Your result: with {sales} in annual sales, cutting payment days from {current} to {target} frees about {result} in cash. |
 | `form5472Result` | Hesaplama sonucunuz: {years} eksik yıl için başlangıç cezası {result}. | Your result: the initial penalty for {years} missing years is {result}. |
+| `supportResult` | Tahmini yıllık desteğiniz: temel oranla (%50) {base} ({baseTl}), hedef ülke oranıyla (%70'e kadar) {target} ({targetTl}). | Your estimated annual support: at the base rate (50%) {base} ({baseTl}); at the target-country rate (up to 70%) {target} ({targetTl}). |
+| `supportInputs` | Girdiğiniz yıllık giderler: kira {rent}, 3PL {fulfillment}, pazara giriş belgeleri {documents}, marka tescili {trademark}, tanıtım {promotion}. | The annual costs you entered: rent {rent}, 3PL {fulfillment}, market entry documents {documents}, trademark {trademark}, promotion {promotion}. |
+| `supportRate` | Kur: 1 $ = {rate} TL (TCMB döviz alış, {date}). Bu bir tahmindir; desteğe Ticaret Bakanlığı karar verir. Destek haritanızı hazırlayıp size göndereceğiz. | Rate: $1 = {rate} TL (TCMB buying rate, {date}). This is an estimate; the Ministry of Trade decides the support. We will prepare your support map and send it to you. |
 | `noTaxIds` | Lütfen bu e-postaya vergi kimlik numarası, EIN veya finansal belge eklemeyin. | Please don't attach tax ID numbers, EINs or financial documents to this email. |
 | `informational` | Bu e-postadaki bilgiler bilgilendirme amaçlıdır; hukuki, vergi veya gümrük tavsiyesi değildir. | The information in this email is informational; it is not legal, tax or customs advice. |
 | `signoff` | Saygılarımla, | Best regards, |
@@ -898,6 +1073,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
+| `us-rent-support-rejections` | ABD'de kira desteği başvuruları neden geri döner: 7 sebep (/tr/bilgi-merkezi/abd-kira-destegi-neden-reddedilir) |  |
 | `us-payment-terms-collections` | ABD'de ödeme vadeleri ve tahsilat: B2B satıcılar için rehber (/tr/bilgi-merkezi/abd-odeme-vadeleri-ve-tahsilat) | US payment terms and collections: a guide for B2B sellers (/en/insights/us-payment-terms-and-collections) |
 | `sales-tax-nexus` | ABD satış vergisi: 9 eyalette bağlantı (nexus) eşikleri (/tr/bilgi-merkezi/abd-satis-vergisi-eyalet-esikleri) | US sales tax nexus: thresholds in 9 states (/en/insights/sales-tax-nexus-by-state) |
 | `eo-14411-importer-rules` | EO 14411: ABD ithalatçı kaydında yeni adres ve kimlik kuralları (/tr/bilgi-merkezi/eo-14411-ithalatci-kaydi-kurallari) | EO 14411: New Address and Identity Rules for US Importers of Record (/en/insights/eo-14411-importer-of-record-rules) |

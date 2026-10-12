@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useId, useState } from "react";
 import { ArrowUpRight, Mail, Minus, Plus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
@@ -8,77 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LeadForm } from "@/components/forms/lead-form";
-import { track } from "@/lib/analytics";
+import { NumberField, useUsedOnce } from "@/components/calculators/fields";
 import { cashFreed, form5472Exposure, paymentDaysRange } from "@/lib/calculators";
-import { formatNumber, formatUsd, formatUsdRounded } from "@/lib/format";
+import { formatUsd, formatUsdRounded } from "@/lib/format";
 import { pricing } from "@/lib/pricing";
-
-/** Fires calculator_used once per calculator, after the visitor changes an input. */
-function useUsedOnce(name: string, deps: unknown[]) {
-  const first = useRef(true);
-  const sent = useRef(false);
-  useEffect(() => {
-    if (first.current) {
-      first.current = false;
-      return;
-    }
-    if (sent.current) return;
-    const id = window.setTimeout(() => {
-      sent.current = true;
-      track("calculator_used", { calculator: name });
-    }, 800);
-    return () => window.clearTimeout(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
-}
-
-function NumberField({
-  id,
-  label,
-  value,
-  onChange,
-  locale,
-  suffix,
-  max,
-}: {
-  id: string;
-  label: string;
-  value: number;
-  onChange: (n: number) => void;
-  locale: Locale;
-  suffix?: string;
-  max: number;
-}) {
-  const [focused, setFocused] = useState(false);
-  const [draft, setDraft] = useState(String(value));
-  return (
-    <div>
-      <Label htmlFor={id} className="text-small leading-snug font-medium text-navy">
-        {label}
-      </Label>
-      <div className="relative mt-2.5">
-        <Input
-          id={id}
-          inputMode="numeric"
-          autoComplete="off"
-          value={focused ? draft : formatNumber(value, locale)}
-          onFocus={() => {
-            setDraft(String(value));
-            setFocused(true);
-          }}
-          onBlur={() => setFocused(false)}
-          onChange={(e) => {
-            const digits = e.target.value.replace(/\D/g, "").slice(0, 13);
-            setDraft(digits);
-            onChange(Math.min(max, Number(digits || 0)));
-          }}
-          className="figures"
-        />
-        {suffix && <span className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-small text-mist-soft">{suffix}</span>}
-      </div>
-    </div>
-  );
-}
 
 export function CashCalculator() {
   const t = useTranslations("calculators");

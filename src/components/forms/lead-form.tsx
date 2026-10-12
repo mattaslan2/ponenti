@@ -14,7 +14,7 @@ import { publicEnv } from "@/lib/env";
 import { getUtm, UTM_KEYS } from "@/lib/utm";
 import { cn } from "@/lib/utils";
 
-type FormType = "contact" | "risk_test" | "calc_cash" | "calc_5472" | "prospect" | "trade_data";
+type FormType = "contact" | "risk_test" | "calc_cash" | "calc_5472" | "calc_support" | "prospect" | "trade_data";
 
 const PAYMENT_OPTIONS = [
   { value: "0-29", key: "r0" },

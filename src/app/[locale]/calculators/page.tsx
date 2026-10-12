@@ -4,6 +4,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { PageHeader } from "@/components/section";
 import { FinalCta } from "@/components/home/sections";
+import { ArrowLink } from "@/components/cta";
 import { CashCalculator, Form5472Calculator } from "@/components/calculators/calculators";
 import { pick } from "@/lib/messages";
 import { buildMetadata } from "@/lib/seo";
@@ -36,6 +37,10 @@ export default async function CalculatorsPage() {
               />
             </div>
           </NextIntlClientProvider>
+          <p className="mt-16 flex flex-col gap-1 border-t border-line pt-8 text-mist sm:flex-row sm:items-center sm:gap-4 lg:col-span-2">
+            <span>{t("supportNote")}</span>
+            <ArrowLink href={{ pathname: "/support-file", hash: "estimate" }}>{t("supportLink")}</ArrowLink>
+          </p>
         </div>
       </section>
       <FinalCta location="calculators_final" />

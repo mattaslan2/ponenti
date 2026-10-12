@@ -5,14 +5,16 @@ import { site } from "@/lib/site";
 import { sources } from "@/lib/sources";
 import { riskSources, type RiskId } from "@/lib/risk-test";
 import { calUrl } from "@/lib/links";
-import { formatUsd, formatUsdRounded } from "@/lib/format";
+import { formatDate, formatNumber, formatUsd, formatUsdRounded } from "@/lib/format";
+import { estimateSupport } from "@/lib/support";
+import { getUsdTry } from "@/lib/tcmb";
 import { getPathname } from "@/i18n/navigation";
 import { getCountryOverview, getProductSnapshot } from "@/lib/trade/analysis";
 import { TURKIYE, countryByIso, countryName } from "@/lib/trade/countries";
 import { pct, usdCompact, windowLabel } from "@/lib/trade/format";
 import { siteUrl } from "@/lib/seo";
 import { overviewHref, productHref } from "@/lib/trade/links";
-import { cashContextSchema, form5472ContextSchema, riskContextSchema, tradeContextSchema, type Lead } from "./schema";
+import { cashContextSchema, form5472ContextSchema, riskContextSchema, supportContextSchema, tradeContextSchema, type Lead } from "./schema";
 
 /**
  * Resend: a confirmation to the visitor in their language and an internal
@@ -73,6 +75,9 @@ export async function resultLines(lead: Lead): Promise<string[]> {
       lines.push(t("emails.form5472Result", { years: r.data.years, result: formatUsd(r.data.result, lead.locale) }));
       lines.push(sources.irsInternationalPenalties);
     }
+  } else if (lead.formType === "calc_support") {
+    const r = supportContextSchema.safeParse(ctx);
+    if (r.success) lines.push(...(await supportLines(r.data, lead.locale)));
   }
   return lines;
 }
@@ -170,4 +175,36 @@ async function tradeLines(ctx: { hs?: string; country: string }, locale: "tr" | 
   } catch {
     return [t("tradeLink", { url })];
   }
+}
+
+/** Support estimate for the visitor's email, recomputed on the server at the current TCMB rate. */
+async function supportLines(
+  ctx: { costs: Record<"rent" | "fulfillment" | "documents" | "trademark" | "promotion", number>; ownership: number; exports: number | null; onlineSales: number | null; overOneYear: boolean },
+  locale: "tr" | "en",
+): Promise<string[]> {
+  const t = await getTranslations({ locale, namespace: "emails" });
+  const fx = await getUsdTry();
+  const estimate = estimateSupport(
+    { costs: ctx.costs, ownershipPct: ctx.ownership, usExportsUsd: ctx.exports, usOnlineSalesUsd: ctx.onlineSales, companyOverOneYear: ctx.overOneYear },
+    fx.rate,
+  );
+  const usd = (n: number) => formatUsd(n, locale);
+  const tl = (n: number) => `${formatNumber(n, locale)} TL`;
+  const rate = new Intl.NumberFormat(locale === "tr" ? "tr-TR" : "en-US", { minimumFractionDigits: 4, maximumFractionDigits: 4 }).format(fx.rate);
+  return [
+    t("supportResult", {
+      base: usd(estimate.total.base.usd),
+      baseTl: tl(estimate.total.base.tl),
+      target: usd(estimate.total.target.usd),
+      targetTl: tl(estimate.total.target.tl),
+    }),
+    t("supportInputs", {
+      rent: usd(ctx.costs.rent),
+      fulfillment: usd(ctx.costs.fulfillment),
+      documents: usd(ctx.costs.documents),
+      trademark: usd(ctx.costs.trademark),
+      promotion: usd(ctx.costs.promotion),
+    }),
+    t("supportRate", { rate, date: formatDate(fx.date, locale) }),
+  ];
 }

@@ -9,6 +9,7 @@ import {
   Hero,
   Offer,
   PenaltyPromise,
+  SupportFile,
   ProofSlots,
   Trust,
   Weekly,
@@ -31,6 +32,7 @@ export default function HomePage() {
       <Doors />
       <FactsBand />
       <Offer />
+      <SupportFile />
       <Weekly />
       <WhatWeDont />
       <YourData />

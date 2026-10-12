@@ -13,6 +13,7 @@ export const routing = defineRouting({
     "/services": { tr: "/hizmetler", en: "/services" },
     "/risk-test": { tr: "/risk-testi", en: "/risk-test" },
     "/calculators": { tr: "/hesaplayicilar", en: "/calculators" },
+    "/support-file": { tr: "/destek-dosyasi", en: "/support-file" },
     "/trade-data": { tr: "/ticaret-verileri", en: "/trade-data" },
     "/trade-data/[hs]": { tr: "/ticaret-verileri/[hs]", en: "/trade-data/[hs]" },
     "/insights": { tr: "/bilgi-merkezi", en: "/insights" },

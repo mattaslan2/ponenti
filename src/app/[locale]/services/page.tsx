@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/routing";
 import { PageHeader, Section } from "@/components/section";
 import { FinalCta } from "@/components/home/sections";
 import { Confirm } from "@/components/placeholders";
+import { ArrowLink } from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { formatUsd, formatNumber, priceArgs } from "@/lib/format";
 import { faqJsonLd } from "@/lib/jsonld";
@@ -72,7 +73,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
 
   const plans: { key: "essentials" | "standard" | "complete"; price: number; n: number }[] = [
     { key: "essentials", price: pricing.plans.essentials, n: 8 },
-    { key: "standard", price: pricing.plans.standard, n: 6 },
+    { key: "standard", price: pricing.plans.standard, n: 7 },
     { key: "complete", price: pricing.plans.complete, n: 5 },
   ];
 
@@ -97,7 +98,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
     },
   ] as const;
 
-  const faq = Array.from({ length: 7 }, (_, i) => ({ q: t(`faq.q${i + 1}` as "faq.q1"), a: t(`faq.a${i + 1}` as "faq.a1") }));
+  const faq = Array.from({ length: 9 }, (_, i) => ({ q: t(`faq.q${i + 1}` as "faq.q1"), a: t(`faq.a${i + 1}` as "faq.a1") }));
 
   return (
     <>
@@ -131,7 +132,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
         }
       >
         <h3 className="eyebrow">{t("includes")}</h3>
-        <Includes className="mt-5" items={keys("check", 6).map(tl)} />
+        <Includes className="mt-5" items={keys("check", 7).map(tl)} />
         <p className="mt-8 max-w-xl text-small text-mist">{t("check.delivery")}</p>
       </Section>
 
@@ -162,6 +163,9 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
           <p>{t("plans.scorecard")}</p>
           <p>{t("plans.sizing")}</p>
         </div>
+        <p className="mt-6">
+          <ArrowLink href="/support-file">{t("plans.supportLink")}</ArrowLink>
+        </p>
       </Section>
 
       {/* Desks */}
@@ -235,7 +239,7 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
       {/* Terms */}
       <Section id="terms" layout="split" title={t("terms.title")}>
         <ul className="border-t border-line">
-          {[1, 2, 3, 4, 5].map((i) => (
+          {[1, 2, 3, 4, 5, 6].map((i) => (
             <li key={i} className="border-b border-line py-4 text-navy max-lg:last:border-b-0">
               {t(`terms.i${i}` as "terms.i1", { extra: f(pricing.extraPer100) })}
             </li>
