@@ -249,6 +249,33 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   const proofTitle = await page.locator('#proof-title').innerText();
   ok('proof section title matches its cards', (proofCards === 3 && proofTitle.includes('üç')) || (proofCards === 4 && proofTitle.includes('dört')), `${proofCards} cards, "${proofTitle}"`);
 
+  // 12. The market figures between the hero and the proof: six figures from the Census snapshot and two dated rules,
+  //     each with a source link; the sparkline has a text alternative; the home lists the newest articles.
+  for (const [p, expect] of [['/tr', { title: 'rakamlarla', duty: '%12,5', fsvp: '483', lines: 'En büyük kalemler' }], ['/en', { title: 'in figures', duty: '12.5%', fsvp: '483', lines: 'Largest lines' }]]) {
+    await page.goto(base + p, { waitUntil: 'domcontentloaded' });
+    const market = page.locator('#market');
+    ok(`market section follows the hero on ${p}`, await page.evaluate(() => {
+      const ids = [...document.querySelectorAll('main section[id]')].map((s) => s.id);
+      return ids.indexOf('market') === ids.indexOf('proof') - 1 && ids.indexOf('market') > -1;
+    }));
+    ok(`market title on ${p}`, (await page.locator('#market-title').innerText()).includes(expect.title));
+    const figures = await market.locator('dl > div').count();
+    ok(`market shows six figures on ${p}`, figures === 6, String(figures));
+    const marketText = await market.innerText();
+    ok(`market shows the 12.5% duty and the FDA count on ${p}`, marketText.includes(expect.duty) && marketText.includes(expect.fsvp));
+    ok(`market figures each link a source on ${p}`, (await market.locator('dl a[target="_blank"]').count()) === 6);
+    ok(`market links the trade data and the article on ${p}`, (await market.locator('header a[href*="trade-data"], header a[href*="ticaret-verileri"]').count()) === 1 && (await market.locator('header a[href*="301"]').count()) === 1);
+    ok(`sparkline has a text alternative on ${p}`, ((await market.locator('svg[role="img"]').getAttribute('aria-label')) || '').length > 20);
+    ok(`market names the largest lines on ${p}`, marketText.toLowerCase().includes(expect.lines.toLowerCase()) && marketText.includes('2026'));
+    const insights = await page.locator('#insights li').count();
+    ok(`home lists three articles on ${p}`, insights === 3, String(insights));
+  }
+  r = await page.goto(base + '/en/insights/section-301-forced-labor-duty-turkiye-12-5-percent', { waitUntil: 'domcontentloaded' });
+  ok('section 301 article 200', r.status() === 200, String(r.status()));
+  ok('section 301 article links the Federal Register notice', (await page.locator('a[href*="2026-15181"]').count()) > 0);
+  r = await page.goto(base + '/tr/bilgi-merkezi/abd-301-madde-ek-vergi-turkiye-yuzde-12-5', { waitUntil: 'domcontentloaded' });
+  ok('section 301 article TR 200', r.status() === 200, String(r.status()));
+
   // The deliberate 404 visit logs one "Failed to load resource" line; anything else is a real error.
   const realErrors = consoleErrors.filter((e) => !(e.includes('/tr/olmayan-sayfa') && e.includes('status of 404')));
   ok('no console errors', realErrors.length === 0, realErrors.slice(0, 6).join(' || '));

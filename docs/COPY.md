@@ -194,6 +194,43 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `subtitle` | ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır. | Your US filings, multi-state sales tax and importer record at one desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval. |
 | `price` | Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir. | Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk. |
 
+## home.market
+
+| Key | Türkçe | English |
+|---|---|---|
+| `eyebrow` | İlk pazarımız | Our first market |
+| `title` | Türkiye'den ABD'ye, <em>rakamlarla.</em> | Türkiye to the United States, <em>in figures.</em> |
+| `intro` | Ne gidiyor, sınırda ne ödüyor, nereye iniyor: U.S. Census Bureau'nun {month} sonuna kadar olan ithalat verisinden. İki kural, resmî bildirimlerinden. | What ships, what it pays at the border and where it lands, from the US Census Bureau's import data through {month}. Two rules, from their official notices. |
+| `link` | Kendi ürün grubunuzu görün | See your product line |
+| `article` | %12,5 ek verginin açıklaması | The 12.5% duty, explained |
+| `linesLabel` | En büyük kalemler, {period} | Largest lines, {period} |
+| `note` | Veri: U.S. Census Bureau, Uluslararası Ticaret API'si, {month} sonuna kadar ithalat, her ay yenilenir; bu site Census Bureau tarafından onaylanmış değildir. Kurallar {date} tarihinde kontrol edildi. | Data: US Census Bureau, International Trade API, imports through {month}, refreshed monthly; this site is not endorsed or certified by the Census Bureau. Rules checked on {date}. |
+| `f1.kicker` | ABD'nin Türkiye'den ithalatı | US imports from Türkiye |
+| `f1.unit` | son 12 ay, {window} | last 12 months, {window} |
+| `f1.text` | Önceki 12 aya göre {growth}. Tüm malların gümrük kıymeti. | {growth} on the 12 months before. Customs value of all goods. |
+| `f1.chart` | ABD'nin Türkiye'den aylık ithalatı, {first} - {last}: {from} değerinden {to} değerine | Monthly US imports from Türkiye, {first} to {last}: from {from} to {to} |
+| `f1.source` | U.S. Census Bureau, Uluslararası Ticaret API'si | U.S. Census Bureau, International Trade API |
+| `f2.kicker` | Etkin gümrük vergisi | Effective duty rate |
+| `f2.unit` | Türkiye çıkışlı mallarda, son 12 ay | on goods from Türkiye, last 12 months |
+| `f2.text` | Tahsil edilen vergilerin tüketim için ithalat kıymetine oranı. İki yıl önce: {rate}. | Duties collected, divided by the value of imports for consumption. Two years earlier: {rate}. |
+| `f2.source` | U.S. Census Bureau, Uluslararası Ticaret API'si | U.S. Census Bureau, International Trade API |
+| `f3.kicker` | 301. Madde | Section 301 |
+| `f3.unit` | Türkiye menşeli ürünlere ek vergi | extra duty on products of Türkiye |
+| `f3.text` | {date} tarihinden beri, normal gümrük vergisinin üstüne. Çelik, alüminyum, taşıtlar, hava aracı parçaları, ilaç ve listelenmiş hammaddeler muaf; geri kalan her şey öder. | Since {date}, on top of the normal duty. Steel, aluminum, vehicles, aircraft parts, pharmaceuticals and listed raw materials are exempt; everything else pays it. |
+| `f3.source` | Federal Register, {citation} | Federal Register, {citation} |
+| `f4.kicker` | Deniz yolu | By sea |
+| `f4.unit` | kıymetin bu kadarı gemiyle geliyor | of the value arrives by vessel |
+| `f4.text` | Hava yoluyla {air}. Giriş beyanı, vergi ve olası FDA bekletmesi limanda çözülür. | {air} by air. The entry, the duty and any FDA hold are all settled at the port. |
+| `f4.source` | U.S. Census Bureau, Uluslararası Ticaret API'si | U.S. Census Bureau, International Trade API |
+| `f5.kicker` | Dört liman | Four ports |
+| `f5.unit` | Türkiye çıkışlı malların bu kadarı dört limandan giriyor | of goods from Türkiye enter through four ports |
+| `f5.text` | Sırasıyla {ports}. Hava kargoda {airport} önde. | {ports}, in that order. {airport} leads for air freight. |
+| `f5.source` | U.S. Census Bureau, Uluslararası Ticaret API'si | U.S. Census Bureau, International Trade API |
+| `f6.kicker` | FSVP | FSVP |
+| `f6.unit` | FSVP'si olmayan ithalatçılara FDA tespiti, {year} mali yılı | FDA citations for importers with no FSVP, fiscal year {year} |
+| `f6.text` | O yıl FDA gıda denetimlerinde en sık yazılan tespit. Doğrulama programı olmayan gıda ithalatçıları ilk hedef. | The most-cited observation in FDA food inspections that year. Food importers without a verification program are the first target. |
+| `f6.source` | FDA, Denetim Tespitleri, {year} mali yılı | FDA, Inspection Observations, fiscal year {year} |
+
 ## home.trust
 
 | Key | Türkçe | English |
@@ -215,7 +252,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `limits.link` | Yapmadığımız işler | What we don't do |
 | `sources.label` | Kaynaklar | Sources |
 | `sources.title` | Her kuralın kaynağı belli | Every rule links to its source |
-| `sources.body` | Bu sitedeki mevzuat bilgileri IRS, CBP ve Federal Register gibi resmi kaynaklara bağlıdır. | Regulatory claims on this site link to official sources such as the IRS, CBP and the Federal Register. |
+| `sources.body` | Bu sitedeki mevzuat bilgileri IRS, CBP, Federal Register, Census Bureau ve FDA gibi resmi kaynaklara bağlıdır. | Regulatory claims on this site link to official sources such as the IRS, CBP, the Federal Register, the Census Bureau and FDA. |
 | `sources.link` | Bilgi merkezi | Knowledge center |
 
 ## home.doors
@@ -323,6 +360,15 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `i4.body` | Adresimiz gerçek bir iş adresidir. CBP de Form 5106'da kayıtlı temsilci veya iş merkezi adresini kabul etmiyor. | Our address is a real business address. CBP no longer accepts a registered-agent or business-center address on Form 5106 either. |
 | `i5.title` | Tahsilat sizin adınıza yürür; 90 günü aşan alacaklar lisanslı bir tahsilat ajansına devredilir. | Collections run in your name, and accounts more than 90 days late go to a licensed agency. |
 | `i5.body` | Müşterilerinizle ilişki sizde kalır. 90 günü aşan hesapları bu iş için lisanslı bir ajans üstlenir. | Your customer relationships stay yours. Accounts past 90 days go to an agency licensed for that work. |
+
+## home.insights
+
+| Key | Türkçe | English |
+|---|---|---|
+| `eyebrow` | Bilgi merkezi | Knowledge center |
+| `title` | Kurallar değiştikçe yazılır | The rules, written down as they change |
+| `intro` | Kısa yazılar; tarihli ve resmî kaynaklara bağlı. Kural değişince yazı güncellenir. | Short articles, dated and linked to official sources. When a rule moves, the article is updated. |
+| `all` | Tüm yazılar | All articles |
 
 ## home.data
 
@@ -1074,6 +1120,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
+| `section-301-forced-labor-duty` | Türkiye çıkışlı mallara %12,5 ek vergi: 301. Madde kararı (/tr/bilgi-merkezi/abd-301-madde-ek-vergi-turkiye-yuzde-12-5) | The 12.5% Section 301 duty on goods from Türkiye (/en/insights/section-301-forced-labor-duty-turkiye-12-5-percent) |
 | `us-rent-support-rejections` | ABD'de kira desteği başvuruları neden geri döner: 7 sebep (/tr/bilgi-merkezi/abd-kira-destegi-neden-reddedilir) |  |
 | `us-payment-terms-collections` | ABD'de ödeme vadeleri ve tahsilat: B2B satıcılar için rehber (/tr/bilgi-merkezi/abd-odeme-vadeleri-ve-tahsilat) | US payment terms and collections: a guide for B2B sellers (/en/insights/us-payment-terms-and-collections) |
 | `sales-tax-nexus` | ABD satış vergisi: 9 eyalette bağlantı (nexus) eşikleri (/tr/bilgi-merkezi/abd-satis-vergisi-eyalet-esikleri) | US sales tax nexus: thresholds in 9 states (/en/insights/sales-tax-nexus-by-state) |

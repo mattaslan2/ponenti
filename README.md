@@ -28,7 +28,7 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 | `npm run placeholders` | Lists every `[REPLACE WITH REAL]`, `[confirm]` and E&O item; `-- --strict` fails if facts are missing |
 | `npm run copy:export` | Regenerates `docs/COPY.md` from the message files |
 | `npm run test:e2e` | Main journeys on a local production build (uses your Chrome; `BASE_URL` defaults to `http://localhost:3000`) |
-| `npm run test:a11y` | axe-core scan of 25 pages at phone and desktop widths |
+| `npm run test:a11y` | axe-core scan of 26 pages at phone and desktop widths |
 | `npm run test:support` | Support estimator math and the TCMB rate parser (no server needed) |
 | `npm run test:leads` | Lead flow against mock Attio and Resend (`tests/mock-apis.cjs`; setup in the file header) |
 
@@ -126,6 +126,7 @@ To test this flow without real accounts, run a mock server and set `ATTIO_API_UR
 - **Search**: HS codes, GTİP codes (first 6 digits), English product words and everyday Turkish words (`src/data/trade/hs-tr.ts`). Works without JavaScript too (`?q=`).
 - **Leads**: "Email me this analysis" creates an Attio lead (`ponenti_form = trade_data`) and emails the visitor a summary recomputed on the server.
 - **Prospect pages**: add `"hs": "5702"` to a prospect JSON file to show a US market snapshot for that firm's product.
+- **Home page**: the "first market" section under the hero shows six figures for Türkiye (imports over the last 12 months with a 36-month sparkline, effective duty rate, the 12.5% Section 301 duty, sea share, the four largest ports, FDA's FSVP citations) and the largest product lines, read from the same snapshot (`getMarketFacts` in `src/lib/trade/analysis.ts`, short product names in `src/lib/trade/short-names.ts`). The two typed-in rules live in `src/lib/market.ts` with their check date.
 
 Data: U.S. Census Bureau International Trade API (imports, monthly, about five weeks after month end). Pages never wait on that API: its answers take anywhere from 1 to 80+ seconds. Instead, `scripts/build-trade-snapshot.mjs` pulls everything once per release into `src/data/trade/snapshot/` (about 1,200 queries, 15 to 60 minutes) and the pages read those files. The GitHub Action `.github/workflows/trade-snapshot.yml` runs it daily, does nothing until a new month is out, then commits the new snapshot to `main`, which redeploys the site. It needs the repository secret `CENSUS_API_KEY` (GitHub → Settings → Secrets and variables → Actions). To refresh by hand: Actions → Trade data snapshot → Run workflow, or locally `CENSUS_API_KEY=... node scripts/build-trade-snapshot.mjs --force`.
 

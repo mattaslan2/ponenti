@@ -19,6 +19,18 @@ export const sources = {
   ecfrCustomsBusiness: "https://www.ecfr.gov/current/title-19/section-111.1",
   ftcDebtCollection: "https://consumer.ftc.gov/articles/debt-collection-faqs",
 
+  // The market figures on the home page. Verified on 2026-10-13.
+  censusTradeApi: "https://www.census.gov/data/developers/data-sets/international-trade.html",
+  frSection301ForcedLabor:
+    "https://www.federalregister.gov/documents/2026/07/28/2026-15181/notice-of-actions-in-section-301-investigations-of-acts-policies-and-practices-of-various-economies",
+  ustrSection301ForcedLaborRelease:
+    "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/july/ustr-takes-action-forced-labor-section-301-investigations",
+  cbpCsmsSection301ForcedLabor: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/421d887",
+  fdaInspectionObservations:
+    "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/inspection-references/inspection-observations",
+  fdaInspectionObservationsFy2025: "https://www.fda.gov/media/190190/download?attachment",
+  fdaFsvp: "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-foreign-supplier-verification-programs-fsvp-importers-food-humans-and-animals",
+
   // Turkish export support (Ministry of Trade, TCMB). Verified on 2026-10-12.
   trDecree5973: "https://ticaret.gov.tr/data/69afdacb269de120c032b73a/5973%20Say%C4%B1l%C4%B1%20Karar.pdf",
   trUnitRentCircular:

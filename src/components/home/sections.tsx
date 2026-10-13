@@ -9,11 +9,18 @@ import { ArrowLink, BookButton, RiskTestLink, WhatsAppButton } from "@/component
 import { SourceLink } from "@/components/external-link";
 import { Confirm, ReplaceWithReal, ShowAfterEOConfirms } from "@/components/placeholders";
 import { SampleReport } from "@/components/report/sample-report";
-import { formatNumber, formatUsd, priceArgs } from "@/lib/format";
+import { Sparkline } from "@/components/trade/sparkline";
+import { findArticleByKey, listArticles } from "@/lib/content";
+import { formatDate, formatNumber, formatUsd, priceArgs } from "@/lib/format";
+import { MARKET_RULES, SECTION_301_ARTICLE_KEY } from "@/lib/market";
 import { pricing } from "@/lib/pricing";
 import { isPlaceholder, site } from "@/lib/site";
 import { sources } from "@/lib/sources";
 import { SUPPORT_RULES } from "@/lib/support";
+import { getMarketFacts, type PortStat } from "@/lib/trade/analysis";
+import { basisLabel, monthLabel, pct, usdCompact, windowLabel } from "@/lib/trade/format";
+import { parseYm } from "@/lib/trade/periods";
+import { shortProductName } from "@/lib/trade/short-names";
 import { cn } from "@/lib/utils";
 
 async function currentLocale() {
@@ -53,6 +60,162 @@ export async function Hero() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** "NORFOLK-NEWPORT NEWS, VA" → "Norfolk"; "JFK INTERNATIONAL AIRPORT, NY" → "JFK". */
+function shortPortName(port: PortStat): string {
+  const city = port.name.replace(/,\s*[A-Z]{2}$/, "").split(/-|\//)[0].trim();
+  if (/\bJFK\b/.test(city)) return "JFK";
+  return city
+    .toLowerCase()
+    .replace(/\s+international airport$/, "")
+    .replace(/\b([a-z])/g, (c) => c.toUpperCase());
+}
+
+function joinList(items: string[], locale: Locale): string {
+  return new Intl.ListFormat(locale === "tr" ? "tr-TR" : "en-US", { style: "long", type: "conjunction" }).format(items);
+}
+
+/**
+ * The market, in six figures, between the hero and the proof: what Türkiye ships
+ * to the US, what it pays at the border and where it lands. Four figures come
+ * from the Census snapshot behind the trade pages and move with it every month;
+ * the Section 301 rate and the FDA count are typed in with their sources
+ * (src/lib/market.ts). The header names Türkiye as the first market, so the
+ * section stays true as other countries are added.
+ */
+export async function Market() {
+  const locale = await currentLocale();
+  const t = await getTranslations("home.market");
+  const [m, article] = await Promise.all([getMarketFacts(locale), findArticleByKey(SECTION_301_ARTICLE_KEY, locale)]);
+  const month = monthLabel(m.latest, locale, "long");
+  const first = m.monthly[0];
+  const last = m.monthly[m.monthly.length - 1];
+  const rate = (value: number | null, digits = 1) => (value === null ? "–" : pct(value, locale, { digits }));
+  const ports = joinList(m.topPorts.map(shortPortName), locale);
+  const airport = m.topAirport ? shortPortName(m.topAirport) : "JFK";
+  const figures = [
+    {
+      key: "f1",
+      value: usdCompact(m.value, locale),
+      unit: t("f1.unit", { window: windowLabel(m.windows.cur.first, m.windows.cur.last, locale) }),
+      text: t("f1.text", { growth: m.growth === null ? "–" : pct(m.growth, locale, { signed: true }) }),
+      source: t("f1.source"),
+      href: sources.censusTradeApi,
+      chart: {
+        values: m.monthly.map((p) => p.value),
+        label: t("f1.chart", {
+          first: monthLabel(parseYm(first.month), locale),
+          last: monthLabel(parseYm(last.month), locale),
+          from: usdCompact(first.value, locale),
+          to: usdCompact(last.value, locale),
+        }),
+      },
+    },
+    {
+      key: "f2",
+      value: rate(m.dutyRate),
+      unit: t("f2.unit"),
+      text: t("f2.text", { rate: rate(m.dutyRate2y) }),
+      source: t("f2.source"),
+      href: sources.censusTradeApi,
+    },
+    {
+      key: "f3",
+      value: pct(MARKET_RULES.section301.rate, locale),
+      unit: t("f3.unit"),
+      text: t("f3.text", { date: formatDate(MARKET_RULES.section301.effective, locale) }),
+      source: t("f3.source", { citation: MARKET_RULES.section301.citation }),
+      href: sources.frSection301ForcedLabor,
+    },
+    {
+      key: "f4",
+      value: rate(m.vesselShare, 0),
+      unit: t("f4.unit"),
+      text: t("f4.text", { air: rate(m.airShare, 0) }),
+      source: t("f4.source"),
+      href: sources.censusTradeApi,
+    },
+    {
+      key: "f5",
+      value: pct(m.topPortsShare, locale, { digits: 0 }),
+      unit: t("f5.unit"),
+      text: t("f5.text", { ports, airport }),
+      source: t("f5.source"),
+      href: sources.censusTradeApi,
+    },
+    {
+      key: "f6",
+      value: formatNumber(MARKET_RULES.fsvp.noFsvpCitations, locale),
+      unit: t("f6.unit", { year: String(MARKET_RULES.fsvp.fiscalYear) }),
+      text: t("f6.text"),
+      source: t("f6.source", { year: String(MARKET_RULES.fsvp.fiscalYear) }),
+      href: sources.fdaInspectionObservations,
+    },
+  ];
+  const lines = m.topProducts.map((p) => shortProductName(p.code, locale));
+  return (
+    <Section
+      id="market"
+      layout="split"
+      eyebrow={t("eyebrow")}
+      title={t.rich("title", { em })}
+      intro={t("intro", { month })}
+      aside={
+        <div className="flex flex-col items-start gap-1">
+          <ArrowLink href="/trade-data" data-track="cta_click" data-track-label="market_trade_data" data-track-location="market">
+            {t("link")}
+          </ArrowLink>
+          {article && (
+            <ArrowLink
+              href={{ pathname: "/insights/[slug]", params: { slug: article.slug } }}
+              data-track="cta_click"
+              data-track-label="market_article"
+              data-track-location="market"
+            >
+              {t("article")}
+            </ArrowLink>
+          )}
+        </div>
+      }
+    >
+      <dl className="grid border-t border-line sm:grid-cols-2">
+        {figures.map((f, i) => (
+          <div
+            key={f.key}
+            data-reveal
+            className={cn("flex flex-col border-b border-line py-8 sm:py-10", i % 2 === 1 ? "sm:border-l sm:pl-8 lg:pl-10" : "sm:pr-8 lg:pr-10")}
+          >
+            <dt className="eyebrow">{t(`${f.key}.kicker`)}</dt>
+            <dd className="mt-5">
+              <span className="block font-display text-[clamp(2.25rem,1.7rem+1.9vw,3rem)] leading-none font-medium tracking-[-0.015em] whitespace-nowrap text-navy">
+                {f.value}
+              </span>
+              <span className="mt-3 block text-small text-mist-soft">{f.unit}</span>
+            </dd>
+            {f.chart && (
+              <dd className="mt-5">
+                <Sparkline values={f.chart.values} label={f.chart.label} />
+              </dd>
+            )}
+            <dd className="mt-5 max-w-xs flex-1 text-small text-mist">{f.text}</dd>
+            <dd className="mt-6 text-caption text-mist-soft">
+              <SourceLink href={f.href}>{f.source}</SourceLink>
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <div className="mt-8 grid gap-x-8 gap-y-6 md:grid-cols-12">
+        <p className="md:col-span-7">
+          <span className="eyebrow">{t("linesLabel", { period: basisLabel(m.basis, locale) })}</span>
+          <span className="mt-3 block text-small text-mist">{lines.join(" · ")}</span>
+        </p>
+        <p className="text-caption text-mist-soft md:col-span-5">
+          {t("note", { month, date: formatDate(MARKET_RULES.checkedOn, locale) })}
+        </p>
+      </div>
+    </Section>
   );
 }
 
@@ -331,6 +494,55 @@ export async function WhatWeDont() {
           </li>
         ))}
       </ol>
+    </Section>
+  );
+}
+
+/**
+ * The three newest knowledge-center articles, as the list page shows them:
+ * date, title, one line. The section shows the site is kept, not just built.
+ */
+export async function LatestInsights() {
+  const locale = await currentLocale();
+  const t = await getTranslations("home.insights");
+  const common = await getTranslations("common");
+  const articles = (await listArticles(locale)).slice(0, 3);
+  if (articles.length === 0) return null;
+  return (
+    <Section
+      id="insights"
+      eyebrow={t("eyebrow")}
+      title={t("title")}
+      intro={t("intro")}
+      aside={
+        <ArrowLink href="/insights" data-track="cta_click" data-track-label="home_insights_all" data-track-location="home_insights">
+          {t("all")}
+        </ArrowLink>
+      }
+      layout="split"
+    >
+      <ul className="border-t border-line">
+        {articles.map((a) => (
+          <li key={a.slug} data-reveal className="border-b border-line">
+            <Link
+              href={{ pathname: "/insights/[slug]", params: { slug: a.slug } }}
+              className="hover-rule grid gap-x-8 gap-y-3 py-8 sm:grid-cols-[9.5rem_minmax(0,1fr)_auto] sm:py-10"
+            >
+              <p className="figures text-caption text-mist-soft sm:pt-1.5">
+                <time dateTime={a.updated}>{common("updated", { date: formatDate(a.updated, locale) })}</time>
+              </p>
+              <div>
+                <h3 className="text-display-sm">{a.title}</h3>
+                <p className="mt-3 max-w-xl text-small text-mist">{a.description}</p>
+              </div>
+              <span className="hidden pt-1.5 sm:block">
+                <ArrowRight aria-hidden="true" className="nudge size-5 text-navy" />
+                <span className="sr-only">{common("readMore")}</span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 }

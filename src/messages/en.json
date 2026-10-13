@@ -118,6 +118,52 @@
       "subtitle": "Your US filings, multi-state sales tax and importer record at one desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval.",
       "price": "Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk."
     },
+    "market": {
+      "eyebrow": "Our first market",
+      "title": "Türkiye to the United States, <em>in figures.</em>",
+      "intro": "What ships, what it pays at the border and where it lands, from the US Census Bureau's import data through {month}. Two rules, from their official notices.",
+      "link": "See your product line",
+      "article": "The 12.5% duty, explained",
+      "linesLabel": "Largest lines, {period}",
+      "note": "Data: US Census Bureau, International Trade API, imports through {month}, refreshed monthly; this site is not endorsed or certified by the Census Bureau. Rules checked on {date}.",
+      "f1": {
+        "kicker": "US imports from Türkiye",
+        "unit": "last 12 months, {window}",
+        "text": "{growth} on the 12 months before. Customs value of all goods.",
+        "chart": "Monthly US imports from Türkiye, {first} to {last}: from {from} to {to}",
+        "source": "U.S. Census Bureau, International Trade API"
+      },
+      "f2": {
+        "kicker": "Effective duty rate",
+        "unit": "on goods from Türkiye, last 12 months",
+        "text": "Duties collected, divided by the value of imports for consumption. Two years earlier: {rate}.",
+        "source": "U.S. Census Bureau, International Trade API"
+      },
+      "f3": {
+        "kicker": "Section 301",
+        "unit": "extra duty on products of Türkiye",
+        "text": "Since {date}, on top of the normal duty. Steel, aluminum, vehicles, aircraft parts, pharmaceuticals and listed raw materials are exempt; everything else pays it.",
+        "source": "Federal Register, {citation}"
+      },
+      "f4": {
+        "kicker": "By sea",
+        "unit": "of the value arrives by vessel",
+        "text": "{air} by air. The entry, the duty and any FDA hold are all settled at the port.",
+        "source": "U.S. Census Bureau, International Trade API"
+      },
+      "f5": {
+        "kicker": "Four ports",
+        "unit": "of goods from Türkiye enter through four ports",
+        "text": "{ports}, in that order. {airport} leads for air freight.",
+        "source": "U.S. Census Bureau, International Trade API"
+      },
+      "f6": {
+        "kicker": "FSVP",
+        "unit": "FDA citations for importers with no FSVP, fiscal year {year}",
+        "text": "The most-cited observation in FDA food inspections that year. Food importers without a verification program are the first target.",
+        "source": "FDA, Inspection Observations, fiscal year {year}"
+      }
+    },
     "trust": {
       "eyebrow": "Before you call",
       "title": "Four things you can verify today",
@@ -143,7 +189,7 @@
       "sources": {
         "label": "Sources",
         "title": "Every rule links to its source",
-        "body": "Regulatory claims on this site link to official sources such as the IRS, CBP and the Federal Register.",
+        "body": "Regulatory claims on this site link to official sources such as the IRS, CBP, the Federal Register, the Census Bureau and FDA.",
         "link": "Knowledge center"
       }
     },
@@ -269,6 +315,12 @@
         "title": "Collections run in your name, and accounts more than 90 days late go to a licensed agency.",
         "body": "Your customer relationships stay yours. Accounts past 90 days go to an agency licensed for that work."
       }
+    },
+    "insights": {
+      "eyebrow": "Knowledge center",
+      "title": "The rules, written down as they change",
+      "intro": "Short articles, dated and linked to official sources. When a rule moves, the article is updated.",
+      "all": "All articles"
     },
     "data": {
       "eyebrow": "Your data",

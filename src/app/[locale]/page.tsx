@@ -7,6 +7,8 @@ import {
   FinalCta,
   FounderTeaser,
   Hero,
+  LatestInsights,
+  Market,
   Offer,
   PenaltyPromise,
   SupportFile,
@@ -28,6 +30,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Market />
       <Trust />
       <Doors />
       <FactsBand />
@@ -35,6 +38,7 @@ export default function HomePage() {
       <SupportFile />
       <Weekly />
       <WhatWeDont />
+      <LatestInsights />
       <YourData />
       <PenaltyPromise />
       <FounderTeaser />

@@ -448,3 +448,60 @@ export async function getProductSnapshot(code: string, countryCode: string, loca
     worldGrowth: growth(agg.world[0], agg.world[1]),
   };
 }
+
+/* Home page: Türkiye's market in six figures, from the same snapshot */
+
+export type MarketFacts = {
+  latest: Ym;
+  windows: Windows;
+  basis: YtdBasis;
+  /** All goods from Türkiye, last 12 months, and the 12 months before. */
+  value: number;
+  prevValue: number;
+  growth: number | null;
+  /** Effective duty rate (calculated duty ÷ imports for consumption): last 12 months, the 12 before, and the 12 before that. */
+  dutyRate: number | null;
+  dutyRatePrev: number | null;
+  dutyRate2y: number | null;
+  vesselShare: number | null;
+  airShare: number | null;
+  /** Monthly customs value, oldest first (36 months). */
+  monthly: MonthPoint[];
+  /** The four largest ports of entry by value and their combined share of all goods from Türkiye. */
+  topPorts: PortStat[];
+  topPortsShare: number;
+  /** The largest airport of entry, if any port with no vessel traffic is among the eight. */
+  topAirport: PortStat | null;
+  /** Largest product lines (HS4, year-to-date basis), excluding US reporting provisions. */
+  topProducts: ProductRow[];
+};
+
+export const getMarketFacts = cache(async (locale: string): Promise<MarketFacts> => {
+  const [overview, partners] = await Promise.all([getCountryOverview(TURKIYE.code, locale), loadPartners()]);
+  const series = partners[TURKIYE.code];
+  let con = 0;
+  let duty = 0;
+  for (let i = 0; i < 12; i++) {
+    con += series?.[1][i] ?? 0;
+    duty += series?.[2][i] ?? 0;
+  }
+  const topPorts = overview.ports.slice(0, 4);
+  return {
+    latest: overview.latest,
+    windows: overview.windows,
+    basis: overview.basis,
+    value: overview.value,
+    prevValue: overview.prevValue,
+    growth: overview.growth,
+    dutyRate: overview.dutyRate,
+    dutyRatePrev: overview.prevDutyRate,
+    dutyRate2y: con > 0 ? duty / con : null,
+    vesselShare: overview.vesselShare,
+    airShare: overview.airShare,
+    monthly: overview.monthly,
+    topPorts,
+    topPortsShare: topPorts.reduce((s, p) => s + p.share, 0),
+    topAirport: overview.ports.find((p) => p.vesselShare !== null && p.vesselShare < 0.01) ?? null,
+    topProducts: overview.topProducts.slice(0, 8),
+  };
+});

@@ -118,6 +118,52 @@
       "subtitle": "ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır.",
       "price": "Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir."
     },
+    "market": {
+      "eyebrow": "İlk pazarımız",
+      "title": "Türkiye'den ABD'ye, <em>rakamlarla.</em>",
+      "intro": "Ne gidiyor, sınırda ne ödüyor, nereye iniyor: U.S. Census Bureau'nun {month} sonuna kadar olan ithalat verisinden. İki kural, resmî bildirimlerinden.",
+      "link": "Kendi ürün grubunuzu görün",
+      "article": "%12,5 ek verginin açıklaması",
+      "linesLabel": "En büyük kalemler, {period}",
+      "note": "Veri: U.S. Census Bureau, Uluslararası Ticaret API'si, {month} sonuna kadar ithalat, her ay yenilenir; bu site Census Bureau tarafından onaylanmış değildir. Kurallar {date} tarihinde kontrol edildi.",
+      "f1": {
+        "kicker": "ABD'nin Türkiye'den ithalatı",
+        "unit": "son 12 ay, {window}",
+        "text": "Önceki 12 aya göre {growth}. Tüm malların gümrük kıymeti.",
+        "chart": "ABD'nin Türkiye'den aylık ithalatı, {first} - {last}: {from} değerinden {to} değerine",
+        "source": "U.S. Census Bureau, Uluslararası Ticaret API'si"
+      },
+      "f2": {
+        "kicker": "Etkin gümrük vergisi",
+        "unit": "Türkiye çıkışlı mallarda, son 12 ay",
+        "text": "Tahsil edilen vergilerin tüketim için ithalat kıymetine oranı. İki yıl önce: {rate}.",
+        "source": "U.S. Census Bureau, Uluslararası Ticaret API'si"
+      },
+      "f3": {
+        "kicker": "301. Madde",
+        "unit": "Türkiye menşeli ürünlere ek vergi",
+        "text": "{date} tarihinden beri, normal gümrük vergisinin üstüne. Çelik, alüminyum, taşıtlar, hava aracı parçaları, ilaç ve listelenmiş hammaddeler muaf; geri kalan her şey öder.",
+        "source": "Federal Register, {citation}"
+      },
+      "f4": {
+        "kicker": "Deniz yolu",
+        "unit": "kıymetin bu kadarı gemiyle geliyor",
+        "text": "Hava yoluyla {air}. Giriş beyanı, vergi ve olası FDA bekletmesi limanda çözülür.",
+        "source": "U.S. Census Bureau, Uluslararası Ticaret API'si"
+      },
+      "f5": {
+        "kicker": "Dört liman",
+        "unit": "Türkiye çıkışlı malların bu kadarı dört limandan giriyor",
+        "text": "Sırasıyla {ports}. Hava kargoda {airport} önde.",
+        "source": "U.S. Census Bureau, Uluslararası Ticaret API'si"
+      },
+      "f6": {
+        "kicker": "FSVP",
+        "unit": "FSVP'si olmayan ithalatçılara FDA tespiti, {year} mali yılı",
+        "text": "O yıl FDA gıda denetimlerinde en sık yazılan tespit. Doğrulama programı olmayan gıda ithalatçıları ilk hedef.",
+        "source": "FDA, Denetim Tespitleri, {year} mali yılı"
+      }
+    },
     "trust": {
       "eyebrow": "Görüşmeden önce",
       "title": "Bugün doğrulayabileceğiniz dört şey",
@@ -143,7 +189,7 @@
       "sources": {
         "label": "Kaynaklar",
         "title": "Her kuralın kaynağı belli",
-        "body": "Bu sitedeki mevzuat bilgileri IRS, CBP ve Federal Register gibi resmi kaynaklara bağlıdır.",
+        "body": "Bu sitedeki mevzuat bilgileri IRS, CBP, Federal Register, Census Bureau ve FDA gibi resmi kaynaklara bağlıdır.",
         "link": "Bilgi merkezi"
       }
     },
@@ -268,6 +314,12 @@
         "title": "Tahsilat sizin adınıza yürür; 90 günü aşan alacaklar lisanslı bir tahsilat ajansına devredilir.",
         "body": "Müşterilerinizle ilişki sizde kalır. 90 günü aşan hesapları bu iş için lisanslı bir ajans üstlenir."
       }
+    },
+    "insights": {
+      "eyebrow": "Bilgi merkezi",
+      "title": "Kurallar değiştikçe yazılır",
+      "intro": "Kısa yazılar; tarihli ve resmî kaynaklara bağlı. Kural değişince yazı güncellenir.",
+      "all": "Tüm yazılar"
     },
     "data": {
       "eyebrow": "Verileriniz",
