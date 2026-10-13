@@ -160,7 +160,7 @@ export function LeadForm({
             <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
               {[
                 { value: "us_entity", label: t("segmentUs") },
-                { value: "sells_from_tr", label: t("segmentTr") },
+                { value: "sells_from_abroad", label: t("segmentAbroad") },
               ].map((o) => (
                 <label key={o.value} className="flex min-h-12 cursor-pointer items-center gap-3 rounded-xs border border-field bg-paper px-3.5 py-2.5 text-small leading-snug transition-colors duration-200 hover:border-navy/70 has-[:checked]:border-navy has-[:checked]:bg-sand has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-navy">
                   <input type="radio" name="segment" value={o.value} defaultChecked={segment === o.value} className="size-4 shrink-0 accent-navy focus-visible:outline-none" />

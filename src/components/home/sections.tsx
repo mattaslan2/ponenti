@@ -240,8 +240,10 @@ export async function Offer() {
 }
 
 /**
- * Turkish export support: the promise, three sourced facts and the way into the
- * estimator. The facts come from the Ministry's circulars and 2026 caps.
+ * Export support: the promise, three sourced facts and the way into the
+ * estimator. The facts are Türkiye's (the first program we cover), from the
+ * Ministry of Trade's circulars and 2026 caps. English pages name the program
+ * above the facts; Turkish pages need no label.
  */
 export async function SupportFile() {
   const locale = await currentLocale();
@@ -258,6 +260,7 @@ export async function SupportFile() {
       title={t.rich("title", { em })}
       intro={t("intro")}
     >
+      {t.has("program") && <p className="mb-6 max-w-2xl text-small text-mist">{t("program")}</p>}
       <div className="grid border-t border-line md:grid-cols-3">
         {facts.map(({ key, value, href }, i) => (
           <div

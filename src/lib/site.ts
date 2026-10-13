@@ -25,7 +25,14 @@ export const site = {
     photo: R("founder photo, square, at /public/images/founder.jpg"),
     linkedin: R("founder LinkedIn URL"),
   },
-  areaServed: ["US", "TR"],
+  /**
+   * Home markets of the companies we serve, in launch order; Türkiye is the first.
+   * The English site speaks to every market; each market also gets a site in its
+   * own language. To add a country: add it here, add its language to
+   * src/i18n/routing.ts with a messages file, and add its export support program
+   * (if any) to src/lib/support.ts.
+   */
+  markets: [{ iso2: "TR", name: "Türkiye", language: "tr" }],
   /**
    * Photography: real architectural photography only (no stock handshakes or
    * globes). Nothing renders until you add a licensed file under /public/images

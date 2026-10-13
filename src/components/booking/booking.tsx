@@ -117,7 +117,7 @@ export function CalEmbed({
   );
 }
 
-/** Current time in Istanbul and New York, plus today's collections hours in both. */
+/** Current time at home and in New York, plus today's collections hours in both. */
 /* A shared 30-second clock (hydration-safe: the server renders "--:--"). */
 let clockNow = 0;
 let clockTimer = 0;
@@ -145,6 +145,12 @@ export function DualClock() {
   const locale = useLocale();
   const stamp = useSyncExternalStore(subscribeClock, clockSnapshot, () => 0);
   const now = stamp ? new Date(stamp) : null;
+  // Turkish pages show Istanbul; English pages show the visitor's own time zone,
+  // known only in the browser (the server renders "--:--" until the clock starts).
+  const home =
+    locale === "tr"
+      ? { label: t("istanbul"), zone: "Europe/Istanbul" }
+      : { label: t("yourTime"), zone: (now && Intl.DateTimeFormat().resolvedOptions().timeZone) || "Europe/Istanbul" };
 
   const fmt = (zone: string, d: Date) =>
     new Intl.DateTimeFormat(locale === "tr" ? "tr-TR" : "en-US", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: zone }).format(d);
@@ -157,24 +163,21 @@ export function DualClock() {
       const m = Number(parts.find((p) => p.type === "minute")?.value ?? 0);
       return h * 60 + m;
     };
-    let delta = minutesIn("Europe/Istanbul") - minutesIn("America/New_York");
+    let delta = minutesIn(home.zone) - minutesIn("America/New_York");
     if (delta < 0) delta += 24 * 60;
     const hhmm = (mins: number) => {
       const v = ((mins % 1440) + 1440) % 1440;
       return `${String(Math.floor(v / 60)).padStart(2, "0")}:${String(v % 60).padStart(2, "0")}`;
     };
-    hours = t("callHours", { nyStart: "08:00", nyEnd: "16:00", istStart: hhmm(8 * 60 + delta), istEnd: hhmm(16 * 60 + delta) });
+    hours = t("callHours", { nyStart: "08:00", nyEnd: "16:00", localStart: hhmm(8 * 60 + delta), localEnd: hhmm(16 * 60 + delta) });
   }
 
-  const clocks = [
-    { label: t("istanbul"), zone: "Europe/Istanbul" },
-    { label: t("newYork"), zone: "America/New_York" },
-  ];
+  const clocks = [home, { label: t("newYork"), zone: "America/New_York" }];
   return (
     <div>
       <dl className="grid grid-cols-2 border-y border-line">
         {clocks.map((clock, i) => (
-          <div key={clock.zone} className={i === 0 ? "border-r border-line py-6 pr-6" : "py-6 pl-6 sm:pl-10"}>
+          <div key={clock.label} className={i === 0 ? "border-r border-line py-6 pr-6" : "py-6 pl-6 sm:pl-10"}>
             <dt className="eyebrow">{clock.label}</dt>
             <dd className="figures mt-4 font-display text-[clamp(2.5rem,2rem+2vw,3.5rem)] leading-none font-medium text-navy">
               {now ? fmt(clock.zone, now) : "--:--"}

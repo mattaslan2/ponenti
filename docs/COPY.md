@@ -14,20 +14,20 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `meta.titleDefault` | Ponenti \| ABD işiniz için Türkçe uyum ve tahsilat masası | Ponenti \| The US compliance and collections desk for Turkish companies |
+| `meta.titleDefault` | Ponenti \| ABD işiniz için Türkçe uyum ve tahsilat masası | Ponenti \| The US compliance and collections desk for companies abroad |
 
 ## meta.descriptionDefault
 
 | Key | Türkçe | English |
 |---|---|---|
-| `meta.descriptionDefault` | ABD şirketinizin beyannameleri, eyalet satış vergileri, ithalatçı kaydı ve ABD'li müşterilerden tahsilat tek masada. Fiyatlar açık, sınırlar yazılı. | Your US filings, multi-state sales tax, importer record and US receivables at one bilingual desk. Public prices, written limits. |
+| `meta.descriptionDefault` | ABD şirketinizin beyannameleri, eyalet satış vergileri, ithalatçı kaydı ve ABD'li müşterilerden tahsilat tek masada. Fiyatlar açık, sınırlar yazılı. | Your US filings, multi-state sales tax, importer record and US receivables at one desk. Public prices, written limits. |
 
 ## meta.home
 
 | Key | Türkçe | English |
 |---|---|---|
-| `title` | Ponenti \| ABD işiniz için Türkçe uyum ve tahsilat masası | Ponenti \| The US compliance and collections desk for Turkish companies |
-| `description` | ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde, sizin adınıza. | Your US filings, multi-state sales tax and importer record at one bilingual desk. Your US receivables worked in US business hours, in your name. |
+| `title` | Ponenti \| ABD işiniz için Türkçe uyum ve tahsilat masası | Ponenti \| The US compliance and collections desk for companies abroad |
+| `description` | ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde, sizin adınıza. | For companies abroad that sell in the US: your filings, multi-state sales tax and importer record at one desk. Your US receivables worked in US business hours, in your name. |
 
 ## meta.services
 
@@ -54,8 +54,8 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `title` | ABD destek dosyası: kira, 3PL ve tanıtım destekleri | US support file: Turkish rent, 3PL and promotion support |
-| `description` | ABD'deki kira, 3PL, belge, marka ve tanıtım giderleriniz için Türkiye ihracat desteklerini hesaplayın. Başvurunun ABD tarafını her ay biz hazırlarız. | Estimate Turkish export support on your US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim, every month. |
+| `title` | ABD destek dosyası: kira, 3PL ve tanıtım destekleri | Export support file: government support on your US costs |
+| `description` | ABD'deki kira, 3PL, belge, marka ve tanıtım giderleriniz için Türkiye ihracat desteklerini hesaplayın. Başvurunun ABD tarafını her ay biz hazırlarız. | Some governments pay part of their companies' US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim, every month. First program: Türkiye. |
 
 ## meta.insights
 
@@ -69,7 +69,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | Key | Türkçe | English |
 |---|---|---|
 | `title` | Hakkımızda | About |
-| `description` | Ponenti adı Akdeniz rüzgârgülünde batı yönünden gelir. Türk şirketlerinin ABD tarafını tek masada, Türkçe ve ABD mesai saatinde yürütürüz. | Ponenti takes its name from the west on the Mediterranean wind rose. We run the US side of Turkish companies at one desk, in Turkish, in US business hours. |
+| `description` | Ponenti adı Akdeniz rüzgârgülünde batı yönünden gelir. Türk şirketlerinin ABD tarafını tek masada, Türkçe ve ABD mesai saatinde yürütürüz. | Ponenti takes its name from the west on the Mediterranean wind rose. We run the US side of companies abroad at one desk, in US business hours. We started with Türkiye. |
 
 ## meta.contact
 
@@ -103,14 +103,14 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `meta.ogTagline` | Türkiye'de üretilir, ABD'de doğru yönetilir. | Made in Türkiye. Run right in the United States. |
+| `meta.ogTagline` | Türkiye'de üretilir, ABD'de doğru yönetilir. | Made at home. Run right in the United States. |
 
 ## meta.trade
 
 | Key | Türkçe | English |
 |---|---|---|
 | `title` | ABD ithalat verileri: ürün, ülke ve gümrük vergisi | US import data: products, countries and duties |
-| `description` | ABD'nin ürün ve ülke bazında aylık ithalatı. Türkiye'nin payı, rakipler, ödenen gümrük vergisi ve giriş limanları. Kaynak: U.S. Census Bureau. | Monthly US imports by product and country. Türkiye's share, competitors, the duty actually paid and ports of entry. Source: US Census Bureau. |
+| `description` | ABD'nin ürün ve ülke bazında aylık ithalatı. Türkiye'nin payı, rakipler, ödenen gümrük vergisi ve giriş limanları. Kaynak: U.S. Census Bureau. | Monthly US imports by product and country: your country's share, its competitors, the duty actually paid and ports of entry. Source: US Census Bureau. |
 
 ## meta.tradeProduct
 
@@ -152,8 +152,8 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `tagline` | ABD işiniz için Türkçe uyum ve tahsilat masası. | The US compliance and collections desk for Turkish companies. |
-| `pride` | Türkiye'de üretilir, <em>ABD'de doğru yönetilir.</em> | Made in Türkiye. <em>Run right in the United States.</em> |
+| `tagline` | ABD işiniz için Türkçe uyum ve tahsilat masası. | The compliance and collections desk for your US business. |
+| `pride` | Türkiye'de üretilir, <em>ABD'de doğru yönetilir.</em> | Made at home. <em>Run right in the United States.</em> |
 | `logoLabel` | Ponenti, ana sayfa | Ponenti, home |
 
 ## nav
@@ -189,9 +189,9 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `eyebrow` | ABD'de iş yapan Türk şirketleri için | For Turkish companies doing business in the US |
-| `title` | ABD işiniz için <em>Türkçe</em> uyum ve tahsilat masası. | The US compliance and collections desk for <em>Turkish companies.</em> |
-| `subtitle` | ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır. | Your US filings, multi-state sales tax and importer record at one bilingual desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval. |
+| `eyebrow` | ABD'de iş yapan Türk şirketleri için | For companies abroad doing business in the US |
+| `title` | ABD işiniz için <em>Türkçe</em> uyum ve tahsilat masası. | The compliance and collections desk for <em>your US business.</em> |
+| `subtitle` | ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır. | Your US filings, multi-state sales tax and importer record at one desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval. |
 | `price` | Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir. | Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk. |
 
 ## home.trust
@@ -227,7 +227,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `us.title` | ABD'de şirketim var | I have a US company |
 | `us.body` | Beyannameler, eyalet satış vergisi ve ithalatçı kaydı için aylık uyum planı. Gerekirse tahsilat ve sipariş masaları. | A monthly compliance plan for your filings, state sales tax and importer record. Collections and order desks when you need them. |
 | `us.link` | Planları ve masaları görün | See plans and desks |
-| `tr.title` | ABD'ye Türkiye'den satıyorum | I sell to the US from Türkiye |
+| `tr.title` | ABD'ye Türkiye'den satıyorum | I sell to the US from abroad |
 | `tr.body` | ABD'li müşterilerinizden tahsilatı ABD mesai saatlerinde, sizin adınıza yürütürüz. İlk adım: arka ofis kontrolü. | We work your US receivables in US business hours, in your name. The first step is the back-office check. |
 | `tr.link` | Tahsilat masasını ve kontrolü görün | See the cash desk and the check |
 
@@ -276,9 +276,9 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `eyebrow` | Türkiye destekleri | Turkish export support |
+| `eyebrow` | Türkiye destekleri | Export support |
 | `title` | Siz ABD'de işinize bakın; destek dosyanız <em>her ay hazır</em>. | You run your US business; your support file is <em>ready every month</em>. |
-| `intro` | Ticaret Bakanlığı, ABD'deki kira, 3PL, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar. | Türkiye's Ministry of Trade can cover part of your US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim from start to finish; your Turkish consultant only files it. |
+| `intro` | Ticaret Bakanlığı, ABD'deki kira, 3PL, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar. | Some governments pay back part of their companies' US costs: rent, 3PL, certifications, trademarks and promotion. We prepare the US side of every claim from start to finish; your consultant at home only files it. |
 | `f1.kicker` | Destek oranı | Support rate |
 | `f1.value` | %70'e kadar | Up to 70% |
 | `f1.unit` | Temel oran %50 | Base rate 50% |
@@ -427,7 +427,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `check.i4` | Dolar cinsinden ceza riski | Penalty exposure in dollars |
 | `check.i5` | Alacak yaşlandırması ve ortalama tahsilat süresi | Receivables aging and average payment days |
 | `check.i6` | Düzeltme planı ve teklif | A fix plan and a quote |
-| `check.i7` | Türkiye destekleri ön incelemesi: ortaklık bağı, kira sözleşmesi, kiranın ödenme şekli ve online satanlar için e-ihracat beyanları | Turkish export support review: ownership link, lease terms, how rent is paid and, for online sellers, e-commerce export declarations |
+| `check.i7` | Türkiye destekleri ön incelemesi: ortaklık bağı, kira sözleşmesi, kiranın ödenme şekli ve online satanlar için e-ihracat beyanları | Export support review (Türkiye's program today): ownership link, lease terms, how rent is paid and, for online sellers, e-commerce export declarations |
 | `check.delivery` | 10 iş gününde yazılı rapor. CBP'nin yeni ithalatçı kuralları yayımlanınca ücretsiz güncelleme. | A written report in 10 business days. A free update when CBP publishes its new importer rules. |
 | `plans.title` | Uyum planları | Compliance plans |
 | `plans.lede` | Zorunlu beyannameler için sabit aylık ücret. | A flat monthly fee for the filings you must make. |
@@ -449,7 +449,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `plans.standard.i4` | 1099 formları | 1099s |
 | `plans.standard.i5` | Bordro sağlayıcınızla koordinasyon | Payroll-provider coordination |
 | `plans.standard.i6` | Çeyreklik 3PL envanter mutabakatı | Quarterly 3PL inventory tie-out |
-| `plans.standard.i7` | Her ay sonu kapanışında Türkiye destekleri için destek dosyası | A support file for Turkish export support at every month-end close |
+| `plans.standard.i7` | Her ay sonu kapanışında Türkiye destekleri için destek dosyası | An export support file at every month-end close (Türkiye's program today) |
 | `plans.complete.name` | Kapsamlı | Complete |
 | `plans.complete.for` | Birden fazla şirket, çok eyalet | Several companies, many states |
 | `plans.complete.i1` | Standart plandaki her şey | Everything in Standard |
@@ -506,13 +506,13 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `faq.q4` | Tahsilatı kimin adına yapıyorsunuz? | Whose name do collections run in? |
 | `faq.a4` | Sizin adınıza. 90 günü aşan alacaklar lisanslı bir tahsilat ajansına devredilir. | Yours. Accounts more than 90 days late go to a licensed collection agency. |
 | `faq.q5` | Hangi saatlerde çalışıyorsunuz? | What hours do you work? |
-| `faq.a5` | Tahsilat aramaları ABD Doğu saatiyle 08:00-16:00 arasında yapılır. Size Türkçe yanıt veririz; ilk yanıt 1 iş günü içindedir. | Collections calls run 8:00-16:00 US Eastern. We answer you in Turkish, and the first reply comes within 1 business day. |
+| `faq.a5` | Tahsilat aramaları ABD Doğu saatiyle 08:00-16:00 arasında yapılır. Size Türkçe yanıt veririz; ilk yanıt 1 iş günü içindedir. | Collections calls run 8:00-16:00 US Eastern. We answer you in English or Turkish, and the first reply comes within 1 business day. |
 | `faq.q6` | Ne kadar sürede başlıyoruz? | How fast can we start? |
 | `faq.a6` | Kontrol raporu 10 iş gününde teslim edilir. Plan veya masa, sözleşme imzalandıktan sonra başlar. | The check report arrives in 10 business days. A plan or desk starts once the engagement letter is signed. |
 | `faq.q7` | Vergi numaramızı siteye girmemiz gerekiyor mu? | Do we need to enter our tax ID on the site? |
 | `faq.a7` | Hayır. Bu site hiçbir zaman vergi kimlik numarası, EIN veya finansal belge istemez. Belgeler sözleşmeden sonra güvenli bir kanaldan alınır. | No. This site never asks for tax ID numbers, EINs or financial documents. Documents come through a secure channel after you sign. |
-| `faq.q8` | Destek başvurusunu siz mi yapıyorsunuz? | Do you file Turkish export support claims? |
-| `faq.a8` | Hayır. Başvuruyu Türk destek danışmanınız Ticaret Bakanlığı'nın sisteminde yapar. Biz ABD tarafının belgelerini hazırlar, Ticaret Müşavirliği onayını ve ödemeyi takip ederiz. | No. Your Turkish support consultant files them in the Ministry of Trade's system. We prepare the US-side documents and track the Commercial Counselor's approval and the payment. |
+| `faq.q8` | Destek başvurusunu siz mi yapıyorsunuz? | Do you file export support claims? |
+| `faq.a8` | Hayır. Başvuruyu Türk destek danışmanınız Ticaret Bakanlığı'nın sisteminde yapar. Biz ABD tarafının belgelerini hazırlar, Ticaret Müşavirliği onayını ve ödemeyi takip ederiz. | No. Your support consultant at home files them in your government's system (for Türkiye, the Ministry of Trade's). We prepare the US-side documents and track the approvals and the payment. |
 | `faq.q9` | Ponenti'nin ücreti destekten karşılanır mı? | Can Ponenti's fees be claimed as support? |
 | `faq.a9` | Hayır. Ücretlerimiz destek kapsamında değildir. Destek dosyası, Standart ve Kapsamlı planların sabit aylık ücretine dahildir. | No. Our fees are not an eligible cost. The support file is included in the flat monthly fee of the Standard and Complete plans. |
 
@@ -588,7 +588,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `risks.paymentDays.title` | Uzun tahsilat süresi | Long payment days |
 | `risks.paymentDays.body` | Ortalama tahsilat süresini her 10 gün kısaltmak, yıllık ABD satışınızın yaklaşık yüzde 2,7'si kadar nakdi serbest bırakır. | Every 10 days you cut from average payment days frees cash equal to about 2.7% of your annual US sales. |
 | `risks.noFollowUp.title` | ABD saatinde takip yok | No follow-up in US hours |
-| `risks.noFollowUp.body` | İstanbul, ABD Doğu saatinden 7-8 saat ileride. ABD mesaisinde takip eden kimse yoksa, ödeme soruları ertesi güne kalır. | Istanbul is 7-8 hours ahead of US Eastern. Without someone following up in US hours, payment questions wait until the next day. |
+| `risks.noFollowUp.body` | İstanbul, ABD Doğu saatinden 7-8 saat ileride. ABD mesaisinde takip eden kimse yoksa, ödeme soruları ertesi güne kalır. | From Europe and the Middle East, the US East Coast is 5 to 8 hours behind. Without someone following up in US hours, payment questions wait until the next day. |
 | `risks.refundBank.title` | CBP iadeleri için banka hesabı yok | No bank account for CBP refunds |
 | `risks.refundBank.body` | CBP iadeleri yalnızca ABD banka hesabına ACH ile öder; ACE'de banka bilgisi olmayan ithalatçının IEEPA iadesi bekletilir. | CBP pays refunds only by ACH to a US bank account, and it holds IEEPA refunds for importers with no bank details on file in ACE. |
 | `risks.refundUnknown.title` | İade hesabı belirsiz | Refund account unclear |
@@ -619,38 +619,38 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `form5472.continuation` | IRS bildiriminden sonra 90 gün geçerse, her 30 gün için {penalty} daha eklenir; üst sınır yoktur. | If 90 days pass after an IRS notice, another {penalty} is added for each 30 days, with no cap. |
 | `form5472.multiple` | Birden fazla ilişkili taraf varsa her biri için ayrı form gerekir. | With more than one related party, each needs its own form. |
 | `emailCta` | Sonucu e-postayla gönder | Email me my result |
-| `supportNote` | ABD giderleriniz için Türkiye ihracat desteğini mi hesaplıyorsunuz? | Estimating Turkish export support on your US costs? |
+| `supportNote` | ABD giderleriniz için Türkiye ihracat desteğini mi hesaplıyorsunuz? | Estimating government export support on your US costs? |
 | `supportLink` | Destek hesaplayıcısı | Support estimator |
 
 ## supportFile
 
 | Key | Türkçe | English |
 |---|---|---|
-| `eyebrow` | Destek dosyası | Support file |
+| `eyebrow` | Destek dosyası | Export support file |
 | `title` | Siz ABD'de işinize bakın; destek dosyanız <em>her ay hazır</em>. | You run your US business; your support file is <em>ready every month</em>. |
-| `intro` | Ticaret Bakanlığı; ABD'deki ofis, depo ve mağaza kiranızın, 3PL ücretlerinizin, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar. | Türkiye's Ministry of Trade can cover part of the rent on your US office, warehouse or store, your 3PL fees and your certification, trademark and promotion costs. We prepare the US side of every claim from start to finish; your Turkish consultant only files it. |
+| `intro` | Ticaret Bakanlığı; ABD'deki ofis, depo ve mağaza kiranızın, 3PL ücretlerinizin, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar. | Some governments pay part of their companies' US costs: rent on an office, warehouse or store, 3PL fees, certifications, trademarks and promotion. We prepare the US side of every claim from start to finish; your consultant at home only files it. The first program we cover is Türkiye's, run by its Ministry of Trade. |
 | `steps.eyebrow` | Nasıl işler | How it works |
 | `steps.title` | Destek dosyası dört adımda | The support file in four steps |
 | `steps.intro` | Her adımda kimin ne yaptığı yazılı. | Who does what, at every step. |
 | `steps.who` | Kim | Who |
 | `steps.s1.title` | Kurulum | Setup |
-| `steps.s1.body` | ABD ofisinizi veya deponuzu desteğe uygun kurarız: Türk şirketiyle ortaklık bağı, emsal kirada bir sözleşme ve kiranın şirketin ya da ABD şirketinin hesabından havaleyle ödenmesi. | We set up your US office or warehouse so it qualifies: an ownership link to the Turkish company, a lease at market rent, and rent paid by bank transfer from the company or its US entity. |
+| `steps.s1.body` | ABD ofisinizi veya deponuzu desteğe uygun kurarız: Türk şirketiyle ortaklık bağı, emsal kirada bir sözleşme ve kiranın şirketin ya da ABD şirketinin hesabından havaleyle ödenmesi. | We set up your US office or warehouse so it qualifies: an ownership link to your home company, a lease at market rent, and rent paid by bank transfer from the company or its US entity. |
 | `steps.s1.who` | Ponenti kurar, siz onaylarsınız. | Ponenti sets it up; you approve. |
 | `steps.s2.title` | Kayıt | Capture |
 | `steps.s2.body` | Her ay sonu kapanışında desteğe uygun her gider defterinizde etiketlenir. Fatura, ödeme belgesi ve banka dökümü yanına eklenir. | At every month-end close, each eligible cost is tagged in your books, with the invoice, proof of payment and bank statement attached. |
 | `steps.s2.who` | Ponenti, aylık kapanışta. | Ponenti, at the monthly close. |
-| `steps.s3.title` | Müşavirlik onayı | Counselor |
-| `steps.s3.body` | ABD'deki Ticaret Müşavirliği'nin onayına gidecek paketi hazırlar, yerinde incelemeyi ve onayı takip ederiz. | We assemble the package for the Turkish Commercial Counselor in the US and track the site visit and the approval. |
-| `steps.s3.who` | Ponenti hazırlar, Ticaret Müşaviri onaylar. | Ponenti prepares it; the Commercial Counselor approves. |
+| `steps.s3.title` | Müşavirlik onayı | Approval |
+| `steps.s3.body` | ABD'deki Ticaret Müşavirliği'nin onayına gidecek paketi hazırlar, yerinde incelemeyi ve onayı takip ederiz. | We assemble the package for your government's commercial office in the US (for Türkiye, the Commercial Counselor) and track the site visit and the approval. |
+| `steps.s3.who` | Ponenti hazırlar, Ticaret Müşaviri onaylar. | Ponenti prepares it; the commercial office approves. |
 | `steps.s4.title` | Başvuru | Filing |
-| `steps.s4.body` | Türk danışmanınız başvuruyu Ticaret Bakanlığı'nın Destek Yönetim Sistemi'nde (DYS) yapar. Ödeme gelene kadar takibi biz sürdürürüz. | Your Turkish consultant files the claim in the Ministry of Trade's Support Management System (DYS), and we track it until it is paid. |
+| `steps.s4.body` | Türk danışmanınız başvuruyu Ticaret Bakanlığı'nın Destek Yönetim Sistemi'nde (DYS) yapar. Ödeme gelene kadar takibi biz sürdürürüz. | Your consultant at home files the claim in your government's system (for Türkiye, the Ministry of Trade's DYS), and we track it until it is paid. |
 | `steps.s4.who` | Danışmanınız başvurur, biz ödemeye kadar izleriz. | Your consultant files; we track it to payment. |
 | `estimator.eyebrow` | Hesaplayıcı | Estimator |
 | `estimator.title` | Desteğinizi tahmin edin | Estimate your support |
-| `estimator.intro` | Yıllık ABD giderlerinizi girin. Tahmin, %50 temel oranla ve ABD hedef ülke listesindeyken geçerli %70'e kadar oranla, dolar ve TL olarak hesaplanır. | Enter your annual US costs. The estimate uses the 50% base rate and the rate of up to 70% that applies while the US is on the target-country list, in dollars and TL. |
+| `estimator.intro` | Yıllık ABD giderlerinizi girin. Tahmin, %50 temel oranla ve ABD hedef ülke listesindeyken geçerli %70'e kadar oranla, dolar ve TL olarak hesaplanır. | For Türkiye's program, the first we cover. Enter your annual US costs: the estimate uses the 50% base rate and the rate of up to 70% that applies while the US is on the target-country list, in dollars and Turkish lira. |
 | `reasons.eyebrow` | Sık yapılan hatalar | Common mistakes |
 | `reasons.title` | ABD kira desteği başvuruları neden geri döner? | Why do US rent claims come back? |
-| `reasons.intro` | Genelgedeki şartlardan yedi sebep. Destek dosyası her birini başvurudan önce kontrol eder. | Seven reasons, taken from the circular's conditions. The support file checks each one before filing. |
+| `reasons.intro` | Genelgedeki şartlardan yedi sebep. Destek dosyası her birini başvurudan önce kontrol eder. | Seven reasons, taken from the conditions of Türkiye's rent support. The support file checks each one before filing. |
 | `reasons.r1` | Kira emsalin üzerinde; Ticaret Müşaviri rayice uygun bulmuyor. | Rent above market: the Commercial Counselor does not find it in line with market rates. |
 | `reasons.r2` | Kira yanlış yoldan ödenmiş: nakit, ortağın kişisel hesabı, üçüncü kişi ya da müşteri çeki. | Rent paid the wrong way: cash, a partner's personal account, a third party or a customer's check. |
 | `reasons.r3` | Ticaret Müşavirliği onayı yok. | No Commercial Counselor approval. |
@@ -662,17 +662,17 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `reasons.link` | Yedi sebep ve genelgedeki maddeleri | The seven reasons and the circular's articles (in Turkish) |
 | `lease.eyebrow` | CBP ve kira desteği | CBP and rent support |
 | `lease.title` | Tek kira, iki sorun | One lease, two problems |
-| `lease.p1` | 18 Eylül 2026'dan beri CBP, Form 5106 adresi kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor. ABD'de gerçek bir ofis ya da depo bu sorunu çözer. Aynı kira, şartları sağlarsa Ticaret Bakanlığı'nın birim kira desteğine de girer. | Since September 18, 2026, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center. A real US office or warehouse solves that. The same lease, if it meets the conditions, also qualifies for the Ministry of Trade's unit rent support. |
+| `lease.p1` | 18 Eylül 2026'dan beri CBP, Form 5106 adresi kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor. ABD'de gerçek bir ofis ya da depo bu sorunu çözer. Aynı kira, şartları sağlarsa Ticaret Bakanlığı'nın birim kira desteğine de girer. | Since September 18, 2026, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center. A real US office or warehouse solves that. The same lease, if it meets the conditions, can also qualify for rent support at home, such as Türkiye's unit rent support. |
 | `lease.p2` | Uygun yeri lisanslı emlak komisyoncularıyla bulmanıza yardım eder, sözleşmeyi iki kurala göre birlikte kontrol ederiz. Paylaşımlı ofis üyeliği kira desteğine girebilir, ama iş merkezi adresi CBP kuralına takılabilir. Bu yüzden adresi tek kurala bakarak seçmeyiz. | We help you find the space through licensed brokers and check the lease against both rules at once. A shared-office membership can qualify for rent support, but a business-center address can fail CBP's rule. So we never pick the address against one rule alone. |
 | `lease.cbp` | CBP kuralı (Federal Register) | CBP rule (Federal Register) |
 | `lease.circular` | Birim kira genelgesi | Unit rent circular |
 | `promise.eyebrow` | Belge sözü | Document promise |
 | `promise.title` | Hazırladığımız bir belge yüzünden geri dönen başvuruyu ücretsiz düzeltiriz. | If a claim comes back because of a document we prepared, we fix it at no charge. |
-| `promise.body` | Belgeyi düzeltir ve yeniden sunarız; bunun için ücret almayız. Destek tutarına ise Ticaret Bakanlığı karar verir. Bu yüzden tahmin gösteririz, tutar vaat etmeyiz. | We correct the document and resubmit it, with no fee for it. The amount of support is the Ministry of Trade's decision, so we show estimates, never promised amounts. |
+| `promise.body` | Belgeyi düzeltir ve yeniden sunarız; bunun için ücret almayız. Destek tutarına ise Ticaret Bakanlığı karar verir. Bu yüzden tahmin gösteririz, tutar vaat etmeyiz. | We correct the document and resubmit it, with no fee for it. The amount of support is your government's decision, so we show estimates, never promised amounts. |
 | `scope.title` | Ücret ve kapsam | Fees and scope |
 | `scope.i1` | Destek dosyası, aylık kapanışı olan Standart ve Kapsamlı planların sabit ücretine dahildir. | The support file is included in the flat fee of the Standard and Complete plans, which have a monthly close. |
 | `scope.i2` | Ponenti'nin ücretleri destek kapsamında değildir. Ücretimiz sabittir; desteğin tutarına bağlı değildir. | Ponenti's fees are not an eligible cost. Our fee is flat and does not depend on the amount of support. |
-| `scope.i3` | Başvuruyu Türk destek danışmanınız yapar ve kendi ücretini ayrıca alır. | Your Turkish support consultant files the claim and charges its own fee. |
+| `scope.i3` | Başvuruyu Türk destek danışmanınız yapar ve kendi ücretini ayrıca alır. | Your support consultant at home files the claim and charges its own fee. |
 | `scope.i4` | Kayıtlarınızı danışmanınızla yalnızca yazılı onayınızla paylaşırız. | We share your records with your consultant only with your written consent. |
 | `scope.link` | Planları görün | See the plans |
 | `sources.eyebrow` | Kaynaklar | Sources |
@@ -691,7 +691,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `sources.documents` | Destek kapsamındaki pazara giriş belgeleri (Ek-1B) | Market entry documents covered by the support, Annex 1B (Turkish) |
 | `sources.tcmb` | TCMB gösterge niteliğindeki döviz kurları | TCMB indicative exchange rates |
 | `sources.cbp` | CBP: ithalatçı kaydı verilerinin doğruluğu (Federal Register) | CBP: accuracy of importer of record data (Federal Register) |
-| `partners` | Birlikte çalıştığımız Türk destek danışmanları | Turkish support consultancies we work with |
+| `partners` | Birlikte çalıştığımız Türk destek danışmanları | Support consultancies we work with |
 
 ## supportEstimator
 
@@ -714,14 +714,14 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `lines.promotion.short` | Tanıtım | Promotion |
 | `lines.promotion.hint` | Türkiye'de üretilen ürünleriniz için ABD'deki reklam ve pazarlama. | Advertising and marketing in the US for your Turkish-made products. |
 | `more` | Daha kesin tahmin için | For a closer estimate |
-| `ownership` | Türk şirketinin ABD şirketindeki payı (%) | Turkish company's share of the US company (%) |
-| `ownershipHint` | Kirayı ve tanıtımı ABD şirketi ödüyorsa destek bu paya göre hesaplanır. Türk şirketi doğrudan ödüyorsa 100 bırakın. | If the US company pays the rent and promotion, support is prorated to this share. If the Turkish company pays directly, leave 100. |
+| `ownership` | Türk şirketinin ABD şirketindeki payı (%) | Home company's share of the US company (%) |
+| `ownershipHint` | Kirayı ve tanıtımı ABD şirketi ödüyorsa destek bu paya göre hesaplanır. Türk şirketi doğrudan ödüyorsa 100 bırakın. | If the US company pays the rent and promotion, support is prorated to this share. If the home company pays directly, leave 100. |
 | `exports` | ABD'ye yıllık ihracat ($) | Annual exports to the US ($) |
 | `exportsHint` | Gümrük beyannamelerinize göre. Kira ve tanıtım desteği bunun yarısını geçemez. | From your customs declarations. Rent and promotion support can't exceed half of it. |
 | `onlineSales` | ABD'deki yıllık online satış ($) | Annual online sales in the US ($) |
 | `onlineSalesHint` | 3PL desteği, bu tutarın %10'unu aşmayan gidere uygulanır. | 3PL support applies to costs up to 10% of this amount. |
 | `optional` | İsteğe bağlı | Optional |
-| `age` | Türk şirketi en az 1 yıldır kurulu | The Turkish company is at least 1 year old |
+| `age` | Türk şirketi en az 1 yıldır kurulu | The home company is at least 1 year old |
 | `ageHint` | Daha yeni şirketler kira ve tanıtım desteğine başvuramaz. | Younger companies can't apply for rent or promotion support. |
 | `resultTitle` | Tahmini yıllık destek | Estimated annual support |
 | `base.title` | Temel oran | Base rate |
@@ -764,7 +764,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `freshness` | Son veri: {month}. Veriler her ay güncellenir. | Latest data: {month}. Updated monthly. |
 | `filters.search` | Ürün veya GTİP kodu | Product or HS code |
 | `filters.placeholder` | Örnek: halı, zeytinyağı, 8708 | e.g. carpets, olive oil, 8708 |
-| `filters.hint` | GTİP kodunuzun ilk 6 hanesi ABD'deki HS koduyla aynıdır. | The first 6 digits of a Turkish GTİP code match the US HS code. |
+| `filters.hint` | GTİP kodunuzun ilk 6 hanesi ABD'deki HS koduyla aynıdır. | The first 6 digits of your country's tariff code (GTİP in Türkiye) match the US HS code. |
 | `filters.noResults` | Sonuç yok. Kodun ilk 4 hanesini veya ürünün İngilizce adını deneyin. | No results. Try the first 4 digits of the code or an English product name. |
 | `filters.country` | Kaynak ülke | Partner country |
 | `filters.countryTop` | En büyük tedarikçiler | Largest suppliers |
@@ -875,14 +875,14 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | Key | Türkçe | English |
 |---|---|---|
 | `eyebrow` | Hakkımızda | About |
-| `title` | Türk şirketlerini batıya taşıyoruz | We carry Turkish companies west |
+| `title` | Türk şirketlerini batıya taşıyoruz | We carry companies west |
 | `nameTitle` | İsim: Ponenti | The name: Ponenti |
 | `nameBody1` | Akdeniz denizcilerinin rüzgârgülünde batının adı ponente'dir. Bizim denizcilerimiz ona günbatısı der. | On the Mediterranean sailors' wind rose, the west is ponente. Turkish sailors call it günbatısı, where the sun sets. |
-| `nameBody2` | Ponenti, Türk şirketlerini batıya, ABD'ye taşır. | Ponenti carries Turkish companies west, to the United States. |
+| `nameBody2` | Ponenti, Türk şirketlerini batıya, ABD'ye taşır. | Ponenti carries companies west, to the United States. We started with Türkiye. |
 | `founderTitle` | Kurucunun notu | A note from the founder |
 | `founderP1` | Ben {name}. Türkçe ve İngilizce büyüdüm; kariyerimi ABD'de finans ve ticaret operasyonlarında geçirdim. | I'm {name}. I grew up with Turkish and English, and I've spent my career in US finance and trade operations. |
-| `founderP2` | Türk şirketlerinin ABD tarafında hep aynı sorunlarla karşılaştığını gördüm: beyannameler geç kalıyor, satış vergisi birkaç eyalette açık kalıyor, ABD'li müşteriler geç ödüyor ve takip İstanbul'dan e-postayla yapılıyor. | I kept seeing Turkish companies hit the same problems on the US side: filings run late, sales tax stays open in several states, US customers pay late, and follow-up happens by email from Istanbul. |
-| `founderP3` | Ponenti bu işleri tek masada, Türkçe ve ABD mesai saatinde yürütmek için var. | Ponenti exists to run that work at one desk, in Turkish, during US business hours. |
+| `founderP2` | Türk şirketlerinin ABD tarafında hep aynı sorunlarla karşılaştığını gördüm: beyannameler geç kalıyor, satış vergisi birkaç eyalette açık kalıyor, ABD'li müşteriler geç ödüyor ve takip İstanbul'dan e-postayla yapılıyor. | I kept seeing companies from abroad, Turkish ones first, hit the same problems on the US side: filings run late, sales tax stays open in several states, US customers pay late, and follow-up happens by email from an office hours ahead. |
+| `founderP3` | Ponenti bu işleri tek masada, Türkçe ve ABD mesai saatinde yürütmek için var. | Ponenti exists to run that work at one desk, during US business hours, in English or Turkish. |
 | `bioTitle` | Özgeçmiş | Background |
 | `bio` | Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı (fiyatlandırma, gelir yönetimi, FP&A). Defter tutma ve ay sonu kapanışı, B2B faturalama ve tahsilat, satış vergisi beyannameleri ve lisanslı gümrük müşavirleriyle gümrük girişleri konularında uygulamalı deneyime sahip. | Bilingual in Turkish and English. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy (pricing, revenue management, FP&A). Hands-on in bookkeeping and month-end close, B2B invoicing and collections, sales-tax filings, and customs entries with licensed brokers. |
 | `howTitle` | Nasıl çalışırız | How we work |
@@ -920,14 +920,15 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `introWhatsapp` | WhatsApp'tan yazın veya kısa formu doldurun. 1 iş günü içinde yanıt veririz. | Message us on WhatsApp or use the short form. We reply within 1 business day. |
 | `introForm` | Kısa formu doldurun. 1 iş günü içinde yanıt veririz. | Use the short form. We reply within 1 business day. |
 | `bookTitle` | Görüşme planlayın | Book a call |
-| `bookBody` | Saatleri İstanbul ve ABD Doğu saatiyle aşağıda görebilirsiniz. | Istanbul and US Eastern times are shown below. |
+| `bookBody` | Saatleri İstanbul ve ABD Doğu saatiyle aşağıda görebilirsiniz. | Your time and US Eastern time are shown below. |
 | `loadCalendar` | Takvimi açın | Open the calendar |
 | `calendarNotice` | Takvim Cal.com tarafından yüklenir ve kendi çerezlerini kullanabilir. | The calendar loads from Cal.com, which may set its own cookies. |
 | `calendarMissing` | Takvim henüz bağlanmadı. Lütfen WhatsApp'tan yazın veya formu kullanın. | The calendar isn't connected yet. Please message us on WhatsApp or use the form. |
 | `calendarFallback` | Kısa formu gönderin; görüşme için size iki farklı saat önerelim. | Send the short form and we will reply with two possible times for a call. |
 | `istanbul` | İstanbul | Istanbul |
+| `yourTime` | Sizin saatiniz | Your time |
 | `newYork` | New York (ABD Doğu) | New York (US Eastern) |
-| `callHours` | Tahsilat saatlerimiz bugün: New York {nyStart}-{nyEnd}, İstanbul {istStart}-{istEnd}. | Our collections hours today: New York {nyStart}-{nyEnd}, Istanbul {istStart}-{istEnd}. |
+| `callHours` | Tahsilat saatlerimiz bugün: New York {nyStart}-{nyEnd}, İstanbul {localStart}-{localEnd}. | Our collections hours today: New York {nyStart}-{nyEnd}, your time {localStart}-{localEnd}. |
 | `whatsappTitle` | WhatsApp | WhatsApp |
 | `whatsappBody` | Türkçe yazabilirsiniz. Mesajınız hazır gelir; göndermeden önce düzenleyebilirsiniz. | Write in Turkish or English. Your message arrives prefilled; edit it before you send. |
 | `whatsappMissing` | WhatsApp numarası henüz eklenmedi. | The WhatsApp number hasn't been added yet. |
@@ -946,7 +947,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `phoneHint` | Ülke koduyla, örneğin +90 532 000 00 00 | With country code, e.g. +1 404 000 0000 |
 | `segment` | Durumunuz | Your situation |
 | `segmentUs` | ABD'de şirketim var | I have a US company |
-| `segmentTr` | ABD'ye Türkiye'den satıyorum | I sell to the US from Türkiye |
+| `segmentAbroad` | ABD'ye Türkiye'den satıyorum | I sell to the US from abroad |
 | `paymentDays` | ABD'li müşterileriniz ortalama kaç günde ödüyor? (isteğe bağlı) | On average, how many days do your US customers take to pay? (optional) |
 | `paymentDaysNone` | Seçmek istemiyorum | Prefer not to say |
 | `message` | Mesajınız (isteğe bağlı) | Message (optional) |

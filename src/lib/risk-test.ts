@@ -58,7 +58,7 @@ export const riskSources: Partial<Record<RiskId, SourceKey>> = {
 };
 
 export type RiskLevel = "low" | "medium" | "high";
-export type Segment = "us_entity" | "sells_from_tr";
+export type Segment = "us_entity" | "sells_from_abroad";
 export type PaymentDaysRange = "0-29" | "30-45" | "46-60" | "61-90" | "90+";
 
 export type Answers = Partial<Record<QuestionId, AnswerValue>>;
@@ -111,7 +111,7 @@ export function scoreRiskTest(a: Answers): RiskResult {
     level,
     score,
     top,
-    segment: a.usEntity === "yes" ? "us_entity" : "sells_from_tr",
+    segment: a.usEntity === "yes" ? "us_entity" : "sells_from_abroad",
     paymentDays: pd >= 0 ? paymentRanges[pd] : undefined,
   };
 }

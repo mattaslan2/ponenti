@@ -1,11 +1,11 @@
 {
   "meta": {
     "siteName": "Ponenti",
-    "titleDefault": "Ponenti | The US compliance and collections desk for Turkish companies",
-    "descriptionDefault": "Your US filings, multi-state sales tax, importer record and US receivables at one bilingual desk. Public prices, written limits.",
+    "titleDefault": "Ponenti | The US compliance and collections desk for companies abroad",
+    "descriptionDefault": "Your US filings, multi-state sales tax, importer record and US receivables at one desk. Public prices, written limits.",
     "home": {
-      "title": "Ponenti | The US compliance and collections desk for Turkish companies",
-      "description": "Your US filings, multi-state sales tax and importer record at one bilingual desk. Your US receivables worked in US business hours, in your name."
+      "title": "Ponenti | The US compliance and collections desk for companies abroad",
+      "description": "For companies abroad that sell in the US: your filings, multi-state sales tax and importer record at one desk. Your US receivables worked in US business hours, in your name."
     },
     "services": {
       "title": "Services and pricing",
@@ -20,8 +20,8 @@
       "description": "See how much cash faster US collections free up, and what missed Form 5472 years can cost."
     },
     "supportFile": {
-      "title": "US support file: Turkish rent, 3PL and promotion support",
-      "description": "Estimate Turkish export support on your US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim, every month."
+      "title": "Export support file: government support on your US costs",
+      "description": "Some governments pay part of their companies' US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim, every month. First program: Türkiye."
     },
     "insights": {
       "title": "Knowledge center",
@@ -29,7 +29,7 @@
     },
     "about": {
       "title": "About",
-      "description": "Ponenti takes its name from the west on the Mediterranean wind rose. We run the US side of Turkish companies at one desk, in Turkish, in US business hours."
+      "description": "Ponenti takes its name from the west on the Mediterranean wind rose. We run the US side of companies abroad at one desk, in US business hours. We started with Türkiye."
     },
     "contact": {
       "title": "Contact",
@@ -47,10 +47,10 @@
     "notFound": {
       "title": "Page not found"
     },
-    "ogTagline": "Made in Türkiye. Run right in the United States.",
+    "ogTagline": "Made at home. Run right in the United States.",
     "trade": {
       "title": "US import data: products, countries and duties",
-      "description": "Monthly US imports by product and country. Türkiye's share, competitors, the duty actually paid and ports of entry. Source: US Census Bureau."
+      "description": "Monthly US imports by product and country: your country's share, its competitors, the duty actually paid and ports of entry. Source: US Census Bureau."
     },
     "tradeProduct": {
       "title": "HS {code} US imports: {country} and competitors",
@@ -84,8 +84,8 @@
     "onThisPage": "On this page"
   },
   "brand": {
-    "tagline": "The US compliance and collections desk for Turkish companies.",
-    "pride": "Made in Türkiye. <em>Run right in the United States.</em>",
+    "tagline": "The compliance and collections desk for your US business.",
+    "pride": "Made at home. <em>Run right in the United States.</em>",
     "logoLabel": "Ponenti, home"
   },
   "nav": {
@@ -113,9 +113,9 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "For Turkish companies doing business in the US",
-      "title": "The US compliance and collections desk for <em>Turkish companies.</em>",
-      "subtitle": "Your US filings, multi-state sales tax and importer record at one bilingual desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval.",
+      "eyebrow": "For companies abroad doing business in the US",
+      "title": "The compliance and collections desk for <em>your US business.</em>",
+      "subtitle": "Your US filings, multi-state sales tax and importer record at one desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval.",
       "price": "Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk."
     },
     "trust": {
@@ -156,7 +156,7 @@
         "link": "See plans and desks"
       },
       "tr": {
-        "title": "I sell to the US from Türkiye",
+        "title": "I sell to the US from abroad",
         "body": "We work your US receivables in US business hours, in your name. The first step is the back-office check.",
         "link": "See the cash desk and the check"
       }
@@ -211,9 +211,10 @@
       "more": "See every price and scope"
     },
     "support": {
-      "eyebrow": "Turkish export support",
+      "eyebrow": "Export support",
       "title": "You run your US business; your support file is <em>ready every month</em>.",
-      "intro": "Türkiye's Ministry of Trade can cover part of your US rent, 3PL, certification, trademark and promotion costs. We prepare the US side of every claim from start to finish; your Turkish consultant only files it.",
+      "intro": "Some governments pay back part of their companies' US costs: rent, 3PL, certifications, trademarks and promotion. We prepare the US side of every claim from start to finish; your consultant at home only files it.",
+      "program": "The first program we cover: Türkiye's Ministry of Trade, with its 2026 figures.",
       "f1": {
         "kicker": "Support rate",
         "value": "Up to 70%",
@@ -365,7 +366,7 @@
       "i4": "Penalty exposure in dollars",
       "i5": "Receivables aging and average payment days",
       "i6": "A fix plan and a quote",
-      "i7": "Turkish export support review: ownership link, lease terms, how rent is paid and, for online sellers, e-commerce export declarations",
+      "i7": "Export support review (Türkiye's program today): ownership link, lease terms, how rent is paid and, for online sellers, e-commerce export declarations",
       "delivery": "A written report in 10 business days. A free update when CBP publishes its new importer rules."
     },
     "plans": {
@@ -392,7 +393,7 @@
         "i4": "1099s",
         "i5": "Payroll-provider coordination",
         "i6": "Quarterly 3PL inventory tie-out",
-        "i7": "A support file for Turkish export support at every month-end close"
+        "i7": "An export support file at every month-end close (Türkiye's program today)"
       },
       "complete": {
         "name": "Complete",
@@ -468,13 +469,13 @@
       "q4": "Whose name do collections run in?",
       "a4": "Yours. Accounts more than 90 days late go to a licensed collection agency.",
       "q5": "What hours do you work?",
-      "a5": "Collections calls run 8:00-16:00 US Eastern. We answer you in Turkish, and the first reply comes within 1 business day.",
+      "a5": "Collections calls run 8:00-16:00 US Eastern. We answer you in English or Turkish, and the first reply comes within 1 business day.",
       "q6": "How fast can we start?",
       "a6": "The check report arrives in 10 business days. A plan or desk starts once the engagement letter is signed.",
       "q7": "Do we need to enter our tax ID on the site?",
       "a7": "No. This site never asks for tax ID numbers, EINs or financial documents. Documents come through a secure channel after you sign.",
-      "q8": "Do you file Turkish export support claims?",
-      "a8": "No. Your Turkish support consultant files them in the Ministry of Trade's system. We prepare the US-side documents and track the Commercial Counselor's approval and the payment.",
+      "q8": "Do you file export support claims?",
+      "a8": "No. Your support consultant at home files them in your government's system (for Türkiye, the Ministry of Trade's). We prepare the US-side documents and track the approvals and the payment.",
       "q9": "Can Ponenti's fees be claimed as support?",
       "a9": "No. Our fees are not an eligible cost. The support file is included in the flat monthly fee of the Standard and Complete plans."
     }
@@ -592,7 +593,7 @@
       },
       "noFollowUp": {
         "title": "No follow-up in US hours",
-        "body": "Istanbul is 7-8 hours ahead of US Eastern. Without someone following up in US hours, payment questions wait until the next day."
+        "body": "From Europe and the Middle East, the US East Coast is 5 to 8 hours behind. Without someone following up in US hours, payment questions wait until the next day."
       },
       "refundBank": {
         "title": "No bank account for CBP refunds",
@@ -630,13 +631,13 @@
       "multiple": "With more than one related party, each needs its own form."
     },
     "emailCta": "Email me my result",
-    "supportNote": "Estimating Turkish export support on your US costs?",
+    "supportNote": "Estimating government export support on your US costs?",
     "supportLink": "Support estimator"
   },
   "supportFile": {
-    "eyebrow": "Support file",
+    "eyebrow": "Export support file",
     "title": "You run your US business; your support file is <em>ready every month</em>.",
-    "intro": "Türkiye's Ministry of Trade can cover part of the rent on your US office, warehouse or store, your 3PL fees and your certification, trademark and promotion costs. We prepare the US side of every claim from start to finish; your Turkish consultant only files it.",
+    "intro": "Some governments pay part of their companies' US costs: rent on an office, warehouse or store, 3PL fees, certifications, trademarks and promotion. We prepare the US side of every claim from start to finish; your consultant at home only files it. The first program we cover is Türkiye's, run by its Ministry of Trade.",
     "steps": {
       "eyebrow": "How it works",
       "title": "The support file in four steps",
@@ -644,7 +645,7 @@
       "who": "Who",
       "s1": {
         "title": "Setup",
-        "body": "We set up your US office or warehouse so it qualifies: an ownership link to the Turkish company, a lease at market rent, and rent paid by bank transfer from the company or its US entity.",
+        "body": "We set up your US office or warehouse so it qualifies: an ownership link to your home company, a lease at market rent, and rent paid by bank transfer from the company or its US entity.",
         "who": "Ponenti sets it up; you approve."
       },
       "s2": {
@@ -653,25 +654,25 @@
         "who": "Ponenti, at the monthly close."
       },
       "s3": {
-        "title": "Counselor",
-        "body": "We assemble the package for the Turkish Commercial Counselor in the US and track the site visit and the approval.",
-        "who": "Ponenti prepares it; the Commercial Counselor approves."
+        "title": "Approval",
+        "body": "We assemble the package for your government's commercial office in the US (for Türkiye, the Commercial Counselor) and track the site visit and the approval.",
+        "who": "Ponenti prepares it; the commercial office approves."
       },
       "s4": {
         "title": "Filing",
-        "body": "Your Turkish consultant files the claim in the Ministry of Trade's Support Management System (DYS), and we track it until it is paid.",
+        "body": "Your consultant at home files the claim in your government's system (for Türkiye, the Ministry of Trade's DYS), and we track it until it is paid.",
         "who": "Your consultant files; we track it to payment."
       }
     },
     "estimator": {
       "eyebrow": "Estimator",
       "title": "Estimate your support",
-      "intro": "Enter your annual US costs. The estimate uses the 50% base rate and the rate of up to 70% that applies while the US is on the target-country list, in dollars and TL."
+      "intro": "For Türkiye's program, the first we cover. Enter your annual US costs: the estimate uses the 50% base rate and the rate of up to 70% that applies while the US is on the target-country list, in dollars and Turkish lira."
     },
     "reasons": {
       "eyebrow": "Common mistakes",
       "title": "Why do US rent claims come back?",
-      "intro": "Seven reasons, taken from the circular's conditions. The support file checks each one before filing.",
+      "intro": "Seven reasons, taken from the conditions of Türkiye's rent support. The support file checks each one before filing.",
       "r1": "Rent above market: the Commercial Counselor does not find it in line with market rates.",
       "r2": "Rent paid the wrong way: cash, a partner's personal account, a third party or a customer's check.",
       "r3": "No Commercial Counselor approval.",
@@ -685,7 +686,7 @@
     "lease": {
       "eyebrow": "CBP and rent support",
       "title": "One lease, two problems",
-      "p1": "Since September 18, 2026, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center. A real US office or warehouse solves that. The same lease, if it meets the conditions, also qualifies for the Ministry of Trade's unit rent support.",
+      "p1": "Since September 18, 2026, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center. A real US office or warehouse solves that. The same lease, if it meets the conditions, can also qualify for rent support at home, such as Türkiye's unit rent support.",
       "p2": "We help you find the space through licensed brokers and check the lease against both rules at once. A shared-office membership can qualify for rent support, but a business-center address can fail CBP's rule. So we never pick the address against one rule alone.",
       "cbp": "CBP rule (Federal Register)",
       "circular": "Unit rent circular"
@@ -693,13 +694,13 @@
     "promise": {
       "eyebrow": "Document promise",
       "title": "If a claim comes back because of a document we prepared, we fix it at no charge.",
-      "body": "We correct the document and resubmit it, with no fee for it. The amount of support is the Ministry of Trade's decision, so we show estimates, never promised amounts."
+      "body": "We correct the document and resubmit it, with no fee for it. The amount of support is your government's decision, so we show estimates, never promised amounts."
     },
     "scope": {
       "title": "Fees and scope",
       "i1": "The support file is included in the flat fee of the Standard and Complete plans, which have a monthly close.",
       "i2": "Ponenti's fees are not an eligible cost. Our fee is flat and does not depend on the amount of support.",
-      "i3": "Your Turkish support consultant files the claim and charges its own fee.",
+      "i3": "Your support consultant at home files the claim and charges its own fee.",
       "i4": "We share your records with your consultant only with your written consent.",
       "link": "See the plans"
     },
@@ -721,7 +722,7 @@
       "tcmb": "TCMB indicative exchange rates",
       "cbp": "CBP: accuracy of importer of record data (Federal Register)"
     },
-    "partners": "Turkish support consultancies we work with"
+    "partners": "Support consultancies we work with"
   },
   "supportEstimator": {
     "costsLegend": "Your annual costs ($)",
@@ -753,14 +754,14 @@
       }
     },
     "more": "For a closer estimate",
-    "ownership": "Turkish company's share of the US company (%)",
-    "ownershipHint": "If the US company pays the rent and promotion, support is prorated to this share. If the Turkish company pays directly, leave 100.",
+    "ownership": "Home company's share of the US company (%)",
+    "ownershipHint": "If the US company pays the rent and promotion, support is prorated to this share. If the home company pays directly, leave 100.",
     "exports": "Annual exports to the US ($)",
     "exportsHint": "From your customs declarations. Rent and promotion support can't exceed half of it.",
     "onlineSales": "Annual online sales in the US ($)",
     "onlineSalesHint": "3PL support applies to costs up to 10% of this amount.",
     "optional": "Optional",
-    "age": "The Turkish company is at least 1 year old",
+    "age": "The home company is at least 1 year old",
     "ageHint": "Younger companies can't apply for rent or promotion support.",
     "resultTitle": "Estimated annual support",
     "base": {
@@ -809,7 +810,7 @@
     "filters": {
       "search": "Product or HS code",
       "placeholder": "e.g. carpets, olive oil, 8708",
-      "hint": "The first 6 digits of a Turkish GTİP code match the US HS code.",
+      "hint": "The first 6 digits of your country's tariff code (GTİP in Türkiye) match the US HS code.",
       "noResults": "No results. Try the first 4 digits of the code or an English product name.",
       "country": "Partner country",
       "countryTop": "Largest suppliers",
@@ -929,14 +930,14 @@
   },
   "about": {
     "eyebrow": "About",
-    "title": "We carry Turkish companies west",
+    "title": "We carry companies west",
     "nameTitle": "The name: Ponenti",
     "nameBody1": "On the Mediterranean sailors' wind rose, the west is ponente. Turkish sailors call it günbatısı, where the sun sets.",
-    "nameBody2": "Ponenti carries Turkish companies west, to the United States.",
+    "nameBody2": "Ponenti carries companies west, to the United States. We started with Türkiye.",
     "founderTitle": "A note from the founder",
     "founderP1": "I'm {name}. I grew up with Turkish and English, and I've spent my career in US finance and trade operations.",
-    "founderP2": "I kept seeing Turkish companies hit the same problems on the US side: filings run late, sales tax stays open in several states, US customers pay late, and follow-up happens by email from Istanbul.",
-    "founderP3": "Ponenti exists to run that work at one desk, in Turkish, during US business hours.",
+    "founderP2": "I kept seeing companies from abroad, Turkish ones first, hit the same problems on the US side: filings run late, sales tax stays open in several states, US customers pay late, and follow-up happens by email from an office hours ahead.",
+    "founderP3": "Ponenti exists to run that work at one desk, during US business hours, in English or Turkish.",
     "bioTitle": "Background",
     "bio": "Bilingual in Turkish and English. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy (pricing, revenue management, FP&A). Hands-on in bookkeeping and month-end close, B2B invoicing and collections, sales-tax filings, and customs entries with licensed brokers.",
     "howTitle": "How we work",
@@ -971,14 +972,15 @@
     "introWhatsapp": "Message us on WhatsApp or use the short form. We reply within 1 business day.",
     "introForm": "Use the short form. We reply within 1 business day.",
     "bookTitle": "Book a call",
-    "bookBody": "Istanbul and US Eastern times are shown below.",
+    "bookBody": "Your time and US Eastern time are shown below.",
     "loadCalendar": "Open the calendar",
     "calendarNotice": "The calendar loads from Cal.com, which may set its own cookies.",
     "calendarMissing": "The calendar isn't connected yet. Please message us on WhatsApp or use the form.",
     "calendarFallback": "Send the short form and we will reply with two possible times for a call.",
     "istanbul": "Istanbul",
+    "yourTime": "Your time",
     "newYork": "New York (US Eastern)",
-    "callHours": "Our collections hours today: New York {nyStart}-{nyEnd}, Istanbul {istStart}-{istEnd}.",
+    "callHours": "Our collections hours today: New York {nyStart}-{nyEnd}, your time {localStart}-{localEnd}.",
     "whatsappTitle": "WhatsApp",
     "whatsappBody": "Write in Turkish or English. Your message arrives prefilled; edit it before you send.",
     "whatsappMissing": "The WhatsApp number hasn't been added yet.",
@@ -994,7 +996,7 @@
     "phoneHint": "With country code, e.g. +1 404 000 0000",
     "segment": "Your situation",
     "segmentUs": "I have a US company",
-    "segmentTr": "I sell to the US from Türkiye",
+    "segmentAbroad": "I sell to the US from abroad",
     "paymentDays": "On average, how many days do your US customers take to pay? (optional)",
     "paymentDaysNone": "Prefer not to say",
     "message": "Message (optional)",

@@ -36,11 +36,8 @@ export function organizationJsonLd(locale: Locale, description: string) {
         url,
         description,
         parentOrganization: { "@id": `${url}/#organization` },
-        areaServed: [
-          { "@type": "Country", name: "United States" },
-          { "@type": "Country", name: "Türkiye" },
-        ],
-        availableLanguage: ["tr", "en"],
+        areaServed: [{ "@type": "Country", name: "United States" }, ...site.markets.map((m) => ({ "@type": "Country", name: m.name }))],
+        availableLanguage: ["en", ...site.markets.map((m) => m.language)],
         priceRange: `$${pricing.plans.essentials}-$${pricing.fullDesk.monthly.toLocaleString("en-US")}`,
         ...(real(site.address) ? { address: { "@type": "PostalAddress", streetAddress: site.address } } : {}),
         ...(real(site.phone) ? { telephone: site.phone } : {}),

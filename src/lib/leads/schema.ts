@@ -4,7 +4,7 @@ import { UTM_KEYS } from "@/lib/utm";
 
 export const FORM_TYPES = ["contact", "risk_test", "calc_cash", "calc_5472", "calc_support", "prospect", "trade_data"] as const;
 export const PAYMENT_DAYS = ["0-29", "30-45", "46-60", "61-90", "90+"] as const;
-export const SEGMENTS = ["us_entity", "sells_from_tr"] as const;
+export const SEGMENTS = ["us_entity", "sells_from_abroad"] as const;
 export const RISK_LEVELS = ["low", "medium", "high"] as const;
 
 /** Empty form fields arrive as "", which must mean "not provided". */

@@ -1,6 +1,6 @@
 # Ponenti marketing site
 
-The website for Ponenti, the US compliance and collections desk for Turkish companies. Turkish is the default language (`/tr`), English is at `/en`. Built to raise reply rates on cold emails, calls and WhatsApp: a Turkish owner or CFO opens the link on a phone and, within 10 seconds, sees who we are, what we do, for whom, what it costs and why to trust us, then books a call.
+The website for Ponenti, the US compliance and collections desk for companies abroad. Türkiye is the first market: Turkish is the default language (`/tr`) and speaks to Turkish companies; English (`/en`) speaks to companies from any country. Each new market gets its own language version the same way (see `markets` in `src/lib/site.ts`). Built to raise reply rates on cold emails, calls and WhatsApp: an owner or CFO opens the link on a phone and, within 10 seconds, sees who we are, what we do, for whom, what it costs and why to trust us, then books a call.
 
 - **Live:** every push to `main` deploys to Vercel Production. Other branches get Preview URLs.
 - **Public repo:** everything committed here is visible on GitHub. Never commit keys, client data or internal Ponenti documents.

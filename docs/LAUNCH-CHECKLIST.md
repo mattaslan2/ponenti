@@ -45,7 +45,7 @@ Create these attributes with exactly these slugs (Attio → Settings → Objects
 | Title | Slug | Type | Options |
 |---|---|---|---|
 | Ponenti language | `ponenti_language` | Select | `tr`, `en` |
-| Ponenti segment | `ponenti_segment` | Select | `us_entity`, `sells_from_tr` |
+| Ponenti segment | `ponenti_segment` | Select | `us_entity`, `sells_from_abroad` |
 | Ponenti risk level | `ponenti_risk_level` | Select | `low`, `medium`, `high` |
 | Ponenti payment days | `ponenti_payment_days` | Select | `0-29`, `30-45`, `46-60`, `61-90`, `90+` |
 | Ponenti form | `ponenti_form` | Select | `contact`, `risk_test`, `calc_cash`, `calc_5472`, `calc_support`, `prospect`, `trade_data` |
