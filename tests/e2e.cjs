@@ -270,6 +270,16 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
     const insights = await page.locator('#insights li').count();
     ok(`home lists three articles on ${p}`, insights === 3, String(insights));
   }
+  // 13. Motion: the hero rises on load; figures count up once their block shows and end on the server's exact text.
+  await page.goto(base + '/tr', { waitUntil: 'networkidle' });
+  const names = await page.evaluate(() => document.getAnimations().map((a) => a.animationName));
+  ok('hero entrance animations run', names.filter((n) => n === 'rise').length === 5 && names.includes('ticker'), names.join(','));
+  const serverFigures = await page.evaluate(() => [...document.querySelectorAll('[data-count]')].map((e) => e.textContent));
+  await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 500) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 80)); } });
+  await page.waitForTimeout(1600);
+  const counted = await page.evaluate(() => [...document.querySelectorAll('[data-count]')].map((e) => [e.textContent, e.hasAttribute('data-counted')]));
+  ok('every figure counted up', serverFigures.length >= 10 && counted.every(([, c]) => c), `${counted.filter(([, c]) => !c).length} not counted`);
+  ok('every figure ends on its exact text', counted.every(([t], i) => t === serverFigures[i]), counted.map(([t], i) => (t === serverFigures[i] ? '' : `${t}!=${serverFigures[i]}`)).filter(Boolean).join(','));
   r = await page.goto(base + '/en/insights/section-301-forced-labor-duty-turkiye-12-5-percent', { waitUntil: 'domcontentloaded' });
   ok('section 301 article 200', r.status() === 200, String(r.status()));
   ok('section 301 article links the Federal Register notice', (await page.locator('a[href*="2026-15181"]').count()) > 0);

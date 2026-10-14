@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Cpu, FolderLock, KeyRound, PenLine, ScrollText, UserRound } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -43,16 +44,16 @@ export async function Hero() {
         <CompassCard
           locale={locale}
           rays
-          className="pointer-events-none absolute top-1/2 right-0 hidden size-[clamp(30rem,46vw,42rem)] translate-x-[38%] -translate-y-1/2 lg:block"
+          className="compass-live pointer-events-none absolute top-1/2 right-0 hidden size-[clamp(30rem,46vw,42rem)] translate-x-[38%] -translate-y-1/2 lg:block"
         />
         <div className="relative pt-14 pb-band sm:pt-band lg:max-w-[38rem] xl:max-w-[46rem]">
-          <p className="eyebrow kicker">{t("eyebrow")}</p>
-          <h1 id="hero-title" className="mt-8 text-display-xl">
+          <p className="eyebrow kicker enter">{t("eyebrow")}</p>
+          <h1 id="hero-title" className="enter enter-1 mt-8 text-display-xl">
             {t.rich("title", { em })}
           </h1>
-          <p className="mt-8 max-w-[34rem] text-lead text-navy">{t("subtitle")}</p>
-          <p className="mt-6 max-w-[34rem] text-small text-mist">{t("price", priceArgs(locale, pricing))}</p>
-          <div id="hero-actions" className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+          <p className="enter enter-2 mt-8 max-w-[34rem] text-lead text-navy">{t("subtitle")}</p>
+          <p className="enter enter-3 mt-6 max-w-[34rem] text-small text-mist">{t("price", priceArgs(locale, pricing))}</p>
+          <div id="hero-actions" className="enter enter-4 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             <BookButton location="hero" />
             <WhatsAppButton location="hero" />
             <RiskTestLink location="hero" className="self-start sm:ml-3 sm:self-auto" />
@@ -116,6 +117,7 @@ export async function Market() {
     {
       key: "f2",
       value: rate(m.dutyRate),
+      share: m.dutyRate,
       unit: t("f2.unit"),
       text: t("f2.text", { rate: rate(m.dutyRate2y) }),
       source: t("f2.source"),
@@ -124,6 +126,7 @@ export async function Market() {
     {
       key: "f3",
       value: pct(MARKET_RULES.section301.rate, locale),
+      share: MARKET_RULES.section301.rate,
       unit: t("f3.unit"),
       text: t("f3.text", { date: formatDate(MARKET_RULES.section301.effective, locale) }),
       source: t("f3.source", { citation: MARKET_RULES.section301.citation }),
@@ -132,6 +135,7 @@ export async function Market() {
     {
       key: "f4",
       value: rate(m.vesselShare, 0),
+      share: m.vesselShare,
       unit: t("f4.unit"),
       text: t("f4.text", { air: rate(m.airShare, 0) }),
       source: t("f4.source"),
@@ -140,6 +144,7 @@ export async function Market() {
     {
       key: "f5",
       value: pct(m.topPortsShare, locale, { digits: 0 }),
+      share: m.topPortsShare,
       unit: t("f5.unit"),
       text: t("f5.text", { ports, airport }),
       source: t("f5.source"),
@@ -189,7 +194,10 @@ export async function Market() {
           >
             <dt className="eyebrow">{t(`${f.key}.kicker`)}</dt>
             <dd className="mt-5">
-              <span className="block font-display text-[clamp(2.25rem,1.7rem+1.9vw,3rem)] leading-none font-medium tracking-[-0.015em] whitespace-nowrap text-navy">
+              <span
+                data-count
+                className="block font-display text-[clamp(2.25rem,1.7rem+1.9vw,3rem)] leading-none font-medium tracking-[-0.015em] whitespace-nowrap text-navy"
+              >
                 {f.value}
               </span>
               <span className="mt-3 block text-small text-mist-soft">{f.unit}</span>
@@ -199,6 +207,12 @@ export async function Market() {
                 <Sparkline values={f.chart.values} label={f.chart.label} />
               </dd>
             )}
+            {"share" in f && typeof f.share === "number" && (
+              <dd className="mt-5 max-w-[15rem]">
+                {/* The share as a brass line out of a full one; it fills when the block shows. */}
+                <span aria-hidden="true" className="meter block" style={{ "--value": Math.min(1, f.share) } as CSSProperties} />
+              </dd>
+            )}
             <dd className="mt-5 max-w-xs flex-1 text-small text-mist">{f.text}</dd>
             <dd className="mt-6 text-caption text-mist-soft">
               <SourceLink href={f.href}>{f.source}</SourceLink>
@@ -206,14 +220,24 @@ export async function Market() {
           </div>
         ))}
       </dl>
-      <div className="mt-8 grid gap-x-8 gap-y-6 md:grid-cols-12">
-        <p className="md:col-span-7">
-          <span className="eyebrow">{t("linesLabel", { period: basisLabel(m.basis, locale) })}</span>
-          <span className="mt-3 block text-small text-mist">{lines.join(" · ")}</span>
-        </p>
-        <p className="text-caption text-mist-soft md:col-span-5">
-          {t("note", { month, date: formatDate(MARKET_RULES.checkedOn, locale) })}
-        </p>
+      <div className="mt-8">
+        <p className="eyebrow">{t("linesLabel", { period: basisLabel(m.basis, locale) })}</p>
+        {/* The largest lines pass by slowly (CSS); under reduced motion they wrap as a plain list. */}
+        <div className="ticker mt-4 border-b border-line pb-4" aria-label={lines.join(", ")}>
+          <div className="ticker-track">
+            {[false, true].map((copy) => (
+              <ul key={String(copy)} aria-hidden={copy || undefined} className={cn("flex shrink-0 items-baseline pr-10", copy && "ticker-copy")}>
+                {lines.map((line) => (
+                  <li key={line} className="flex items-baseline whitespace-nowrap font-display text-[1.375rem] leading-none font-medium text-navy">
+                    {line}
+                    <span aria-hidden="true" className="mx-5 inline-block size-1.5 translate-y-[-0.2em] rounded-full bg-brass" />
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+        <p className="mt-6 max-w-3xl text-caption text-mist-soft">{t("note", { month, date: formatDate(MARKET_RULES.checkedOn, locale) })}</p>
       </div>
     </Section>
   );
@@ -327,7 +351,9 @@ export async function FactsBand() {
           >
             <p className="eyebrow">{t(`${key}.kicker`)}</p>
             <p className="mt-6 text-ivory">
-              <span className="block font-display text-[clamp(2.75rem,1.9rem+2.9vw,4.25rem)] leading-none font-medium tracking-[-0.02em] whitespace-nowrap">{value}</span>
+              <span data-count={key === "f1" || undefined} className="block font-display text-[clamp(2.75rem,1.9rem+2.9vw,4.25rem)] leading-none font-medium tracking-[-0.02em] whitespace-nowrap">
+                {value}
+              </span>
               <span className="mt-3 block text-small text-ivory-soft">{unit}</span>
             </p>
             <p className="mt-6 max-w-xs flex-1 text-ivory-dim">{t(`${key}.text`)}</p>
@@ -437,7 +463,7 @@ export async function SupportFile() {
           >
             <p className="eyebrow">{t(`${key}.kicker`)}</p>
             <p className="mt-6">
-              <span className="block font-display text-[clamp(2.25rem,1.7rem+1.9vw,3.25rem)] leading-none font-medium tracking-[-0.015em] whitespace-nowrap text-navy">
+              <span data-count className="block font-display text-[clamp(2.25rem,1.7rem+1.9vw,3.25rem)] leading-none font-medium tracking-[-0.015em] whitespace-nowrap text-navy">
                 {value}
               </span>
               <span className="mt-3 block text-small text-mist-soft">{t(`${key}.unit`)}</span>
@@ -469,7 +495,9 @@ export async function Weekly() {
   return (
     <Section id="weekly" tone="sand" eyebrow={t("eyebrow")} title={t("title")} intro={t("intro")}>
       <div data-reveal>
-        <SampleReport />
+        <div className="sheet-lift">
+          <SampleReport />
+        </div>
         <p className="mt-6 text-caption text-mist-soft">{t("note")}</p>
       </div>
     </Section>

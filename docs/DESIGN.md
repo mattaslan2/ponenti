@@ -119,17 +119,20 @@ Rules
 
 ## 6. Interactions
 
-Three, all plain CSS transitions. No animation library, no scroll-linked effects, nothing that loops.
+Revised 2026-10-13 at Matt's request for more movement, with the figures moving too. Six kinds, all CSS except the counting figures (40 lines in `ClientRuntime`). No animation library, no scroll-linked effects. One slow loop (the ticker) and one very slow one (the wind rose's degree scale).
 
 | # | Where | Trigger | What happens | Why it helps | Where it turns into distraction |
 |---|---|---|---|---|---|
-| 1 | Rows and panels that are one link (price list, the two doors, article index, nav links); arrows on every link and button | Hover or keyboard focus | A 1 px brass rule draws left to right under the row in 400 ms; the arrow moves 4 px in 200 ms | Shows the whole row is clickable without color blocks or shadows, and reuses the hairline the layout is built from | On anything that is not a link. On text inside paragraphs. If the rule were thicker, or the row also changed background, lifted or scaled. One response per element. |
-| 2 | Each section's top rule and its content blocks (`data-reveal`) | The block scrolls into view, once | The rule draws across in 900 ms; content fades in and rises 8 px in 400 ms | Gives a long page a quiet pace and makes the hairline structure visible as you read | On the hero or anything on screen at load (never animate what the visitor already sees). If it replays on scroll up, staggers item by item, or moves more than 8 px. Numbers must never count up. |
+| 1 | Rows and panels that are one link (price list, the two doors, article index, nav links); arrows on every link and button | Hover or keyboard focus | A 1 px brass rule draws left to right under the row in 400 ms; the arrow moves 4 px in 200 ms | Shows the whole row is clickable without color blocks or shadows, and reuses the hairline the layout is built from | On anything that is not a link. On text inside paragraphs. If the rule were thicker, or the row also changed background or scaled. |
+| 2 | Each section's top rule and its content blocks (`data-reveal`) | The block scrolls into view, once | The rule draws across in 900 ms; content fades in and rises 8 px in 400 ms; sibling blocks follow each other 70 ms apart (`:nth-child`, 350 ms at most) | Gives a long page a quiet pace and makes the hairline structure visible as you read | On anything on screen at load (it stays put). If it replays on scroll up or moves more than 8 px. |
 | 3 | The sticky header | The page has scrolled 12 px | The header gains a hairline and a 90% ivory veil with a slight blur in 200 ms | Keeps the header out of the hero's way, then separates it cleanly from content passing under it | If the header shrank, hid on scroll down, or changed color. It only gains a line. |
+| 4 | The hero (`.enter`, `.compass-live`) | Page load | Eyebrow, title, lead, price line and buttons rise 14 px and fade in over 640 ms, 100 ms apart. The wind rose fades in over 1.2 s and its star settles on west (a 16° swing with one overshoot, 2.2 s); its degree scale then turns once every 4 minutes | The one orchestrated moment on the site; the settling needle is the name (ponente, west) | A second entrance anywhere else. Anything in the hero that keeps moving besides the scale. CSS keyframes, so nothing stays hidden if the script fails. |
+| 5 | Figures (`data-count`, `.meter`, `.spark-line`) | Their block scrolls into view, once | The numeral counts from zero to its value in 1.1 s on tabular numerals and ends on the server's exact text; a share's brass meter fills to its width in 1.2 s; the sparkline draws itself in 1.4 s and its last point appears at the end | The statistics are the argument; watching them arrive makes a reader look at them | Counting anything that is not a quantity (dates, hours, prices in the price list). Counting twice. A meter for a figure that is not a share of a whole. |
+| 6 | The largest-lines ticker, the sample report | Always (ticker, 80 s per pass, pauses under the pointer); hover (report) | Product names pass by slowly behind a soft fade at both edges; the report sheets lift 4 px | A trade desk has a board; the sheet reads as paper | A second ticker. Anything faster than a slow walk. Lifting cards that are not sheets. |
 
-With `prefers-reduced-motion: reduce`, transitions are instant, content is never hidden and arrows do not move.
+With `prefers-reduced-motion: reduce`: entrances and reveals are instant, nothing is ever hidden, figures show their final text at once, the meter and sparkline are drawn, the ticker becomes a wrapped list, the wind rose stands still, nothing lifts and arrows do not move. Tested in `tests/e2e.cjs` (animations present, every figure counted and restored) and by hand with reduced motion emulated.
 
-Not allowed: parallax, hover lifts and shadows, tilt, typewriter or counting text, carousels, auto-playing anything, cursor effects.
+Not allowed: parallax, tilt, typewriter text, carousels, cursor effects, a second loop, motion on body text.
 
 ## 7. Data UI (trade pages, sample report, later the portal)
 

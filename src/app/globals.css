@@ -126,10 +126,14 @@
 }
 
 /*
- * INTERACTIONS (three, all CSS transitions; see docs/DESIGN.md)
+ * INTERACTIONS (six; see docs/DESIGN.md section 6, revised 2026-10-13)
  * 1. Hover rule: a brass hairline draws under a link row, its arrow moves 4 px.
- * 2. Scroll rule: each section's hairline draws itself once, content fades up 8 px.
+ * 2. Scroll rule: each section's hairline draws itself once, content fades up 8 px, siblings staggered;
+ *    figures count up (ClientRuntime), meters fill and the sparkline draws itself.
  * 3. Header: clear over the hero, gains a hairline and a veil once the page moves.
+ * 4. Entrance: the hero rises line by line on load; the wind rose settles on west.
+ * 5. Ticker: the largest product lines pass by slowly.
+ * 6. Sheet lift: the sample report rises 4 px under the pointer.
  */
 
 /* 1. Hover rule, for rows and panels that are one link. In the components layer so a
@@ -184,6 +188,158 @@
 [data-reveal="rule"][data-pending] {
   opacity: 1;
   transform: scaleX(0);
+}
+
+/* 2b. Siblings reveal one after another: the second block waits 70 ms, the sixth 350 ms. */
+[data-reveal]:nth-child(2) {
+  transition-delay: 70ms;
+}
+[data-reveal]:nth-child(3) {
+  transition-delay: 140ms;
+}
+[data-reveal]:nth-child(4) {
+  transition-delay: 210ms;
+}
+[data-reveal]:nth-child(5) {
+  transition-delay: 280ms;
+}
+[data-reveal]:nth-child(n + 6) {
+  transition-delay: 350ms;
+}
+
+/* 2c. Figures: the sparkline draws itself and the meter under a share fills once the block is in view.
+      The numeral itself counts up in ClientRuntime (data-count). */
+.spark-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1400ms var(--ease-quiet) 150ms;
+}
+.spark-dot {
+  transition: opacity var(--duration-base) var(--ease-quiet) 1300ms;
+}
+/* The pending state applies at once (no transition back), so the draw always starts from zero. */
+[data-reveal][data-pending] .spark-line {
+  stroke-dashoffset: 1;
+  transition: none;
+}
+[data-reveal][data-pending] .spark-dot {
+  opacity: 0;
+  transition: none;
+}
+.meter {
+  position: relative;
+  height: 2px;
+  background: var(--color-line);
+}
+.meter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: calc(var(--value, 0) * 100%);
+  background: var(--color-brass);
+  transform-origin: left center;
+  transition: transform 1200ms var(--ease-quiet) 200ms;
+}
+[data-reveal][data-pending] .meter::after {
+  transform: scaleX(0);
+  transition: none;
+}
+
+/* 4. Entrance: the hero's lines rise one after another on load; the wind rose settles on west.
+      CSS animations, so nothing stays hidden if the script never runs. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes settle {
+  0% {
+    transform: rotate(-16deg);
+  }
+  55% {
+    transform: rotate(3.5deg);
+  }
+  80% {
+    transform: rotate(-1.2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.enter {
+  animation: rise 640ms var(--ease-quiet) both;
+}
+.enter-1 {
+  animation-delay: 80ms;
+}
+.enter-2 {
+  animation-delay: 180ms;
+}
+.enter-3 {
+  animation-delay: 280ms;
+}
+.enter-4 {
+  animation-delay: 380ms;
+}
+.compass-live {
+  animation: appear 1200ms var(--ease-quiet) both;
+}
+.compass-live .compass-needle {
+  transform-origin: 320px 320px;
+  animation: settle 2200ms cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
+}
+.compass-live .compass-ring {
+  transform-origin: 320px 320px;
+  animation: turn 240s linear infinite;
+}
+
+/* 5. Ticker: the largest product lines pass by slowly; it pauses under the pointer. */
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ticker {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 80s linear infinite;
+}
+.ticker:hover .ticker-track,
+.ticker:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+/* 6. A sheet of paper lifts a little under the pointer. */
+.sheet-lift {
+  transition:
+    transform var(--duration-base) var(--ease-quiet),
+    box-shadow var(--duration-base) var(--ease-quiet);
+}
+.sheet-lift:hover {
+  transform: translateY(-4px);
 }
 
 /* 3. Header state. ClientRuntime sets data-scrolled on <html> after the first 12 px. */
@@ -265,6 +421,26 @@ html:has(.mobile-menu[open]) {
   }
   /* Arrows stay where they are; the hover rule still appears, without the draw. */
   :is(a, button):is(:hover, :focus-visible) :is(.nudge, .nudge-up) {
+    transform: none;
+  }
+  /* The ticker becomes a wrapped list; the wind rose stands still; nothing lifts. */
+  .ticker {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .ticker-track {
+    animation: none !important;
+    width: auto;
+    flex-wrap: wrap;
+  }
+  .ticker-copy {
+    display: none;
+  }
+  .compass-live .compass-ring,
+  .compass-live .compass-needle {
+    animation: none !important;
+  }
+  .sheet-lift:hover {
     transform: none;
   }
 }

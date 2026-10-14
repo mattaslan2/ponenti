@@ -70,7 +70,7 @@ export function CompassCard({
               <stop offset="1" stopColor={ink} stopOpacity="0" />
             </radialGradient>
           </defs>
-          <g stroke={`url(#${id})`} strokeWidth={1}>
+          <g className="compass-rays" stroke={`url(#${id})`} strokeWidth={1}>
             {Array.from({ length: 16 }, (_, i) => i * 22.5)
               // West is left out: a level line through the text column reads as a stray rule.
               .filter((deg) => deg !== 270)
@@ -95,26 +95,29 @@ export function CompassCard({
 
       {/* Rings and the degree scale (two dashed circles: 128 fine ticks, 32 longer ones) */}
       <circle cx={C} cy={C} r={R.outer} stroke="var(--color-brass)" strokeWidth={1} vectorEffect="non-scaling-stroke" />
-      <circle
-        cx={C}
-        cy={C}
-        r={(R.tickOut + R.tickIn) / 2 + 2}
-        stroke={ink}
-        strokeWidth={R.tickOut - R.tickIn - 4}
-        strokeDasharray={`0.9 ${(circumference((R.tickOut + R.tickIn) / 2 + 2) / 128 - 0.9).toFixed(3)}`}
-        strokeDashoffset={0.45}
-        opacity={0.4}
-      />
-      <circle
-        cx={C}
-        cy={C}
-        r={(R.tickOut + R.tickIn) / 2}
-        stroke={ink}
-        strokeWidth={R.tickOut - R.tickIn}
-        strokeDasharray={`1.2 ${(circumference((R.tickOut + R.tickIn) / 2) / 32 - 1.2).toFixed(3)}`}
-        strokeDashoffset={0.6}
-        opacity={0.7}
-      />
+      {/* The degree scale turns slowly on the hero (.compass-live); everywhere else it stands still. */}
+      <g className="compass-ring">
+        <circle
+          cx={C}
+          cy={C}
+          r={(R.tickOut + R.tickIn) / 2 + 2}
+          stroke={ink}
+          strokeWidth={R.tickOut - R.tickIn - 4}
+          strokeDasharray={`0.9 ${(circumference((R.tickOut + R.tickIn) / 2 + 2) / 128 - 0.9).toFixed(3)}`}
+          strokeDashoffset={0.45}
+          opacity={0.4}
+        />
+        <circle
+          cx={C}
+          cy={C}
+          r={(R.tickOut + R.tickIn) / 2}
+          stroke={ink}
+          strokeWidth={R.tickOut - R.tickIn}
+          strokeDasharray={`1.2 ${(circumference((R.tickOut + R.tickIn) / 2) / 32 - 1.2).toFixed(3)}`}
+          strokeDashoffset={0.6}
+          opacity={0.7}
+        />
+      </g>
       <circle cx={C} cy={C} r={R.tickIn} stroke={ink} strokeWidth={1} opacity={0.35} vectorEffect="non-scaling-stroke" />
       <circle cx={C} cy={C} r={R.band} stroke={ink} strokeWidth={1} opacity={0.35} vectorEffect="non-scaling-stroke" />
       <circle cx={C} cy={C} r={R.inner} stroke={ink} strokeWidth={1} opacity={0.16} vectorEffect="non-scaling-stroke" />
@@ -140,8 +143,9 @@ export function CompassCard({
         })}
       </g>
 
-      {/* The star: four ordinal points under four cardinal points, each split along its axis */}
-      <g strokeWidth={1} strokeLinejoin="round">
+      {/* The star: four ordinal points under four cardinal points, each split along its axis.
+          On the hero it settles on west after the page loads (.compass-live). */}
+      <g className="compass-needle" strokeWidth={1} strokeLinejoin="round">
         {[45, 135, 225, 315].map((deg) => (
           <g key={deg}>
             <path d={kite(R.ordinal, deg)} fill={ground} />

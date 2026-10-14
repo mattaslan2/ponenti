@@ -144,7 +144,7 @@ The header button "Müşteri Portalı / Client portal" reads `NEXT_PUBLIC_PORTAL
 
 ## Design system
 
-`docs/DESIGN.md` is the specification: palette, type scale for phone and desktop, spacing, layout rules, the three interactions, data UI rules and the placeholder policy. `src/design/tokens.css` holds the values as a Tailwind v4 `@theme`, plus the shadcn/ui semantic mapping; the portal can import the same file.
+`docs/DESIGN.md` is the specification: palette, type scale for phone and desktop, spacing, layout rules, the six interactions (section 6, revised 2026-10-13 for more movement), data UI rules and the placeholder policy. `src/design/tokens.css` holds the values as a Tailwind v4 `@theme`, plus the shadcn/ui semantic mapping; the portal can import the same file.
 
 In short: three color roles and nothing else. Ivory `#F6F1E7` is the ground, midnight navy `#0E1A2B` is every heading and all body text, brass `#B08D57` is the accent (hairlines, the wind rose, link underlines, small labels). One functional color, oxblood `#8A2A2A`, marks errors and negative figures. The file header lists the verified WCAG contrast ratios. Rule: brass is never text on ivory (2.75:1); use `brass-deep` (5.5:1). Fonts: Cormorant Garamond Medium 500, roman and italic (display, lining figures by default) and Inter 400 to 600 (body, labels, data), self-hosted from `src/fonts/` as Latin + Turkish subsets (64 KB together). If new copy needs a character outside `scripts/font-chars.txt`, add it and run `scripts/subset-fonts.py` (its header says how).
 

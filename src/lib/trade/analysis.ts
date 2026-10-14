@@ -502,6 +502,6 @@ export const getMarketFacts = cache(async (locale: string): Promise<MarketFacts>
     topPorts,
     topPortsShare: topPorts.reduce((s, p) => s + p.share, 0),
     topAirport: overview.ports.find((p) => p.vesselShare !== null && p.vesselShare < 0.01) ?? null,
-    topProducts: overview.topProducts.slice(0, 8),
+    topProducts: overview.topProducts.slice(0, 12),
   };
 });
