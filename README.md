@@ -28,7 +28,7 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 | `npm run placeholders` | Lists every `[REPLACE WITH REAL]`, `[confirm]` and E&O item; `-- --strict` fails if facts are missing |
 | `npm run copy:export` | Regenerates `docs/COPY.md` from the message files |
 | `npm run test:e2e` | Main journeys on a local production build (uses your Chrome; `BASE_URL` defaults to `http://localhost:3000`) |
-| `npm run test:a11y` | axe-core scan of 29 pages at phone and desktop widths |
+| `npm run test:a11y` | axe-core scan of 31 pages at phone and desktop widths |
 | `npm run test:support` | Support estimator math and the TCMB rate parser (no server needed) |
 | `npm run test:leads` | Lead flow against mock Attio and Resend (`tests/mock-apis.cjs`; setup in the file header) |
 

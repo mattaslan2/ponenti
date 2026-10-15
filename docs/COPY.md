@@ -34,7 +34,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | Key | Türkçe | English |
 |---|---|---|
 | `title` | Hizmetler ve fiyatlar | Services and pricing |
-| `description` | Ücretsiz ön kontrol. ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım. Tüm fiyatlar açık. | Free pre-check. US back-office check {check}. Compliance plans at {essentials}, {standard} or {complete} a month. Cash desk, order desk and US hiring. Every price is public. |
+| `description` | Ücretsiz ön kontrol. ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım, gıda ek hizmetleri. Tüm fiyatlar açık. | Free pre-check. US back-office check {check}. Compliance plans at {essentials}, {standard} or {complete} a month. Cash desk, order desk, US hiring and food add-ons. Every price is public. |
 
 ## meta.precheck
 
@@ -352,9 +352,9 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `title` | Siz ABD'de işinize bakın; destek dosyanız <em>her ay hazır</em>. | You run your US business; your support file is <em>ready every month</em>. |
 | `intro` | Ticaret Bakanlığı, ABD'deki kira, 3PL, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar. | Some governments pay back part of their companies' US costs: rent, 3PL, certifications, trademarks and promotion. We prepare the US side of every claim from start to finish; your consultant at home only files it. |
 | `f1.kicker` | Destek oranı | Support rate |
-| `f1.value` | %70'e kadar | Up to 70% |
-| `f1.unit` | Temel oran %50 | Base rate 50% |
-| `f1.text` | ABD ödeme yılında Bakanlığın hedef ülkeler listesindeyse kira, 3PL, marka ve tanıtım desteğine 20 puan eklenir. | When the US is on the Ministry's target-country list in the payment year, rent, 3PL, trademark and promotion support gain 20 points. |
+| `f1.value` | %50 | 50% |
+| `f1.unit` | Temel oran; hedef ülkede %70'e kadar | Base rate; up to 70% in target countries |
+| `f1.text` | ABD ödeme yılında Bakanlığın hedef ülkeler listesindeyse kira, 3PL, marka ve tanıtım desteğine 20 puan eklenir. Bunu hesaba katmadan önce ihracatçı birliğiyle teyit ederiz. | Rent, 3PL, trademark and promotion support gain 20 points when the US is on the Ministry's target-country list in the payment year. We confirm that with the exporters' association before we count it. |
 | `f1.source` | Kaynak: Birim kira genelgesi, md. 13 | Source: Unit rent circular, Art. 13 |
 | `f2.kicker` | Kira desteği üst limiti | Rent support cap |
 | `f2.value` | {amount} TL | {amount} TL |
@@ -395,6 +395,8 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `i4.body` | Adresimiz gerçek bir iş adresidir. CBP de Form 5106'da kayıtlı temsilci veya iş merkezi adresini kabul etmiyor. | Our address is a real business address. CBP no longer accepts a registered-agent or business-center address on Form 5106 either. |
 | `i5.title` | Tahsilat sizin adınıza yürür; 90 günü aşan alacaklar lisanslı bir tahsilat ajansına devredilir. | Collections run in your name, and accounts more than 90 days late go to a licensed agency. |
 | `i5.body` | Müşterilerinizle ilişki sizde kalır. 90 günü aşan hesapları bu iş için lisanslı bir ajans üstlenir. | Your customer relationships stay yours. Accounts past 90 days go to an agency licensed for that work. |
+| `i6.title` | Belge düzenlemeyiz, FDA karşısında sizin yerinize geçmeyiz. | We don't issue certificates, and we never stand in for you before FDA. |
+| `i6.body` | Sertifikalar ve laboratuvar işaretleri, onları veren kuruluşlardan alınır; sizi tanıştırır, yönlendirme ücreti alırsak bunu yazılı olarak bildiririz. FSVP ithalatçınız olarak imza atmayız, FDA'da ABD temsilciniz (US agent) olmayız. | Certificates and lab listings come from the bodies that issue them; we introduce you and tell you in writing about any referral fee. We never sign as your FSVP importer or serve as your FDA US agent. |
 
 ## home.insights
 
@@ -571,6 +573,38 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `hiring.full.name` | Tam İşe Alım | Full Hire |
 | `hiring.full.body` | Buna ek olarak iş teklifi ve işe başlangıç. Kişi 90 gün içinde ayrılırsa yerine yenisini buluruz. | Adds the offer and onboarding. If the hire leaves within 90 days, we find a replacement. |
 | `hiring.oneTime` | tek seferlik | one-time |
+| `food.anchor` | Gıda ek hizmetleri | Food add-ons |
+| `food.title` | Gıda ve ambalaj için ek hizmetler | Food and packaging add-ons |
+| `food.lede` | ABD'ye gıda veya gıda ambalajı gönderen ya da elinde ABD siparişi olan şirketler için. Her biri bir sebeple başlar: FDA yazısı, bekletilen bir sevkiyat veya alıcının belge talebi. | For companies that already ship food or food packaging to the US, or hold a US order. Each starts with a reason to act: an FDA letter, a held shipment or a buyer asking for documents. |
+| `food.from` | başlangıç | from |
+| `food.fsvp.for` | FDA uyarı mektubu veya ithalat uyarısından sonra | After an FDA warning letter or import alert |
+| `food.fsvp.name` | ABD'li ithalatçılar için FSVP danışmanlığı | FSVP advice for US importers |
+| `food.fsvp.per` | kurulum | setup |
+| `food.fsvp.body` | ABD'ye gıda ithal eden şirket, her yabancı tedarikçisini yazılı bir programla doğrulamak zorundadır. FDA'nın tespit ettiği eksikleri çıkarır, Türkiye'deki tedarikçinizle birlikte tehlike analizini ve tedarikçi dosyasını hazırlar, FDA'ya verilecek yanıtı yazarız. | A US importer of food must verify each foreign supplier in a written program. We map what FDA cited, build the hazard analysis and the supplier file with your supplier abroad, and draft the reply to FDA. |
+| `food.fsvp.limit` | Danışmanlık veririz. Programın sahibi ve imzalayanı ithalatçıdır; FSVP ithalatçısı olarak hiçbir zaman imza atmayız. | We advise. The importer keeps and signs its own program; we never sign as the FSVP importer. |
+| `food.fsvp.source` | Kaynak: FDA, ithalat uyarısı 99-41 | Source: FDA Import Alert 99-41 |
+| `food.contact.for` | Ambalaj, kap ve mutfak eşyası | Packaging, containers and kitchenware |
+| `food.contact.name` | Gıdayla temas dosyası | Food-contact file |
+| `food.contact.per` | ürün başına | per product |
+| `food.contact.body` | Gıdayla temas eden bir malzemedeki her madde için bir FDA dayanağı gerekir: bir yönetmelik maddesi, GRAS statüsü veya yürürlükteki bir gıdayla temas bildirimi gibi. Her bileşeni dayanağıyla eşleştirir, tedarikçi beyanlarını ve laboratuvar raporlarını toplar, ABD'li alıcınızın istediği garanti mektubunu (letter of guaranty) hazırlarız. | Every substance in a food-contact material needs an FDA authorization, such as a regulation, GRAS status or an effective food contact notification. We map each component to its authorization, collect supplier declarations and lab reports, and draft the letter of guaranty your US buyer asks for. |
+| `food.contact.limit` | Hukuki görüş gerekirse bunu ambalaj mevzuatında çalışan bir hukuk bürosu yazar. | When you need a legal opinion, a packaging law firm writes it. |
+| `food.contact.source` | Kaynak: FDA, gıdayla temas eden malzemeler | Source: FDA, food contact materials |
+| `food.canning.for` | Turşu, kavanoz ve konserve gıdalar | Pickled, jarred and canned foods |
+| `food.canning.name` | Konserve tesis kaydı ve proses başvuruları (FCE ve SID) | Canning registration and process filings (FCE and SID) |
+| `food.canning.per` | kayıt ve ilk proses | registration and first process |
+| `food.canning.extra` | her ek proses için {amount} | {amount} for each further process |
+| `food.canning.body` | Asitlendirilmiş veya düşük asitli konserve gıda üreten tesis FDA'ya kaydolur ve her ürünün prosesini bildirir. Yurt dışındaki tesis, ABD'ye ithalat için gıda sunmadan önce kaydolur; prosesi bildirilmemiş sevkiyatlar bekletilebilir. İkisini de proses otoritenizin yazısına göre başvururuz. | A plant that makes acidified or low-acid canned foods registers with FDA and files the process for each product. A plant abroad registers before it offers food for import, and shipments without a filed process can be detained. We file both from your process authority's letter. |
+| `food.canning.limit` | Prosesin kendisini uzman bir kişi, yani proses otoritesi belirlemelidir. Sizinkiyle çalışırız ya da bulmanıza yardım ederiz. | The process itself must come from a qualified expert, a process authority. We work with yours or help you find one. |
+| `food.canning.sourceRule` | Kaynak: 21 CFR 108.25 | Source: 21 CFR 108.25 |
+| `food.canning.sourceAlert` | FDA, ithalat uyarısı 99-37 | FDA Import Alert 99-37 |
+| `food.support` | Bakanlık listesindeki belgeler için yapılan belgelendirme, test ve kayıt giderleri pazara giriş belgesi desteğine sayılabilir; FDA bu listede. Bizim ücretlerimiz destek kapsamında değildir. | Certification, testing and registration costs for documents on the Ministry's list can count toward Türkiye's market entry document support, and FDA is on that list. Our fees are not an eligible cost. |
+| `food.supportSource` | Kaynak: Ticaret Bakanlığı, Ek-1B | Source: Ministry of Trade, Annex 1B (Turkish) |
+| `food.referTitle` | Yönlendirdiklerimiz | What we refer |
+| `food.refer` | Organik, Koşer, Helal, ISO, SQF, BRCGS ve AS9100 gibi sertifikalar ile UL gibi işaretler, onları veren kuruluş ve laboratuvarlardan alınır. Marka tescili bir avukata, gümrük tarife sınıflandırması ve gümrük beyanları lisanslı bir gümrük müşavirine (customs broker), FDA ABD temsilciliği (US agent) bu hizmeti veren bir sağlayıcıya gider. Sizi tanıştırırız; yönlendirme ücreti alırsak bunu yazılı olarak bildiririz. | Certifications such as Organic, Kosher, Halal, ISO, SQF, BRCGS and AS9100, and listings such as UL, come from the bodies and labs that issue them. Trademarks go to an attorney, tariff classification and customs entries to a licensed customs broker, and FDA US-agent service to a provider that offers it. We make the introduction and tell you in writing if we receive a referral fee. |
+| `food.ownerTitle` | ABD'deki ithalatçı şirket sizinse | If you own your US importer |
+| `food.owner` | Tek bir yabancı ortağın yüzde 25 veya daha fazlasına sahip olduğu ABD şirketi, bu ortakla işlem yaptığı her yıl için Form 5472 verir. Verilmeyen her form için ceza {penalty}. | A US company in which one foreign owner holds 25% or more files Form 5472 for each year it has transactions with that owner. Each missing form costs {penalty}. |
+| `food.ownerLink` | Form 5472 cezası | The Form 5472 penalty |
+| `food.articleLink` | FDA belgesi diye bir belge yok | There is no FDA certificate |
 | `terms.title` | Koşullar | Terms |
 | `terms.i1` | Planlar ve masalar 12 ay sürelidir, aylık peşin faturalanır. | Plans and desks run for 12 months, billed monthly in advance. |
 | `terms.i2` | Fiyatlar her yıl %4 artar. | Prices rise 4% each year. |
@@ -597,6 +631,12 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `faq.a8` | Hayır. Başvuruyu Türk destek danışmanınız Ticaret Bakanlığı'nın sisteminde yapar. Biz ABD tarafının belgelerini hazırlar, Ticaret Müşavirliği onayını ve ödemeyi takip ederiz. | No. Your support consultant at home files them in your government's system (for Türkiye, the Ministry of Trade's). We prepare the US-side documents and track the approvals and the payment. |
 | `faq.q9` | Ponenti'nin ücreti destekten karşılanır mı? | Can Ponenti's fees be claimed as support? |
 | `faq.a9` | Hayır. Ücretlerimiz destek kapsamında değildir. Destek dosyası, Standart ve Kapsamlı planların sabit aylık ücretine dahildir. | No. Our fees are not an eligible cost. The support file is included in the flat monthly fee of the Standard and Complete plans. |
+| `faq.q10` | Bize FDA belgesi alabilir misiniz? | Can you get us an FDA certificate? |
+| `faq.a10` | Hayır. FDA kayıt belgesi (sertifika) düzenlemez ve özel şirketlerin düzenlediği belgeleri tanımaz. Gıda tesisinin FDA kaydı ücretsizdir. Biz FDA'nın, ABD'deki ithalatçınızın ve alıcılarınızın istediği dosyaları hazırlarız. | No. FDA does not issue certificates of registration, and it does not recognize ones issued by private businesses. Registering a food facility with FDA is free. We prepare the files FDA, your US importer and your buyers ask for. |
+| `faq.s10` | Kaynak: FDA | Source: FDA |
+| `faq.q11` | FSVP ithalatçımız veya FDA ABD temsilcimiz (US agent) olur musunuz? | Will you act as our FSVP importer or FDA US agent? |
+| `faq.a11` | Hayır. FSVP ithalatçısı, gıda ithalat için sunulduğu anda onun ABD'deki sahibi veya alıcısıdır (consignee). Biz o şirkete danışmanlık veririz; program onda kalır. FDA ABD temsilciliği için sizi bu hizmeti veren bir sağlayıcıya yönlendiririz. | No. The FSVP importer is the US owner or consignee of the food when it is offered for import; we advise that company, and the program stays with it. For FDA US-agent service, we refer you to a provider that offers it. |
+| `faq.s11` | Kaynak: 21 CFR 1.500 | Source: 21 CFR 1.500 |
 
 ## precheck
 
@@ -858,7 +898,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `limits.companyAge` | Şirket 1 yaşını doldurmadığı için sıfır. | Zero: the company is under 1 year old. |
 | `asOf` | Kur: 1 $ = {rate} TL, TCMB döviz alış kuru, {date}. Üst limitler {year} yılına aittir. Kurallar {checked} tarihinde kontrol edildi. | Rate: $1 = {rate} TL, TCMB buying rate, {date}. Caps are for {year}. Rules checked on {checked}. |
 | `tcmb` | TCMB kurları | TCMB rates |
-| `assumptions` | Hedef ülke sütunu, ABD'nin ödeme yılında Bakanlığın hedef ülkeler listesinde olduğunu varsayar; pazara giriş belgeleri iki sütunda da %50 ile hesaplanır. Kira limiti birim başınadır. 3PL desteği için Bakanlık listesindeki bir sağlayıcı ve ön onay gerekir. | The target-country column assumes the US is on the Ministry's target-country list in the payment year; market entry documents are estimated at 50% in both columns. The rent cap is per site. 3PL support needs a provider on the Ministry's list and pre-approval. |
+| `assumptions` | Hedef ülke sütunu, ABD'nin ödeme yılında Bakanlığın hedef ülkeler listesinde olduğunu varsayar; pazara giriş belgeleri iki sütunda da %50 ile hesaplanır. Kira limiti birim başınadır. 3PL desteği için Bakanlık listesindeki bir sağlayıcı ve ön onay gerekir. Yüksek oranı hesaba katmadan önce ABD'nin ödeme yılındaki durumunu ihracatçı birliğiyle teyit ederiz. | The target-country column assumes the US is on the Ministry's target-country list in the payment year; market entry documents are estimated at 50% in both columns. The rent cap is per site. 3PL support needs a provider on the Ministry's list and pre-approval. We confirm the US status for the payment year with the exporters' association before counting the higher rate. |
 | `estimate` | Bu bir tahmindir; vaat edilen bir tutar değildir. Desteğe Ticaret Bakanlığı karar verir ve TL olarak, ödeme belgesi tarihindeki TCMB kuruyla öder. Ponenti'nin ücretleri destek kapsamında değildir. | This is an estimate, not a promised amount. The Ministry of Trade decides the support and pays it in TL at the TCMB rate on the payment document's date. Ponenti's fees are not an eligible cost. |
 | `cta` | Destek haritanızı alın | Get your support map |
 | `mapTitle` | Destek haritanız | Your support map |
@@ -1202,6 +1242,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `us-payment-terms-collections` | ABD'de ödeme vadeleri ve tahsilat: B2B satıcılar için rehber (/tr/bilgi-merkezi/abd-odeme-vadeleri-ve-tahsilat) | US payment terms and collections: a guide for B2B sellers (/en/insights/us-payment-terms-and-collections) |
 | `sales-tax-nexus` | ABD satış vergisi: 9 eyalette bağlantı (nexus) eşikleri (/tr/bilgi-merkezi/abd-satis-vergisi-eyalet-esikleri) | US sales tax nexus: thresholds in 9 states (/en/insights/sales-tax-nexus-by-state) |
 | `eo-14411-importer-rules` | EO 14411: ABD ithalatçı kaydında yeni adres ve kimlik kuralları (/tr/bilgi-merkezi/eo-14411-ithalatci-kaydi-kurallari) | EO 14411: New Address and Identity Rules for US Importers of Record (/en/insights/eo-14411-importer-of-record-rules) |
+| `fda-registration-not-certificate` | FDA belgesi diye bir belge yok: ABD'ye gıda ve ambalaj ihracatında gerçekte ne gerekir? (/tr/bilgi-merkezi/fda-belgesi-nedir) | There is no FDA certificate: what food and packaging exporters need for the US (/en/insights/fda-registration-is-not-a-certificate) |
 | `form-5472-penalty` | Form 5472 cezası: Her form için yıllık $25.000 (/tr/bilgi-merkezi/form-5472-cezasi) | Form 5472 Penalty: $25,000 per Form, per Year (/en/insights/form-5472-penalty) |
 | `ieepa-refunds-bank-details` | IEEPA iadesi: ABD banka hesabınız yoksa iadeniz bekler (/tr/bilgi-merkezi/ieepa-iadeleri-abd-banka-hesabi) | IEEPA refunds held for missing U.S. bank details (/en/insights/ieepa-refunds-us-bank-details) |
 

@@ -108,6 +108,7 @@ Use a link with campaign tags, e.g. `/tr?utm_source=test&utm_medium=email&utm_ca
 - [ ] Every `[confirm]` item in `docs/PLACEHOLDERS.md` approved or rewritten.
 - [ ] Counsel reviewed privacy, terms and cookie pages; draft banners removed.
 - [ ] No "CPA", "Enrolled Agent", "certified" or any credential you don't hold. No government logos or seals.
+- [ ] Food add-ons: no FSPCA, PCQI or other course named until you complete it; a referral-fee line in the engagement letter before the first introduction (services, home limit 06).
 - [ ] Proof slots hidden or filled with real, permitted content.
 - [ ] Penalty promise hidden unless E&O confirmed in writing.
 - [ ] Sample prospect page deleted or kept intentionally.

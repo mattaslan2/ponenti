@@ -9,7 +9,7 @@
     },
     "services": {
       "title": "Services and pricing",
-      "description": "Free pre-check. US back-office check {check}. Compliance plans at {essentials}, {standard} or {complete} a month. Cash desk, order desk and US hiring. Every price is public."
+      "description": "Free pre-check. US back-office check {check}. Compliance plans at {essentials}, {standard} or {complete} a month. Cash desk, order desk, US hiring and food add-ons. Every price is public."
     },
     "precheck": {
       "title": "Free pre-check of your US importer record and filings",
@@ -306,9 +306,9 @@
       "program": "The first program we cover: Türkiye's Ministry of Trade, with its 2026 figures.",
       "f1": {
         "kicker": "Support rate",
-        "value": "Up to 70%",
-        "unit": "Base rate 50%",
-        "text": "When the US is on the Ministry's target-country list in the payment year, rent, 3PL, trademark and promotion support gain 20 points.",
+        "value": "50%",
+        "unit": "Base rate; up to 70% in target countries",
+        "text": "Rent, 3PL, trademark and promotion support gain 20 points when the US is on the Ministry's target-country list in the payment year. We confirm that with the exporters' association before we count it.",
         "source": "Source: Unit rent circular, Art. 13"
       },
       "f2": {
@@ -357,6 +357,10 @@
       "i5": {
         "title": "Collections run in your name, and accounts more than 90 days late go to a licensed agency.",
         "body": "Your customer relationships stay yours. Accounts past 90 days go to an agency licensed for that work."
+      },
+      "i6": {
+        "title": "We don't issue certificates, and we never stand in for you before FDA.",
+        "body": "Certificates and lab listings come from the bodies that issue them; we introduce you and tell you in writing about any referral fee. We never sign as your FSVP importer or serve as your FDA US agent."
       }
     },
     "insights": {
@@ -545,6 +549,46 @@
       },
       "oneTime": "one-time"
     },
+    "food": {
+      "anchor": "Food add-ons",
+      "title": "Food and packaging add-ons",
+      "lede": "For companies that already ship food or food packaging to the US, or hold a US order. Each starts with a reason to act: an FDA letter, a held shipment or a buyer asking for documents.",
+      "from": "from",
+      "fsvp": {
+        "for": "After an FDA warning letter or import alert",
+        "name": "FSVP advice for US importers",
+        "per": "setup",
+        "body": "A US importer of food must verify each foreign supplier in a written program. We map what FDA cited, build the hazard analysis and the supplier file with your supplier abroad, and draft the reply to FDA.",
+        "limit": "We advise. The importer keeps and signs its own program; we never sign as the FSVP importer.",
+        "source": "Source: FDA Import Alert 99-41"
+      },
+      "contact": {
+        "for": "Packaging, containers and kitchenware",
+        "name": "Food-contact file",
+        "per": "per product",
+        "body": "Every substance in a food-contact material needs an FDA authorization, such as a regulation, GRAS status or an effective food contact notification. We map each component to its authorization, collect supplier declarations and lab reports, and draft the letter of guaranty your US buyer asks for.",
+        "limit": "When you need a legal opinion, a packaging law firm writes it.",
+        "source": "Source: FDA, food contact materials"
+      },
+      "canning": {
+        "for": "Pickled, jarred and canned foods",
+        "name": "Canning registration and process filings (FCE and SID)",
+        "per": "registration and first process",
+        "extra": "{amount} for each further process",
+        "body": "A plant that makes acidified or low-acid canned foods registers with FDA and files the process for each product. A plant abroad registers before it offers food for import, and shipments without a filed process can be detained. We file both from your process authority's letter.",
+        "limit": "The process itself must come from a qualified expert, a process authority. We work with yours or help you find one.",
+        "sourceRule": "Source: 21 CFR 108.25",
+        "sourceAlert": "FDA Import Alert 99-37"
+      },
+      "support": "Certification, testing and registration costs for documents on the Ministry's list can count toward Türkiye's market entry document support, and FDA is on that list. Our fees are not an eligible cost.",
+      "supportSource": "Source: Ministry of Trade, Annex 1B (Turkish)",
+      "referTitle": "What we refer",
+      "refer": "Certifications such as Organic, Kosher, Halal, ISO, SQF, BRCGS and AS9100, and listings such as UL, come from the bodies and labs that issue them. Trademarks go to an attorney, tariff classification and customs entries to a licensed customs broker, and FDA US-agent service to a provider that offers it. We make the introduction and tell you in writing if we receive a referral fee.",
+      "ownerTitle": "If you own your US importer",
+      "owner": "A US company in which one foreign owner holds 25% or more files Form 5472 for each year it has transactions with that owner. Each missing form costs {penalty}.",
+      "ownerLink": "The Form 5472 penalty",
+      "articleLink": "There is no FDA certificate"
+    },
     "terms": {
       "title": "Terms",
       "i1": "Plans and desks run for 12 months, billed monthly in advance.",
@@ -573,7 +617,13 @@
       "q8": "Do you file export support claims?",
       "a8": "No. Your support consultant at home files them in your government's system (for Türkiye, the Ministry of Trade's). We prepare the US-side documents and track the approvals and the payment.",
       "q9": "Can Ponenti's fees be claimed as support?",
-      "a9": "No. Our fees are not an eligible cost. The support file is included in the flat monthly fee of the Standard and Complete plans."
+      "a9": "No. Our fees are not an eligible cost. The support file is included in the flat monthly fee of the Standard and Complete plans.",
+      "q10": "Can you get us an FDA certificate?",
+      "a10": "No. FDA does not issue certificates of registration, and it does not recognize ones issued by private businesses. Registering a food facility with FDA is free. We prepare the files FDA, your US importer and your buyers ask for.",
+      "s10": "Source: FDA",
+      "q11": "Will you act as our FSVP importer or FDA US agent?",
+      "a11": "No. The FSVP importer is the US owner or consignee of the food when it is offered for import; we advise that company, and the program stays with it. For FDA US-agent service, we refer you to a provider that offers it.",
+      "s11": "Source: 21 CFR 1.500"
     }
   },
   "precheck": {
@@ -927,7 +977,7 @@
     },
     "asOf": "Rate: $1 = {rate} TL, TCMB buying rate, {date}. Caps are for {year}. Rules checked on {checked}.",
     "tcmb": "TCMB rates",
-    "assumptions": "The target-country column assumes the US is on the Ministry's target-country list in the payment year; market entry documents are estimated at 50% in both columns. The rent cap is per site. 3PL support needs a provider on the Ministry's list and pre-approval.",
+    "assumptions": "The target-country column assumes the US is on the Ministry's target-country list in the payment year; market entry documents are estimated at 50% in both columns. The rent cap is per site. 3PL support needs a provider on the Ministry's list and pre-approval. We confirm the US status for the payment year with the exporters' association before counting the higher rate.",
     "estimate": "This is an estimate, not a promised amount. The Ministry of Trade decides the support and pays it in TL at the TCMB rate on the payment document's date. Ponenti's fees are not an eligible cost.",
     "cta": "Get your support map",
     "mapTitle": "Your support map",

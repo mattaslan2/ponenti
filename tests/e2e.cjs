@@ -330,6 +330,42 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   r = await page.goto(base + '/tr/bilgi-merkezi/abd-301-madde-ek-vergi-turkiye-yuzde-12-5', { waitUntil: 'domcontentloaded' });
   ok('section 301 article TR 200', r.status() === 200, String(r.status()));
 
+  // 16. Food and packaging add-ons: three priced add-ons with sources, the refer-out list, two sourced FAQ answers,
+  //     the FDA explainer in both languages, a sixth written limit and the support rate led by the base 50%.
+  for (const [p, expect] of [
+    ['/en/services', { from: 'from', fsvp: '$8,000', contact: '$1,495', canning: '$790', extra: '$195', anchor: 'Food add-ons', article: '/en/insights/fda-registration-is-not-a-certificate' }],
+    ['/tr/hizmetler', { from: 'başlangıç', fsvp: '$8.000', contact: '$1.495', canning: '$790', extra: '$195', anchor: 'Gıda ek hizmetleri', article: '/tr/bilgi-merkezi/fda-belgesi-nedir' }],
+  ]) {
+    await page.goto(base + p, { waitUntil: 'domcontentloaded' });
+    const food = page.locator('#food');
+    ok(`food add-ons sit between hiring and terms on ${p}`, await page.evaluate(() => {
+      const ids = [...document.querySelectorAll('main section[id]')].map((s) => s.id);
+      return ids.indexOf('food') === ids.indexOf('hiring') + 1 && ids.indexOf('terms') === ids.indexOf('food') + 1;
+    }));
+    ok(`on-page nav links the add-ons on ${p}`, (await page.locator(`nav a[href="#food"]`).innerText()).trim() === expect.anchor);
+    ok(`three add-ons on ${p}`, (await food.locator('article').count()) === 3);
+    const foodText = await food.innerText();
+    ok(`add-on prices are public on ${p}`, [expect.fsvp, expect.contact, expect.canning, expect.extra].every((s) => foodText.includes(s)) && foodText.includes(expect.from), foodText.slice(0, 160));
+    ok(`each add-on links its official source on ${p}`, (await food.locator('article a[target="_blank"]').count()) === 4);
+    ok(`add-ons link the support annex, the support file and the FDA article on ${p}`, (await food.locator('a[href*="Ek-1B"]').count()) === 1 && (await food.locator('a[href$="destek-dosyasi"], a[href$="support-file"]').count()) === 1 && (await food.locator(`a[href="${expect.article}"]`).count()) === 1);
+    ok(`add-ons never claim to certify or sign on ${p}`, /never sign as the FSVP importer|FSVP ithalatçısı olarak hiçbir zaman imza atmayız/.test(foodText));
+    ok(`FAQ has eleven questions on ${p}`, (await page.locator('#faq details').count()) === 11);
+    ok(`FDA FAQ answers carry their sources on ${p}`, (await page.locator('#faq details a[target="_blank"]').count()) === 2);
+    const faqLd = await page.locator('#faq script[type="application/ld+json"]').textContent();
+    ok(`FAQ structured data lists eleven questions on ${p}`, (JSON.parse(faqLd).mainEntity || []).length === 11);
+  }
+  for (const [p, other] of [['/en/insights/fda-registration-is-not-a-certificate', '/tr/bilgi-merkezi/fda-belgesi-nedir'], ['/tr/bilgi-merkezi/fda-belgesi-nedir', '/en/insights/fda-registration-is-not-a-certificate']]) {
+    r = await page.goto(base + p, { waitUntil: 'domcontentloaded' });
+    ok(`${p} is 200`, r.status() === 200, String(r.status()));
+    ok(`${p} cites FDA on certificates, 21 CFR 1.230 and Import Alert 99-41`, (await page.locator('a[href*="registration-fees-and-private"]').count()) > 0 && (await page.locator('a[href$="section-1.230"]').count()) > 0 && (await page.locator('a[href$="importalert_1160.html"]').count()) > 0);
+    ok(`${p} links its translation`, (await page.locator(`link[rel="alternate"][href$="${other}"]`).count()) > 0);
+  }
+  for (const [p, rate] of [['/tr', '%50'], ['/en', '50%']]) {
+    await page.goto(base + p, { waitUntil: 'domcontentloaded' });
+    ok(`written limits list six items on ${p}`, (await page.locator('#limits li').count()) === 6);
+    ok(`support rate leads with the base rate on ${p}`, (await page.locator('#support [data-count]').first().innerText()).trim() === rate);
+  }
+
   // The deliberate 404 visit logs one "Failed to load resource" line; anything else is a real error.
   const realErrors = consoleErrors.filter((e) => !(e.includes('/tr/olmayan-sayfa') && e.includes('status of 404')));
   ok('no console errors', realErrors.length === 0, realErrors.slice(0, 6).join(' || '));

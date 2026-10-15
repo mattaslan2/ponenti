@@ -31,6 +31,31 @@ export const sources = {
   fdaInspectionObservationsFy2025: "https://www.fda.gov/media/190190/download?attachment",
   fdaFsvp: "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-foreign-supplier-verification-programs-fsvp-importers-food-humans-and-animals",
 
+  // Food and packaging add-ons and the FDA article. Verified on 2026-10-15.
+  /** FDA: no registration fee, no FDA registration certificates, private certificates not recognized. */
+  fdaNoCertificate:
+    "https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/questions-regarding-whether-food-facilities-are-required-pay-registration-fees-and-private",
+  ecfrFoodRegistration: "https://www.ecfr.gov/current/title-21/section-1.230",
+  ecfrRegistrationInfo: "https://www.ecfr.gov/current/title-21/section-1.232",
+  ecfrFsvpDefinitions: "https://www.ecfr.gov/current/title-21/section-1.500",
+  ecfrFsvpRequired: "https://www.ecfr.gov/current/title-21/section-1.502",
+  ecfrFsvpVerification: "https://www.ecfr.gov/current/title-21/section-1.506",
+  /** Import Alert 99-41: detention of food from importers not in compliance with FSVP (revised Oct 13, 2026). */
+  fdaImportAlert9941: "https://www.accessdata.fda.gov/cms_ia/importalert_1160.html",
+  /** Warning letter to Sahara Enterprise Inc., Philadelphia, Apr 29, 2026: no FSVP for phyllo dough, Turkish delight, baklava. */
+  fdaWarningLetterSahara:
+    "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/sahara-enterprise-inc-728927-04292026",
+  ecfrAcidifiedRegistration: "https://www.ecfr.gov/current/title-21/section-108.25",
+  ecfrLacfRegistration: "https://www.ecfr.gov/current/title-21/section-108.35",
+  ecfrAcidifiedDefinition: "https://www.ecfr.gov/current/title-21/section-114.3",
+  ecfrAcidifiedProcess: "https://www.ecfr.gov/current/title-21/section-114.83",
+  fdaLacfRegistration:
+    "https://www.fda.gov/food/acidified-low-acid-canned-foods-lacf-registration/establishment-registration-and-process-filing-acidified-and-low-acid-canned-foods-lacf-electronic",
+  /** Import Alert 99-37: detention of acidified and low-acid canned foods without filed scheduled processes (Aug 17, 2026). */
+  fdaImportAlert9937: "https://www.accessdata.fda.gov/cms_ia/importalert_1131.html",
+  fdaFoodContactStatus:
+    "https://www.fda.gov/food/packaging-food-contact-substances-fcs/determining-regulatory-status-components-food-contact-material",
+
   // IEEPA and Section 122 refunds: court record. Verified on 2026-10-15.
   /** CBP declaration (Brandon Lord, Office of Trade), Freestyle World v. CBP, No. 26-01088, filed Sep 15, 2026; figures as of Sep 11. */
   cbpRefundDeclaration: "https://storage.courtlistener.com/recap/gov.uscourts.cit.19175/gov.uscourts.cit.19175.50.0.pdf",

@@ -541,7 +541,7 @@ export async function Weekly() {
 
 export async function WhatWeDont() {
   const t = await getTranslations("home.dont");
-  const items = ["i1", "i2", "i3", "i4", "i5"] as const;
+  const items = ["i1", "i2", "i3", "i4", "i5", "i6"] as const;
   return (
     <Section id="limits" layout="split" rule={false} eyebrow={t("eyebrow")} title={t("title")} intro={t("intro")}>
       <ol className="border-t border-line">

@@ -9,7 +9,7 @@
     },
     "services": {
       "title": "Hizmetler ve fiyatlar",
-      "description": "Ücretsiz ön kontrol. ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım. Tüm fiyatlar açık."
+      "description": "Ücretsiz ön kontrol. ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım, gıda ek hizmetleri. Tüm fiyatlar açık."
     },
     "precheck": {
       "title": "Ücretsiz ön kontrol: ithalatçı kaydınız ve ABD beyannameleriniz",
@@ -305,9 +305,9 @@
       "intro": "Ticaret Bakanlığı, ABD'deki kira, 3PL, belge, marka ve tanıtım giderlerinizin bir kısmını karşılayabilir. Başvurunun ABD tarafını baştan sona biz hazırlarız; Türk danışmanınız yalnızca dosyalar.",
       "f1": {
         "kicker": "Destek oranı",
-        "value": "%70'e kadar",
-        "unit": "Temel oran %50",
-        "text": "ABD ödeme yılında Bakanlığın hedef ülkeler listesindeyse kira, 3PL, marka ve tanıtım desteğine 20 puan eklenir.",
+        "value": "%50",
+        "unit": "Temel oran; hedef ülkede %70'e kadar",
+        "text": "ABD ödeme yılında Bakanlığın hedef ülkeler listesindeyse kira, 3PL, marka ve tanıtım desteğine 20 puan eklenir. Bunu hesaba katmadan önce ihracatçı birliğiyle teyit ederiz.",
         "source": "Kaynak: Birim kira genelgesi, md. 13"
       },
       "f2": {
@@ -356,6 +356,10 @@
       "i5": {
         "title": "Tahsilat sizin adınıza yürür; 90 günü aşan alacaklar lisanslı bir tahsilat ajansına devredilir.",
         "body": "Müşterilerinizle ilişki sizde kalır. 90 günü aşan hesapları bu iş için lisanslı bir ajans üstlenir."
+      },
+      "i6": {
+        "title": "Belge düzenlemeyiz, FDA karşısında sizin yerinize geçmeyiz.",
+        "body": "Sertifikalar ve laboratuvar işaretleri, onları veren kuruluşlardan alınır; sizi tanıştırır, yönlendirme ücreti alırsak bunu yazılı olarak bildiririz. FSVP ithalatçınız olarak imza atmayız, FDA'da ABD temsilciniz (US agent) olmayız."
       }
     },
     "insights": {
@@ -544,6 +548,46 @@
       },
       "oneTime": "tek seferlik"
     },
+    "food": {
+      "anchor": "Gıda ek hizmetleri",
+      "title": "Gıda ve ambalaj için ek hizmetler",
+      "lede": "ABD'ye gıda veya gıda ambalajı gönderen ya da elinde ABD siparişi olan şirketler için. Her biri bir sebeple başlar: FDA yazısı, bekletilen bir sevkiyat veya alıcının belge talebi.",
+      "from": "başlangıç",
+      "fsvp": {
+        "for": "FDA uyarı mektubu veya ithalat uyarısından sonra",
+        "name": "ABD'li ithalatçılar için FSVP danışmanlığı",
+        "per": "kurulum",
+        "body": "ABD'ye gıda ithal eden şirket, her yabancı tedarikçisini yazılı bir programla doğrulamak zorundadır. FDA'nın tespit ettiği eksikleri çıkarır, Türkiye'deki tedarikçinizle birlikte tehlike analizini ve tedarikçi dosyasını hazırlar, FDA'ya verilecek yanıtı yazarız.",
+        "limit": "Danışmanlık veririz. Programın sahibi ve imzalayanı ithalatçıdır; FSVP ithalatçısı olarak hiçbir zaman imza atmayız.",
+        "source": "Kaynak: FDA, ithalat uyarısı 99-41"
+      },
+      "contact": {
+        "for": "Ambalaj, kap ve mutfak eşyası",
+        "name": "Gıdayla temas dosyası",
+        "per": "ürün başına",
+        "body": "Gıdayla temas eden bir malzemedeki her madde için bir FDA dayanağı gerekir: bir yönetmelik maddesi, GRAS statüsü veya yürürlükteki bir gıdayla temas bildirimi gibi. Her bileşeni dayanağıyla eşleştirir, tedarikçi beyanlarını ve laboratuvar raporlarını toplar, ABD'li alıcınızın istediği garanti mektubunu (letter of guaranty) hazırlarız.",
+        "limit": "Hukuki görüş gerekirse bunu ambalaj mevzuatında çalışan bir hukuk bürosu yazar.",
+        "source": "Kaynak: FDA, gıdayla temas eden malzemeler"
+      },
+      "canning": {
+        "for": "Turşu, kavanoz ve konserve gıdalar",
+        "name": "Konserve tesis kaydı ve proses başvuruları (FCE ve SID)",
+        "per": "kayıt ve ilk proses",
+        "extra": "her ek proses için {amount}",
+        "body": "Asitlendirilmiş veya düşük asitli konserve gıda üreten tesis FDA'ya kaydolur ve her ürünün prosesini bildirir. Yurt dışındaki tesis, ABD'ye ithalat için gıda sunmadan önce kaydolur; prosesi bildirilmemiş sevkiyatlar bekletilebilir. İkisini de proses otoritenizin yazısına göre başvururuz.",
+        "limit": "Prosesin kendisini uzman bir kişi, yani proses otoritesi belirlemelidir. Sizinkiyle çalışırız ya da bulmanıza yardım ederiz.",
+        "sourceRule": "Kaynak: 21 CFR 108.25",
+        "sourceAlert": "FDA, ithalat uyarısı 99-37"
+      },
+      "support": "Bakanlık listesindeki belgeler için yapılan belgelendirme, test ve kayıt giderleri pazara giriş belgesi desteğine sayılabilir; FDA bu listede. Bizim ücretlerimiz destek kapsamında değildir.",
+      "supportSource": "Kaynak: Ticaret Bakanlığı, Ek-1B",
+      "referTitle": "Yönlendirdiklerimiz",
+      "refer": "Organik, Koşer, Helal, ISO, SQF, BRCGS ve AS9100 gibi sertifikalar ile UL gibi işaretler, onları veren kuruluş ve laboratuvarlardan alınır. Marka tescili bir avukata, gümrük tarife sınıflandırması ve gümrük beyanları lisanslı bir gümrük müşavirine (customs broker), FDA ABD temsilciliği (US agent) bu hizmeti veren bir sağlayıcıya gider. Sizi tanıştırırız; yönlendirme ücreti alırsak bunu yazılı olarak bildiririz.",
+      "ownerTitle": "ABD'deki ithalatçı şirket sizinse",
+      "owner": "Tek bir yabancı ortağın yüzde 25 veya daha fazlasına sahip olduğu ABD şirketi, bu ortakla işlem yaptığı her yıl için Form 5472 verir. Verilmeyen her form için ceza {penalty}.",
+      "ownerLink": "Form 5472 cezası",
+      "articleLink": "FDA belgesi diye bir belge yok"
+    },
     "terms": {
       "title": "Koşullar",
       "i1": "Planlar ve masalar 12 ay sürelidir, aylık peşin faturalanır.",
@@ -572,7 +616,13 @@
       "q8": "Destek başvurusunu siz mi yapıyorsunuz?",
       "a8": "Hayır. Başvuruyu Türk destek danışmanınız Ticaret Bakanlığı'nın sisteminde yapar. Biz ABD tarafının belgelerini hazırlar, Ticaret Müşavirliği onayını ve ödemeyi takip ederiz.",
       "q9": "Ponenti'nin ücreti destekten karşılanır mı?",
-      "a9": "Hayır. Ücretlerimiz destek kapsamında değildir. Destek dosyası, Standart ve Kapsamlı planların sabit aylık ücretine dahildir."
+      "a9": "Hayır. Ücretlerimiz destek kapsamında değildir. Destek dosyası, Standart ve Kapsamlı planların sabit aylık ücretine dahildir.",
+      "q10": "Bize FDA belgesi alabilir misiniz?",
+      "a10": "Hayır. FDA kayıt belgesi (sertifika) düzenlemez ve özel şirketlerin düzenlediği belgeleri tanımaz. Gıda tesisinin FDA kaydı ücretsizdir. Biz FDA'nın, ABD'deki ithalatçınızın ve alıcılarınızın istediği dosyaları hazırlarız.",
+      "s10": "Kaynak: FDA",
+      "q11": "FSVP ithalatçımız veya FDA ABD temsilcimiz (US agent) olur musunuz?",
+      "a11": "Hayır. FSVP ithalatçısı, gıda ithalat için sunulduğu anda onun ABD'deki sahibi veya alıcısıdır (consignee). Biz o şirkete danışmanlık veririz; program onda kalır. FDA ABD temsilciliği için sizi bu hizmeti veren bir sağlayıcıya yönlendiririz.",
+      "s11": "Kaynak: 21 CFR 1.500"
     }
   },
   "precheck": {
@@ -926,7 +976,7 @@
     },
     "asOf": "Kur: 1 $ = {rate} TL, TCMB döviz alış kuru, {date}. Üst limitler {year} yılına aittir. Kurallar {checked} tarihinde kontrol edildi.",
     "tcmb": "TCMB kurları",
-    "assumptions": "Hedef ülke sütunu, ABD'nin ödeme yılında Bakanlığın hedef ülkeler listesinde olduğunu varsayar; pazara giriş belgeleri iki sütunda da %50 ile hesaplanır. Kira limiti birim başınadır. 3PL desteği için Bakanlık listesindeki bir sağlayıcı ve ön onay gerekir.",
+    "assumptions": "Hedef ülke sütunu, ABD'nin ödeme yılında Bakanlığın hedef ülkeler listesinde olduğunu varsayar; pazara giriş belgeleri iki sütunda da %50 ile hesaplanır. Kira limiti birim başınadır. 3PL desteği için Bakanlık listesindeki bir sağlayıcı ve ön onay gerekir. Yüksek oranı hesaba katmadan önce ABD'nin ödeme yılındaki durumunu ihracatçı birliğiyle teyit ederiz.",
     "estimate": "Bu bir tahmindir; vaat edilen bir tutar değildir. Desteğe Ticaret Bakanlığı karar verir ve TL olarak, ödeme belgesi tarihindeki TCMB kuruyla öder. Ponenti'nin ücretleri destek kapsamında değildir.",
     "cta": "Destek haritanızı alın",
     "mapTitle": "Destek haritanız",

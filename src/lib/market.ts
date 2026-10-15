@@ -31,3 +31,6 @@ export const MARKET_RULES = {
 
 /** The article behind the Section 301 figure (meta.key in src/content/insights). */
 export const SECTION_301_ARTICLE_KEY = "section-301-forced-labor-duty";
+
+/** The FDA explainer behind the FSVP figure and the food add-ons (meta.key in src/content/insights). */
+export const FDA_ARTICLE_KEY = "fda-registration-not-certificate";
