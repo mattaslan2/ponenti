@@ -2,10 +2,12 @@ import "server-only";
 import { z } from "zod";
 import { UTM_KEYS } from "@/lib/utm";
 
-export const FORM_TYPES = ["contact", "risk_test", "calc_cash", "calc_5472", "calc_support", "prospect", "trade_data"] as const;
+export const FORM_TYPES = ["contact", "risk_test", "calc_cash", "calc_5472", "calc_support", "prospect", "trade_data", "precheck"] as const;
 export const PAYMENT_DAYS = ["0-29", "30-45", "46-60", "61-90", "90+"] as const;
 export const SEGMENTS = ["us_entity", "sells_from_abroad"] as const;
 export const RISK_LEVELS = ["low", "medium", "high"] as const;
+/** Pre-check questions: "Do you sell DDP?" and "Did you import during the IEEPA period?" */
+export const ANSWERS = ["yes", "no", "unsure"] as const;
 
 /** Empty form fields arrive as "", which must mean "not provided". */
 const blank = (v: unknown) => (typeof v === "string" && v.trim() === "" ? undefined : v);
@@ -35,6 +37,8 @@ export const leadSchema = z.object({
   segment: optionalEnum(SEGMENTS),
   paymentDays: optionalEnum(PAYMENT_DAYS),
   riskLevel: optionalEnum(RISK_LEVELS),
+  ddp: optionalEnum(ANSWERS),
+  importWindow: optionalEnum(ANSWERS),
   message: optionalText(2000),
   context: optionalText(4000),
   firm: z.preprocess(blank, z.string().max(80).regex(/^[a-z0-9-]+$/).optional()),

@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/brand/logo";
-import { BookButton } from "@/components/cta";
+import { PrecheckButton } from "@/components/cta";
 import { portalTarget, whatsappHref } from "@/lib/links";
 import { LanguageSwitcher } from "./language-switcher";
 import { MobileNav, type NavItem } from "./mobile-nav";
@@ -54,7 +54,7 @@ export async function Header() {
         <div className="ml-auto flex items-center gap-4 sm:gap-6">
           <LanguageSwitcher />
           <PortalButton compact className="hidden md:inline-flex" />
-          <BookButton location="header" short size="sm" icon={false} className="hidden sm:inline-flex" />
+          <PrecheckButton location="header" short size="sm" icon={false} className="hidden sm:inline-flex" />
           <MobileNav
             items={navItems}
             portalHref={portal.kind === "external" ? portal.href : null}

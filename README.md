@@ -28,7 +28,7 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 | `npm run placeholders` | Lists every `[REPLACE WITH REAL]`, `[confirm]` and E&O item; `-- --strict` fails if facts are missing |
 | `npm run copy:export` | Regenerates `docs/COPY.md` from the message files |
 | `npm run test:e2e` | Main journeys on a local production build (uses your Chrome; `BASE_URL` defaults to `http://localhost:3000`) |
-| `npm run test:a11y` | axe-core scan of 26 pages at phone and desktop widths |
+| `npm run test:a11y` | axe-core scan of 29 pages at phone and desktop widths |
 | `npm run test:support` | Support estimator math and the TCMB rate parser (no server needed) |
 | `npm run test:leads` | Lead flow against mock Attio and Resend (`tests/mock-apis.cjs`; setup in the file header) |
 
@@ -40,6 +40,8 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 | Prices (one place, used everywhere incl. JSON-LD and emails) | `src/lib/pricing.ts` |
 | Company facts: legal name, address, phone, email, founder photo, LinkedIn, photos | `src/lib/site.ts` |
 | Official source links behind regulatory claims | `src/lib/sources.ts` |
+| Dated rail under the hero (rules in effect, deadlines ahead; replace a date once it passes) | `src/lib/deadlines.ts` (copy in `home.dates.*`) |
+| Free pre-check page and its form (`ponenti_form = precheck`, answers `ddp` and `importWindow`) | `src/app/[locale]/pre-check/page.tsx` (copy in `precheck.*`) |
 | Knowledge-center articles | `src/content/insights/{tr,en}/{slug}.mdx` (the file name is the URL slug; `meta.key` pairs the two languages) |
 | Privacy, terms, cookie notice | `src/content/legal/{tr,en}/*.mdx` |
 | Prospect pages (`/tr/ozel/{firm}`) | `src/content/prospects/{firm}.json` (copy `_template.json`) |
@@ -51,7 +53,7 @@ npm run dev                  # http://localhost:3000 (redirects to /tr)
 
 ```
 src/
-  app/[locale]/        pages: home, services, risk-test, calculators, support-file,
+  app/[locale]/        pages: home, services, pre-check, risk-test, calculators, support-file,
                        insights, about, contact, privacy, terms, cookies, portal,
                        ozel/[firm], 404
   actions/lead.ts      the one Server Action: spam checks, validation, Attio, Resend

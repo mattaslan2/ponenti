@@ -67,6 +67,7 @@ export async function Footer() {
             <div>
               <h2 className="eyebrow font-sans">{t("services")}</h2>
               <ul className="mt-4">
+                <li><Link href="/pre-check" className={linkClass}>{nav("precheck")}</Link></li>
                 <li><Link href="/services" className={linkClass}>{nav("services")}</Link></li>
                 <li><Link href="/support-file" className={linkClass}>{nav("supportFile")}</Link></li>
                 <li><Link href="/risk-test" className={linkClass}>{nav("riskTest")}</Link></li>

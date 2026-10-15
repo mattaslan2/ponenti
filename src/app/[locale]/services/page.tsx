@@ -128,6 +128,9 @@ export default async function ServicesPage({ params }: PageProps<"/[locale]/serv
           <>
             <Price amount={f(pricing.check)} />
             <p className="mt-4 max-w-xs text-small text-brass-deep">{t("check.credit", { days: pricing.checkCreditDays })}</p>
+            <ArrowLink href="/pre-check" className="mt-6 text-small" data-track="cta_click" data-track-label="precheck" data-track-location="services_check">
+              {t("check.precheck")}
+            </ArrowLink>
           </>
         }
       >

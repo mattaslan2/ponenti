@@ -144,6 +144,7 @@ Not allowed: parallax, tilt, typewriter text, carousels, cursor effects, a secon
 - Stat tiles go two across from 640 px and four across only from 1280 px, because Turkish values ("$17 milyar") need the width.
 - Every chart has a "show as table" view, and every trade page keeps the Census notice.
 - Sample numbers always carry the "Örnek veriler / Sample data" badge and a line saying they are not a client's results.
+- Dates that matter (home, under the hero) sit on one hairline with a mark per date: navy for a rule in effect, gray for a passed deadline, an open ring for one ahead, brass for the next one. The status line ("In effect", "Today", "In 46 days") is worked out in the browser, so the static page never shows a stale countdown; every date links its source.
 
 ## 8. Trust rules in the design
 

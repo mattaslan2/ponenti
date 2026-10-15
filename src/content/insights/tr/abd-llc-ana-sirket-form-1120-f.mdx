@@ -1,0 +1,84 @@
+export const meta = {
+  key: "form-1120-f-foreign-owner",
+  locale: "tr",
+  slug: "abd-llc-ana-sirket-form-1120-f",
+  title: "LLC'niz ABD vergisinde şirket sayılmayabilir: Türkiye'deki ana şirket için Form 1120-F",
+  description: "Tek bir Türk şirketine ait, seçim yapmamış ABD LLC'si vergide ana şirketin şubesi sayılır. Beyanı ana şirket Form 1120-F ile verir; 18 ayı geçerse giderlerini kaybedebilir, açıklanmayan her anlaşma pozisyonu için ceza 10.000 dolardır.",
+  published: "2026-10-15",
+  updated: "2026-10-15",
+  readingMinutes: 6,
+  keywords: ["Form 1120-F", "ABD LLC Türk ana şirket", "disregarded entity", "yabancı şirket ABD vergi beyannamesi", "Form 8833", "çifte vergilendirmeyi önleme anlaşması ABD Türkiye", "18 ay kuralı", "Form 1040-NR", "Amerika'da şirket vergisi"],
+  sources: [
+    { title: "IRS: Instructions for Form 1120-F (2025)", url: "https://www.irs.gov/instructions/i1120f", publisher: "Internal Revenue Service", date: "2026-10-15" },
+    { title: "IRS: Instructions for Form 1120 (2025)", url: "https://www.irs.gov/instructions/i1120", publisher: "Internal Revenue Service", date: "2026-10-15" },
+    { title: "IRS: Instructions for Form 1040-NR (2025)", url: "https://www.irs.gov/instructions/i1040nr", publisher: "Internal Revenue Service", date: "2026-10-15" },
+    { title: "26 CFR 301.7701-2 Business entities; definitions", url: "https://www.ecfr.gov/current/title-26/part-301/section-301.7701-2", publisher: "eCFR, Office of the Federal Register", date: "2026-10-15" },
+    { title: "26 CFR 301.7701-3 Classification of certain business entities", url: "https://www.ecfr.gov/current/title-26/part-301/section-301.7701-3", publisher: "eCFR, Office of the Federal Register", date: "2026-10-15" },
+    { title: "26 CFR 1.882-4 Allowance of deductions and credits to foreign corporations", url: "https://www.ecfr.gov/current/title-26/part-1/section-1.882-4", publisher: "eCFR, Office of the Federal Register", date: "2026-10-15" },
+    { title: "26 U.S.C. 6712: Failure to disclose treaty-based return positions", url: "https://www.law.cornell.edu/uscode/text/26/6712", publisher: "Legal Information Institute, Cornell Law School", date: "2026-10-15" },
+    { title: "United States-Turkey Income Tax Convention (signed March 28, 1996)", url: "https://www.irs.gov/pub/irs-trty/turkey.pdf", publisher: "Internal Revenue Service", date: "2026-10-15" },
+    { title: "IRS: NRA Withholding", url: "https://www.irs.gov/individuals/international-taxpayers/nra-withholding", publisher: "Internal Revenue Service", date: "2026-10-15" },
+  ],
+}
+
+## Kimi ilgilendirir?
+
+Türkiye'deki şirketiniz (bir A.Ş. veya Ltd. Şti.) bir ABD LLC'sinin yüzde 100'üne sahip. LLC, ABD'de satış yapıyor. Kurumlar vergisine tabi olmak için hiç Form 8832 seçimi yapmadı.
+
+ABD gelir vergisinde bu LLC ayrı bir şirket sayılmaz. Tek sahipli bir ABD şirketi, aksini seçmedikçe [sahibinden ayrı bir varlık sayılmaz (disregarded)](https://www.ecfr.gov/current/title-26/part-301/section-301.7701-3). Faaliyetleri [sahibinin şubesi veya bölümü gibi](https://www.ecfr.gov/current/title-26/part-301/section-301.7701-2) değerlendirilir. Yani ABD'deki iş, Türkiye'deki ana şirketin işidir.
+
+## İki beyan, iki beyan sahibi
+
+| Kim verir | Ne verir | Neden |
+|---|---|---|
+| ABD LLC'si | Form 5472 ekli pro forma Form 1120 | Tek bir yabancıya ait disregarded şirket, yalnızca Form 5472 bakımından kurum sayılır ([26 CFR 301.7701-2(c)(2)(vi)](https://www.ecfr.gov/current/title-26/part-301/section-301.7701-2); [Form 1120 talimatları](https://www.irs.gov/instructions/i1120)). |
+| Türkiye'deki ana şirket | Form 1120-F | ABD'de ticari faaliyette bulunan yabancı kurum, gelirinin vergi anlaşmasıyla muaf olup olmamasına bakılmaksızın [beyan vermek zorundadır](https://www.irs.gov/instructions/i1120f). |
+
+Pro forma Form 1120 vergi hesaplamaz. ABD'deki işin gelir vergisi beyannamesi, ana şirketin Form 1120-F'sidir. Eksik Form 5472 ise ayrı bir risktir: [her form için yılda 25.000 dolar](/tr/bilgi-merkezi/form-5472-cezasi).
+
+## Form 1120-F ne zaman verilir?
+
+ABD'de ofisi veya işyeri olan yabancı kurum, vergi yılının bitişini izleyen 4. ayın 15'ine kadar verir: takvim yılı için 15 Nisan. ABD'de ofisi yoksa süre 6. ayın 15'idir: 15 Haziran ([Form 1120-F talimatları](https://www.irs.gov/instructions/i1120f)).
+
+## 18 ay kuralı
+
+Yabancı kurum, giderlerini ve vergi kredilerini ancak doğru bir beyannameyi zamanında verirse kullanabilir ([26 CFR 1.882-4(a)(2)](https://www.ecfr.gov/current/title-26/part-1/section-1.882-4)). Bu kuralda zamanında, beyanname son tarihinden itibaren 18 ay içinde demektir. Bir önceki yılın beyannamesi de verilmemişse süre, bu 18 ay ile IRS'in beyannamenin verilmediğini bildiren yazıyı gönderdiği tarihten hangisi önceyse odur ([26 CFR 1.882-4(a)(3)(i)](https://www.ecfr.gov/current/title-26/part-1/section-1.882-4)).
+
+Bu süre kaçarsa ABD'deki iş, gider ve kredileri düşülmeden vergilendirilir. IRS süreyi ancak şirket makul ve iyi niyetle davrandıysa kaldırabilir; beyan zorunluluğunu bilip vermemeyi seçen şirket bu istisnadan yararlanamaz ([26 CFR 1.882-4(a)(3)(ii)](https://www.ecfr.gov/current/title-26/part-1/section-1.882-4)).
+
+Son tarihi 15 Nisan 2026 olan 2025 takvim yılı beyannamesi için 18 ay 15 Ekim 2027'de dolar.
+
+## Anlaşma pozisyonu ayrı bir formla açıklanır
+
+ABD-Türkiye çifte vergilendirmeyi önleme anlaşmasına göre bir Türk şirketinin ticari kazancı, yalnızca ABD'deki bir işyerine (permanent establishment) bağlıysa ABD'de vergilendirilir ([Madde 7](https://www.irs.gov/pub/irs-trty/turkey.pdf)). İşyeri; ofis veya şube gibi sabit bir yerdir. Tesislerin yalnızca malların depolanması, sergilenmesi veya teslimi için kullanılması işyeri oluşturmaz ([Madde 5](https://www.irs.gov/pub/irs-trty/turkey.pdf)).
+
+Anlaşmaya dayanan şirket yine Form 1120-F verir ve bu pozisyonu Form 8833 ile açıklar ([Form 1120-F talimatları](https://www.irs.gov/instructions/i1120f)). Açıklanmayan her pozisyon için ceza, kurumlarda 10.000 dolardır; IRS makul sebep ve iyi niyet varsa cezayı kaldırabilir ([26 U.S.C. 6712](https://www.law.cornell.edu/uscode/text/26/6712)).
+
+## Sahibi bir kişiyse
+
+LLC'ye seçim yapılmadan doğrudan sahip olan yabancı bir kişi, LLC'nin ABD'deki işini yürütüyor sayılır ve Form 1040-NR verir. ABD kaynaklı geliri olmasa ya da geliri anlaşmayla muaf olsa da beyan zorunludur ([Form 1040-NR talimatları](https://www.irs.gov/instructions/i1040nr)).
+
+## LLC kurum olarak vergilendiriliyorsa
+
+Form 8832 ile kurum olmayı seçmiş bir LLC veya bir ABD şirketi (Inc.), kendi Form 1120'sini verir, vergisini kendisi öder ve Form 5472'yi ekler. Seçim, verildiği tarihten en fazla 75 gün öncesinden geçerli olabilir ([26 CFR 301.7701-3(c)(1)(iii)](https://www.ecfr.gov/current/title-26/part-301/section-301.7701-3)); önceki yılların beyannameleri yine gerekir.
+
+ABD şirketinin ana şirkete yaptığı temettü, faiz veya gayrimaddi hak ödemeleri ayrı bir konudur: yabancıya ödenen ABD kaynaklı gelirde genel kural yüzde 30 kesintidir, anlaşma bunu düşürebilir; kesinti Form 1042 ve 1042-S ile bildirilir ([IRS: NRA withholding](https://www.irs.gov/individuals/international-taxpayers/nra-withholding)).
+
+## Hangi durumda olduğunuzu nasıl anlarsınız?
+
+1. ABD'deki vergi danışmanınıza LLC'nin 2025 için hangi beyannameyi verdiğini sorun: pro forma Form 1120 (disregarded) mı, tam Form 1120 (kurum) mı?
+2. Form 8832 seçimini ve IRS'in kabul yazısını arayın.
+3. LLC disregarded ise ana şirketin Form 1120-F'sini kimin verdiğini ve her yıl Form 8833 eklenip eklenmediğini sorun.
+
+## Ponenti ne yapar?
+
+[ABD arka ofis kontrolü](/tr/hizmetler#check), IRS'in ABD şirketinizi nasıl sınıflandırdığını, şirketin ve ortağınızın hangi beyannameleri verdiğini ve eksiklerin dolar cinsinden maliyetini inceler. [Ücretsiz ön kontrol](/tr/on-kontrol), beyanname tipini kamuya açık kayıtlardan işaretler.
+
+Ana şirketin Form 1120-F'sini hazırlamak bugün planlarımızın kapsamında değildir. Beyannameyi ABD'deki bir vergi danışmanı hazırlar ve verir; biz ne soracağınızı söyleriz.
+
+## Ne yapmalısınız?
+
+1. IRS'in ABD şirketinizi kuruluştan bu yana her yıl nasıl sınıflandırdığını teyit edin.
+2. Disregarded ise ana şirketin, LLC'nin faaliyet gösterdiği her yıl için Form 1120-F verdiğini teyit edin ve her yılın 18 ay tarihini not edin.
+3. Ana şirket anlaşmaya dayanıyorsa her yıl Form 8833 eklendiğini teyit edin.
+4. Kurum olmayı seçmeden önce bunun geçmiş ve gelecek yıllar için neyi değiştirdiğini vergi danışmanınıza sorun.

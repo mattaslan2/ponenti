@@ -14,27 +14,34 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `meta.titleDefault` | Ponenti \| ABD işiniz için Türkçe uyum ve tahsilat masası | Ponenti \| The US compliance and collections desk for companies abroad |
+| `meta.titleDefault` | Ponenti \| ABD işiniz için Türkçe uyum ve ithalatçı kaydı masası | Ponenti \| Importer record and US filings for companies abroad |
 
 ## meta.descriptionDefault
 
 | Key | Türkçe | English |
 |---|---|---|
-| `meta.descriptionDefault` | ABD şirketinizin beyannameleri, eyalet satış vergileri, ithalatçı kaydı ve ABD'li müşterilerden tahsilat tek masada. Fiyatlar açık, sınırlar yazılı. | Your US filings, multi-state sales tax, importer record and US receivables at one desk. Public prices, written limits. |
+| `meta.descriptionDefault` | Amerika'daki (ABD) şirketinizin ithalatçı kaydı, Form 1120 ve 5472 beyannameleri, eyalet satış vergileri ve defterleri tek masada. Ücretsiz ön kontrol, açık fiyatlar, yazılı sınırlar. | Your importer record, refund bank details, Form 1120 and 5472, state sales tax and books at one desk. Free pre-check, public prices, written limits. |
 
 ## meta.home
 
 | Key | Türkçe | English |
 |---|---|---|
-| `title` | Ponenti \| ABD işiniz için Türkçe uyum ve tahsilat masası | Ponenti \| The US compliance and collections desk for companies abroad |
-| `description` | ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde, sizin adınıza. | For companies abroad that sell in the US: your filings, multi-state sales tax and importer record at one desk. Your US receivables worked in US business hours, in your name. |
+| `title` | Ponenti \| ABD işiniz için Türkçe uyum ve ithalatçı kaydı masası | Ponenti \| Importer record and US filings for companies abroad |
+| `description` | Amerika'daki şirketiniz için ithalatçı kaydı, iade için banka bilgileri, Form 1120 ve 5472, eyalet satış vergileri ve defterler: ABD tarafınız Türkçe, tek masada. Ücretsiz ön kontrolle başlayın. | Your importer record, refund bank details, Form 1120 and 5472, state sales tax and books, kept in order at one desk, in US business hours. Start with a free pre-check. |
 
 ## meta.services
 
 | Key | Türkçe | English |
 |---|---|---|
 | `title` | Hizmetler ve fiyatlar | Services and pricing |
-| `description` | ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım. Tüm fiyatlar açık. | US back-office check {check}. Compliance plans at {essentials}, {standard} or {complete} a month. Cash desk, order desk and US hiring. Every price is public. |
+| `description` | Ücretsiz ön kontrol. ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım. Tüm fiyatlar açık. | Free pre-check. US back-office check {check}. Compliance plans at {essentials}, {standard} or {complete} a month. Cash desk, order desk and US hiring. Every price is public. |
+
+## meta.precheck
+
+| Key | Türkçe | English |
+|---|---|---|
+| `title` | Ücretsiz ön kontrol: ithalatçı kaydınız ve ABD beyannameleriniz | Free pre-check of your US importer record and filings |
+| `description` | Kamuya açık kayıtlardan 2 iş gününde üç bulgu: ithalatçı adresiniz ve CBP'nin 18 Eylül kuralı, IEEPA dönemi ithalatınız ve şirket yapınızın işaret ettiği ABD beyannameleri. Ücretsiz, belge gerekmez. | Three findings from public records in 2 business days: your importer address against CBP's September 18 rule, IEEPA-period imports, and the US returns your company type points to. Free, no documents needed. |
 
 ## meta.riskTest
 
@@ -152,7 +159,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `tagline` | ABD işiniz için Türkçe uyum ve tahsilat masası. | The compliance and collections desk for your US business. |
+| `tagline` | ABD işiniz için Türkçe uyum ve ithalatçı kaydı masası. | The compliance and importer-record desk for your US business. |
 | `pride` | Türkiye'de üretilir, <em>ABD'de doğru yönetilir.</em> | Made at home. <em>Run right in the United States.</em> |
 | `logoLabel` | Ponenti, ana sayfa | Ponenti, home |
 
@@ -162,6 +169,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 |---|---|---|
 | `primary` | Ana menü | Main menu |
 | `services` | Hizmetler ve fiyatlar | Services & pricing |
+| `precheck` | Ücretsiz ön kontrol | Free pre-check |
 | `pricing` | Fiyatlar | Pricing |
 | `riskTest` | Risk testi | Risk test |
 | `calculators` | Hesaplayıcılar | Calculators |
@@ -184,15 +192,39 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `riskTest` | 3 dakikalık risk testi | 3-minute risk test |
 | `seePricing` | Tüm fiyatları görün | See every price |
 | `whatsappMessage` | Merhaba, Ponenti sitesinden yazıyorum. ABD tarafımız için 15 dakikalık bir görüşme planlamak istiyorum. | Hello, I'm writing from the Ponenti website. I'd like to book a 15-minute call about our US operations. |
+| `precheck` | Ücretsiz ön kontrol isteyin | Get a free pre-check |
+| `precheckShort` | Ücretsiz ön kontrol | Free pre-check |
 
 ## home.hero
 
 | Key | Türkçe | English |
 |---|---|---|
 | `eyebrow` | ABD'de iş yapan Türk şirketleri için | For companies abroad doing business in the US |
-| `title` | ABD işiniz için <em>Türkçe</em> uyum ve tahsilat masası. | The compliance and collections desk for <em>your US business.</em> |
-| `subtitle` | ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır. | Your US filings, multi-state sales tax and importer record at one desk. Your US receivables worked in US business hours, in your name, and your payables prepared for your approval. |
-| `price` | Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir. | Compliance plans at {essentials}, {standard} or {complete} a month. The first step is the {check} US back-office check, credited to your first plan or desk. |
+| `title` | İthalatçı kaydınız ve ABD beyannameleriniz, <em>Türkçe</em> tek masada. | Your importer record and US filings, <em>at one desk.</em> |
+| `subtitle` | İthalatçı kaydınız, iade için banka bilgileriniz, Form 1120 ve 5472, eyalet satış vergileri ve defterleriniz tek masada, ABD mesai saatinde. Tahsilat ve sipariş masaları ihtiyaç olduğunda. | Your importer record, refund bank details, Form 1120 and 5472, state sales tax and books, kept in order at one desk, in US business hours. Collections and order desks when you need them. |
+| `price` | Ücretsiz ön kontrolle başlayın. Uyum planları aylık {essentials}, {standard} veya {complete}; {check} tutarındaki ABD arka ofis kontrolü ilk plana veya masaya mahsup edilir. | Start with a free pre-check. Compliance plans at {essentials}, {standard} or {complete} a month; the {check} back-office check is credited to your first plan or desk. |
+
+## home.dates
+
+| Key | Türkçe | English |
+|---|---|---|
+| `title` | Önemli tarihler | Dates that matter |
+| `effect` | Yürürlükte | In effect |
+| `passed` | Geçti | Passed |
+| `today` | Bugün | Today |
+| `daysOne` | 1 gün kaldı | In 1 day |
+| `daysOther` | {n} gün kaldı | In {n} days |
+| `source` | Kaynak | Source |
+| `items.s301.title` | %12,5 ek vergi (301. Madde) | 12.5% Section 301 duty |
+| `items.s301.text` | Türkiye menşeli ürünler, muaf değilse, normal verginin üstüne öder. | Products of Türkiye pay it on top of the normal duty, unless exempt. |
+| `items.address.title` | İthalatçı adresi kuralı | Importer address rule |
+| `items.address.text` | CBP, kayıtlı temsilci, posta kutusu veya iş merkezi adresli ithalatçı numaralarını iptal edebilir. | CBP can void importer numbers registered at an agent, P.O. box or business center. |
+| `items.extended.title` | Uzatılmış 2025 beyannameleri | Extended 2025 returns |
+| `items.extended.text` | Takvim yılı 2025 için Form 1120 ve 5472, Form 7004 verildiyse. | Form 1120 and 5472 for calendar 2025, if Form 7004 was filed. |
+| `items.eo14411.title` | EO 14411 süresi | EO 14411 deadline |
+| `items.eo14411.text` | DHS'in ithalatçı teminatı, varlıkları ve doğrulaması için 180 günlük süresi dolar. | DHS's 180-day window to act on importer bonds, assets and vetting closes. |
+| `items.returns.title` | 2026 beyannameleri | 2026 returns due |
+| `items.returns.text` | Takvim yılı 2026 için Form 1120 ve 5472; ana şirketin ABD'de ofisi varsa Form 1120-F de. | Form 1120 and 5472 for calendar 2026; Form 1120-F too if the parent has a US office. |
 
 ## home.market
 
@@ -265,8 +297,8 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `us.body` | Beyannameler, eyalet satış vergisi ve ithalatçı kaydı için aylık uyum planı. Gerekirse tahsilat ve sipariş masaları. | A monthly compliance plan for your filings, state sales tax and importer record. Collections and order desks when you need them. |
 | `us.link` | Planları ve masaları görün | See plans and desks |
 | `tr.title` | ABD'ye Türkiye'den satıyorum | I sell to the US from abroad |
-| `tr.body` | ABD'li müşterilerinizden tahsilatı ABD mesai saatlerinde, sizin adınıza yürütürüz. İlk adım: arka ofis kontrolü. | We work your US receivables in US business hours, in your name. The first step is the back-office check. |
-| `tr.link` | Tahsilat masasını ve kontrolü görün | See the cash desk and the check |
+| `tr.body` | DDP satıyorsanız ABD gümrük işlemleri ve vergi sizin sorumluluğunuzdadır; ithalatçı kaydınız CBP kurallarına uymalıdır. Önce kaydınızı ve iade kurulumunuzu kontrol ederiz; ardından ABD'li müşterilerinizden tahsilatı ABD mesai saatinde, sizin adınıza yürütebiliriz. | If you sell DDP, US customs clearance and duty are your responsibility, so your importer record has to meet CBP's rules. We check it and your refund setup first; then we can work your US receivables in US business hours, in your name. |
+| `tr.link` | Ücretsiz ön kontrolle başlayın | Start with the free pre-check |
 
 ## home.facts
 
@@ -274,7 +306,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 |---|---|---|
 | `eyebrow` | Rakamlarla | By the numbers |
 | `title` | ABD tarafında kurallar ve rakamlar net | On the US side, the rules and the numbers are clear |
-| `intro` | İki kural da resmi kaynağına bağlıdır. Saatler ise bizim çalışma saatlerimizdir. | The two rules link to their official sources. The hours are our own. |
+| `intro` | Her rakam resmî kaynağına bağlıdır. | Each figure links to its official source. |
 | `f1.kicker` | IRS | IRS |
 | `f1.unit` | verilmeyen form başına, her yıl | per missed form, per year |
 | `f1.text` | Verilmeyen Form 5472 için IRS cezası. | The IRS penalty for a Form 5472 that is not filed. |
@@ -284,19 +316,22 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `f2.unit` | 2026 | 2026 |
 | `f2.text` | Bu tarihten beri CBP, Form 5106'daki adresi kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi olan ithalatçı numaralarını iptal edebiliyor. | Since this date, CBP can void an importer number whose Form 5106 address is a registered agent, P.O. box or business center. |
 | `f2.source` | Federal Register, 19 Ağustos 2026 | Federal Register, August 19, 2026 |
-| `f3.kicker` | Tahsilat saatlerimiz | Our collections hours |
-| `f3.value` | 08:00-16:00 | 8:00-16:00 |
-| `f3.unit` | ABD Doğu saati | US Eastern |
-| `f3.text` | Tahsilat aramaları ABD Doğu saatiyle, müşterilerinizin mesai saatinde yapılır. | Collections calls run on US Eastern time, during your customers' business hours. |
-| `f3.source` | Tahsilat masası koşulları | Cash desk terms |
+| `f3.kicker` | IEEPA iadeleri | IEEPA refunds |
+| `f3.value` | $1,3 milyar | $1.3B |
+| `f3.unit` | bekleyen iade, 11 Eylül 2026 itibarıyla | in refunds held, as of Sep 11, 2026 |
+| `f3.text` | 20.184 onaylı iade, ithalatçı CBP'ye ACH için ABD banka bilgisi vermediği için gönderilmedi. | 20,184 approved refunds were not sent because the importer had given CBP no US bank details for ACH. |
+| `f3.source` | CBP'nin Uluslararası Ticaret Mahkemesi'ne beyanı | CBP declaration to the Court of International Trade |
 
 ## home.offer
 
 | Key | Türkçe | English |
 |---|---|---|
 | `eyebrow` | Ne yapıyoruz | What we do |
-| `title` | Kontrolle başlayın, ihtiyacınız kadar büyütün | Start with the check, grow as you need |
+| `title` | Ücretsiz başlayın, ihtiyacınız kadar büyütün | Start free, grow as you need |
 | `intro` | Her şey tek masada. Fiyatlar açık ve ABD doları cinsinden. | Everything at one desk. Prices are public and in US dollars. |
+| `precheck.title` | Ücretsiz ön kontrol | Free pre-check |
+| `precheck.body` | Kamuya açık kayıtlardan 2 iş gününde üç bulgu: ithalatçı adresi, IEEPA dönemi ithalatı ve şirket yapınızın işaret ettiği beyannameler. | Three findings from public records in 2 business days: importer address, IEEPA-period imports and the returns your company type points to. |
+| `precheck.price` | Ücretsiz | Free |
 | `check.title` | ABD arka ofis kontrolü | US back-office check |
 | `check.body` | İthalatçı kaydı, beyanname geçmişi, satış vergisi riski ve alacak yaşlandırması. 10 iş gününde yazılı rapor. | Importer record, filing history, sales-tax exposure and receivables aging. A written report in 10 business days. |
 | `check.note` | ilk plana veya masaya mahsup | credited to your first plan or desk |
@@ -397,7 +432,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | Key | Türkçe | English |
 |---|---|---|
 | `eyebrow` | Kurucu | Founder |
-| `body` | Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Defter tutma, ay sonu kapanışı, B2B tahsilat, satış vergisi beyannameleri ve lisanslı gümrük müşavirleriyle gümrük girişlerinde uygulamalı deneyime sahip. | Bilingual in Turkish and English. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy. Hands-on in bookkeeping, month-end close, B2B collections, sales-tax filings, and customs entries with licensed brokers. |
+| `body` | Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Defter tutma, ay sonu kapanışı, B2B tahsilat ve satış vergisi beyannamelerinde uygulamalı deneyime sahip. | Bilingual in Turkish and English. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy. Hands-on in bookkeeping, month-end close, B2B collections and sales-tax filings. |
 | `more` | Hikâyemizi okuyun | Read our story |
 | `linkedin` | LinkedIn profili | LinkedIn profile |
 
@@ -418,12 +453,12 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 
 | Key | Türkçe | English |
 |---|---|---|
-| `eyebrow` | İlk görüşme | The first call |
-| `title` | ABD tarafınızı 15 dakikada konuşalım. | Let's look at your US side in 15 minutes. |
-| `lede` | Üç soru soruyoruz | We ask three questions |
+| `eyebrow` | Sonraki adım | Next step |
+| `title` | Ücretsiz ön kontrolle başlayın. | Start with a free pre-check. |
+| `lede` | 15 dakikalık görüşmede üç soru soruyoruz | On a 15-minute call we ask three questions |
 | `q1` | Form 5472'nizi kim veriyor? | Who files your Form 5472? |
 | `q2` | İthalatçı kaydınız adres kuralına göre en son ne zaman kontrol edildi? | When was your importer record last checked against the address rule? |
-| `q3` | ABD'li müşterileriniz kaç günde ödüyor? | How many days do your US customers take to pay? |
+| `q3` | İadeler için ABD banka bilgileriniz CBP'de kayıtlı mı? | Are US bank details for refunds on file with CBP? |
 | `reply` | 1 iş günü içinde yanıt veririz. | We reply within 1 business day. |
 
 ## report
@@ -468,13 +503,14 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `check.lede` | İlk adım: ABD tarafınızın tam fotoğrafı. | Step one: a complete picture of your US side. |
 | `check.credit` | {days} gün içinde imzalanan ilk plana veya masaya mahsup edilir. | Credited to the first plan or desk you sign within {days} days. |
 | `check.i1` | İthalatçı kaydı: adres, ortaklar, teminat (bond), müşavir yetkisi ve iade için banka bilgileri | Importer record: address, owners, bond, broker authorization and refund bank details |
-| `check.i2` | Beyanname geçmişi: Form 1120 ve 5472, eyalet beyannameleri | Filing history: Form 1120 and 5472, state returns |
+| `check.i2` | Beyanname geçmişi: Form 1120 ve 5472, eyalet beyannameleri ve Türkiye'deki ortağınızın ABD beyannameleri (Form 1120-F veya 1040-NR) | Filing history: Form 1120 and 5472, state returns, and your owner's US filings (Form 1120-F or 1040-NR) |
 | `check.i3` | Eyalet bazında satış vergisi riski | Sales-tax exposure by state |
 | `check.i4` | Dolar cinsinden ceza riski | Penalty exposure in dollars |
 | `check.i5` | Alacak yaşlandırması ve ortalama tahsilat süresi | Receivables aging and average payment days |
 | `check.i6` | Düzeltme planı ve teklif | A fix plan and a quote |
 | `check.i7` | Türkiye destekleri ön incelemesi: ortaklık bağı, kira sözleşmesi, kiranın ödenme şekli ve online satanlar için e-ihracat beyanları | Export support review (Türkiye's program today): ownership link, lease terms, how rent is paid and, for online sellers, e-commerce export declarations |
 | `check.delivery` | 10 iş gününde yazılı rapor. CBP'nin yeni ithalatçı kuralları yayımlanınca ücretsiz güncelleme. | A written report in 10 business days. A free update when CBP publishes its new importer rules. |
+| `check.precheck` | Henüz emin değil misiniz? Ücretsiz ön kontrolle başlayın | Not sure yet? Start with the free pre-check |
 | `plans.title` | Uyum planları | Compliance plans |
 | `plans.lede` | Zorunlu beyannameler için sabit aylık ücret. | A flat monthly fee for the filings you must make. |
 | `plans.essentials.name` | Temel | Essentials |
@@ -561,6 +597,39 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `faq.a8` | Hayır. Başvuruyu Türk destek danışmanınız Ticaret Bakanlığı'nın sisteminde yapar. Biz ABD tarafının belgelerini hazırlar, Ticaret Müşavirliği onayını ve ödemeyi takip ederiz. | No. Your support consultant at home files them in your government's system (for Türkiye, the Ministry of Trade's). We prepare the US-side documents and track the approvals and the payment. |
 | `faq.q9` | Ponenti'nin ücreti destekten karşılanır mı? | Can Ponenti's fees be claimed as support? |
 | `faq.a9` | Hayır. Ücretlerimiz destek kapsamında değildir. Destek dosyası, Standart ve Kapsamlı planların sabit aylık ücretine dahildir. | No. Our fees are not an eligible cost. The support file is included in the flat monthly fee of the Standard and Complete plans. |
+
+## precheck
+
+| Key | Türkçe | English |
+|---|---|---|
+| `eyebrow` | Ücretsiz ön kontrol | Free pre-check |
+| `title` | ABD tarafınız hakkında üç bulgu, <em>ücretsiz, 2 iş gününde.</em> | Three findings about your US side, <em>free, in 2 business days.</em> |
+| `intro` | Kamuya açık sevkiyat ve şirket kayıtlarından çalışırız. Şirket adınızı gönderirsiniz; biz üç bulguyu ve gümrük müşavirinize ve vergi danışmanınıza ne soracağınızı göndeririz. | We work from public shipping and company records. You send your company name; we send back three findings and what to ask your customs broker and your tax preparer. |
+| `findingsTitle` | Neler alırsınız | What you get |
+| `f1.title` | İthalatçı adresiniz | Your importer address |
+| `f1.body` | Kamuya açık sevkiyat kayıtlarınızdaki adresin CBP'nin 18 Eylül kuralına takılıp takılmayacağı: kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi adresi ithalatçı numaranızın iptaline yol açabilir. | Whether the address in your public shipping records may fall under CBP's September 18 rule: a registered agent, P.O. box or business center can get an importer number voided. |
+| `f1.source` | Federal Register, 19 Ağustos 2026 | Federal Register, August 19, 2026 |
+| `f2.title` | İade döneminiz | Your refund period |
+| `f2.body` | IEEPA döneminde (Nisan 2025 - Şubat 2026) ithalat yapıp yapmadığınız. Yaptıysanız büyük olasılıkla alacağınız bir iade vardır ve müşavirinizle iki konuyu teyit etmeniz gerekir: iadenin talep edilmiş olması ve ACH için ABD banka bilgilerinizin kayıtlı olması. | Whether you imported during the IEEPA period (February 2025 to February 2026). If you did, a refund is likely owed, and two things need confirming with your broker: that the refund is claimed and that US bank details for ACH are on file. |
+| `f2.source` | CBP'nin Uluslararası Ticaret Mahkemesi'ne beyanı, 15 Eylül 2026 | CBP declaration to the Court of International Trade, September 15, 2026 |
+| `f3.title` | Beyanname tipiniz | Your filing type |
+| `f3.body` | Şirket yapınızın hangi ABD beyannamelerine işaret ettiği: ABD şirketi için Form 5472 ekli Form 1120 ve LLC vergide ayrı sayılmıyorsa Türkiye'deki ana şirket için Form 1120-F. | Which US returns your company type points to: Form 1120 with Form 5472 for the US company and, when the LLC is disregarded, Form 1120-F for the parent abroad. |
+| `f3.source` | IRS, Form 1120-F talimatları | IRS, Instructions for Form 1120-F |
+| `notTitle` | Ne değildir | What it is not |
+| `not1` | İade tahmini değildir: sevkiyat kayıtları ödediğiniz vergiyi göstermez. | Not a refund estimate: shipping records don't show the duty you paid. |
+| `not2` | Vergi, hukuk veya gümrük tavsiyesi ya da beyan değildir. Bulgular üzerine lisanslı gümrük müşaviriniz ve vergi danışmanınız işlem yapar. | Not tax, legal or customs advice, and not a filing. Your licensed broker and your tax preparer act on the findings. |
+| `not3` | Belge, vergi numarası veya şifre gerekmez. | No documents, tax IDs or logins needed. |
+| `nextTitle` | Sonra ne olur | What happens next |
+| `n1` | Talebinizi 1 iş günü içinde teyit ederiz. | We confirm your request within 1 business day. |
+| `n2` | Üç bulgu 2 iş günü içinde e-postanıza gelir; Türkçe veya İngilizce. | Your three findings arrive by email within 2 business days, in English or Turkish. |
+| `n3` | Düzeltilecek bir şey varsa sonraki adım {check} tutarındaki ABD arka ofis kontrolüdür. Hiçbir yükümlülük yoktur. | If something needs fixing, the {check} back-office check is the next step. There is no obligation. |
+| `formTitle` | Ön kontrol isteyin | Request your pre-check |
+| `ddp.legend` | ABD'li müşterilerinize DDP (gümrük vergisi ödenmiş) satış yapıyor musunuz? | Do you sell DDP (duty paid) to US customers? |
+| `window.legend` | Şirketiniz Nisan 2025 ile Şubat 2026 arasında ABD'ye ithalat yaptı mı? | Did your company import into the US between February 2025 and February 2026? |
+| `answers.yes` | Evet | Yes |
+| `answers.no` | Hayır | No |
+| `answers.unsure` | Emin değilim | Not sure |
+| `submit` | Ücretsiz ön kontrol isteyin | Request my free pre-check |
 
 ## riskTest
 
@@ -930,7 +999,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `founderP2` | Türk şirketlerinin ABD tarafında hep aynı sorunlarla karşılaştığını gördüm: beyannameler geç kalıyor, satış vergisi birkaç eyalette açık kalıyor, ABD'li müşteriler geç ödüyor ve takip İstanbul'dan e-postayla yapılıyor. | I kept seeing companies from abroad, Turkish ones first, hit the same problems on the US side: filings run late, sales tax stays open in several states, US customers pay late, and follow-up happens by email from an office hours ahead. |
 | `founderP3` | Ponenti bu işleri tek masada, Türkçe ve ABD mesai saatinde yürütmek için var. | Ponenti exists to run that work at one desk, during US business hours, in English or Turkish. |
 | `bioTitle` | Özgeçmiş | Background |
-| `bio` | Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı (fiyatlandırma, gelir yönetimi, FP&A). Defter tutma ve ay sonu kapanışı, B2B faturalama ve tahsilat, satış vergisi beyannameleri ve lisanslı gümrük müşavirleriyle gümrük girişleri konularında uygulamalı deneyime sahip. | Bilingual in Turkish and English. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy (pricing, revenue management, FP&A). Hands-on in bookkeeping and month-end close, B2B invoicing and collections, sales-tax filings, and customs entries with licensed brokers. |
+| `bio` | Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı (fiyatlandırma, gelir yönetimi, FP&A). Defter tutma ve ay sonu kapanışı, B2B faturalama ve tahsilat, satış vergisi kaydı ve beyannameleri konularında uygulamalı deneyime sahip. | Bilingual in Turkish and English. Former UPS financial analyst and Senior Manager of Go-to-Market Strategy (pricing, revenue management, FP&A). Hands-on in bookkeeping and month-end close, B2B invoicing and collections, and sales-tax registration and filings. |
 | `howTitle` | Nasıl çalışırız | How we work |
 | `how1` | Her müşterinin tek bir sorumlusu ve yazılı bir son tarih takvimi vardır. | Every client has one owner and a written deadline calendar. |
 | `how2` | Takvimi iki kişi kontrol eder. | Two people check the calendar. |
@@ -1015,6 +1084,8 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `errNotConfigured` | Form henüz bağlanmadı. | The form isn't connected yet. |
 | `errWhatsapp` | WhatsApp'tan da yazabilirsiniz. | You can also message us on WhatsApp. |
 | `errSummary` | Lütfen işaretli alanları düzeltin. | Please fix the marked fields. |
+| `phoneWhatsapp` | Telefon veya WhatsApp (isteğe bağlı) | Phone or WhatsApp (optional) |
+| `successPrecheck` | Talebinizi aldık. Üç bulgu 2 iş günü içinde e-postanıza gelecek. | We have your request. Your three findings arrive by email within 2 business days. |
 
 ## portal
 
@@ -1115,6 +1186,11 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 | `tradeCountry` | {country} çıkışlı ABD ithalatı, {window}: {value} (önceki 12 aya göre {growth}). ABD ithalatındaki pay: {share}. | US imports from {country}, {window}: {value} ({growth} vs the prior 12 months). Share of US imports: {share}. |
 | `tradeLink` | Analizin tamamı: {url} | Full analysis: {url} |
 | `tradeSource` | Kaynak: U.S. Census Bureau. Rakamlar bilgilendirme amaçlıdır. | Source: U.S. Census Bureau. Figures are informational. |
+| `precheckNext` | Ücretsiz ön kontrolünüz: 2 iş günü içinde kamuya açık kayıtlardan üç bulgu göndereceğiz: ithalatçı adresinizin CBP'nin 18 Eylül kuralına uygunluğu, IEEPA döneminde ithalat yapıp yapmadığınız ve şirket yapınızın işaret ettiği ABD beyannameleri. | Your free pre-check: within 2 business days we will send you three findings from public records: your importer address against CBP's September 18 rule, whether you imported during the IEEPA period, and which US returns your company type points to. |
+| `precheckAnswers` | Yanıtlarınız: DDP satış: {ddp}. IEEPA döneminde ithalat: {window}. | Your answers: sells DDP: {ddp}. Imported during the IEEPA period: {window}. |
+| `answer.yes` | evet | yes |
+| `answer.no` | hayır | no |
+| `answer.unsure` | emin değil | not sure |
 
 ## Knowledge center articles (MDX, src/content/insights)
 
@@ -1122,6 +1198,7 @@ Placeholders in curly braces (`{check}`, `{name}`) are filled by the site with l
 |---|---|---|
 | `section-301-forced-labor-duty` | Türkiye çıkışlı mallara %12,5 ek vergi: 301. Madde kararı (/tr/bilgi-merkezi/abd-301-madde-ek-vergi-turkiye-yuzde-12-5) | The 12.5% Section 301 duty on goods from Türkiye (/en/insights/section-301-forced-labor-duty-turkiye-12-5-percent) |
 | `us-rent-support-rejections` | ABD'de kira desteği başvuruları neden geri döner: 7 sebep (/tr/bilgi-merkezi/abd-kira-destegi-neden-reddedilir) |  |
+| `form-1120-f-foreign-owner` | LLC'niz ABD vergisinde şirket sayılmayabilir: Türkiye'deki ana şirket için Form 1120-F (/tr/bilgi-merkezi/abd-llc-ana-sirket-form-1120-f) | Your US LLC may not be a company for US tax: Form 1120-F for the parent abroad (/en/insights/form-1120-f-foreign-parent-us-llc) |
 | `us-payment-terms-collections` | ABD'de ödeme vadeleri ve tahsilat: B2B satıcılar için rehber (/tr/bilgi-merkezi/abd-odeme-vadeleri-ve-tahsilat) | US payment terms and collections: a guide for B2B sellers (/en/insights/us-payment-terms-and-collections) |
 | `sales-tax-nexus` | ABD satış vergisi: 9 eyalette bağlantı (nexus) eşikleri (/tr/bilgi-merkezi/abd-satis-vergisi-eyalet-esikleri) | US sales tax nexus: thresholds in 9 states (/en/insights/sales-tax-nexus-by-state) |
 | `eo-14411-importer-rules` | EO 14411: ABD ithalatçı kaydında yeni adres ve kimlik kuralları (/tr/bilgi-merkezi/eo-14411-ithalatci-kaydi-kurallari) | EO 14411: New Address and Identity Rules for US Importers of Record (/en/insights/eo-14411-importer-of-record-rules) |

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import {
+  Dates,
   Doors,
   FactsBand,
   FinalCta,
@@ -30,6 +31,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Dates />
       <Market />
       <Trust />
       <Doors />

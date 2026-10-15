@@ -82,6 +82,11 @@ export function MobileNav({
           </nav>
           <div className="mt-auto space-y-3 px-6 pb-8">
             <Button asChild size="lg" className="w-full">
+              <Link href="/pre-check" onClick={close} data-track="cta_click" data-track-label="precheck" data-track-location="mobile_menu">
+                {cta("precheck")}
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="w-full">
               <Link
                 href={{ pathname: "/contact", hash: "book" }}
                 onClick={close}

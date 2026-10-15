@@ -6,7 +6,9 @@ import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { Section } from "@/components/section";
 import { CompassCard } from "@/components/brand/compass-card";
-import { ArrowLink, BookButton, RiskTestLink, WhatsAppButton } from "@/components/cta";
+import { ArrowLink, BookButton, PrecheckButton, RiskTestLink } from "@/components/cta";
+import { DatedRail } from "@/components/home/dated-rail";
+import { DATED_ITEMS } from "@/lib/deadlines";
 import { SourceLink } from "@/components/external-link";
 import { Confirm, ReplaceWithReal, ShowAfterEOConfirms } from "@/components/placeholders";
 import { SampleReport } from "@/components/report/sample-report";
@@ -54,13 +56,51 @@ export async function Hero() {
           <p className="enter enter-2 mt-8 max-w-[34rem] text-lead text-navy">{t("subtitle")}</p>
           <p className="enter enter-3 mt-6 max-w-[34rem] text-small text-mist">{t("price", priceArgs(locale, pricing))}</p>
           <div id="hero-actions" className="enter enter-4 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-            <BookButton location="hero" />
-            <WhatsAppButton location="hero" />
+            <PrecheckButton location="hero" />
+            <BookButton location="hero" variant="outline" icon={false} short />
             <RiskTestLink location="hero" className="self-start sm:ml-3 sm:self-auto" />
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * Dates that matter, right under the hero: the rules in effect and the
+ * deadlines ahead (src/lib/deadlines.ts), each with its official source. The
+ * status of each date is worked out in the browser (DatedRail).
+ */
+export async function Dates() {
+  const locale = await currentLocale();
+  const t = await getTranslations("home.dates");
+  const common = await getTranslations("common");
+  const fmt = new Intl.DateTimeFormat(locale === "tr" ? "tr-TR" : "en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const items = DATED_ITEMS.map((item) => {
+    const [y, m, d] = item.date.split("-").map(Number);
+    return {
+      key: item.key,
+      date: item.date,
+      dateLabel: fmt.format(Date.UTC(y, m - 1, d)),
+      kind: item.kind,
+      title: t(`items.${item.key}.title`),
+      text: t(`items.${item.key}.text`),
+      href: sources[item.source],
+    };
+  });
+  return (
+    <DatedRail
+      items={items}
+      labels={{
+        title: t("title"),
+        effect: t("effect"),
+        passed: t("passed"),
+        today: t("today"),
+        days: { one: t("daysOne"), other: t("daysOther", { n: "{n}" }) },
+        source: t("source"),
+        opensNewTab: common("opensNewTab"),
+      }}
+    />
   );
 }
 
@@ -300,7 +340,7 @@ export async function Doors() {
   const t = await getTranslations("home.doors");
   const doors = [
     { key: "us", href: { pathname: "/services", hash: "plans" } },
-    { key: "tr", href: { pathname: "/services", hash: "cash-desk" } },
+    { key: "tr", href: "/pre-check" },
   ] as const;
   return (
     <Section id="doors" eyebrow={t("eyebrow")} title={t("title")}>
@@ -334,7 +374,7 @@ export async function FactsBand() {
   const facts = [
     { key: "f1", value: formatUsd(pricing.form5472Penalty, locale), unit: t("f1.unit"), href: sources.irs5472 },
     { key: "f2", value: t("f2.value"), unit: t("f2.unit"), href: sources.frImporterData },
-    { key: "f3", value: t("f3.value"), unit: t("f3.unit"), href: null },
+    { key: "f3", value: t("f3.value"), unit: t("f3.unit"), href: sources.cbpRefundDeclaration },
   ] as const;
   return (
     <Section id="facts" tone="navy" eyebrow={t("eyebrow")} title={t("title")} intro={t("intro")}>
@@ -351,20 +391,14 @@ export async function FactsBand() {
           >
             <p className="eyebrow">{t(`${key}.kicker`)}</p>
             <p className="mt-6 text-ivory">
-              <span data-count={key === "f1" || undefined} className="block font-display text-[clamp(2.75rem,1.9rem+2.9vw,4.25rem)] leading-none font-medium tracking-[-0.02em] whitespace-nowrap">
+              <span data-count={key !== "f2" || undefined} className="block font-display text-[clamp(2.75rem,1.9rem+2.9vw,4.25rem)] leading-none font-medium tracking-[-0.02em] whitespace-nowrap">
                 {value}
               </span>
               <span className="mt-3 block text-small text-ivory-soft">{unit}</span>
             </p>
             <p className="mt-6 max-w-xs flex-1 text-ivory-dim">{t(`${key}.text`)}</p>
             <p className="mt-8 text-caption text-ivory-soft">
-              {href ? (
-                <SourceLink href={href}>{t(`${key}.source`)}</SourceLink>
-              ) : (
-                <Link href={{ pathname: "/services", hash: "cash-desk" }} className="link">
-                  {t(`${key}.source`)}
-                </Link>
-              )}
+              <SourceLink href={href}>{t(`${key}.source`)}</SourceLink>
             </p>
           </div>
         ))}
@@ -379,7 +413,8 @@ export async function Offer() {
   const t = await getTranslations("home.offer");
   const common = await getTranslations("common");
   const f = (n: number) => formatUsd(n, locale);
-  const rows = [
+  const rows: { title: string; body: string; price: string; per: string | null; note: string | null; hash: string; href?: "/pre-check" }[] = [
+    { title: t("precheck.title"), body: t("precheck.body"), price: t("precheck.price"), per: null, note: null, hash: "precheck", href: "/pre-check" },
     { title: t("check.title"), body: t("check.body"), price: f(pricing.check), per: null, note: t("check.note"), hash: "check" },
     {
       title: t("plans.title"),
@@ -410,7 +445,7 @@ export async function Offer() {
         {rows.map((row) => (
           <li key={row.hash} data-reveal className="border-b border-line">
             <Link
-              href={{ pathname: "/services", hash: row.hash }}
+              href={row.href ?? { pathname: "/services", hash: row.hash }}
               className="hover-rule grid grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-3 py-8 sm:grid-cols-12 sm:gap-x-8 sm:py-10"
             >
               <h3 className="text-display-sm sm:col-span-4">{row.title}</h3>
@@ -682,8 +717,8 @@ export async function FinalCta({ title, body, location }: { title?: string; body
             {title ?? t("title")}
           </h2>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-            <BookButton location={location} />
-            <WhatsAppButton location={location} />
+            <PrecheckButton location={location} />
+            <BookButton location={location} variant="outline" icon={false} short />
             <RiskTestLink location={location} className="self-start sm:ml-3 sm:self-auto" />
           </div>
           <p className="mt-6 text-caption text-mist-soft">{t("reply")}</p>

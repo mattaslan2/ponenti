@@ -3,11 +3,11 @@ export const meta = {
   locale: "tr",
   slug: "ieepa-iadeleri-abd-banka-hesabi",
   title: "IEEPA iadesi: ABD banka hesabınız yoksa iadeniz bekler",
-  description: "CBP iadeleri yalnızca ABD banka hesabına ACH ile ödüyor. ACE'de banka bilgisi olmayan ithalatçıların IEEPA iadeleri bekletiliyor.",
+  description: "11 Eylül 2026 itibarıyla CBP, ABD banka bilgisi eksik olduğu için 20.184 IEEPA iadesini (yaklaşık 1,3 milyar dolar) bekletiyordu. Neyi kontrol etmeli; CAPE 3. aşama, toplu dava ve Section 122 ne durumda.",
   published: "2026-10-05",
-  updated: "2026-10-05",
-  readingMinutes: 5,
-  keywords: ["IEEPA iadesi", "CBP iade", "ACH iade kaydı", "ABD banka hesabı", "CAPE beyannamesi", "CBP Form 4811", "ithalatçı kaydı"],
+  updated: "2026-10-15",
+  readingMinutes: 7,
+  keywords: ["IEEPA iadesi", "CBP iade", "ACH iade kaydı", "ABD banka hesabı", "CAPE beyannamesi", "CAPE 3. aşama", "IEEPA toplu dava", "Section 122 iadesi", "gümrük vergisi iadesi Amerika", "CBP Form 4811", "ithalatçı kaydı"],
   sources: [
     { title: "Learning Resources, Inc. v. Trump, No. 24-1287 (with Trump v. V.O.S. Selections, Inc., No. 25-250)", url: "https://www.supremecourt.gov/opinions/25pdf/24-1287_4gcj.pdf", publisher: "Supreme Court of the United States", date: "2026-02-20" },
     { title: "Executive Order 14389: Ending Certain Tariff Actions", url: "https://www.whitehouse.gov/presidential-actions/2026/02/ending-certain-tariff-actions/", publisher: "The White House", date: "2026-02-20" },
@@ -21,6 +21,12 @@ export const meta = {
     { title: "CSMS # 69570464: Review ACE Reports for Rejected Refunds Due to Lack of ACH Enrollment", url: "https://content.govdelivery.com/accounts/USDHSCBP/bulletins/4258fa0", publisher: "U.S. Customs and Border Protection", date: "2026-08-18" },
     { title: "Accuracy of Importer of Record Data Submitted to CBP, 91 FR 53627", url: "https://www.federalregister.gov/documents/2026/08/19/2026-16911/accuracy-of-importer-of-record-data-submitted-to-cbp", publisher: "U.S. Customs and Border Protection", date: "2026-08-19" },
     { title: "Court-Ordered Refunds Under the IEEPA Worksheet, 30-day notice, 91 FR 63299", url: "https://www.federalregister.gov/documents/2026/10/05/2026-20228/agency-information-collection-activities-court-ordered-refunds-under-the-international-emergency", publisher: "U.S. Customs and Border Protection", date: "2026-10-05" },
+    { title: "Declaration of Brandon Lord, CBP Office of Trade, Freestyle World, Inc. v. CBP, No. 26-01088 (figures as of September 11, 2026)", url: "https://storage.courtlistener.com/recap/gov.uscourts.cit.19175/gov.uscourts.cit.19175.50.0.pdf", publisher: "U.S. Court of International Trade (court filing)", date: "2026-09-15" },
+    { title: "Freestyle World, Inc. v. CBP, No. 26-01088, opinion and order certifying a class", url: "https://www.cit.uscourts.gov/sites/cit/files/26-123.pdf", publisher: "U.S. Court of International Trade", date: "2026-10-08" },
+    { title: "Proclamation 11012: Imposing a Temporary Import Surcharge (91 FR 9339)", url: "https://www.govinfo.gov/content/pkg/FR-2026-02-25/html/2026-03824.htm", publisher: "Federal Register", date: "2026-02-25" },
+    { title: "The State of Oregon v. United States, Slip Op. 26-47", url: "https://www.cit.uscourts.gov/sites/cit/files/26-47.pdf", publisher: "U.S. Court of International Trade", date: "2026-05-07" },
+    { title: "The State of Washington v. United States, Slip Op. 26-53", url: "https://www.cit.uscourts.gov/sites/cit/files/26-53.pdf", publisher: "U.S. Court of International Trade", date: "2026-05-20" },
+    { title: "28 U.S.C. 2636: Time for commencement of action", url: "https://www.law.cornell.edu/uscode/text/28/2636", publisher: "Legal Information Institute, Cornell Law School", date: "2026-10-15" },
     { title: "19 CFR 111.1 Definitions", url: "https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.1", publisher: "eCFR, Office of the Federal Register", date: "2026-10-01" },
     { title: "19 CFR 111.2 License and permit required", url: "https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.2", publisher: "eCFR, Office of the Federal Register", date: "2026-10-02" },
     { title: "19 CFR 24.36 Refunds of excessive duties, taxes, etc.", url: "https://www.ecfr.gov/current/title-19/chapter-I/part-24/section-24.36", publisher: "eCFR, Office of the Federal Register", date: "2026-09-24" },
@@ -43,6 +49,17 @@ CBP, iadeler için ACE içinde CAPE adlı bir araç kurdu. ACE, CBP'nin ithalat 
 CAPE beyannamesini (CAPE Declaration) yalnızca iki taraf gönderebilir. Biri ithalatçı kaydının (Importer of Record) kendisidir. Diğeri, o girişleri yapan gümrük müşaviridir (customs broker). CBP bunu [CSMS # 68340863](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/412cc7f) duyurusunda belirtti. CSMS, CBP'nin resmi ticaret duyurularıdır.
 
 Kesinleşmemiş (unliquidated) standart girişlerde iade, beyanname kabulünden sonra [genellikle 60-90 gün içinde ödenir](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/412cc7f). Ek inceleme gerekirse süre uzar. İade, ithalatçıya veya CBP Form 4811 (iade alıcısı bildirim formu) ile belirlenen tarafa [toplu olarak ödenir](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/412cc7f).
+
+## Ekim 2026'da iadeler ne durumda?
+
+CBP, 15 Eylül 2026'da Uluslararası Ticaret Mahkemesi'ne (Court of International Trade) yeminli bir beyan sundu. 11 Eylül itibarıyla iki rakam verdi ([CBP beyanı, Freestyle World v. CBP, No. 26-01088](https://storage.courtlistener.com/recap/gov.uscourts.cit.19175/gov.uscourts.cit.19175.50.0.pdf)):
+
+- CAPE üzerinden tamamlanıp ödeme için Hazine'ye gönderilen yaklaşık 122 milyar dolar iade (vergi artı faiz)
+- ithalatçı ACH banka bilgisi vermediği için gönderilmeyen 20.184 iade, yaklaşık 1,3 milyar dolar
+
+CAPE 3. aşama 6 Ekim 2026'da açıldı. Davacıların, mahkemenin yeniden tasfiye (reliquidation) emri verdiği kesinleşmiş (finally liquidated) girişlerini kapsar ([aynı beyan](https://storage.courtlistener.com/recap/gov.uscourts.cit.19175/gov.uscourts.cit.19175.50.0.pdf)). Dava açmamış ithalatçı 3. aşamaya giremez.
+
+Mahkeme 8 Ekim 2026'da aynı davada bir sınıf (class) onayladı: 1 Şubat 2025 ile 19 Şubat 2026 arasında IEEPA vergisi ödeyen tüm ithalatçılar, kendi davasını açmış olanlar hariç ([Freestyle World v. CBP, Dava No. 26-01088](https://www.cit.uscourts.gov/sites/cit/files/26-123.pdf)). Üyelik kendiliğinden olur; katılmak veya çıkmak için form yoktur. Mahkeme iadelerin faiziyle, tasfiye veya yeniden tasfiye yoluyla ödenmesini bekliyor. Karar hâlâ temyiz edilebilir.
 
 ## Banka bilgisi neden belirleyici?
 
@@ -73,6 +90,12 @@ Evet. Önce ACE Portal'da ACH başvurusunu tamamlarsınız. Sonra CBP'nin frn-ac
 
 Reddedilen iadeler ACE Reports içindeki REV-613 raporunda listelenir. CBP, 18 Ağustos 2026'da müşavirlere bu raporu kullanmalarını önerdi. İthalatçılar da raporu kendileri çalıştırabilir ([CSMS # 69570464](https://content.govdelivery.com/accounts/USDHSCBP/bulletins/4258fa0)).
 
+## Section 122 ayrı bir konudur
+
+24 Şubat - 24 Temmuz 2026 arasında Türkiye çıkışlı mallar dahil ithalatın büyük kısmı, 1974 Ticaret Kanunu'nun (Trade Act) 122. maddesine dayanan yüzde 10 ek vergi ödedi ([Proclamation 11012](https://www.govinfo.gov/content/pkg/FR-2026-02-25/html/2026-03824.htm)). Uluslararası Ticaret Mahkemesi 7 Mayıs 2026'da bu kararnameyi geçersiz saydı ([Slip Op. 26-47](https://www.cit.uscourts.gov/sites/cit/files/26-47.pdf)). Ancak yasak kararı ve iadeler yalnızca davacı ithalatçıları kapsadı: State of Washington, Burlap and Barrel ve Basic Fun ([Slip Op. 26-53](https://www.cit.uscourts.gov/sites/cit/files/26-53.pdf)). Hükümet kararı temyiz etti.
+
+Bu karar diğer ithalatçılara Section 122 iadesi hakkı vermez. İade için kendi davanızı açmanız gerekir; mahkemenin genel yetkisine (residual jurisdiction) giren davalar, hakkın doğduğu tarihten itibaren iki yıl içinde açılmalıdır ([28 U.S.C. 2636(i)](https://www.law.cornell.edu/uscode/text/28/2636)). Bu, bir ABD gümrük avukatına sorulacak bir konudur.
+
 ## Ponenti'nin rolü ve sınırları
 
 CBP'ye iade talebi hazırlamak "customs business" (gümrük işlemi) sayılır. [19 CFR 111.1](https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.1) tanımı iadeleri ve CBP'ye sunulacak belgelerin hazırlanmasını kapsar. Bu işi başkası adına yapmak [CBP lisansı gerektirir](https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.2). İthalatçı kendi işini [lisanssız yapabilir](https://www.ecfr.gov/current/title-19/chapter-I/part-111/subpart-A/section-111.2).
@@ -90,3 +113,4 @@ Ponenti'nin yapabileceği şudur: iade kurulumunuzdaki eksikliği fark eder ve s
 3. Form 5106 kaydınızdaki e-posta, telefon ve adresin size ait ve güncel olduğunu müşavirinizle doğrulayın.
 4. ABD hesabınız yoksa bankanızla ABD hesabı seçeneklerini görüşün. Form 4811 yolunu seçerseniz, paranın ne zaman ve hangi masrafla aktarılacağını müşavirinizle yazılı belirleyin.
 5. Reddedilmiş iade varsa, ACH kaydından sonra frn-achrefundsupport@cbp.dhs.gov adresine yazın ve yeniden gönderim isteyin.
+6. Girişleriniz kesinleştiyse ve dava açmadıysanız, dava açıp açmamayı şimdi bir ABD gümrük avukatına sorun. Sınıf kararı temyiz edilebilir ve dava süreleri işlemeye devam eder.

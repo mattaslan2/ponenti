@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 type ButtonVariant = "default" | "light" | "outline" | "outlineLight";
 
-/** The one primary action: book the 15-minute call. */
+/** Book the 15-minute call: the second action beside the free pre-check. */
 export async function BookButton({
   location,
   variant = "default",
@@ -33,6 +33,33 @@ export async function BookButton({
         data-track-location={location}
       >
         {short ? t("bookShort") : t("book")}
+        {icon && <ArrowRight aria-hidden="true" className="nudge" />}
+      </Link>
+    </Button>
+  );
+}
+
+/** The main action: the free pre-check. Book a call becomes the second button. */
+export async function PrecheckButton({
+  location,
+  variant = "default",
+  size = "lg",
+  short = false,
+  icon = true,
+  className,
+}: {
+  location: string;
+  variant?: ButtonVariant;
+  size?: "default" | "sm" | "lg";
+  short?: boolean;
+  icon?: boolean;
+  className?: string;
+}) {
+  const t = await getTranslations("cta");
+  return (
+    <Button asChild variant={variant} size={size} className={className}>
+      <Link href="/pre-check" data-track="cta_click" data-track-label="precheck" data-track-location={location}>
+        {short ? t("precheckShort") : t("precheck")}
         {icon && <ArrowRight aria-hidden="true" className="nudge" />}
       </Link>
     </Button>

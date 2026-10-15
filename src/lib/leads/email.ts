@@ -78,6 +78,12 @@ export async function resultLines(lead: Lead): Promise<string[]> {
   } else if (lead.formType === "calc_support") {
     const r = supportContextSchema.safeParse(ctx);
     if (r.success) lines.push(...(await supportLines(r.data, lead.locale)));
+  } else if (lead.formType === "precheck") {
+    lines.push(t("emails.precheckNext"));
+    if (lead.ddp || lead.importWindow) {
+      const answer = (v?: string) => t(`emails.answer.${(v ?? "unsure") as "yes" | "no" | "unsure"}`);
+      lines.push(t("emails.precheckAnswers", { ddp: answer(lead.ddp), window: answer(lead.importWindow) }));
+    }
   }
   return lines;
 }

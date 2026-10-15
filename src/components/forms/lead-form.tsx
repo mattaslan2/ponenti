@@ -14,7 +14,7 @@ import { publicEnv } from "@/lib/env";
 import { getUtm, UTM_KEYS } from "@/lib/utm";
 import { cn } from "@/lib/utils";
 
-type FormType = "contact" | "risk_test" | "calc_cash" | "calc_5472" | "calc_support" | "prospect" | "trade_data";
+type FormType = "contact" | "risk_test" | "calc_cash" | "calc_5472" | "calc_support" | "prospect" | "trade_data" | "precheck";
 
 const PAYMENT_OPTIONS = [
   { value: "0-29", key: "r0" },
@@ -34,6 +34,10 @@ export function LeadForm({
   firm,
   submitLabel,
   paymentLabels,
+  phone = false,
+  phoneLabel,
+  extra,
+  successText,
   className,
 }: {
   formType: FormType;
@@ -47,6 +51,13 @@ export function LeadForm({
   submitLabel?: string;
   /** Labels for the payment-days ranges (from riskTest.q.paymentDays). */
   paymentLabels?: Record<"r0" | "r1" | "r2" | "r3" | "r4", string>;
+  /** Shows the optional phone field without the rest of the full form. */
+  phone?: boolean;
+  phoneLabel?: string;
+  /** Extra questions rendered inside the form, after the contact fields (plain inputs; their names must be in leadSchema). */
+  extra?: React.ReactNode;
+  /** Replaces the default thank-you line. */
+  successText?: string;
   className?: string;
 }) {
   const t = useTranslations("forms");
@@ -100,7 +111,7 @@ export function LeadForm({
       <div ref={statusRef} tabIndex={-1} role="status" className={cn("border-t border-brass pt-6 outline-none", className)}>
         <Check aria-hidden="true" className="size-6 text-brass-deep" />
         <p className="mt-4 font-display text-display-sm font-medium text-navy">{t("successTitle")}</p>
-        <p className="mt-2 text-mist">{state.emailed ? t("successBody") : t("successNoEmail")}</p>
+        <p className="mt-2 text-mist">{successText ?? (state.emailed ? t("successBody") : t("successNoEmail"))}</p>
       </div>
     );
   }
@@ -136,7 +147,7 @@ export function LeadForm({
         {formError && <p className="border-l-2 border-oxblood py-1 pl-4 text-small text-oxblood">{formError}</p>}
       </div>
 
-      <div className={cn("grid gap-6", full && "sm:grid-cols-2")}>
+      <div className={cn("grid gap-6", (full || phone) && "sm:grid-cols-2")}>
         <Field id={fieldId("name")} label={t("name")} error={errorText("name")}>
           <Input id={fieldId("name")} name="name" autoComplete="name" required maxLength={120} aria-invalid={!!errors.name} aria-describedby={describedBy("name")} />
         </Field>
@@ -146,12 +157,14 @@ export function LeadForm({
         <Field id={fieldId("company")} label={t("company")} error={errorText("company")}>
           <Input id={fieldId("company")} name="company" autoComplete="organization" required maxLength={160} aria-invalid={!!errors.company} aria-describedby={describedBy("company")} />
         </Field>
-        {full && (
-          <Field id={fieldId("phone")} label={t("phone")} error={errorText("phone")} hint={t("phoneHint")}>
+        {(full || phone) && (
+          <Field id={fieldId("phone")} label={phoneLabel ?? t("phone")} error={errorText("phone")} hint={t("phoneHint")}>
             <Input id={fieldId("phone")} name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} aria-invalid={!!errors.phone} aria-describedby={describedBy("phone", `${fieldId("phone")}-hint`)} />
           </Field>
         )}
       </div>
+
+      {extra}
 
       {full && (
         <>

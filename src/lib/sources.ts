@@ -31,6 +31,30 @@ export const sources = {
   fdaInspectionObservationsFy2025: "https://www.fda.gov/media/190190/download?attachment",
   fdaFsvp: "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-foreign-supplier-verification-programs-fsvp-importers-food-humans-and-animals",
 
+  // IEEPA and Section 122 refunds: court record. Verified on 2026-10-15.
+  /** CBP declaration (Brandon Lord, Office of Trade), Freestyle World v. CBP, No. 26-01088, filed Sep 15, 2026; figures as of Sep 11. */
+  cbpRefundDeclaration: "https://storage.courtlistener.com/recap/gov.uscourts.cit.19175/gov.uscourts.cit.19175.50.0.pdf",
+  /** Freestyle World v. CBP, Slip Op. 26-123 (Oct 8, 2026): class of IEEPA importers certified. */
+  citIeepaClass: "https://www.cit.uscourts.gov/sites/cit/files/26-123.pdf",
+  /** Oregon v. United States, Slip Op. 26-47 (May 7, 2026): Proclamation 11012 invalid; relief for the plaintiffs. */
+  citSection122: "https://www.cit.uscourts.gov/sites/cit/files/26-47.pdf",
+  /** Slip Op. 26-53 (May 20, 2026): the injunction covers the named importer plaintiffs only. */
+  citSection122Scope: "https://www.cit.uscourts.gov/sites/cit/files/26-53.pdf",
+  proclamation11012: "https://www.govinfo.gov/content/pkg/FR-2026-02-25/html/2026-03824.htm",
+  usc2636: "https://www.law.cornell.edu/uscode/text/28/2636",
+
+  // Returns of the US company and of its owner abroad. Verified on 2026-10-15.
+  irs1120: "https://www.irs.gov/instructions/i1120",
+  irs7004: "https://www.irs.gov/instructions/i7004",
+  irs1120f: "https://www.irs.gov/instructions/i1120f",
+  irs1040nr: "https://www.irs.gov/instructions/i1040nr",
+  irsNraWithholding: "https://www.irs.gov/individuals/international-taxpayers/nra-withholding",
+  ecfr1882_4: "https://www.ecfr.gov/current/title-26/part-1/section-1.882-4",
+  ecfr7701_2: "https://www.ecfr.gov/current/title-26/part-301/section-301.7701-2",
+  ecfr7701_3: "https://www.ecfr.gov/current/title-26/part-301/section-301.7701-3",
+  usc6712: "https://www.law.cornell.edu/uscode/text/26/6712",
+  usTurkeyTreaty: "https://www.irs.gov/pub/irs-trty/turkey.pdf",
+
   // Turkish export support (Ministry of Trade, TCMB). Verified on 2026-10-12.
   trDecree5973: "https://ticaret.gov.tr/data/69afdacb269de120c032b73a/5973%20Say%C4%B1l%C4%B1%20Karar.pdf",
   trUnitRentCircular:

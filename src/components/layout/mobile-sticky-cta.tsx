@@ -8,8 +8,9 @@ import { useConsent } from "@/lib/consent";
 import { cn } from "@/lib/utils";
 
 /**
- * Phone-only bottom bar with the two main actions. Appears once the hero's
- * buttons scroll out of view (and the cookie banner is answered).
+ * Phone-only bottom bar with the two main actions: the free pre-check, then a
+ * call (or WhatsApp when a number is connected). Appears once the hero's buttons
+ * scroll out of view (and the cookie banner is answered); hidden on the pre-check page.
  */
 export function MobileStickyCta({ whatsappHref }: { whatsappHref: string | null }) {
   const t = useTranslations("cta");
@@ -34,7 +35,9 @@ export function MobileStickyCta({ whatsappHref }: { whatsappHref: string | null 
     };
   }, [pathname]);
 
-  const show = visible && consentAnswered;
+  // The pre-check page carries its own form; the bar would only repeat it.
+  const onPrecheck = /\/(on-kontrol|pre-check)$/.test(pathname);
+  const show = visible && consentAnswered && !onPrecheck;
   const secondary = "inline-flex h-12 items-center justify-center rounded-xs border border-ivory/35 px-3 text-[0.9375rem] font-medium text-ivory";
   return (
     <div
@@ -46,14 +49,14 @@ export function MobileStickyCta({ whatsappHref }: { whatsappHref: string | null 
     >
       <div className="grid grid-cols-2 gap-2.5">
         <Link
-          href={{ pathname: "/contact", hash: "book" }}
+          href="/pre-check"
           tabIndex={show ? 0 : -1}
           data-track="cta_click"
-          data-track-label="book"
+          data-track-label="precheck"
           data-track-location="sticky_bar"
           className="inline-flex h-12 items-center justify-center rounded-xs bg-ivory px-3 text-[0.9375rem] font-medium text-navy"
         >
-          {t("bookShort")}
+          {t("precheckShort")}
         </Link>
         {whatsappHref ? (
           <a
@@ -69,14 +72,14 @@ export function MobileStickyCta({ whatsappHref }: { whatsappHref: string | null 
           </a>
         ) : (
           <Link
-            href="/risk-test"
+            href={{ pathname: "/contact", hash: "book" }}
             tabIndex={show ? 0 : -1}
             data-track="cta_click"
-            data-track-label="risk_test"
+            data-track-label="book"
             data-track-location="sticky_bar"
             className={secondary}
           >
-            {t("riskTest")}
+            {t("bookShort")}
           </Link>
         )}
       </div>

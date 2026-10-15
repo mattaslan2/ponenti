@@ -8,7 +8,7 @@ import { localizedPaths, siteUrl } from "@/lib/seo";
 /** Every public page in both languages, with hreflang alternates. Prospect and portal pages are excluded. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteUrl();
-  const pages: StaticPathname[] = ["/", "/services", "/risk-test", "/calculators", "/support-file", "/trade-data", "/insights", "/about", "/contact", "/privacy", "/terms", "/cookies"];
+  const pages: StaticPathname[] = ["/", "/services", "/risk-test", "/calculators", "/support-file", "/pre-check", "/trade-data", "/insights", "/about", "/contact", "/privacy", "/terms", "/cookies"];
   const entries: MetadataRoute.Sitemap = [];
 
   for (const href of pages) {

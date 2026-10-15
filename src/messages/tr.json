@@ -1,15 +1,19 @@
 {
   "meta": {
     "siteName": "Ponenti",
-    "titleDefault": "Ponenti | ABD işiniz için Türkçe uyum ve tahsilat masası",
-    "descriptionDefault": "ABD şirketinizin beyannameleri, eyalet satış vergileri, ithalatçı kaydı ve ABD'li müşterilerden tahsilat tek masada. Fiyatlar açık, sınırlar yazılı.",
+    "titleDefault": "Ponenti | ABD işiniz için Türkçe uyum ve ithalatçı kaydı masası",
+    "descriptionDefault": "Amerika'daki (ABD) şirketinizin ithalatçı kaydı, Form 1120 ve 5472 beyannameleri, eyalet satış vergileri ve defterleri tek masada. Ücretsiz ön kontrol, açık fiyatlar, yazılı sınırlar.",
     "home": {
-      "title": "Ponenti | ABD işiniz için Türkçe uyum ve tahsilat masası",
-      "description": "ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde, sizin adınıza."
+      "title": "Ponenti | ABD işiniz için Türkçe uyum ve ithalatçı kaydı masası",
+      "description": "Amerika'daki şirketiniz için ithalatçı kaydı, iade için banka bilgileri, Form 1120 ve 5472, eyalet satış vergileri ve defterler: ABD tarafınız Türkçe, tek masada. Ücretsiz ön kontrolle başlayın."
     },
     "services": {
       "title": "Hizmetler ve fiyatlar",
-      "description": "ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım. Tüm fiyatlar açık."
+      "description": "Ücretsiz ön kontrol. ABD arka ofis kontrolü {check}. Uyum planları aylık {essentials}, {standard} veya {complete}. Tahsilat ve sipariş masaları, ABD'de işe alım. Tüm fiyatlar açık."
+    },
+    "precheck": {
+      "title": "Ücretsiz ön kontrol: ithalatçı kaydınız ve ABD beyannameleriniz",
+      "description": "Kamuya açık kayıtlardan 2 iş gününde üç bulgu: ithalatçı adresiniz ve CBP'nin 18 Eylül kuralı, IEEPA dönemi ithalatınız ve şirket yapınızın işaret ettiği ABD beyannameleri. Ücretsiz, belge gerekmez."
     },
     "riskTest": {
       "title": "3 dakikalık ABD risk testi",
@@ -84,13 +88,14 @@
     "onThisPage": "Bu sayfada"
   },
   "brand": {
-    "tagline": "ABD işiniz için Türkçe uyum ve tahsilat masası.",
+    "tagline": "ABD işiniz için Türkçe uyum ve ithalatçı kaydı masası.",
     "pride": "Türkiye'de üretilir, <em>ABD'de doğru yönetilir.</em>",
     "logoLabel": "Ponenti, ana sayfa"
   },
   "nav": {
     "primary": "Ana menü",
     "services": "Hizmetler ve fiyatlar",
+    "precheck": "Ücretsiz ön kontrol",
     "pricing": "Fiyatlar",
     "riskTest": "Risk testi",
     "calculators": "Hesaplayıcılar",
@@ -109,14 +114,47 @@
     "message": "Mesaj gönderin",
     "riskTest": "3 dakikalık risk testi",
     "seePricing": "Tüm fiyatları görün",
-    "whatsappMessage": "Merhaba, Ponenti sitesinden yazıyorum. ABD tarafımız için 15 dakikalık bir görüşme planlamak istiyorum."
+    "whatsappMessage": "Merhaba, Ponenti sitesinden yazıyorum. ABD tarafımız için 15 dakikalık bir görüşme planlamak istiyorum.",
+    "precheck": "Ücretsiz ön kontrol isteyin",
+    "precheckShort": "Ücretsiz ön kontrol"
   },
   "home": {
     "hero": {
       "eyebrow": "ABD'de iş yapan Türk şirketleri için",
-      "title": "ABD işiniz için <em>Türkçe</em> uyum ve tahsilat masası.",
-      "subtitle": "ABD şirketinizin beyannameleri, eyalet satış vergileri ve ithalatçı kaydı tek masada. ABD'li müşterilerinizden tahsilat ABD mesai saatlerinde ve sizin adınıza; ödemeleriniz onayınıza hazır.",
-      "price": "Uyum planları aylık {essentials}, {standard} veya {complete}. İlk adım {check} tutarındaki ABD arka ofis kontrolüdür; ilk plana veya masaya mahsup edilir."
+      "title": "İthalatçı kaydınız ve ABD beyannameleriniz, <em>Türkçe</em> tek masada.",
+      "subtitle": "İthalatçı kaydınız, iade için banka bilgileriniz, Form 1120 ve 5472, eyalet satış vergileri ve defterleriniz tek masada, ABD mesai saatinde. Tahsilat ve sipariş masaları ihtiyaç olduğunda.",
+      "price": "Ücretsiz ön kontrolle başlayın. Uyum planları aylık {essentials}, {standard} veya {complete}; {check} tutarındaki ABD arka ofis kontrolü ilk plana veya masaya mahsup edilir."
+    },
+    "dates": {
+      "title": "Önemli tarihler",
+      "effect": "Yürürlükte",
+      "passed": "Geçti",
+      "today": "Bugün",
+      "daysOne": "1 gün kaldı",
+      "daysOther": "{n} gün kaldı",
+      "source": "Kaynak",
+      "items": {
+        "s301": {
+          "title": "%12,5 ek vergi (301. Madde)",
+          "text": "Türkiye menşeli ürünler, muaf değilse, normal verginin üstüne öder."
+        },
+        "address": {
+          "title": "İthalatçı adresi kuralı",
+          "text": "CBP, kayıtlı temsilci, posta kutusu veya iş merkezi adresli ithalatçı numaralarını iptal edebilir."
+        },
+        "extended": {
+          "title": "Uzatılmış 2025 beyannameleri",
+          "text": "Takvim yılı 2025 için Form 1120 ve 5472, Form 7004 verildiyse."
+        },
+        "eo14411": {
+          "title": "EO 14411 süresi",
+          "text": "DHS'in ithalatçı teminatı, varlıkları ve doğrulaması için 180 günlük süresi dolar."
+        },
+        "returns": {
+          "title": "2026 beyannameleri",
+          "text": "Takvim yılı 2026 için Form 1120 ve 5472; ana şirketin ABD'de ofisi varsa Form 1120-F de."
+        }
+      }
     },
     "market": {
       "eyebrow": "İlk pazarımız",
@@ -203,14 +241,14 @@
       },
       "tr": {
         "title": "ABD'ye Türkiye'den satıyorum",
-        "body": "ABD'li müşterilerinizden tahsilatı ABD mesai saatlerinde, sizin adınıza yürütürüz. İlk adım: arka ofis kontrolü.",
-        "link": "Tahsilat masasını ve kontrolü görün"
+        "body": "DDP satıyorsanız ABD gümrük işlemleri ve vergi sizin sorumluluğunuzdadır; ithalatçı kaydınız CBP kurallarına uymalıdır. Önce kaydınızı ve iade kurulumunuzu kontrol ederiz; ardından ABD'li müşterilerinizden tahsilatı ABD mesai saatinde, sizin adınıza yürütebiliriz.",
+        "link": "Ücretsiz ön kontrolle başlayın"
       }
     },
     "facts": {
       "eyebrow": "Rakamlarla",
       "title": "ABD tarafında kurallar ve rakamlar net",
-      "intro": "İki kural da resmi kaynağına bağlıdır. Saatler ise bizim çalışma saatlerimizdir.",
+      "intro": "Her rakam resmî kaynağına bağlıdır.",
       "f1": {
         "kicker": "IRS",
         "unit": "verilmeyen form başına, her yıl",
@@ -225,17 +263,22 @@
         "source": "Federal Register, 19 Ağustos 2026"
       },
       "f3": {
-        "kicker": "Tahsilat saatlerimiz",
-        "value": "08:00-16:00",
-        "unit": "ABD Doğu saati",
-        "text": "Tahsilat aramaları ABD Doğu saatiyle, müşterilerinizin mesai saatinde yapılır.",
-        "source": "Tahsilat masası koşulları"
+        "kicker": "IEEPA iadeleri",
+        "value": "$1,3 milyar",
+        "unit": "bekleyen iade, 11 Eylül 2026 itibarıyla",
+        "text": "20.184 onaylı iade, ithalatçı CBP'ye ACH için ABD banka bilgisi vermediği için gönderilmedi.",
+        "source": "CBP'nin Uluslararası Ticaret Mahkemesi'ne beyanı"
       }
     },
     "offer": {
       "eyebrow": "Ne yapıyoruz",
-      "title": "Kontrolle başlayın, ihtiyacınız kadar büyütün",
+      "title": "Ücretsiz başlayın, ihtiyacınız kadar büyütün",
       "intro": "Her şey tek masada. Fiyatlar açık ve ABD doları cinsinden.",
+      "precheck": {
+        "title": "Ücretsiz ön kontrol",
+        "body": "Kamuya açık kayıtlardan 2 iş gününde üç bulgu: ithalatçı adresi, IEEPA dönemi ithalatı ve şirket yapınızın işaret ettiği beyannameler.",
+        "price": "Ücretsiz"
+      },
       "check": {
         "title": "ABD arka ofis kontrolü",
         "body": "İthalatçı kaydı, beyanname geçmişi, satış vergisi riski ve alacak yaşlandırması. 10 iş gününde yazılı rapor.",
@@ -354,7 +397,7 @@
     },
     "founder": {
       "eyebrow": "Kurucu",
-      "body": "Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Defter tutma, ay sonu kapanışı, B2B tahsilat, satış vergisi beyannameleri ve lisanslı gümrük müşavirleriyle gümrük girişlerinde uygulamalı deneyime sahip.",
+      "body": "Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı. Defter tutma, ay sonu kapanışı, B2B tahsilat ve satış vergisi beyannamelerinde uygulamalı deneyime sahip.",
       "more": "Hikâyemizi okuyun",
       "linkedin": "LinkedIn profili"
     },
@@ -366,12 +409,12 @@
       "body": "Sorumluluğumuzdaki bir beyanname geç kalırsa cezayı biz öderiz; müşteri başına yıllık üst sınır {cap}."
     },
     "final": {
-      "eyebrow": "İlk görüşme",
-      "title": "ABD tarafınızı 15 dakikada konuşalım.",
-      "lede": "Üç soru soruyoruz",
+      "eyebrow": "Sonraki adım",
+      "title": "Ücretsiz ön kontrolle başlayın.",
+      "lede": "15 dakikalık görüşmede üç soru soruyoruz",
       "q1": "Form 5472'nizi kim veriyor?",
       "q2": "İthalatçı kaydınız adres kuralına göre en son ne zaman kontrol edildi?",
-      "q3": "ABD'li müşterileriniz kaç günde ödüyor?",
+      "q3": "İadeler için ABD banka bilgileriniz CBP'de kayıtlı mı?",
       "reply": "1 iş günü içinde yanıt veririz."
     }
   },
@@ -412,13 +455,14 @@
       "lede": "İlk adım: ABD tarafınızın tam fotoğrafı.",
       "credit": "{days} gün içinde imzalanan ilk plana veya masaya mahsup edilir.",
       "i1": "İthalatçı kaydı: adres, ortaklar, teminat (bond), müşavir yetkisi ve iade için banka bilgileri",
-      "i2": "Beyanname geçmişi: Form 1120 ve 5472, eyalet beyannameleri",
+      "i2": "Beyanname geçmişi: Form 1120 ve 5472, eyalet beyannameleri ve Türkiye'deki ortağınızın ABD beyannameleri (Form 1120-F veya 1040-NR)",
       "i3": "Eyalet bazında satış vergisi riski",
       "i4": "Dolar cinsinden ceza riski",
       "i5": "Alacak yaşlandırması ve ortalama tahsilat süresi",
       "i6": "Düzeltme planı ve teklif",
       "i7": "Türkiye destekleri ön incelemesi: ortaklık bağı, kira sözleşmesi, kiranın ödenme şekli ve online satanlar için e-ihracat beyanları",
-      "delivery": "10 iş gününde yazılı rapor. CBP'nin yeni ithalatçı kuralları yayımlanınca ücretsiz güncelleme."
+      "delivery": "10 iş gününde yazılı rapor. CBP'nin yeni ithalatçı kuralları yayımlanınca ücretsiz güncelleme.",
+      "precheck": "Henüz emin değil misiniz? Ücretsiz ön kontrolle başlayın"
     },
     "plans": {
       "title": "Uyum planları",
@@ -530,6 +574,48 @@
       "q9": "Ponenti'nin ücreti destekten karşılanır mı?",
       "a9": "Hayır. Ücretlerimiz destek kapsamında değildir. Destek dosyası, Standart ve Kapsamlı planların sabit aylık ücretine dahildir."
     }
+  },
+  "precheck": {
+    "eyebrow": "Ücretsiz ön kontrol",
+    "title": "ABD tarafınız hakkında üç bulgu, <em>ücretsiz, 2 iş gününde.</em>",
+    "intro": "Kamuya açık sevkiyat ve şirket kayıtlarından çalışırız. Şirket adınızı gönderirsiniz; biz üç bulguyu ve gümrük müşavirinize ve vergi danışmanınıza ne soracağınızı göndeririz.",
+    "findingsTitle": "Neler alırsınız",
+    "f1": {
+      "title": "İthalatçı adresiniz",
+      "body": "Kamuya açık sevkiyat kayıtlarınızdaki adresin CBP'nin 18 Eylül kuralına takılıp takılmayacağı: kayıtlı temsilci (registered agent), posta kutusu veya iş merkezi adresi ithalatçı numaranızın iptaline yol açabilir.",
+      "source": "Federal Register, 19 Ağustos 2026"
+    },
+    "f2": {
+      "title": "İade döneminiz",
+      "body": "IEEPA döneminde (Nisan 2025 - Şubat 2026) ithalat yapıp yapmadığınız. Yaptıysanız büyük olasılıkla alacağınız bir iade vardır ve müşavirinizle iki konuyu teyit etmeniz gerekir: iadenin talep edilmiş olması ve ACH için ABD banka bilgilerinizin kayıtlı olması.",
+      "source": "CBP'nin Uluslararası Ticaret Mahkemesi'ne beyanı, 15 Eylül 2026"
+    },
+    "f3": {
+      "title": "Beyanname tipiniz",
+      "body": "Şirket yapınızın hangi ABD beyannamelerine işaret ettiği: ABD şirketi için Form 5472 ekli Form 1120 ve LLC vergide ayrı sayılmıyorsa Türkiye'deki ana şirket için Form 1120-F.",
+      "source": "IRS, Form 1120-F talimatları"
+    },
+    "notTitle": "Ne değildir",
+    "not1": "İade tahmini değildir: sevkiyat kayıtları ödediğiniz vergiyi göstermez.",
+    "not2": "Vergi, hukuk veya gümrük tavsiyesi ya da beyan değildir. Bulgular üzerine lisanslı gümrük müşaviriniz ve vergi danışmanınız işlem yapar.",
+    "not3": "Belge, vergi numarası veya şifre gerekmez.",
+    "nextTitle": "Sonra ne olur",
+    "n1": "Talebinizi 1 iş günü içinde teyit ederiz.",
+    "n2": "Üç bulgu 2 iş günü içinde e-postanıza gelir; Türkçe veya İngilizce.",
+    "n3": "Düzeltilecek bir şey varsa sonraki adım {check} tutarındaki ABD arka ofis kontrolüdür. Hiçbir yükümlülük yoktur.",
+    "formTitle": "Ön kontrol isteyin",
+    "ddp": {
+      "legend": "ABD'li müşterilerinize DDP (gümrük vergisi ödenmiş) satış yapıyor musunuz?"
+    },
+    "window": {
+      "legend": "Şirketiniz Nisan 2025 ile Şubat 2026 arasında ABD'ye ithalat yaptı mı?"
+    },
+    "answers": {
+      "yes": "Evet",
+      "no": "Hayır",
+      "unsure": "Emin değilim"
+    },
+    "submit": "Ücretsiz ön kontrol isteyin"
   },
   "riskTest": {
     "eyebrow": "3 dakika",
@@ -990,7 +1076,7 @@
     "founderP2": "Türk şirketlerinin ABD tarafında hep aynı sorunlarla karşılaştığını gördüm: beyannameler geç kalıyor, satış vergisi birkaç eyalette açık kalıyor, ABD'li müşteriler geç ödüyor ve takip İstanbul'dan e-postayla yapılıyor.",
     "founderP3": "Ponenti bu işleri tek masada, Türkçe ve ABD mesai saatinde yürütmek için var.",
     "bioTitle": "Özgeçmiş",
-    "bio": "Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı (fiyatlandırma, gelir yönetimi, FP&A). Defter tutma ve ay sonu kapanışı, B2B faturalama ve tahsilat, satış vergisi beyannameleri ve lisanslı gümrük müşavirleriyle gümrük girişleri konularında uygulamalı deneyime sahip.",
+    "bio": "Türkçe ve İngilizce iki dilli. UPS'te finans analisti, ardından Pazara Giriş Stratejisi Kıdemli Müdürü olarak çalıştı (fiyatlandırma, gelir yönetimi, FP&A). Defter tutma ve ay sonu kapanışı, B2B faturalama ve tahsilat, satış vergisi kaydı ve beyannameleri konularında uygulamalı deneyime sahip.",
     "howTitle": "Nasıl çalışırız",
     "how1": "Her müşterinin tek bir sorumlusu ve yazılı bir son tarih takvimi vardır.",
     "how2": "Takvimi iki kişi kontrol eder.",
@@ -1068,7 +1154,9 @@
     "errBot": "Gönderim doğrulanamadı. Lütfen sayfayı yenileyip tekrar deneyin.",
     "errNotConfigured": "Form henüz bağlanmadı.",
     "errWhatsapp": "WhatsApp'tan da yazabilirsiniz.",
-    "errSummary": "Lütfen işaretli alanları düzeltin."
+    "errSummary": "Lütfen işaretli alanları düzeltin.",
+    "phoneWhatsapp": "Telefon veya WhatsApp (isteğe bağlı)",
+    "successPrecheck": "Talebinizi aldık. Üç bulgu 2 iş günü içinde e-postanıza gelecek."
   },
   "portal": {
     "eyebrow": "Müşteri portalı",
@@ -1150,6 +1238,13 @@
     "tradeRank": "{country}, bu üründe ABD'nin {rank}. büyük tedarikçisi.",
     "tradeCountry": "{country} çıkışlı ABD ithalatı, {window}: {value} (önceki 12 aya göre {growth}). ABD ithalatındaki pay: {share}.",
     "tradeLink": "Analizin tamamı: {url}",
-    "tradeSource": "Kaynak: U.S. Census Bureau. Rakamlar bilgilendirme amaçlıdır."
+    "tradeSource": "Kaynak: U.S. Census Bureau. Rakamlar bilgilendirme amaçlıdır.",
+    "precheckNext": "Ücretsiz ön kontrolünüz: 2 iş günü içinde kamuya açık kayıtlardan üç bulgu göndereceğiz: ithalatçı adresinizin CBP'nin 18 Eylül kuralına uygunluğu, IEEPA döneminde ithalat yapıp yapmadığınız ve şirket yapınızın işaret ettiği ABD beyannameleri.",
+    "precheckAnswers": "Yanıtlarınız: DDP satış: {ddp}. IEEPA döneminde ithalat: {window}.",
+    "answer": {
+      "yes": "evet",
+      "no": "hayır",
+      "unsure": "emin değil"
+    }
   }
 }

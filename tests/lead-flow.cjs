@@ -71,6 +71,20 @@ const base = process.env.BASE_URL || 'http://localhost:3000';
   await page.getByRole('button', { name: 'Destek haritamı iste' }).click();
   await page.waitForTimeout(3000);
   console.log('support success panel:', (await page.locator('main').innerText()).includes('Teşekkürler.'));
+
+  // 5. Free pre-check, TR: the two answers travel with the lead; the confirmation names the three findings
+  await page.goto(base + '/tr/on-kontrol', { waitUntil: 'networkidle' });
+  await page.getByLabel('Ad soyad', { exact: true }).fill('Can Demir');
+  await page.getByLabel('İş e-postası').fill('can@demir-gida.com.tr');
+  await page.getByLabel('Şirket', { exact: true }).fill('Demir Gıda A.Ş.');
+  await page.getByLabel(/^Telefon/).fill('+90 532 555 44 33');
+  await page.locator('input[name="ddp"][value="yes"]').check();
+  await page.locator('input[name="importWindow"][value="unsure"]').check();
+  await page.locator('input[name="consent"]').check();
+  await page.waitForTimeout(1700);
+  await page.getByRole('button', { name: 'Ücretsiz ön kontrol isteyin' }).last().click();
+  await page.waitForTimeout(3000);
+  console.log('precheck success panel:', (await page.locator('main').innerText()).includes('Üç bulgu 2 iş günü içinde'));
   console.log('page errors:', errors);
   await browser.close();
 

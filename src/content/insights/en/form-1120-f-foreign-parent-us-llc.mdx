@@ -1,0 +1,84 @@
+export const meta = {
+  key: "form-1120-f-foreign-owner",
+  locale: "en",
+  slug: "form-1120-f-foreign-parent-us-llc",
+  title: "Your US LLC may not be a company for US tax: Form 1120-F for the parent abroad",
+  description: "A US LLC owned by one company abroad, with no election, is a branch of its owner for US tax. The parent files Form 1120-F, can lose its deductions after 18 months, and pays $10,000 per undisclosed treaty position.",
+  published: "2026-10-15",
+  updated: "2026-10-15",
+  readingMinutes: 6,
+  keywords: ["Form 1120-F", "foreign-owned LLC", "disregarded entity", "foreign parent US tax", "Form 8833", "treaty-based return position", "18-month rule", "1.882-4", "US-Turkey tax treaty", "Form 1040-NR"],
+  sources: [
+    { title: "IRS: Instructions for Form 1120-F (2025)", url: "https://www.irs.gov/instructions/i1120f", publisher: "Internal Revenue Service", date: "2026-10-15" },
+    { title: "IRS: Instructions for Form 1120 (2025)", url: "https://www.irs.gov/instructions/i1120", publisher: "Internal Revenue Service", date: "2026-10-15" },
+    { title: "IRS: Instructions for Form 1040-NR (2025)", url: "https://www.irs.gov/instructions/i1040nr", publisher: "Internal Revenue Service", date: "2026-10-15" },
+    { title: "26 CFR 301.7701-2 Business entities; definitions", url: "https://www.ecfr.gov/current/title-26/part-301/section-301.7701-2", publisher: "eCFR, Office of the Federal Register", date: "2026-10-15" },
+    { title: "26 CFR 301.7701-3 Classification of certain business entities", url: "https://www.ecfr.gov/current/title-26/part-301/section-301.7701-3", publisher: "eCFR, Office of the Federal Register", date: "2026-10-15" },
+    { title: "26 CFR 1.882-4 Allowance of deductions and credits to foreign corporations", url: "https://www.ecfr.gov/current/title-26/part-1/section-1.882-4", publisher: "eCFR, Office of the Federal Register", date: "2026-10-15" },
+    { title: "26 U.S.C. 6712: Failure to disclose treaty-based return positions", url: "https://www.law.cornell.edu/uscode/text/26/6712", publisher: "Legal Information Institute, Cornell Law School", date: "2026-10-15" },
+    { title: "United States-Turkey Income Tax Convention (signed March 28, 1996)", url: "https://www.irs.gov/pub/irs-trty/turkey.pdf", publisher: "Internal Revenue Service", date: "2026-10-15" },
+    { title: "IRS: NRA Withholding", url: "https://www.irs.gov/individuals/international-taxpayers/nra-withholding", publisher: "Internal Revenue Service", date: "2026-10-15" },
+  ],
+}
+
+## Who this is about
+
+Your company abroad, a Turkish A.Ş. or Ltd. Şti. for example, owns 100% of a US LLC. The LLC sells in the US. It never filed Form 8832 to be taxed as a corporation.
+
+For US income tax, that LLC is not a separate company. A US entity with one owner is ["disregarded as an entity separate from its owner"](https://www.ecfr.gov/current/title-26/part-301/section-301.7701-3) unless it elects otherwise, and its activities are treated like a [branch or division of the owner](https://www.ecfr.gov/current/title-26/part-301/section-301.7701-2). The US business is the parent's business.
+
+## Two filers, two returns
+
+| Who files | What | Why |
+|---|---|---|
+| The US LLC | Pro forma Form 1120 with Form 5472 | A disregarded entity wholly owned by one foreign person is treated as a corporation for Form 5472 only ([26 CFR 301.7701-2(c)(2)(vi)](https://www.ecfr.gov/current/title-26/part-301/section-301.7701-2); [Form 1120 instructions](https://www.irs.gov/instructions/i1120)). |
+| The parent abroad | Form 1120-F | A foreign corporation engaged in a US trade or business must file, ["whether or not income from such trade or business is exempt from U.S. tax under a tax treaty"](https://www.irs.gov/instructions/i1120f). |
+
+The pro forma Form 1120 carries no tax. The income tax return for the US business is the parent's Form 1120-F. A missing Form 5472 is a separate exposure: [$25,000 per form, per year](/en/insights/form-5472-penalty).
+
+## When Form 1120-F is due
+
+A foreign corporation with an office or place of business in the US files by the 15th day of the 4th month after its tax year ends: April 15 for a calendar year. Without a US office, the date is the 15th day of the 6th month: June 15 ([Form 1120-F instructions](https://www.irs.gov/instructions/i1120f)).
+
+## The 18-month rule
+
+A foreign corporation gets its deductions and credits only if it files a true and accurate return on time ([26 CFR 1.882-4(a)(2)](https://www.ecfr.gov/current/title-26/part-1/section-1.882-4)). For this rule, on time means within 18 months after the return's due date. If the return for the year before is missing too, the deadline is the earlier of those 18 months and the date the IRS mails a notice that the return has not been filed ([26 CFR 1.882-4(a)(3)(i)](https://www.ecfr.gov/current/title-26/part-1/section-1.882-4)).
+
+Miss it and the US business is taxed without its deductions and credits. The IRS can waive the deadline only if the company acted reasonably and in good faith; a company that knew it had to file and chose not to does not qualify ([26 CFR 1.882-4(a)(3)(ii)](https://www.ecfr.gov/current/title-26/part-1/section-1.882-4)).
+
+For a calendar-2025 return due April 15, 2026, the 18 months run to October 15, 2027.
+
+## The treaty position needs its own form
+
+Under the US-Turkey income tax treaty, a Turkish company's business profits are taxable in the US only if they come from a permanent establishment there ([Article 7](https://www.irs.gov/pub/irs-trty/turkey.pdf)). A permanent establishment is a fixed place of business, such as an office or a branch. Using facilities only to store, display or deliver goods does not create one ([Article 5](https://www.irs.gov/pub/irs-trty/turkey.pdf)).
+
+A company that relies on the treaty still files Form 1120-F, and discloses the position on Form 8833 ([Form 1120-F instructions](https://www.irs.gov/instructions/i1120f)). Each failure to disclose costs $10,000 for a C corporation; the IRS can waive it for reasonable cause and good faith ([26 U.S.C. 6712](https://www.law.cornell.edu/uscode/text/26/6712)).
+
+## If the owner is a person
+
+A nonresident individual who owns the LLC directly, with no election, is engaged in the LLC's US business and files Form 1040-NR. The return is due even if the individual has no US-source income or the income is exempt under a treaty ([Form 1040-NR instructions](https://www.irs.gov/instructions/i1040nr)).
+
+## If the LLC is taxed as a corporation
+
+An LLC that elected corporate treatment on Form 8832, or a US corporation (Inc.), files its own Form 1120, pays its own tax and attaches Form 5472. An election can take effect up to 75 days before it is filed ([26 CFR 301.7701-3(c)(1)(iii)](https://www.ecfr.gov/current/title-26/part-301/section-301.7701-3)); the years before it still need their returns.
+
+Payments from a US corporation to its parent, such as dividends, interest or royalties, are a separate question: US-source income paid to a foreign person is generally subject to 30% withholding, which a treaty can reduce, reported on Forms 1042 and 1042-S ([IRS: NRA withholding](https://www.irs.gov/individuals/international-taxpayers/nra-withholding)).
+
+## How to tell which case you are in
+
+1. Ask your US tax preparer which return the LLC filed for 2025: a pro forma Form 1120, which means disregarded, or a full Form 1120, which means taxed as a corporation.
+2. Look for a Form 8832 election and the IRS letter that accepted it.
+3. If the LLC is disregarded, ask who files the parent's Form 1120-F, and whether a Form 8833 is attached each year.
+
+## What Ponenti does
+
+The [back-office check](/en/services#check) reviews how the IRS classifies your US company, which returns the company and its owner file, and what the gaps cost in dollars. The [free pre-check](/en/pre-check) flags the filing type from public records.
+
+Preparing the parent's Form 1120-F is not part of our plans today. A US tax preparer prepares and files it; we tell you what to ask.
+
+## What to do now
+
+1. Confirm how the IRS classifies your US company for each year since it started.
+2. If it is disregarded, confirm that the parent filed Form 1120-F for every year the LLC did business, and note each 18-month date.
+3. If the parent relies on the treaty, confirm that Form 8833 is attached every year.
+4. Before electing corporate treatment, ask your tax preparer what it changes for past and future years.

@@ -100,6 +100,8 @@ async function leadSummary(lead: Lead): Promise<string> {
     lead.segment ? `**Segment:** ${lead.segment}` : null,
     lead.riskLevel ? `**Risk level:** ${lead.riskLevel}` : null,
     lead.paymentDays ? `**Payment days:** ${lead.paymentDays}` : null,
+    lead.ddp ? `**Sells DDP:** ${lead.ddp}` : null,
+    lead.importWindow ? `**Imported in the IEEPA period:** ${lead.importWindow}` : null,
     lead.firm ? `**Prospect page:** /ozel/${lead.firm}` : null,
     `**Consent:** yes, ${lead.consentAt}`,
     ...Object.entries(lead.utm).map(([k, v]) => `**${k}:** ${v}`),

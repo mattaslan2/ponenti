@@ -16,7 +16,8 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   // 1. Home + consent
   let r = await page.goto(base + '/', { waitUntil: 'networkidle' });
   ok('bare domain redirects to /tr', page.url().endsWith('/tr'), page.url());
-  ok('home H1', (await page.locator('h1').innerText()).includes('Türkçe uyum ve tahsilat masası'));
+  ok('home H1', (await page.locator('h1').innerText()).includes('ABD beyannameleriniz'));
+  ok('hero main button is the free pre-check', (await page.locator('#hero-actions a').first().getAttribute('href'))?.endsWith('/tr/on-kontrol'));
   ok('consent banner visible', await page.getByRole('button', { name: 'Kabul et' }).isVisible());
   const ingestBefore = [];
   page.on('request', (req) => { if (req.url().includes('/ingest')) ingestBefore.push(req.url()); });
@@ -236,7 +237,7 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   ok('article share image is served', ogRes.status() === 200 && (ogRes.headers()['content-type'] || '').includes('image/png'), `${ogRes.status()} ${ogUrl}`);
 
   // 11. Nothing a visitor reads is a placeholder or names a channel that is not connected
-  for (const p of ['/tr', '/tr/hizmetler', '/tr/destek-dosyasi', '/tr/hakkimizda', '/tr/iletisim', '/en', '/en/contact', '/en/support-file']) {
+  for (const p of ['/tr', '/tr/hizmetler', '/tr/destek-dosyasi', '/tr/on-kontrol', '/tr/hakkimizda', '/tr/iletisim', '/en', '/en/contact', '/en/support-file', '/en/pre-check']) {
     await page.goto(base + p, { waitUntil: 'domcontentloaded' });
     const text = await page.locator('body').innerText();
     ok(`no placeholder markers on ${p}`, !/\[(REPLACE WITH REAL|confirm)/i.test(text), (text.match(/\[(REPLACE WITH REAL|confirm)[^\]]*\]/i) || [''])[0]);
@@ -280,6 +281,49 @@ const ok = (name, cond, extra = '') => { results.push({ name, pass: !!cond, extr
   const counted = await page.evaluate(() => [...document.querySelectorAll('[data-count]')].map((e) => [e.textContent, e.hasAttribute('data-counted')]));
   ok('every figure counted up', serverFigures.length >= 10 && counted.every(([, c]) => c), `${counted.filter(([, c]) => !c).length} not counted`);
   ok('every figure ends on its exact text', counted.every(([t], i) => t === serverFigures[i]), counted.map(([t], i) => (t === serverFigures[i] ? '' : `${t}!=${serverFigures[i]}`)).filter(Boolean).join(','));
+  // 14. Dated rail under the hero: five dates, each with a source; the browser fills in each status.
+  for (const p of ['/tr', '/en']) {
+    await page.goto(base + p, { waitUntil: 'networkidle' });
+    const rail = page.locator('section[aria-labelledby="dates-title"]');
+    ok(`dated rail sits between the hero and the market figures on ${p}`, await page.evaluate(() => {
+      const hero = document.querySelector('#hero-title')?.closest('section');
+      const rail = document.querySelector('section[aria-labelledby="dates-title"]');
+      return !!hero && !!rail && hero.nextElementSibling === rail && rail.nextElementSibling?.id === 'market';
+    }));
+    ok(`dated rail lists five dates on ${p}`, (await rail.locator('li').count()) === 5);
+    ok(`each date links its source on ${p}`, (await rail.locator('a[target="_blank"]').count()) === 5);
+    const statuses = await rail.locator('li [data-status]').allInnerTexts();
+    ok(`every date has a status on ${p}`, statuses.length === 5 && statuses.every((t) => t.trim().length > 1), statuses.join(' | '));
+  }
+
+  // 15. Free pre-check page: three findings with sources, the two questions, and the form reaches the server.
+  for (const [p, submit] of [['/tr/on-kontrol', 'Ücretsiz ön kontrol isteyin'], ['/en/pre-check', 'Request my free pre-check']]) {
+    r = await page.goto(base + p, { waitUntil: 'networkidle' });
+    ok(`${p} is 200`, r.status() === 200, String(r.status()));
+    ok(`${p} lists three findings with sources`, (await page.locator('#precheck-findings + ol > li').count()) === 3 && (await page.locator('#precheck-findings + ol a[target="_blank"]').count()) === 3);
+    ok(`${p} asks the DDP and IEEPA-period questions`, (await page.locator('input[name="ddp"]').count()) === 3 && (await page.locator('input[name="importWindow"]').count()) === 3);
+    await page.locator('input[name="name"]').fill('Test Kişi');
+    await page.locator('input[name="email"]').fill('test@ornek-firma.com');
+    await page.locator('input[name="company"]').fill('Örnek A.Ş.');
+    await page.locator('input[name="ddp"][value="yes"]').check();
+    await page.locator('input[name="consent"]').check();
+    await page.waitForTimeout(1700);
+    await page.getByRole('button', { name: submit }).last().click();
+    await page.waitForTimeout(2500);
+    const text = await page.locator('main').innerText();
+    ok(`${p} form reaches the server`, /Form henüz bağlanmadı|form isn't connected/i.test(text), text.slice(0, 120));
+  }
+  await page.goto(base + '/en', { waitUntil: 'domcontentloaded' });
+  ok('facts band links the CBP refund declaration', (await page.locator('#facts a[href*="courtlistener"]').count()) === 1);
+  ok('offer list starts with the free pre-check', (await page.locator('#offer li a').first().getAttribute('href')) === '/en/pre-check');
+  for (const p of ['/en/insights/form-1120-f-foreign-parent-us-llc', '/tr/bilgi-merkezi/abd-llc-ana-sirket-form-1120-f']) {
+    r = await page.goto(base + p, { waitUntil: 'domcontentloaded' });
+    ok(`${p} is 200`, r.status() === 200, String(r.status()));
+    ok(`${p} links 26 CFR 1.882-4 and 26 U.S.C. 6712`, (await page.locator('a[href*="1.882-4"]').count()) > 0 && (await page.locator('a[href*="/26/6712"]').count()) > 0);
+  }
+  await page.goto(base + '/en/insights/ieepa-refunds-us-bank-details', { waitUntil: 'domcontentloaded' });
+  ok('IEEPA article cites the class order and the Section 122 opinion', (await page.locator('a[href$="26-123.pdf"]').count()) > 0 && (await page.locator('a[href$="26-47.pdf"]').count()) > 0);
+
   r = await page.goto(base + '/en/insights/section-301-forced-labor-duty-turkiye-12-5-percent', { waitUntil: 'domcontentloaded' });
   ok('section 301 article 200', r.status() === 200, String(r.status()));
   ok('section 301 article links the Federal Register notice', (await page.locator('a[href*="2026-15181"]').count()) > 0);
